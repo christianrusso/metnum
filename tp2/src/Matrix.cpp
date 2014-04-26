@@ -129,6 +129,16 @@ Matrix Matrix::operator*(const double c) {
     return R;
 }
 
+Matrix Matrix::operator/(const double c) {
+    Matrix R = *this;
+    for (int i=0; i < n; i++) {
+        for (int j=0; j < m; j++) {
+            R.mat[i][j] = R.mat[i][j] / c;
+        }
+    }
+    return R;
+}
+
 Matrix Matrix::operator^(const int c) {
     //TODO: Que tendria que dar si c es cero?
     Matrix R = *this;
@@ -187,4 +197,13 @@ Matrix transpuesta(Matrix& b){
 
 double Matrix::get(int i, int j) const {
     return mat[i][j];
+}
+
+double normVector(Matrix& v){
+    double r;
+    for (int i = 0; i < v.n; ++i)
+    {
+        r += v.mat[i][0]*v.mat[i][0];
+    }
+    return sqrt(r);
 }

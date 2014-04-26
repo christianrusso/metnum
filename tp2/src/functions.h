@@ -1,0 +1,1 @@
+double powerMethod(Matrix& B, Matrix& x0, int niters);

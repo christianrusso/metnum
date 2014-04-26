@@ -25,6 +25,7 @@ public:
     Matrix operator+(const Matrix &other);
     Matrix operator-(const Matrix &other);
     Matrix operator*(const double c);
+    Matrix operator/(const double c);
     Matrix operator^(const int c);
     
     Matrix row(int i) const;
@@ -35,6 +36,7 @@ public:
     std::vector<double> diagonal() const;
     void setDiagonal();
     void setRow(int i, Matrix& other);
+    double normVector(Matrix& v);
     
     // Operaciones de triangulacion
     void addRow2Row(int i, int z, double c);
