@@ -10,7 +10,10 @@ double powerMethod(Matrix& B, Matrix& x0, int niters){
 	{
 		w = B*v;
 		v = w/normVector(w);
+		cout << v << endl;
 	}
+
+
 	//V transpuesta
 	Matrix vt(v.m,v.n);
 	vt = transpuesta(v);
@@ -27,7 +30,7 @@ double powerMethod(Matrix& B, Matrix& x0, int niters){
 
 	//lamda
 	double lamda = vtbv.mat[0][0]/vvt.mat[0][0];
-	
+
 	cout << "lamda: " << lamda << endl;
 	
 }
