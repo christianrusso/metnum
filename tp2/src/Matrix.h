@@ -39,7 +39,8 @@ public:
     // Operaciones de triangulacion
     void addRow2Row(int i, int z, double c);
     double multiplyRowByVector(int i, Matrix& b);
-    
+    Matrix transpuesta(Matrix& b);
+
     int n, m;
     std::vector<std::vector<double> > mat;
 private:

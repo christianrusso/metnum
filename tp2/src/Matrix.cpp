@@ -175,6 +175,16 @@ Matrix Matrix::col(int j) const {
     return R;
 }
 
+Matrix transpuesta(Matrix& b){
+    Matrix R(b.m, b.n);
+    for(int i=0;i<b.m;i++){
+            for(int k=0;k<b.n;k++){
+                R.mat[i][k] = b.mat[k][i];
+            }
+    }
+    return R;
+}
+
 double Matrix::get(int i, int j) const {
     return mat[i][j];
 }
