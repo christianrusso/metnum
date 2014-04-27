@@ -112,7 +112,6 @@ int main(int argc, char* argv[]) {
 
 	//A ya esta inicializado correctamente para usarse
 
-
    	inputFile.close();
 	return 0;
 }
