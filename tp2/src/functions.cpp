@@ -3,13 +3,13 @@
 using namespace std;
 
 double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
-	Matrix v(x0.n,x0.m);
+	Matrix v;
 	v = x0;
-	//Matrix w(B.n, v.m);
+	Matrix w;
 	for (int i = 0; i < niters; ++i)
 	{
-		Matrix w = B*v;
-		v = w/w.normVector();	
+		w = B*v;
+		v = w/(w.normVector());
 	}
 	autovector = v;
 	//V transpuesta
@@ -19,10 +19,14 @@ double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 	Matrix vtbv = vt * bv;
 	
 	//vt*v
-	Matrix vvt = vt*v;
+	Matrix vtv = vt*v;
 
+	Matrix vvt = v*vt;
 	//lamda
 	double lamda = vtbv.mat[0][0]/vvt.mat[0][0];
+	//lambda
+	double lambda = vtbv.mat[0][0]/vtv.mat[0][0];
+	return lambda;
 }
 
 void deflation(Matrix& A, Matrix& v, float lambda){
