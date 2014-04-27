@@ -1,7 +1,12 @@
 #define _USE_MATH_DEFINES
-#include <math.h>
 
 #include "Matrix.h"
+
+#include <math.h>
+#include <istream>
+
+using namespace std;
+
 
 // Constructors
 Matrix::Matrix() { this->n = 0; this->m = 0; }
@@ -34,6 +39,47 @@ Matrix::Matrix(int n, int m, double values[]) {
         }
     }
 }
+
+Matrix::Matrix(char* pgmImage){
+    ifstream ifs;
+
+    char line [100], *ptr;
+    ifs.open (pgmImage, std::ifstream::binary);
+
+    ifs.getline(line,100,'\n');
+    if((line[0]!='P') || line[1]!='5')
+    {
+        cout << "La imagen <" << pgmImage << "> no esta en el formato binario PGM 'P5'." << endl;
+        //getch();
+        exit(1);
+    }
+
+    ifs.getline(line,100,'\n');
+    while(line[0]=='#') ifs.getline(line,100,'\n');
+
+    unsigned int M = strtol(line,&ptr,0);
+    unsigned int N = atoi(ptr);
+    this->n = 1;
+    this->m = M*N;
+    mat.resize(n);
+    mat[0].resize(m);
+
+    ifs.getline(line,100,'\n');
+
+    unsigned int Q = strtol(line,&ptr,0);
+
+    unsigned char temp;
+    for (int i = 0; i < N ; i++){
+        for (int j = 0; j < M; j++){
+            temp = ifs.get();
+            mat[0][j + i*M] = (double)temp;
+        }
+    }
+
+    ifs.close();
+}
+
+
 
 void Matrix::wipe() {
     n = 0;
@@ -185,11 +231,11 @@ Matrix Matrix::col(int j) const {
     return R;
 }
 
-Matrix transpuesta(Matrix& b){
-    Matrix R(b.m, b.n);
-    for(int i=0;i<b.m;i++){
-            for(int k=0;k<b.n;k++){
-                R.mat[i][k] = b.mat[k][i];
+Matrix Matrix::transpuesta(){
+    Matrix R(m, n);
+    for(int i=0;i<m;i++){
+            for(int k=0;k<n;k++){
+                R.mat[i][k] = mat[k][i];
             }
     }
     return R;
@@ -199,11 +245,16 @@ double Matrix::get(int i, int j) const {
     return mat[i][j];
 }
 
-double normVector(Matrix& v){
+void Matrix::set(int i, int j, double value){
+    mat[i][j] = value;
+}
+
+double Matrix::normVector(){
     double r;
-    for (int i = 0; i < v.n; ++i)
+    if(this->n>1) return -1;
+    for (int i = 0; i < n; ++i)
     {
-        r += v.mat[i][0]*v.mat[i][0];
+        r += mat[i][0]*mat[i][0];
     }
     return sqrt(r);
 }

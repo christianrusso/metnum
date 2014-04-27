@@ -9,14 +9,14 @@ double powerMethod(Matrix& B, Matrix& x0, int niters){
 	for (int i = 0; i < niters; ++i)
 	{
 		w = B*v;
-		v = w/normVector(w);
+		v = w/w.normVector();
 		cout << v << endl;
 	}
 
 
 	//V transpuesta
 	Matrix vt(v.m,v.n);
-	vt = transpuesta(v);
+	vt = v.transpuesta();
 	//vt*B*v
 	Matrix bv(B.n, v.m);
 	bv = B*v;
