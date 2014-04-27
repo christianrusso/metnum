@@ -9,8 +9,7 @@ double powerMethod(Matrix& B, Matrix& x0, int niters){
 	for (int i = 0; i < niters; ++i)
 	{
 		Matrix w = B*v;
-		v = w/w.normVector();
-		cout << v << endl;
+		v = w/w.normVector();	
 	}
 
 

@@ -57,11 +57,7 @@ int main(int argc, char* argv[]) {
 		exit(1);
 	}
 
-	int db_size = subjects*samples;
-	int img_size = img_widht*img_hight;
-
-	Matrix A(db_size,img_size);
-	Matrix Mu(1,img_size, 0.0);
+	Matrix A(subjects*samples,img_widht*img_hight);
 
 	char img_file[50];
 	/* Lee las p filas siguientes y guarda las imagenes en la matriz */
@@ -86,10 +82,7 @@ int main(int argc, char* argv[]) {
 
 			Matrix imgAsTrasposedVector(img);
 
-			//inicializo A con las imagenes:
 			A.setRow(i * samples + j, imgAsTrasposedVector);
-			//sumo en Mu para sacar el promedio de cada pixel:
-			Mu+imgAsTrasposedVector;
 		}
 	} 
 
@@ -98,21 +91,29 @@ int main(int argc, char* argv[]) {
 	Matrix Acopy;
 	Acopy = A;
 
-	//Calculo el promedio dividiendo la suma total por la cantidad de muestras:
-	Mu/(db_size);
 
-	double nRoot = sqrt(db_size-1); //TODO: mover esto a un metodo de matrix?
-	for (int i = 0; i < db_size; i++){
-		for (int j = 0; j < img_size; j++)
-		{
-			double tmp = (A.get(i,j) - Mu.get(0,j))/nRoot;
-			A.set(i,j,tmp);
-		}
-	}
-
-	//A ya esta inicializado correctamente para usarse
 
    	inputFile.close();
+
+	// //Ejemplo 1 lamda1 = 6
+	// double value[3] = {1.0,0.0,0.0};
+ //    Matrix x0(3,1, value);
+ //    double valueB[9] = {4.0,-1.0,1.0,-1.0,3.0,-2.0,1.0,-2.0,3.0};
+ //    Matrix B(3,3,valueB);
+ //    powerMethod(B,x0,30);
+
+ //    //Ejemplo 1 lamda1 = 4
+	// double value[3] = {1.0,1.0,1.0};
+ //    Matrix x0(3,1, value);
+ //    double valueB[9] = {3.0,-1.0,0.0,-1.0,2.0,-1.0,0.0,-1.0,3.0};
+ //    Matrix B(3,3,valueB);
+ //    powerMethod(B,x0,30);
+
+	//char fileName[] = "../data/big/s1/10.pgm";
+	//Matrix m(fileName);
+
+	//cout << "Imagen s1/10: " << endl << m << endl;
+
 	return 0;
 }
 
