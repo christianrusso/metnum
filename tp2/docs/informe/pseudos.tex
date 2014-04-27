@@ -1,0 +1,20 @@
+
+\begin{algorithm}[H]
+\caption{Deflación(Matriz $A$, vector $v$, valor $\lambda$)}
+\label{pseudo:deflacion}
+\begin{algorithmic}
+\REQUIRE $\lambda$ autovalor de módulo máximo y $v$ su autovector asociado 
+\REQUIRE $\|v\|$=1 y ortogonal al resto de los autovectores
+
+\REQUIRE $A \in \mathbb{R}^{nxn}$
+\STATE Sea $B \in \mathbb{R}^{nxn}$
+\FOR{$i=1$ hasta $n$}
+	\FOR{$j=1$ hasta $n$}		
+		\STATE $B_{ij} \leftarrow A_{ij} - \lambda v_{i} v_{j}$
+	\ENDFOR
+\ENDFOR
+\STATE \textbf{return} B
+\ENSURE $v$ autovector de B con autovalor asociado 0
+\ENSURE Si $v'$ autovector de A con autovalor asociado $\lambda '$, también lo es para B
+\end{algorithmic}
+\end{algorithm}

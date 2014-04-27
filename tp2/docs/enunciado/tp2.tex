@@ -63,8 +63,8 @@ proponer e implementar al menos un m\'etodo que, dada una nueva imagen de una ca
 de datos corresponde utilizando la transformaci\'on caracter\'istica.
 
 Con el objetivo de obtener la descomposici\'on en valores singulares, se deber\'a implementar el m\'etodo de la potencia
-con deflaci\'on para la estimaci\'on de autovalores/autovectores. En este contexto, al factibilidad de aplicar este
-m\'etodo es particularmente sensible al tama\~no de las imagenes de la base de datos. Por ejemplo, considerar im\'agenes
+con deflaci\'on para la estimaci\'on de autovalores/autovectores. En este contexto, la factibilidad de aplicar este
+m\'etodo es particularmente sensible al tama\~no de las im\'agenes de la base de datos. Por ejemplo, considerar im\'agenes
 en escala de grises de $100 \times 100$ p\'ixeles implicar\'ia trabajar con matrices de tama\~no $10000 \times
 10000$. Una alternativa es reducir el tama\~no de las im\'agenes, por ejemplo, mediante un submuestreo. 
 Sin embargo, es posible superar esta dificultad en los casos donde el n\'umero de muestras es menor que el
@@ -96,7 +96,7 @@ variar la cantidad de componentes principales considerados. Estudiar tambi\'en c
 consideradas para cada persona en la etapa de entrenamiento.
 
 \item En caso de considerar m\'as de una posibilidad para determinar a que persona corresponde una nueva cara,
-consdierar para cada una la mejor configuraci\'on de par\'ametros y compararlas entre ellas.
+considerar para cada una la mejor configuraci\'on de par\'ametros y compararlas entre ellas.
 \end{itemize}
 
 El objetivo final de la experimentaci\'on es proponer una configuraci\'on de par\'armetros/m\'etodos que obtenga
@@ -110,7 +110,7 @@ tres par\'ametros por l\'inea de comando, que ser\'an el archivo de entrada, el 
 ejectutar (0 m\'etodo est\'andar, 1 m\'etodo alternativo).
 
 
-Asumimos que la base de datos de imagenes se encuentra organizada de la siguiente forma: partiendo de un directorio
+Asumimos que la base de datos de im\'agenes se encuentra organizada de la siguiente forma: partiendo de un directorio
 ra\'iz, contiene un subdirectorio por cada una de las personas donde se encuentran las im\'agenes de entrenamiento. El
 nombre de las im\'agenes ser\'a un n\'umero y su extensi\'on una archivo \verb+.pgm+ (ejemplo: \verb+1.pgm+,
 \verb+2.pgm+, etc.). De esta forma se puede saber a que persona corresponde cada imagen simulando un etiquetado de las

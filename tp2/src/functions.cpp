@@ -34,3 +34,16 @@ double powerMethod(Matrix& B, Matrix& x0, int niters){
 	cout << "lamda: " << lamda << endl;
 	
 }
+
+void deflation(Matrix& A, Matrix& v, float lambda){
+	//Matrix A en R nxn
+	// autovector v en R n de A con lambda autovector asociado
+	int n = A.n;
+	for(int i=0; i<n; i++){
+		for(int j=0; j<n; j++){
+			double nuevo = A.get(i,j) - lambda*v.get(i,0)*v.get(j,0);
+			A.set(i,j, nuevo);
+			}
+		}
+}
+
