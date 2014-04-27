@@ -47,3 +47,18 @@ void deflation(Matrix& A, Matrix& v, float lambda){
 		}
 }
 
+vector<string> split(string &line) {
+	vector<string> res;
+	char* strToken;
+
+	strToken = strtok ((char*) line.c_str()," ");
+  	while (strToken != NULL)	
+	{
+		if (strToken != NULL) { 
+			string s(strToken);
+			res.push_back(s);
+		}
+		strToken = strtok (NULL, " ");
+	}	
+	return res;
+}
