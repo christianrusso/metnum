@@ -5,28 +5,23 @@ using namespace std;
 double powerMethod(Matrix& B, Matrix& x0, int niters){
 	Matrix v(x0.n,x0.m);
 	v = x0;
-	Matrix w(B.n, v.m);
+	//Matrix w(B.n, v.m);
 	for (int i = 0; i < niters; ++i)
 	{
-		w = B*v;
+		Matrix w = B*v;
 		v = w/w.normVector();
 		cout << v << endl;
 	}
 
 
 	//V transpuesta
-	Matrix vt(v.m,v.n);
-	vt = v.transpuesta();
+	Matrix vt = v.transpuesta();
 	//vt*B*v
-	Matrix bv(B.n, v.m);
-	bv = B*v;
-	
-	Matrix vtbv(vt.n, bv.m);
-	vtbv = vt * bv;
+	Matrix bv = B*v;
+	Matrix vtbv = vt * bv;
 	
 	//vt*v
-	Matrix vvt(v.n,vt.m);
-	vvt = vt*v;
+	Matrix vvt = vt*v;
 
 	//lamda
 	double lamda = vtbv.mat[0][0]/vvt.mat[0][0];
@@ -47,3 +42,18 @@ void deflation(Matrix& A, Matrix& v, float lambda){
 		}
 }
 
+vector<string> split(string &line) {
+	vector<string> res;
+	char* strToken;
+
+	strToken = strtok ((char*) line.c_str()," ");
+  	while (strToken != NULL)	
+	{
+		if (strToken != NULL) { 
+			string s(strToken);
+			res.push_back(s);
+		}
+		strToken = strtok (NULL, " ");
+	}	
+	return res;
+}
