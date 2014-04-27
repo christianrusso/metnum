@@ -22,7 +22,7 @@ int k;
 // Main Release
 int main(int argc, char* argv[]) {
 
-	if (argc < 4) {
+	/*if (argc < 4) {
 		cout << "Parametros: archivo_entrada archivo_salida metodo(0 o 1)\n";
 		exit(1);
 	}
@@ -32,12 +32,12 @@ int main(int argc, char* argv[]) {
 	int method = atoi(argv[3]);
 
 	string line;
-	char img_dir[50];
+	char img_dir[50];*/
 	/* Valida que la estructura del archivo in sea la dada por la catedra */
-    ifstream inputFile(inFile);
-  	if (inputFile.is_open())  {
+    /*ifstream inputFile(inFile);
+  	if (inputFile.is_open())  {*/
 		/* Lee primer fila */
-		getline (inputFile,line);
+		/*getline (inputFile,line);
 		vector<string> param = split(line);
 
 		if (param.size() != 6) {
@@ -59,9 +59,9 @@ int main(int argc, char* argv[]) {
 
 	Matrix A(subjects*samples,img_widht*img_hight);
 
-	char img_file[50];
+	char img_file[50];*/
 	/* Lee las p filas siguientes y guarda las imagenes en la matriz */
-	for (int i=0; i < subjects; i++) {
+	/*for (int i=0; i < subjects; i++) {
 		getline (inputFile,line);
 		vector<string> param = split(line);
 
@@ -94,23 +94,14 @@ int main(int argc, char* argv[]) {
 
 
    	inputFile.close();
+*/
+	double valueB[9] = {4.0,-1.0,1.0,-1.0,3.0,-2.0,1.0,-2.0,3.0};
+	Matrix B(3,3,valueB);
+	double valueX[3] = {1.0,1.0,1.0};
+	Matrix x0(3,1,valueX);
 
-	// //Ejemplo 1 lamda1 = 6
-	// double value[3] = {1.0,0.0,0.0};
- //    Matrix x0(3,1, value);
- //    double valueB[9] = {4.0,-1.0,1.0,-1.0,3.0,-2.0,1.0,-2.0,3.0};
- //    Matrix B(3,3,valueB);
- //    powerMethod(B,x0,30);
 
- //    //Ejemplo 1 lamda1 = 4
-	// double value[3] = {1.0,1.0,1.0};
- //    Matrix x0(3,1, value);
- //    double valueB[9] = {3.0,-1.0,0.0,-1.0,2.0,-1.0,0.0,-1.0,3.0};
- //    Matrix B(3,3,valueB);
- //    powerMethod(B,x0,30);
-
-	//char fileName[] = "../data/big/s1/10.pgm";
-	//Matrix m(fileName);
+	calculateK(B,x0,3);
 
 	//cout << "Imagen s1/10: " << endl << m << endl;
 

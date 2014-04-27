@@ -2,7 +2,7 @@
 
 using namespace std;
 
-double powerMethod(Matrix& B, Matrix& x0, int niters){
+double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 	Matrix v(x0.n,x0.m);
 	v = x0;
 	//Matrix w(B.n, v.m);
@@ -11,8 +11,7 @@ double powerMethod(Matrix& B, Matrix& x0, int niters){
 		Matrix w = B*v;
 		v = w/w.normVector();	
 	}
-
-
+	autovector = v;
 	//V transpuesta
 	Matrix vt = v.transpuesta();
 	//vt*B*v
@@ -24,9 +23,6 @@ double powerMethod(Matrix& B, Matrix& x0, int niters){
 
 	//lamda
 	double lamda = vtbv.mat[0][0]/vvt.mat[0][0];
-
-	cout << "lamda: " << lamda << endl;
-	
 }
 
 void deflation(Matrix& A, Matrix& v, float lambda){
@@ -55,4 +51,18 @@ vector<string> split(string &line) {
 		strToken = strtok (NULL, " ");
 	}	
 	return res;
+}
+
+
+void calculateK(Matrix& B, Matrix& x0, int k){
+	for (int i = 0; i < k; ++i)
+	{
+		Matrix autovector(3,1);
+		double lambda = powerMethod(B,x0,100,autovector);
+		cout << "AUTOVALOR" << endl;
+		cout << lambda << endl;
+		cout << "AUTOVALOR" << endl;
+		cout << autovector << endl;
+		deflation(B, autovector,lambda);
+	}
 }

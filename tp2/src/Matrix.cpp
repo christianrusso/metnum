@@ -251,7 +251,6 @@ void Matrix::set(int i, int j, double value){
 
 double Matrix::normVector(){
     double r;
-    if(this->n>1) return -1;
     for (int i = 0; i < n; ++i)
     {
         r += mat[i][0]*mat[i][0];
