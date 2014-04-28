@@ -1,5 +1,27 @@
 \section{Introducci\'on Te\'orica}
 \subsection{Metodo de la Potencia}
+El \textbf{metodo de la potencia} es una tecnica iterativa que permite determinar el autovalor dominante de una matriz, es decir, el autovalor con mayor magnitud. Una ligera modificacion en el metodo permite usarlo para determinar otros autovalores. Una propiedad util del metodo de la potencia es que no solo produce un autovalor, sino tambien un autovector asociado. 
+
+De hecho, es frecuente que el metodo se aplique para calcular un autovalor para un autovector determinado por otros medios.
+
+Para aplicar el metodo de la potencia supondremos que la matriz A de n x n tiene n autovalores $\lambda_1$, $\lambda_2$, ... , $\lambda_n$ con un conjunto asociado de autovectores linealmente independientes $\{v_1,v_2, ..., v_n\}$. Mas aun, supondremos que A tiene exactamente un autovalor, $\lambda_1$, cuya magnitud es la mayor, por lo que 
+\begin{center}
+$|\lambda_1| > |\lambda_2| \geq |\lambda_3| \geq ... \geq |\lambda_n| \geq 0$
+\end{center}
+
+Si \textbf{x} es un vector cualquiera $\mathbb{R}^n$, el hecho de que $\{v_1,v_2, ..., v_n\}$ sea linealmente independiente implica que las constantes $\beta_1,\beta_2, ..., \beta_n$ existe con 
+
+\[ x = \sum_{j = 1}^n \beta_j v_j \]
+
+Al multiplicar ambos lados de esta ecuacion por $A, A^2, ..., A^k$ obtenemos
+
+\[ Ax = \sum_{j = 1}^n \beta_jAv_j =  \sum_{j = 1}^n \beta_j \lambda_j v_j\]
+
+\[ A^2x = \sum_{j = 1}^n \beta_j \lambda_j Av_j =  \sum_{j = 1}^n \beta_j \lambda_j^2 v_j\]
+
+y en general
+
+\[ A^k x =  \sum_{j = 1}^n \beta_j \lambda_j^k v_j\]
 
 \subsection{Deflacion}
 
