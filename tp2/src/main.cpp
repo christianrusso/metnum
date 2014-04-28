@@ -88,10 +88,9 @@ int main(int argc, char* argv[]) {
 
 	//Guardo una copia de la A original, ya que tiene todos los valores de las imagenes
 	//que preciso para inicializar el algoritmo de decision mas tarde.
-	Matrix Acopy;
-	Acopy = A;
-
-	Matrix autovectores = calculateK(A,k);
+	Matrix At = A.transpuesta();
+	Matrix B = At*A;
+	Matrix autovectores = calculateK(B,k);
 
 	//cout << "Autovectores resultantes: " << autovectores << endl;
 
