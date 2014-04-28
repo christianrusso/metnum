@@ -8,7 +8,9 @@ double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 	Matrix w;
 	for (int i = 0; i < niters; ++i)
 	{
+		//cout << "Ancho matriz " << B.m << " alto vector " << v.n << endl;
 		w = B*v;
+		//cout << "Ancho matriz " << B.m << " alto vector " << v.n << endl;
 		v = w/(w.normVector());
 	}
 	autovector = v;
@@ -21,11 +23,9 @@ double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 	//vt*v
 	Matrix vtv = vt*v;
 
-	Matrix vvt = v*vt;
-	//lamda
-	double lamda = vtbv.mat[0][0]/vvt.mat[0][0];
 	//lambda
 	double lambda = vtbv.mat[0][0]/vtv.mat[0][0];
+	
 	return lambda;
 }
 
@@ -58,15 +58,24 @@ vector<string> split(string &line) {
 }
 
 
-void calculateK(Matrix& B, Matrix& x0, int k){
-	for (int i = 0; i < k; ++i)
-	{
-		Matrix autovector(3,1);
-		double lambda = powerMethod(B,x0,100,autovector);
-		cout << "AUTOVALOR" << endl;
-		cout << lambda << endl;
-		cout << "AUTOVALOR" << endl;
-		cout << autovector << endl;
-		deflation(B, autovector,lambda);
+Matrix calculateK(Matrix& B, int k){
+	int size = B.n;
+	Matrix x0(B.m,1);
+	Matrix autovector(size,1);
+	
+	Matrix autovectores(size,k);
+	
+	for (int i = 0; i < size; i++){
+		x0.set(i,0, rand());
 	}
+	
+	for (int i = 0; i < k; i++)
+	{
+		double lambda = powerMethod(B,x0,100,autovector);
+		cout << "autovector " << autovector.n << " autovectores: " << autovectores.n << endl;
+		cout << "Autovalor " << i << " : " << lambda << endl;
+		deflation(B, autovector,lambda);
+		autovectores.setColumn(k-1-i,autovector);
+	}
+	return autovectores;
 }

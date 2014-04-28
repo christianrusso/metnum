@@ -41,6 +41,7 @@ public:
     std::vector<double> diagonal() const;
     void setDiagonal();
     void setRow(int i, Matrix& other);
+    void setColumn(int j, Matrix& other);
     double normVector();
     
     // Operaciones de triangulacion
