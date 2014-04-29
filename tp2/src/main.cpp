@@ -13,8 +13,8 @@
 
 using namespace std;
 
-int img_hight;
-int img_widht;
+int img_height;
+int img_width;
 int subjects;
 int samples;
 int k;
@@ -36,29 +36,30 @@ int main(int argc, char* argv[]) {
 	/* Valida que la estructura del archivo in sea la dada por la catedra */
     ifstream inputFile(inFile);
   	if (inputFile.is_open())  {
-		/* Lee primer fila */
-		getline (inputFile,line);
-		vector<string> param = split(line);
+      /* Lee primer fila */
+      getline (inputFile,line);
+      vector<string> param = split(line);
 
-		if (param.size() != 6) {
-			cout << param.size();
-			cout << "Archivo invalido entrada " << endl;
-			exit(1);
-		}
-		
-		strcpy(img_dir, param[0].c_str());
-		img_hight = atoi(param[1].c_str());
-		img_widht =	atoi(param[2].c_str());	
-		subjects =	atoi(param[3].c_str());	
-		samples = atoi(param[4].c_str());	
-		k =	atoi(param[5].c_str());	
- 	} else {
+      if (param.size() != 6) {
+        cout << param.size();
+        cout << "Archivo invalido entrada " << endl;
+        exit(1);
+      }
+
+      strcpy(img_dir, param[0].c_str());
+      img_height = atoi(param[1].c_str());
+      img_width =	atoi(param[2].c_str());
+      subjects =	atoi(param[3].c_str());
+      samples = atoi(param[4].c_str());
+      k =	atoi(param[5].c_str());
+ 	  }
+    else {
 		cout << "No se pudo abrir el archivo " << inFile << "\n";
 		exit(1);
-	}
+    }
 
-	Matrix A(subjects*samples,img_widht*img_hight);
-	Matrix Mu(1,img_widht*img_hight);
+	Matrix A(subjects*samples,img_width*img_height);
+	Matrix Mu(1,img_width*img_height);
 
 	char img_file[50];
 	/* Lee las p filas siguientes y guarda las imagenes en la matriz */
@@ -85,11 +86,11 @@ int main(int argc, char* argv[]) {
 			Mu = Mu + imgAsTrasposedVector;
 			A.setRow(i * samples + j, imgAsTrasposedVector);
 		}
-	} 
+	}
 
 	Mu = Mu/(subjects*samples);
 	double rootOfN = sqrt(subjects*samples - 1);
-	Matrix tmp (1, img_widht*img_hight);
+	Matrix tmp (1, img_width*img_height);
 
 
 	for (int i = 0; i < subjects*samples; ++i)

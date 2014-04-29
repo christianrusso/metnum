@@ -10,7 +10,7 @@
 
 class Matrix {
 public:
-    
+
     Matrix();
     Matrix(int n, int m);
     Matrix(int n, int m, double dvalue);
@@ -19,19 +19,19 @@ public:
 
     void load(int n, int m, double dvalue);
     void wipe();
-    
+
     Matrix& operator=(const Matrix &other);
     bool operator==(const Matrix &other);
-    
+
     friend std::ostream& operator<<(std::ostream& os, Matrix& obj);
-    
+
     Matrix operator*(const Matrix &other);
     Matrix operator+(const Matrix &other);
     Matrix operator-(const Matrix &other);
     Matrix operator*(const double c);
     Matrix operator/(const double c);
     Matrix operator^(const int c);
-    
+
     Matrix row(int i) const;
     Matrix col(int j) const;
     double get(int i, int j) const;
@@ -43,7 +43,7 @@ public:
     void setRow(int i, Matrix& other);
     void setColumn(int j, Matrix& other);
     double normVector();
-    
+
     // Operaciones de triangulacion
     void addRow2Row(int i, int z, double c);
     double multiplyRowByVector(int i, Matrix& b);
