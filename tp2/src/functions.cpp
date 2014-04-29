@@ -13,7 +13,6 @@ double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 		//cout << "Ancho matriz " << B.m << " alto vector " << v.n << endl;
 		v = w/(w.normVector());
 	}
-
 	autovector = v;
 	//V transpuesta
 	Matrix vt = v.transpuesta();
@@ -26,8 +25,7 @@ double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 
 	//lambda
 	double lambda = vtbv.mat[0][0]/vtv.mat[0][0];
-
-
+	
 	return lambda;
 }
 
@@ -74,7 +72,7 @@ Matrix calculateK(Matrix& B, int k){
 	for (int i = 0; i < k; i++)
 	{
 		double lambda = powerMethod(B,x0,100,autovector);
-		//cout << "autovector " << autovector.n << " autovectores: " << autovectores.n << endl;
+		cout << "autovector " << autovector.n << " autovectores: " << autovectores.n << endl;
 		cout << "Autovalor " << i << " : " << lambda << endl;
 		deflation(B, autovector,lambda);
 		autovectores.setColumn(k-1-i,autovector);

@@ -81,10 +81,10 @@ Matrix::Matrix(char* pgmImage){
     mat[0].resize(m);
 
     unsigned char temp;
-    for (int i = 0; i < N ; i++){        
+    for (int i = 0; i < N ; i++){
         for (int j = 0; j < M; j++){
             temp = ifs.get();
-            mat[0][i + j*N] = (double)temp;
+            mat[0][j + i*M] = (double)temp;
         }
     }
 
@@ -126,9 +126,13 @@ std::ostream& operator<<(std::ostream& os, Matrix& obj) {
 }
 
 bool Matrix::operator==(const Matrix &other) {
+    if (n != other.n || m != other.m) {
+        return false;
+    }
+
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (fabs(mat[i][j] - other.mat[i][j]) < 0.00000000000000001) {
+            if (fabs(mat[i][j] - other.mat[i][j]) > 0.0000000000000001) {
                 return false;
             }
         }
@@ -212,22 +216,22 @@ Matrix Matrix::row(int i) const {
 }
 
 void Matrix::setRow(int i, Matrix& other) {
-    if (other.m != m) {
-        cout << "El vector fila pasado no tiene el mismo tamaño.";
-        exit(1);
-    }
-    
+	if (other.m != m) {
+		cout << "El vector fila pasado no tiene el mismo tamaño.";
+		exit(1);
+	}
+	
     for (int j = 0; j < m; j++) {
         mat[i][j] = other.mat[0][j];
     }
 }
 
 void Matrix::setColumn(int j, Matrix& other) {
-    if (other.n != n) {
-        cout << "El vector columna pasado no tiene el mismo tamaño.";
-        exit(1);
-    }
-        
+	if (other.n != n) {
+		cout << "El vector columna pasado no tiene el mismo tamaño.";
+		exit(1);
+	}
+		
     for (int i = 0; i < n; i++) {
         mat[i][j] = other.mat[i][0];
     }
