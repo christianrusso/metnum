@@ -58,6 +58,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	Matrix A(subjects*samples,img_widht*img_hight);
+	Matrix Mu(1,img_widht*img_hight);
 
 	char img_file[50];
 	/* Lee las p filas siguientes y guarda las imagenes en la matriz */
@@ -81,10 +82,20 @@ int main(int argc, char* argv[]) {
 			strcat(img, ".pgm");
 
 			Matrix imgAsTrasposedVector(img);
-
+			Mu = Mu + imgAsTrasposedVector;
 			A.setRow(i * samples + j, imgAsTrasposedVector);
 		}
 	} 
+
+	Mu = Mu/(subjects*samples);
+	double rootOfN = sqrt(subjects*samples - 1);
+	Matrix tmp (1, img_widht*img_hight);
+
+	for (int i = 0; i < subjects*samples; ++i)
+	{
+		tmp = (A.row(i) - Mu)/rootOfN;
+		A.setRow(i, tmp);
+	}
 
 	//Guardo una copia de la A original, ya que tiene todos los valores de las imagenes
 	//que preciso para inicializar el algoritmo de decision mas tarde.

@@ -225,10 +225,10 @@ void Matrix::setRow(int i, Matrix& other) {
 }
 
 void Matrix::setColumn(int j, Matrix& other) {
-	/*if (other.n != n) {
+	if (other.n != n) {
 		cout << "El vector columna pasado no tiene el mismo tamaño.";
 		exit(1);
-	}*/
+	}
 		
     for (int i = 0; i < n; i++) {
         mat[i][j] = other.mat[i][0];
