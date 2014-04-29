@@ -3,6 +3,7 @@
 #include "Matrix.h"
 
 #include <math.h>
+#include "functions.h"
 #include <istream>
 
 using namespace std;
@@ -47,6 +48,7 @@ Matrix::Matrix(char* pgmImage){
     ifs.open (pgmImage, std::ifstream::binary);
 
     ifs.getline(line,100,'\n');
+
     if((line[0]!='P') || line[1]!='5')
     {
         cout << "La imagen <" << pgmImage << "> no esta en el formato binario PGM 'P5'." << endl;
@@ -54,19 +56,27 @@ Matrix::Matrix(char* pgmImage){
         exit(1);
     }
 
-    ifs.getline(line,100,'\n');
-    while(line[0]=='#') ifs.getline(line,100,'\n');
+    string stringLine = line;
+    vector<string> param = split(stringLine);
+    unsigned int M;
+    unsigned int N;
+    if(param.size() == 1){
+        ifs.getline(line,100,'\n');
+        while(line[0]=='#') ifs.getline(line,100,'\n');
 
-    unsigned int M = strtol(line,&ptr,0);
-    unsigned int N = atoi(ptr);
+        ifs.getline(line,100,'\n');
+
+        M = strtol(line,&ptr,0);
+        N = atoi(ptr);
+    } else {
+        M = atoi(param[1].c_str());
+        N = atoi(param[2].c_str());
+    }
+    
     this->n = 1;
     this->m = M*N;
     mat.resize(n);
     mat[0].resize(m);
-
-    ifs.getline(line,100,'\n');
-
-    unsigned int Q = strtol(line,&ptr,0);
 
     unsigned char temp;
     for (int i = 0; i < N ; i++){
