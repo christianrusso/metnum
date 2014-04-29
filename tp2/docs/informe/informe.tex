@@ -1,81 +1,6 @@
 \documentclass[10pt, a4paper]{article}
-\usepackage[paper=a4paper, left=1.5cm, right=1.5cm, bottom=1.5cm, top=3.5cm]{geometry}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[spanish]{babel}
-\usepackage{indentfirst}
-\usepackage{fancyhdr}
-\usepackage{latexsym}
-\usepackage{lastpage}
-\usepackage[colorlinks=true, linkcolor=black]{hyperref}
-\usepackage{calc}
-\usepackage{a4wide}
-\usepackage{listings}
-\lstset{language={C++}, basicstyle=\small}
-\usepackage{algorithm}
-\usepackage{algorithmic}[1]
-\usepackage[spanish]{babel}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usepackage{amsmath}
-\usepackage{framed}
-\usepackage{amsfonts}
-\usepackage{tkz-berge}
-\usepackage{amsfonts}
-\usepackage{color}
-\definecolor{gray97}{gray}{.97}
-\definecolor{gray75}{gray}{.75}
-\definecolor{gray45}{gray}{.45}
-
-\lstset{ frame=Ltb,
-framerule=0pt,
-aboveskip=0.5cm,
-framextopmargin=3pt,
-framexbottommargin=3pt,
-framexleftmargin=0.4cm,
-framesep=0pt,
-rulesep=.4pt,
-backgroundcolor=\color{gray97},
-rulesepcolor=\color{black},
-%
-stringstyle=\ttfamily,
-showstringspaces = false,
-basicstyle=\small\ttfamily,
-commentstyle=\color{gray45},
-keywordstyle=\bfseries,
-%
-numbers=left,
-numbersep=15pt,
-numberstyle=\tiny,
-numberfirstline = false,
-breaklines=true,
-}
-% minimizar fragmentado de listados
-\lstnewenvironment{listing}[1][]
-{\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
-\lstdefinestyle{consola}
-{basicstyle=\scriptsize\bf\ttfamily,
-backgroundcolor=\color{gray75},
-}
-
-\hypersetup{
- pdfstartview= {FitH \hypercalcbp{\paperheight-\topmargin-1in-\headheight}},
- pdfauthor={Grupo},
- pdfsubject={Dise\~{n}o}
-}
-
-\parskip=5pt
-
-\let\olditemize\itemize
-\def\itemize{\olditemize\itemsep=0pt}
-
-\pagestyle{fancy}
-\thispagestyle{fancy}
-\addtolength{\headheight}{1pt}
-\lhead{M\'etodos Numericos}
-\cfoot{\thepage}
-\renewcommand{\footrulewidth}{0.4pt}
-
+\input{config/paquetes.tex}
+\input{config/variables.tex}
 
 \begin{document}
 \thispagestyle{empty}
@@ -99,18 +24,18 @@ backgroundcolor=\color{gray75},
 
 
 
-\input{introduccion.tex}
+\input{texto/introduccion.tex}
 
 \newpage
 
-\input{desarrollo.tex}
+\input{texto/desarrollo.tex}
 
 \newpage
 
-\input{tests.tex}
+\input{texto/tests.tex}
 
 \newpage
 
-\input{apendice.tex}
+\input{texto/apendice.tex}
 
 \end{document}
