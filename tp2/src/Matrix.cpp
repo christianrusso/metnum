@@ -42,6 +42,7 @@ Matrix::Matrix(int n, int m, double values[]) {
 }
 
 Matrix::Matrix(char* pgmImage){
+  //*-* Lee una imagen y la "aplasta" como vector traspuesto.
     ifstream ifs;
 
     char line [100], *ptr;
@@ -73,7 +74,7 @@ Matrix::Matrix(char* pgmImage){
         M = atoi(param[1].c_str());
         N = atoi(param[2].c_str());
     }
-    
+
     this->n = 1;
     this->m = M*N;
     mat.resize(n);

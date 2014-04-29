@@ -19,7 +19,7 @@ double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 	//vt*B*v
 	Matrix bv = B*v;
 	Matrix vtbv = vt * bv;
-	
+
 	//vt*v
 	Matrix vtv = vt*v;
 
@@ -46,14 +46,14 @@ vector<string> split(string &line) {
 	char* strToken;
 
 	strToken = strtok ((char*) line.c_str()," ");
-  	while (strToken != NULL)	
+  	while (strToken != NULL)
 	{
-		if (strToken != NULL) { 
+		if (strToken != NULL) {
 			string s(strToken);
 			res.push_back(s);
 		}
 		strToken = strtok (NULL, " ");
-	}	
+	}
 	return res;
 }
 
@@ -62,13 +62,13 @@ Matrix calculateK(Matrix& B, int k){
 	int size = B.n;
 	Matrix x0(B.m,1);
 	Matrix autovector(size,1);
-	
+
 	Matrix autovectores(size,k);
-	
+
 	for (int i = 0; i < size; i++){
 		x0.set(i,0, rand());
 	}
-	
+
 	for (int i = 0; i < k; i++)
 	{
 		double lambda = powerMethod(B,x0,100,autovector);
