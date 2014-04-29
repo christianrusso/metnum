@@ -63,6 +63,7 @@ int main(int argc, char* argv[]) {
 
 	char img_file[50];
 	/* Lee las p filas siguientes y guarda las imagenes en la matriz */
+	
 	for (int i=0; i < subjects; i++) {
 		getline (inputFile,line);
 		vector<string> param = split(line);
@@ -75,7 +76,7 @@ int main(int argc, char* argv[]) {
 
 		strcpy(img_file, img_dir);
 		strcat(img_file, param[0].c_str());
-
+		
 		for (int j = 0; j < samples; j++){
 			char img[50];
 			strcpy(img, img_file);
@@ -84,34 +85,36 @@ int main(int argc, char* argv[]) {
 
 			Matrix imgAsTrasposedVector(img);
 			Mu = Mu + imgAsTrasposedVector;
+				
+		
 			A.setRow(i * samples + j, imgAsTrasposedVector);
 		}
-	}
 
+
+	//cout << A << endl;
 	Mu = Mu/(subjects*samples);
 	double rootOfN = sqrt(subjects*samples - 1);
 	Matrix tmp (1, img_width*img_height);
 
-
 	for (int i = 0; i < subjects*samples; ++i)
 	{
-		tmp = (A.row(i) - Mu)/rootOfN;
+		tmp = (A.row(i) - Mu);
 		A.setRow(i, tmp);
 	}
-
+	
 	//Guardo una copia de la A original, ya que tiene todos los valores de las imagenes
 	//que preciso para inicializar el algoritmo de decision mas tarde.
 	Matrix At = A.transpuesta();
-	Matrix B = At*A;
-	Matrix autovectores = calculateK(B,k);
+	Matrix B = (At*A)/(subjects*samples-1);
 
-	//cout << "Autovectores resultantes: " << autovectores << endl;
+	Matrix autovectores = calculateK(B,k);
+		//		cout << B << endl;
 
    	inputFile.close();
 
 	return 0;
 }
-
+}
 
 
 
