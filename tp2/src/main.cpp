@@ -91,6 +91,7 @@ int main(int argc, char* argv[]) {
 	double rootOfN = sqrt(subjects*samples - 1);
 	Matrix tmp (1, img_widht*img_hight);
 
+
 	for (int i = 0; i < subjects*samples; ++i)
 	{
 		tmp = (A.row(i) - Mu)/rootOfN;

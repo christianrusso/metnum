@@ -64,10 +64,11 @@ Matrix::Matrix(char* pgmImage){
         ifs.getline(line,100,'\n');
         while(line[0]=='#') ifs.getline(line,100,'\n');
 
-        ifs.getline(line,100,'\n');
-
         M = strtol(line,&ptr,0);
         N = atoi(ptr);
+
+        ifs.getline(line,100,'\n');
+        unsigned int Q = strtol(line,&ptr,0);
     } else {
         M = atoi(param[1].c_str());
         N = atoi(param[2].c_str());
