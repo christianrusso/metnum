@@ -1,22 +1,22 @@
 \select@language {spanish}
-\contentsline {section}{\numberline {1}Introducci\'on Te\'orica}{2}{section.1}
-\contentsline {subsection}{\numberline {1.1}Metodo de la Potencia}{2}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Deflacion}{2}{subsection.1.2}
-\contentsline {section}{\numberline {2}Desarrollo}{3}{section.2}
-\contentsline {subsection}{\numberline {2.1}Lectura de la Entrada}{3}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Explicacion}{3}{subsubsection.2.1.1}
-\contentsline {subsubsection}{\numberline {2.1.2}Pseudocodigo}{3}{subsubsection.2.1.2}
-\contentsline {subsection}{\numberline {2.2}Armado de Matriz}{3}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}Explicacion}{3}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}Pseudocodigo}{3}{subsubsection.2.2.2}
-\contentsline {subsection}{\numberline {2.3}Metodo de la Potencia}{3}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Explicacion}{3}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Pseudocodigo}{3}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Ejemplo}{3}{subsubsection.2.3.3}
-\contentsline {subsection}{\numberline {2.4}Deflacion}{3}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Demostraciones}{3}{subsection.2.5}
-\contentsline {section}{\numberline {3}Tests}{4}{section.3}
-\contentsline {section}{\numberline {4}Ap\'endice}{5}{section.4}
-\contentsline {subsection}{\numberline {4.1}Enunciado}{5}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}M\'etodo de compilaci\'on}{5}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Referencias bibliogr\'aficas}{5}{subsection.4.3}
+\contentsline {section}{\numberline {1}Introducci\'on Te\'orica}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Metodo de la Potencia}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Deflacion}{3}{subsection.1.2}
+\contentsline {section}{\numberline {2}Desarrollo}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Lectura de la Entrada}{4}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Explicacion}{4}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Pseudocodigo}{4}{subsubsection.2.1.2}
+\contentsline {subsection}{\numberline {2.2}Armado de Matriz}{4}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Explicacion}{4}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Pseudocodigo}{4}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}Metodo de la Potencia}{4}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Explicacion}{4}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Pseudocodigo}{4}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Ejemplo}{4}{subsubsection.2.3.3}
+\contentsline {subsection}{\numberline {2.4}Deflacion}{4}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Demostraciones}{4}{subsection.2.5}
+\contentsline {section}{\numberline {3}Tests}{5}{section.3}
+\contentsline {section}{\numberline {4}Ap\'endice}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}Enunciado}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}M\'etodo de compilaci\'on}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Referencias bibliogr\'aficas}{6}{subsection.4.3}
