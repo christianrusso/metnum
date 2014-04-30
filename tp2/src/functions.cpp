@@ -1,4 +1,5 @@
 #include "functions.h"
+#include <math.h>
 
 using namespace std;
 
@@ -25,7 +26,7 @@ double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 
 	//lambda
 	double lambda = vtbv.mat[0][0]/vtv.mat[0][0];
-	
+
 	return lambda;
 }
 
@@ -58,7 +59,7 @@ vector<string> split(string &line) {
 }
 
 
-Matrix calculateK(Matrix& B, int k){
+Matrix calculateK(Matrix& B, int k, ofstream& stream){
 	int size = B.n;
 	Matrix x0(B.m,1);
 	Matrix autovector(size,1);
@@ -72,8 +73,9 @@ Matrix calculateK(Matrix& B, int k){
 	for (int i = 0; i < k; i++)
 	{
 		double lambda = powerMethod(B,x0,100,autovector);
-		cout << "autovector " << autovector.n << " autovectores: " << autovectores.n << endl;
-		cout << "Autovalor " << i << " : " << lambda << endl;
+		//cout << "autovector " << autovector.n << " autovectores: " << autovectores.n << endl;
+		stream.precision(10);
+		stream << sqrt(lambda) << endl;
 		deflation(B, autovector,lambda);
 		autovectores.setColumn(k-1-i,autovector);
 	}

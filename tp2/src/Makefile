@@ -1,5 +1,5 @@
 all: Matrix.o functions.o  main.o
-	g++ main.o functions.o Matrix.o -o  caritas
+	g++ main.o functions.o Matrix.o -o  caritas -O2
 
 functions.o: functions.h functions.cpp 
 	g++ -c functions.cpp
