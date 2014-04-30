@@ -35,6 +35,9 @@ int main(int argc, char* argv[]) {
 	char img_dir[50];
 	/* Valida que la estructura del archivo in sea la dada por la catedra */
     ifstream inputFile(inFile);
+    ofstream stream;
+  	stream.open(outFile);
+  	
   	if (inputFile.is_open())  {
       /* Lee primer fila */
       getline (inputFile,line);
@@ -104,10 +107,11 @@ int main(int argc, char* argv[]) {
 	//que preciso para inicializar el algoritmo de decision mas tarde.
 	Matrix At = A.transpuesta();
 	Matrix B = At*A;
-	Matrix autovectores = calculateK(B,k);
+	Matrix autovectores = calculateK(B,k,stream);
 
 	//cout << "Autovectores resultantes: " << autovectores << endl;
 
+	stream.close();
    	inputFile.close();
 
 	return 0;

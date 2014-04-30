@@ -59,7 +59,7 @@ vector<string> split(string &line) {
 }
 
 
-Matrix calculateK(Matrix& B, int k){
+Matrix calculateK(Matrix& B, int k, ofstream& stream){
 	int size = B.n;
 	Matrix x0(B.m,1);
 	Matrix autovector(size,1);
@@ -74,8 +74,7 @@ Matrix calculateK(Matrix& B, int k){
 	{
 		double lambda = powerMethod(B,x0,100,autovector);
 		//cout << "autovector " << autovector.n << " autovectores: " << autovectores.n << endl;
-		cout << "Autovalor " << i << " : " << lambda << endl;
-		cout << "Autovalor " << i << " : " << sqrt(lambda) << endl;
+		stream << sqrt(lambda) << endl;
 		deflation(B, autovector,lambda);
 		autovectores.setColumn(k-1-i,autovector);
 	}
