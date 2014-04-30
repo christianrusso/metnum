@@ -74,6 +74,7 @@ Matrix calculateK(Matrix& B, int k, ofstream& stream){
 	{
 		double lambda = powerMethod(B,x0,100,autovector);
 		//cout << "autovector " << autovector.n << " autovectores: " << autovectores.n << endl;
+		stream.precision(10);
 		stream << sqrt(lambda) << endl;
 		deflation(B, autovector,lambda);
 		autovectores.setColumn(k-1-i,autovector);
