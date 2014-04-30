@@ -84,6 +84,7 @@ int main(int argc, char* argv[]) {
 
 			Matrix imgAsTrasposedVector(img);
 			Mu = Mu + imgAsTrasposedVector;
+
 			A.setRow(i * samples + j, imgAsTrasposedVector);
 		}
 	}
