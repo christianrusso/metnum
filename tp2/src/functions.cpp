@@ -7,14 +7,17 @@ double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 	Matrix v;
 	v = x0;
 	Matrix w;
-	for (int i = 0; i < niters; ++i)
+	int i;
+	for (i = 0; i < niters; ++i)
 	{
 		//cout << "Ancho matriz " << B.m << " alto vector " << v.n << endl;
 		w = B*v;
 		//cout << "Ancho matriz " << B.m << " alto vector " << v.n << endl;
-		v = w/(w.normVector());
+		autovector = w/(w.normVector());
+		if (autovector == v) break;
+		v = autovector;
 	}
-	autovector = v;
+	cout << "iteraciones utilizadas para el autovector: " << i << endl;
 	//V transpuesta
 	Matrix vt = v.transpuesta();
 	//vt*B*v
@@ -72,7 +75,7 @@ Matrix calculateK(Matrix& B, int k, ofstream& stream){
 
 	for (int i = 0; i < k; i++)
 	{
-		double lambda = powerMethod(B,x0,100,autovector);
+		double lambda = powerMethod(B,x0,10000,autovector);
 		//cout << "autovector " << autovector.n << " autovectores: " << autovectores.n << endl;
 		stream.precision(10);
 		stream << sqrt(lambda) << endl;

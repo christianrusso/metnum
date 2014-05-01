@@ -25,4 +25,9 @@ def test():
   import unittest
   unittest.main(module='scripts.tptests', exit=False, argv=argv[:1], verbosity=3)
 
+def check():
+  print "Por favor correr los tests en paralelo antes"
+  import unittest
+  unittest.main(module='scripts.tptests', exit=False, argv=argv[:1], verbosity=3)
+
 main()
