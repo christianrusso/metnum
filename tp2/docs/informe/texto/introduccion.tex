@@ -1,27 +1,35 @@
 \section{Introducci\'on Te\'orica}
 \subsection{Metodo de la Potencia}
-El \textbf{metodo de la potencia} es una tecnica iterativa que permite determinar el autovalor dominante de una matriz, es decir, el autovalor con mayor magnitud. Una ligera modificacion en el metodo permite usarlo para determinar otros autovalores. Una propiedad util del metodo de la potencia es que no solo produce un autovalor, sino tambien un autovector asociado. 
+El \textbf{método de la potencia} es una técnica iterativa que permite determinar el autovalor dominante de una matriz, es decir, el autovalor con mayor magnitud. Una ligera modificación en el método permite usarlo para determinar otros autovalores. Una propiedad útil del método de la potencia es que no solo produce un autovalor, sino también un autovector asociado. 
 
-De hecho, es frecuente que el metodo se aplique para calcular un autovalor para un autovector determinado por otros medios.
+De hecho, es frecuente que el método se aplique para calcular un autovalor para un autovector determinado por otros medios.
 
-Para aplicar el metodo de la potencia supondremos que la matriz A de n x n tiene n autovalores $\lambda_1$, $\lambda_2$, ... , $\lambda_n$ con un conjunto asociado de autovectores linealmente independientes $\{v_1,v_2, ..., v_n\}$. Mas aun, supondremos que A tiene exactamente un autovalor, $\lambda_1$, cuya magnitud es la mayor, por lo que 
+Para aplicar el método de la potencia supondremos que la matriz $A \in \mathbb{R}^{n \times n}$ tiene n autovalores $\lambda_1$, $\lambda_2$, ... , $\lambda_n$ con un conjunto asociado de autovectores linealmente independientes $\{v_1,v_2, ..., v_n\}$. Más aún, supondremos que A tiene exactamente un autovalor con módulo máximo, $\lambda_1$, cuya magnitud es la mayor, por lo que 
 \begin{center}
 $|\lambda_1| > |\lambda_2| \geq |\lambda_3| \geq ... \geq |\lambda_n| \geq 0$
 \end{center}
 
-Si \textbf{x} es un vector cualquiera $\mathbb{R}^n$, el hecho de que $\{v_1,v_2, ..., v_n\}$ sea linealmente independiente implica que las constantes $\beta_1,\beta_2, ..., \beta_n$ existe con 
+%Si \textbf{x} es un vector cualquiera $\mathbb{R}^n$, el hecho de que $\{v_1,v_2, ..., v_n\}$ sea linealmente independiente implica que las constantes $\beta_1,\beta_2, ..., \beta_n$ existe con 
+%
+%\[ x = \sum_{j = 1}^n \beta_j v_j \]
+%
+%Al multiplicar ambos lados de esta ecuacion por $A, A^2, ..., A^k$ obtenemos
+%
+%\[ Ax = \sum_{j = 1}^n \beta_jAv_j =  \sum_{j = 1}^n \beta_j \lambda_j v_j\]
+%
+%\[ A^2x = \sum_{j = 1}^n \beta_j \lambda_j Av_j =  \sum_{j = 1}^n \beta_j \lambda_j^2 v_j\]
+%
+%y en general
+%
+%\[ A^k x =  \sum_{j = 1}^n \beta_j \lambda_j^k v_j\]
 
-\[ x = \sum_{j = 1}^n \beta_j v_j \]
+El procedimiento consiste en elegir un vector inicial $x \in \mathbb{R}^n$ y multiplicarlo por izquierda por la matriz $A^k$ 
+con $k \in \mathbb{N}$, y normalizar el vector resultante. Se puede demostrar que cuando $k \rightarrow \infty$, 
+$\frac{A^k}{\| A^k \| }$ tiende al autovector asociado al autovalor  dominante $\lambda_1$. Para más información, referirse
+a \cite{burden} 
 
-Al multiplicar ambos lados de esta ecuacion por $A, A^2, ..., A^k$ obtenemos
+\subsection{Deflación}
 
-\[ Ax = \sum_{j = 1}^n \beta_jAv_j =  \sum_{j = 1}^n \beta_j \lambda_j v_j\]
+``Deflation techniques involve forming a new matrix B whose eigenvalues are the same as those of A, except that the dominant eigenvalue of A is replaced by the eigenvalue $0$ in B.'' - \cite[p.~604]{burden}
 
-\[ A^2x = \sum_{j = 1}^n \beta_j \lambda_j Av_j =  \sum_{j = 1}^n \beta_j \lambda_j^2 v_j\]
-
-y en general
-
-\[ A^k x =  \sum_{j = 1}^n \beta_j \lambda_j^k v_j\]
-
-\subsection{Deflacion}
-
+En nuestro caso, para obtener la matriz B, le restaremos a la matriz A otra matriz formada por su autovalor dominante y el autovector asociado a éste, de la siguiente manera: $B = A^t A - \lambda_{1} v v^t$. Más adelante demostraremos que esta operación cumple con lo esperado de una deflación.

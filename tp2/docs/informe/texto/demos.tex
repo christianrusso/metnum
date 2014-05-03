@@ -1,4 +1,3 @@
-\subsection{Correctitud de Método de la Potencia y Deflación simultáneamente}
 El método de la potencia asume que tenemos un autovalor dominante y que todos los autovalores son
 mayores o iguales a 0. $A^t A$ es simétrica por lo, que tenemos una base ortonormal de autovectores,
 y además es semi-defininda positiva, por lo que sus autovalores son positivos o 0.
@@ -7,7 +6,7 @@ Queremos ver que al aplicar el método de la potencia para obtener el autovector
 dominante y luego deflación la matriz sigue cumpliendo con estas propiedades.
 
 \ \\
-\textbf{Lema:} la matriz $A^t A$ sigue siendo simétrica y semi definida positva después de apicar el
+\textbf{Lema:} la matriz $A^t A$ sigue siendo simétrica y semi definida positiva después de apicar el
 algoritmo de deflación.
 
 \ \\
@@ -26,7 +25,7 @@ $B = A^t A - \lambda_{1} v v^t$.
 (1) $A$ simétrica y $v$ vector.
 \ \\
 
-\ Semi definida positiva:
+\ Semi definida positiva: FAAAAAAAAAAAAAAAAAAALTA ESTOOOOOOOOOOOOOOOOOOOOOOOOOOO
 
 \ \\
 \textbf{Lema:} Los valores singulares de $A$ son los mismos que los valores singulares de $A^t$.
@@ -45,15 +44,15 @@ mismos y, por ende, los valores singulares también.
 \textbf{Lema:} Si $A \in \mathbb{R}^{nxm},\Sigma \in \mathbb{R}^{mxn}, U \in \mathbb{C}^{mxm}, V \in
 \mathbb{C}^{nxn}, A = U \Sigma V^t$, entonces:
 \begin{compactitem}
-  \item $A^t = V \Sigma U^t $
+  \item $A^t = V \Sigma U^t $ con $A^t \in \mathbb{R}^{m \times n}$
   \item $A A^t = U \Lambda U^t $ con $\Lambda$ la matriz con los autovalores de $A$ y $A^t$ en
-    la diagonal.
+    la diagonal y $A A^t \in \mathbb{R}^{n \times n}$.
   \item $A^t A = V \Lambda V^t $ con $\Lambda$ la matriz con los autovalores de $A$ y $A^t$ en
-    la diagonal.
+    la diagonal $A^t A \in \mathbb{R}^{m \times m}$.
 \end{compactitem}
 
 \ \\
-Prueba: El primero es inmediato de trasponer a y del hecho de que $\Sigma$ es diagonal. Para el
+Prueba: El primero es inmediato de trasponer $A$ y del hecho de que $\Sigma$ es diagonal. Para el
 segundo y el tercero:
 \begin{center}
 $A A^t = U \Sigma V^t V \Sigma U^t =^{(1)} U \Sigma \Sigma U^t =^{(2)} U \Lambda U^t$
@@ -65,3 +64,5 @@ $A^t A = V \Sigma U^t U \Sigma V^t =^{(1)} V \Sigma \Sigma V^t =^{(2)} V \Lambda
 (1) $U$ y $V$ matrices ortogonales
 
 (2) $\lambda$ diagonal con valores singulares en la diagonal.
+
+
