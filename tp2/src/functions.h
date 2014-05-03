@@ -12,5 +12,8 @@ double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector);
 void deflation(Matrix& A, Matrix& v, float lambda);
 Matrix calculateK(Matrix& B, int k, std::ofstream& stream);
 std::vector<std::string> split(std::string &line);
+Matrix centrosDeMasa(Matrix& B, int samples, int subjects);
+int whoIsIt(Matrix& M, Matrix& Subject, int samples);
+
 
 #endif

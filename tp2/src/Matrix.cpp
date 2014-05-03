@@ -289,3 +289,26 @@ double Matrix::normVector(){
     }
     return sqrt(r);
 }
+
+double Matrix::distance(Matrix& vector){
+    if (vector.m != m) {
+        cout << "El vector fila pasado no tiene el mismo tamaño.";
+        exit(1);
+    }
+    if (n != 1) {
+        cout << "La matriz no es un vector fila.";
+        exit(1);
+    }
+    if (vector.n != 1) {
+        cout << "La matriz parametro no es un vector fila.";
+        exit(1);
+    }
+
+    double dist = 0;
+    for (int i = 0; i < vector.m; ++i)
+    {
+        double diff = mat[0][i] * vector.get(0,i);
+        dist += diff*diff;
+    }
+    return sqrt(dist);
+}

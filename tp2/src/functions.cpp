@@ -76,11 +76,43 @@ Matrix calculateK(Matrix& B, int k, ofstream& stream){
 	for (int i = 0; i < k; i++)
 	{
 		double lambda = powerMethod(B,x0,10000,autovector);
-		//cout << "autovector " << autovector.n << " autovectores: " << autovectores.n << endl;
 		stream.precision(10);
 		stream << sqrt(lambda) << endl;
 		deflation(B, autovector,lambda);
 		autovectores.setColumn(k-1-i,autovector);
 	}
 	return autovectores;
+}
+
+Matrix centrosDeMasa(Matrix& B, int samples, int subjects){
+	Matrix centros(subjects,B.m);
+
+	Matrix aRow(1,B.m);
+
+	for(int i = 0; i < subjects; i++){
+		aRow = B.row(i*samples);
+		for (int j = 1; j < samples; j++){
+			aRow = aRow + B.row(i*samples + j);
+		}
+		aRow = aRow/subjects;
+		centros.setRow(i,aRow);
+	}
+
+	return centros;
+}
+
+int whoIsIt(Matrix& M, Matrix& Subject, int samples){
+	int maxIndex;
+	double maxVal = 0;
+
+	for (int i = 0; i < M.n; ++i)
+	{
+		double distance = M.row(i).distance(Subject);
+		if(maxVal < distance){
+			maxVal = distance;
+			maxIndex = i;
+		}
+	}
+
+	return (maxIndex-1/samples) + 1;
 }

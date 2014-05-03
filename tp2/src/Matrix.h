@@ -43,6 +43,7 @@ public:
     void setRow(int i, Matrix& other);
     void setColumn(int j, Matrix& other);
     double normVector();
+    double distance(Matrix& vector);
 
     // Operaciones de triangulacion
     void addRow2Row(int i, int z, double c);

@@ -2,5 +2,5 @@
 *~
 *.aux
 *.log
-
+*.pyc
 tp2/src/caritas

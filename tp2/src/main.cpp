@@ -108,29 +108,42 @@ int main(int argc, char* argv[]) {
 	Matrix At = A.transpuesta();
 	Matrix B = At*A;
 	Matrix autovectores = calculateK(B,k,stream);
+	Matrix kPoints = A*autovectores; // size: subjects*samples X k;
 
-	//cout << "Autovectores resultantes: " << autovectores << endl;
+	Matrix kCentros = centrosDeMasa(kPoints, samples, subjects);
+
+	getline (inputFile,line);
+    vector<string> param = split(line);
+    int testImages = atoi(param[0].c_str());
+
+    int assertionsDistance = 0;
+    int assertionsDistanceToCentre = 0;
+
+    for (int i = 0; i < testImages; ++i)
+    {
+    	getline (inputFile,line);
+  		param = split(line);
+    	strcpy(img_dir, param[0].c_str());
+    	int whom = atoi(param[1].c_str());
+    	
+    	Matrix subject(img_dir);
+
+    	subject = subject * autovectores;
+
+    	int dist = whoIsIt(kPoints, subject, samples);
+    	int distCentre = whoIsIt(kCentros, subject, 1);
+
+    	assertionsDistance += dist == whom;
+    	assertionsDistanceToCentre += distCentre == whom;
+
+    	cout << "Distancia           | Caso " << i << ", expected: " << whom << " actual: " << dist << endl;
+    	cout << "Distancia al centro | Caso " << i << ", expected: " << whom << " actual: " << distCentre << endl;
+    }
+
+    cout << "Promedio distancia: " << assertionsDistance/testImages << " , distancia al centro: " << assertionsDistanceToCentre/testImages << endl;
 
 	stream.close();
    	inputFile.close();
 
 	return 0;
 }
-
-
-
-
-
-// //Ejemplo 1 lamda1 = 6
-// double value[3] = {1.0,0.0,0.0};
-//    Matrix x0(3,1, value);
-//    double valueB[9] = {4.0,-1.0,1.0,-1.0,3.0,-2.0,1.0,-2.0,3.0};
-//    Matrix B(3,3,valueB);
-//    powerMethod(B,x0,30);
-
-//    //Ejemplo 1 lamda1 = 4
-// double value[3] = {1.0,1.0,1.0};
-//    Matrix x0(3,1, value);
-//    double valueB[9] = {3.0,-1.0,0.0,-1.0,2.0,-1.0,0.0,-1.0,3.0};
-//    Matrix B(3,3,valueB);
-//    powerMethod(B,x0,30);
