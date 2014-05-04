@@ -92,10 +92,11 @@ int main(int argc, char* argv[]) {
 		}
 	}
 
+	Matrix Acopy = A; //guardo el A original con las imagenes intactas
+
 	Mu = Mu/(subjects*samples);
 	double rootOfN = sqrt(subjects*samples - 1);
 	Matrix tmp (1, img_width*img_height);
-
 
 	for (int i = 0; i < subjects*samples; ++i)
 	{
@@ -108,7 +109,7 @@ int main(int argc, char* argv[]) {
 	Matrix At = A.transpuesta();
 	Matrix B = At*A;
 	Matrix autovectores = calculateK(B,k,stream);
-	Matrix kPoints = A*autovectores; // size: subjects*samples X k;
+	Matrix kPoints = Acopy*autovectores; // size: subjects*samples X k;
 
 	Matrix kCentros = centrosDeMasa(kPoints, samples, subjects);
 
@@ -116,8 +117,8 @@ int main(int argc, char* argv[]) {
     vector<string> param = split(line);
     int testImages = atoi(param[0].c_str());
 
-    int assertionsDistance = 0;
-    int assertionsDistanceToCentre = 0;
+    double assertionsDistance = 0;
+    double assertionsDistanceToCentre = 0;
 
     for (int i = 0; i < testImages; ++i)
     {
@@ -131,13 +132,14 @@ int main(int argc, char* argv[]) {
     	subject = subject * autovectores;
 
     	int dist = whoIsIt(kPoints, subject, samples);
+    	cout << "----------" << endl;
     	int distCentre = whoIsIt(kCentros, subject, 1);
 
-    	assertionsDistance += dist == whom;
-    	assertionsDistanceToCentre += distCentre == whom;
+    	assertionsDistance += dist == whom ? 1 : 0;
+    	assertionsDistanceToCentre += (distCentre == whom) ? 1 : 0;
 
-    	cout << "Distancia           | Caso " << i << ", expected: " << whom << " actual: " << dist << endl;
-    	cout << "Distancia al centro | Caso " << i << ", expected: " << whom << " actual: " << distCentre << endl;
+    	cout << "Distancia a todos   | Caso " << i+1 << ", expected: " << whom << " actual: " << dist << endl;
+    	cout << "Distancia al centro | Caso " << i+1 << ", expected: " << whom << " actual: " << distCentre << endl;
     }
 
     cout << "Promedio distancia: " << assertionsDistance/testImages << " , distancia al centro: " << assertionsDistanceToCentre/testImages << endl;

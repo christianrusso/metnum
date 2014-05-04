@@ -94,7 +94,7 @@ Matrix centrosDeMasa(Matrix& B, int samples, int subjects){
 		for (int j = 1; j < samples; j++){
 			aRow = aRow + B.row(i*samples + j);
 		}
-		aRow = aRow/subjects;
+		aRow = aRow/samples;
 		centros.setRow(i,aRow);
 	}
 
@@ -102,17 +102,17 @@ Matrix centrosDeMasa(Matrix& B, int samples, int subjects){
 }
 
 int whoIsIt(Matrix& M, Matrix& Subject, int samples){
-	int maxIndex;
-	double maxVal = 0;
+	int minIndex = 0;
+	double minVal = M.row(0).distance(Subject);
 
-	for (int i = 0; i < M.n; ++i)
+	for (int i = 1; i < M.n; ++i)
 	{
 		double distance = M.row(i).distance(Subject);
-		if(maxVal < distance){
-			maxVal = distance;
-			maxIndex = i;
+		if(minVal > distance){
+			minVal = distance;
+			minIndex = i;
 		}
 	}
 
-	return (maxIndex-1/samples) + 1;
+	return (minIndex/samples) + 1;
 }
