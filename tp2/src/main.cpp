@@ -127,7 +127,9 @@ int main(int argc, char* argv[]) {
     	int whom = atoi(param[1].c_str());
     	
     	Matrix subject(img_dir);
-
+	// Se le resta el Mu y se divide por la raiz de n-1 a la nueva muestra
+    	subject = (subject - Mu)/rootOfN;
+	// Se busca las coordenadas de la muestra en la base de autovectores
     	subject = subject * autovectores;
 
     	int dist = whoIsIt(kPoints, subject, samples);
