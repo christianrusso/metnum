@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import math
+import random
 
 directory = 'cases/'
 
@@ -11,6 +12,28 @@ directory = 'cases/'
 #graficacion. Estudiar la proximidad de la isoterma buscada respecto de la pared exterior del horno
 #en funcion de distintas granularidades de discretizacion y las condiciones de borde. Analizar
 #tambien el tiempo de computo requerido en funcion de la granularidad de la discretizacion.
+
+
+def caseVariandoPersonas():
+	
+	description = 'Vario la cantidad de personas con 5 imagenes cada una con 5 imagenes y 15 iteraciones'
+	personas = []
+	for x in range(0,5):
+		filename = 'case1'+chr(ord('a')+x)+'.in'	
+		f = open(directory+filename,'w')
+		cantPersonas = random.randint(0, 41)
+		f.write("../data/ImagenesCaras/ 112 92 " + str(cantPersonas) + ' 5 15' +'\n')
+		for x in range(0,cantPersonas):
+			personas.append(random.randint(0, 41))
+		personas.sort()
+		for x in personas:
+			f.write("s" + str(x) + "/ 1 2 3 4 5" +'\n')
+		f.write(str(cantPersonas)+'\n')
+		for x in personas:
+			f.write("../data/ImagenesCaras/s" + str(x) + ' /10.pgm 1' +'\n')
+		f.close() 
+
+
 
 def case1():
 	
@@ -231,5 +254,4 @@ def buildInst(method,n,f):
 
 
 # Discretizaciones - Pedido en enunciado 
-case2(); #caso que se usa en el informe en el punto (a) Leti
-case8(); #caso que se usa en el informe en el punto (b) Luno
+caseVariandoPersonas(); #caso que se usa en el informe en el punto (a) Leti
