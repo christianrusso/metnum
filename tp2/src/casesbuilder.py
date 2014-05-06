@@ -17,8 +17,8 @@ directory = 'cases/'
 def caseVariandoPersonas():
 	
 	description = 'Vario la cantidad de personas con 5 imagenes cada una con 5 imagenes y 15 iteraciones'
-	personas = []
 	for x in range(0,5):
+		personas = []
 		filename = 'case1'+chr(ord('a')+x)+'.in'	
 		f = open(directory+filename,'w')
 		cantPersonas = random.randint(0, 41)
@@ -30,7 +30,7 @@ def caseVariandoPersonas():
 			f.write("s" + str(x) + "/ 1 2 3 4 5" +'\n')
 		f.write(str(cantPersonas)+'\n')
 		for x in personas:
-			f.write("../data/ImagenesCaras/s" + str(x) + ' /10.pgm 1' +'\n')
+			f.write("../data/ImagenesCaras/s" + str(x) + '/10.pgm ' + str(x) +'\n')
 		f.close() 
 
 
