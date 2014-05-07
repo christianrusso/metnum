@@ -109,7 +109,7 @@ int main(int argc, char* argv[]) {
 	Matrix At = A.transpuesta();
 	Matrix B = At*A;
 	Matrix autovectores = calculateK(B,k,stream);
-	Matrix kPoints = Acopy*autovectores; // size: subjects*samples X k;
+	Matrix kPoints = A*autovectores; // size: subjects*samples X k;
 
 	Matrix kCentros = centrosDeMasa(kPoints, samples, subjects);
 
