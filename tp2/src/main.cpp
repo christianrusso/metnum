@@ -17,7 +17,7 @@ using namespace std;
 
 // Main Release
 int main(int argc, char* argv[]) {
-
+//Creamos los streams para leer archivos y se lo pasamos a una instancia nueva de la clase Data
   if (argc < 4) {
    cout << "Parametros: archivo_entrada archivo_salida metodo(0 o 1)\n";
    exit(1);
@@ -29,7 +29,6 @@ int main(int argc, char* argv[]) {
 
   string line;
   char img_dir[50];
-  /* Valida que la estructura del archivo in sea la dada por la catedra */
   ifstream inputFile(inFile);
   ofstream stream;
   stream.open(outFile);

@@ -18,6 +18,7 @@ using namespace std;
 
 // Constructors
 Data::Data(){ }
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 Data::Data(ifstream &inputFile, ofstream &stream, char* inFile){
   //Instancia la clase que sabe hacer todo con las imagenes
   setearParamsSimples(inputFile, inFile);
@@ -28,11 +29,12 @@ Data::Data(ifstream &inputFile, ofstream &stream, char* inFile){
   calcularKCentrosDeMasa();
   identificarSujetos(inputFile);
 }
-
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 
 //Funciones
 //
 
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 void Data::identificarSujetos(std::ifstream &inputFile){
   string line;
   getline (inputFile,line);
@@ -70,24 +72,28 @@ void Data::identificarSujetos(std::ifstream &inputFile){
   cout << "Promedio distancia: " << assertionsDistance/testImages << " , distancia al centro: " << assertionsDistanceToCentre/testImages << endl;
 
 }
-
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 const Matrix& Data::getKCentros(){
   return kCentros;
 }
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 void Data::calcularKCentrosDeMasa(){
   //Calcula los K centros de masa
   kCentros = centrosDeMasa(kPoints, samples, subjects);
 }
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 void Data::calcularNuevasCoordenadas(){
   //Setea en kPoints las nuevas coordenadas de las imagenes originales
 	kPoints = A_orig*autovectores; // size: subjects*samples X k;
 }
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 void Data::calcularAutovectores(ofstream &stream){
   Matrix At = A_final.transpuesta();
 	Matrix B = At*A_final;
 	autovectores = calculateK(B,k,stream);
 
 }
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 void Data::restarMuYHacerSqrt(){
   //Crea la matriz A_final que es la matriz A pero restado el vector Mu a cada
   //una de sus filas y además, dividida cada celda por la raiz cuadrada de n-1
@@ -100,7 +106,7 @@ void Data::restarMuYHacerSqrt(){
 		A_final.setRow(i, tmp);
 	}
 }
-
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 void Data::importarImgs(std::ifstream &inputFile){
   //Lee todas las imagenes a las cuales hay que calcular los autovectores
   //y guarda las matrices correspondientes a A_orig, Mu y A_final (que hasta aca es igual 
@@ -140,7 +146,7 @@ void Data::importarImgs(std::ifstream &inputFile){
 
 	Mu = Mu/(subjects*samples);
 }
-
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 void Data::setearParamsSimples(ifstream &inputFile, char* inFile){
   // Setea las variables ints y el img_dir que es un char*
   // inFile solo es requerido para devolver el nombre del archivo en caso de error
@@ -168,4 +174,3 @@ void Data::setearParamsSimples(ifstream &inputFile, char* inFile){
 	  exit(1);
   }
 }
-
