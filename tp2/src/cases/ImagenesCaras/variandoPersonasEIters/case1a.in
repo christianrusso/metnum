@@ -1,8 +1,12 @@
-../data/ImagenesCaras/ 112 92 3 5 13
+../data/ImagenesCaras/ 112 92 5 5 90
+s1/ 1 2 3 4 5
+s4/ 1 2 3 4 5
 s9/ 1 2 3 4 5
-s11/ 1 2 3 4 5
-s18/ 1 2 3 4 5
-3
+s13/ 1 2 3 4 5
+s32/ 1 2 3 4 5
+5
+../data/ImagenesCaras/s1/10.pgm 1
+../data/ImagenesCaras/s4/10.pgm 4
 ../data/ImagenesCaras/s9/10.pgm 9
-../data/ImagenesCaras/s11/10.pgm 11
-../data/ImagenesCaras/s18/10.pgm 18
+../data/ImagenesCaras/s13/10.pgm 13
+../data/ImagenesCaras/s32/10.pgm 32
