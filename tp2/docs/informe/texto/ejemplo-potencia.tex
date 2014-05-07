@@ -1,0 +1,367 @@
+\[
+  A =
+  \left[ {\begin{array}{ccc}
+   3 & -1 & 0 \\
+   -1 & 2 & -1 \\
+   0 & -1 & 3 \\
+  \end{array} } \right]
+\]
+
+Inicializando con el vector 
+
+\[
+  x =
+  \left[ {\begin{array}{c}
+   1  \\
+   1 \\
+   1  \\
+  \end{array} } \right]
+\]
+\newpage
+Fase 1: 
+
+\begin{center} 
+$y^{(1)} = Ax^{(0)} =$
+\end{center}
+\[
+  \left[ {\begin{array}{ccc}
+   3 & -1 & 0 \\
+   -1 & 2 & -1 \\
+   0 & -1 & 3 \\
+  \end{array} } \right]
+  \left[ {\begin{array}{c}
+   1  \\
+   1 \\
+   1  \\
+  \end{array} } \right]
+  = 
+    \left[ {\begin{array}{c}
+   2  \\
+   0 \\
+   2  \\
+  \end{array} } \right]
+\]
+\begin{center} 
+$c_1 = 2$ (componente dominante de $ y^{(0)}$)
+
+
+\[
+x^{(1)} = \frac{1}{2}y^{(1)} = \frac{1}{2} 
+  \left[ {\begin{array}{c}
+   2  \\
+   0 \\
+   2 \\
+  \end{array} } \right]
+  =
+  \left[ {\begin{array}{c}
+   1  \\
+   0 \\
+   1 \\
+  \end{array} } \right]
+\]
+
+\end{center}
+
+
+Fase 2: 
+
+\begin{center} 
+$y^{(2)} = Ax^{(1)} =$
+\end{center}
+\[
+  \left[ {\begin{array}{ccc}
+   3 & -1 & 0 \\
+   -1 & 2 & -1 \\
+   0 & -1 & 3 \\
+  \end{array} } \right]
+  \left[ {\begin{array}{c}
+   1  \\
+   0 \\
+   1  \\
+  \end{array} } \right]
+  = 
+    \left[ {\begin{array}{c}
+   3  \\
+   -2 \\
+   3 \\
+  \end{array} } \right]
+\]
+\begin{center} 
+$c_2 = 3$ 
+
+
+\[
+x^{(2)} = \frac{1}{3} 
+  \left[ {\begin{array}{c}
+   3  \\
+   -2 \\
+   3 \\
+  \end{array} } \right]
+  =
+  \left[ {\begin{array}{c}
+   1  \\
+   \frac{-2}{3} \\
+   1 \\
+  \end{array} } \right]
+  =
+    \left[ {\begin{array}{c}
+   1.0  \\
+   -0.6667 \\
+   1.0 \\
+  \end{array} } \right]
+\]
+
+\end{center}
+
+
+Fase 3: 
+
+\begin{center} 
+$y^{(3)} = Ax^{(2)} =$
+\end{center}
+\[
+  \left[ {\begin{array}{ccc}
+   3 & -1 & 0 \\
+   -1 & 2 & -1 \\
+   0 & -1 & 3 \\
+  \end{array} } \right]
+  \left[ {\begin{array}{c}
+   1.0  \\
+   -0.6667 \\
+   1.0  \\
+  \end{array} } \right]
+  = 
+    \left[ {\begin{array}{c}
+   3.6667 \\
+   -3.3333 \\
+   3.6667 \\
+  \end{array} } \right]
+\]
+\begin{center} 
+$c_3 = 3.6667$ 
+
+
+\[
+x^{(3)} =
+  \left[ {\begin{array}{c}
+   1  \\
+   -0.9091 \\
+   1 \\
+  \end{array} } \right]
+\]
+
+\end{center}
+
+
+Fase 4: 
+
+\begin{center} 
+$y^{(4)} = Ax^{(3)} =$
+\end{center}
+\[ 
+    \left[ {\begin{array}{c}
+   3.9091 \\
+   -3.8181 \\
+   3.9091 \\
+  \end{array} } \right]
+\]
+\begin{center} 
+$c_4 = 3.9091$ 
+
+
+\[
+x^{(4)} = 
+  \left[ {\begin{array}{c}
+   1  \\
+   -0.9767 \\
+   1 \\
+  \end{array} } \right]
+\]
+
+\end{center}
+
+
+Fase 5: 
+
+\begin{center} 
+$y^{(5)} = Ax^{(4)} =$
+\end{center}
+\[ 
+    \left[ {\begin{array}{c}
+   3.9767 \\
+   -3.9534 \\
+   3.9767 \\
+  \end{array} } \right]
+\]
+\begin{center} 
+$c_5 = 3.9767$ 
+
+
+\[
+x^{(5)} = 
+  \left[ {\begin{array}{c}
+   1  \\
+   -0.9942 \\
+   1 \\
+  \end{array} } \right]
+\]
+
+\end{center}
+
+
+Fase 6: 
+
+\begin{center} 
+$y^{(5)} = Ax^{(4)} =$
+\end{center}
+\[ 
+    \left[ {\begin{array}{c}
+   3.9942 \\
+   -3.9883 \\
+   3.9942 \\
+  \end{array} } \right]
+\]
+\begin{center} 
+$c_6 = 3.9942$ 
+
+
+\[
+x^{(6)} = 
+  \left[ {\begin{array}{c}
+   1  \\
+   -0.9985 \\
+   1 \\
+  \end{array} } \right]
+\]
+
+\end{center}
+
+
+Fase 7: 
+
+\begin{center} 
+$y^{(7)} = Ax^{(6)} =$
+\end{center}
+\[ 
+    \left[ {\begin{array}{c}
+   3.9985 \\
+   -3.9970 \\
+   3.9985 \\
+  \end{array} } \right]
+\]
+\begin{center} 
+$c_7 = 3.9985$ 
+
+
+\[
+x^{(7)} = 
+  \left[ {\begin{array}{c}
+   1  \\
+   -0.9996 \\
+   1 \\
+  \end{array} } \right]
+\]
+
+\end{center}
+
+
+Fase 8: 
+
+\begin{center} 
+$y^{(8)} = Ax^{(7)} =$
+\end{center}
+\[ 
+    \left[ {\begin{array}{c}
+   3.9996 \\
+   -3.9993 \\
+   3.9996 \\
+  \end{array} } \right]
+\]
+\begin{center} 
+$c_8 = 3.9996$ 
+
+
+\[
+x^{(8)} = 
+  \left[ {\begin{array}{c}
+   1  \\
+   -0.9999 \\
+   1 \\
+  \end{array} } \right]
+\]
+
+\end{center}
+
+
+Fase 9: 
+
+\begin{center} 
+$y^{(9)} = Ax^{(8)} =$
+\end{center}
+\[ 
+    \left[ {\begin{array}{c}
+   3.9999 \\
+   -3.9998 \\
+   3.9999 \\
+  \end{array} } \right]
+\]
+\begin{center} 
+$c_9 = 3.9999$ 
+
+
+\[
+x^{(9)} = 
+  \left[ {\begin{array}{c}
+   1  \\
+   -1 \\
+   1 \\
+  \end{array} } \right]
+\]
+
+\end{center}
+
+
+Fase 10: 
+
+\begin{center} 
+$y^{(10)} = Ax^{(9)} =$
+\end{center}
+\[ 
+    \left[ {\begin{array}{c}
+   4 \\
+   -4 \\
+   4 \\
+  \end{array} } \right]
+\]
+\begin{center} 
+$c_10 = 4$ 
+
+
+\[
+x^{(10)} = 
+  \left[ {\begin{array}{c}
+   1  \\
+   -1 \\
+   1 \\
+  \end{array} } \right]
+ =
+x^{(9)} 
+\]
+\end{center}
+
+Entonces 
+\begin{center}
+$ \lambda = \lim\limits_{j}c_j = 4$
+\end{center}
+Y su autovector asociado:
+\begin{center}
+\[ 
+v = \lim\limits_{j} x^{(j)}=
+    \left[ {\begin{array}{c}
+   1 \\
+   -1 \\
+   1 \\
+  \end{array} } \right]
+\]
+\end{center}
+

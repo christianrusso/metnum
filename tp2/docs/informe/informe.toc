@@ -12,11 +12,11 @@
 \contentsline {subsection}{\numberline {2.3}Metodo de la Potencia}{4}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}Explicacion}{4}{subsubsection.2.3.1}
 \contentsline {subsubsection}{\numberline {2.3.2}Pseudocodigo}{4}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Ejemplo}{5}{subsubsection.2.3.3}
-\contentsline {subsection}{\numberline {2.4}Deflacion}{5}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Demostraciones}{5}{subsection.2.5}
-\contentsline {section}{\numberline {3}Tests}{7}{section.3}
-\contentsline {section}{\numberline {4}Ap\'endice}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Enunciado}{8}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}M\'etodo de compilaci\'on}{8}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Referencias bibliogr\'aficas}{8}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {2.3.3}Ejemplo}{4}{subsubsection.2.3.3}
+\contentsline {subsection}{\numberline {2.4}Deflacion}{8}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Demostraciones}{8}{subsection.2.5}
+\contentsline {section}{\numberline {3}Tests}{10}{section.3}
+\contentsline {section}{\numberline {4}Ap\'endice}{11}{section.4}
+\contentsline {subsection}{\numberline {4.1}Enunciado}{11}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}M\'etodo de compilaci\'on}{11}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Referencias bibliogr\'aficas}{11}{subsection.4.3}
