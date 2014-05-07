@@ -1,12 +1,22 @@
-../data/ImagenesCaras/ 112 92 5 5 68
-s9/ 1 2 3 4 5
-s14/ 1 2 3 4 5
-s18/ 1 2 3 4 5
-s38/ 1 2 3 4 5
-s38/ 1 2 3 4 5
-5
-../data/ImagenesCaras/s9/10.pgm 9
-../data/ImagenesCaras/s14/10.pgm 14
-../data/ImagenesCaras/s18/10.pgm 18
-../data/ImagenesCaras/s38/10.pgm 38
-../data/ImagenesCaras/s38/10.pgm 38
+../data/ImagenesCaras/ 112 92 10 5 81
+s13/ 1 2 3 4 5
+s17/ 1 2 3 4 5
+s20/ 1 2 3 4 5
+s21/ 1 2 3 4 5
+s25/ 1 2 3 4 5
+s25/ 1 2 3 4 5
+s26/ 1 2 3 4 5
+s29/ 1 2 3 4 5
+s31/ 1 2 3 4 5
+s39/ 1 2 3 4 5
+10
+../data/ImagenesCaras/s13/10.pgm 13
+../data/ImagenesCaras/s17/10.pgm 17
+../data/ImagenesCaras/s20/10.pgm 20
+../data/ImagenesCaras/s21/10.pgm 21
+../data/ImagenesCaras/s25/10.pgm 25
+../data/ImagenesCaras/s25/10.pgm 25
+../data/ImagenesCaras/s26/10.pgm 26
+../data/ImagenesCaras/s29/10.pgm 29
+../data/ImagenesCaras/s31/10.pgm 31
+../data/ImagenesCaras/s39/10.pgm 39

@@ -1,60 +1,42 @@
-../data/ImagenesCarasRed/ 28 23 29 5 51
-s3/ 1 2 3 4 5 6
-s4/ 1 2 3 4 5 6
-s5/ 1 2 3 4 5 6
-s5/ 1 2 3 4 5 6
-s6/ 1 2 3 4 5 6
-s7/ 1 2 3 4 5 6
-s7/ 1 2 3 4 5 6
-s11/ 1 2 3 4 5 6
-s11/ 1 2 3 4 5 6
-s11/ 1 2 3 4 5 6
-s12/ 1 2 3 4 5 6
-s12/ 1 2 3 4 5 6
-s14/ 1 2 3 4 5 6
-s15/ 1 2 3 4 5 6
-s21/ 1 2 3 4 5 6
-s21/ 1 2 3 4 5 6
-s22/ 1 2 3 4 5 6
-s24/ 1 2 3 4 5 6
-s24/ 1 2 3 4 5 6
-s27/ 1 2 3 4 5 6
-s29/ 1 2 3 4 5 6
-s31/ 1 2 3 4 5 6
-s32/ 1 2 3 4 5 6
-s33/ 1 2 3 4 5 6
-s35/ 1 2 3 4 5 6
-s36/ 1 2 3 4 5 6
-s37/ 1 2 3 4 5 6
-s41/ 1 2 3 4 5 6
-s41/ 1 2 3 4 5 6
-29
+../data/ImagenesCarasRed/ 28 23 20 5 44
+s0/ 1
+s0/ 1
+s3/ 1
+s4/ 1
+s5/ 1
+s5/ 1
+s12/ 1
+s13/ 1
+s14/ 1
+s20/ 1
+s22/ 1
+s23/ 1
+s23/ 1
+s25/ 1
+s26/ 1
+s26/ 1
+s28/ 1
+s28/ 1
+s29/ 1
+s36/ 1
+20
+../data/ImagenesCarasRed/s0/10.pgm 0
+../data/ImagenesCarasRed/s0/10.pgm 0
 ../data/ImagenesCarasRed/s3/10.pgm 3
 ../data/ImagenesCarasRed/s4/10.pgm 4
 ../data/ImagenesCarasRed/s5/10.pgm 5
 ../data/ImagenesCarasRed/s5/10.pgm 5
-../data/ImagenesCarasRed/s6/10.pgm 6
-../data/ImagenesCarasRed/s7/10.pgm 7
-../data/ImagenesCarasRed/s7/10.pgm 7
-../data/ImagenesCarasRed/s11/10.pgm 11
-../data/ImagenesCarasRed/s11/10.pgm 11
-../data/ImagenesCarasRed/s11/10.pgm 11
 ../data/ImagenesCarasRed/s12/10.pgm 12
-../data/ImagenesCarasRed/s12/10.pgm 12
+../data/ImagenesCarasRed/s13/10.pgm 13
 ../data/ImagenesCarasRed/s14/10.pgm 14
-../data/ImagenesCarasRed/s15/10.pgm 15
-../data/ImagenesCarasRed/s21/10.pgm 21
-../data/ImagenesCarasRed/s21/10.pgm 21
+../data/ImagenesCarasRed/s20/10.pgm 20
 ../data/ImagenesCarasRed/s22/10.pgm 22
-../data/ImagenesCarasRed/s24/10.pgm 24
-../data/ImagenesCarasRed/s24/10.pgm 24
-../data/ImagenesCarasRed/s27/10.pgm 27
+../data/ImagenesCarasRed/s23/10.pgm 23
+../data/ImagenesCarasRed/s23/10.pgm 23
+../data/ImagenesCarasRed/s25/10.pgm 25
+../data/ImagenesCarasRed/s26/10.pgm 26
+../data/ImagenesCarasRed/s26/10.pgm 26
+../data/ImagenesCarasRed/s28/10.pgm 28
+../data/ImagenesCarasRed/s28/10.pgm 28
 ../data/ImagenesCarasRed/s29/10.pgm 29
-../data/ImagenesCarasRed/s31/10.pgm 31
-../data/ImagenesCarasRed/s32/10.pgm 32
-../data/ImagenesCarasRed/s33/10.pgm 33
-../data/ImagenesCarasRed/s35/10.pgm 35
 ../data/ImagenesCarasRed/s36/10.pgm 36
-../data/ImagenesCarasRed/s37/10.pgm 37
-../data/ImagenesCarasRed/s41/10.pgm 41
-../data/ImagenesCarasRed/s41/10.pgm 41

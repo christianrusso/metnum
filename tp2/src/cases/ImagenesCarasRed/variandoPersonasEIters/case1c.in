@@ -1,4 +1,12 @@
-../data/ImagenesCarasRed/ 28 23 1 5 73
-s15/ 1 2 3 4 5
-1
-../data/ImagenesCarasRed/s15/10.pgm 15
+../data/ImagenesCarasRed/ 28 23 5 5 21
+s3/ 1 2 3 4 5
+s8/ 1 2 3 4 5
+s24/ 1 2 3 4 5
+s28/ 1 2 3 4 5
+s36/ 1 2 3 4 5
+5
+../data/ImagenesCarasRed/s3/10.pgm 3
+../data/ImagenesCarasRed/s8/10.pgm 8
+../data/ImagenesCarasRed/s24/10.pgm 24
+../data/ImagenesCarasRed/s28/10.pgm 28
+../data/ImagenesCarasRed/s36/10.pgm 36

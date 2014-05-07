@@ -10,6 +10,7 @@
 
 #include "Matrix.h"
 #include "functions.h"
+#include "data.h"
 
 using namespace std;
 
@@ -34,120 +35,15 @@ int main(int argc, char* argv[]) {
 	string line;
 	char img_dir[50];
 	/* Valida que la estructura del archivo in sea la dada por la catedra */
-    ifstream inputFile(inFile);
-    ofstream stream;
-  	stream.open(outFile);
-  	
-  	if (inputFile.is_open())  {
-      /* Lee primer fila */
-      getline (inputFile,line);
-      vector<string> param = split(line);
+  ifstream inputFile(inFile);
+  ofstream stream;
+  stream.open(outFile);
+  //crear los datos, calculando y guardando todo en una instancia de la clase Data
+  Data datos(inputFile, stream, inFile);
 
-      if (param.size() != 6) {
-        cout << param.size();
-        cout << "Archivo invalido entrada " << endl;
-        exit(1);
-      }
-
-      strcpy(img_dir, param[0].c_str());
-      img_height = atoi(param[1].c_str());
-      img_width =	atoi(param[2].c_str());
-      subjects =	atoi(param[3].c_str());
-      samples = atoi(param[4].c_str());
-      k =	atoi(param[5].c_str());
- 	  }
-    else {
-		cout << "No se pudo abrir el archivo " << inFile << "\n";
-		exit(1);
-    }
-
-	Matrix A(subjects*samples,img_width*img_height);
-	Matrix Mu(1,img_width*img_height);
-
-	char img_file[50];
-	/* Lee las p filas siguientes y guarda las imagenes en la matriz */
-	for (int i=0; i < subjects; i++) {
-		getline (inputFile,line);
-		vector<string> param = split(line);
-
-		if (param.size() != samples + 1) {
-			cout << param.size();
-			cout << "Archivo invalido entrada " << endl;
-			exit(1);
-		}
-
-		strcpy(img_file, img_dir);
-		strcat(img_file, param[0].c_str());
-
-		for (int j = 0; j < samples; j++){
-			char img[50];
-			strcpy(img, img_file);
-			strcat(img, param[j+1].c_str());
-			strcat(img, ".pgm");
-
-			Matrix imgAsTrasposedVector(img);
-			Mu = Mu + imgAsTrasposedVector;
-
-			A.setRow(i * samples + j, imgAsTrasposedVector);
-		}
-	}
-
-	Matrix Acopy = A; //guardo el A original con las imagenes intactas
-
-	Mu = Mu/(subjects*samples);
-	double rootOfN = sqrt(subjects*samples - 1);
-	Matrix tmp (1, img_width*img_height);
-
-	for (int i = 0; i < subjects*samples; ++i)
-	{
-		tmp = (A.row(i) - Mu)/rootOfN;
-		A.setRow(i, tmp);
-	}
-
-	//Guardo una copia de la A original, ya que tiene todos los valores de las imagenes
-	//que preciso para inicializar el algoritmo de decision mas tarde.
-	Matrix At = A.transpuesta();
-	Matrix B = At*A;
-	Matrix autovectores = calculateK(B,k,stream);
-	Matrix kPoints = Acopy*autovectores; // size: subjects*samples X k;
-
-	Matrix kCentros = centrosDeMasa(kPoints, samples, subjects);
-
-	getline (inputFile,line);
-    vector<string> param = split(line);
-    int testImages = atoi(param[0].c_str());
-
-    double assertionsDistance = 0;
-    double assertionsDistanceToCentre = 0;
-
-    for (int i = 0; i < testImages; ++i)
-    {
-    	getline (inputFile,line);
-  		param = split(line);
-    	strcpy(img_dir, param[0].c_str());
-    	int whom = atoi(param[1].c_str());
-    	
-    	Matrix subject(img_dir);
-	// Se le resta el Mu y se divide por la raiz de n-1 a la nueva muestra
-    	subject = (subject - Mu)/rootOfN;
-	// Se busca las coordenadas de la muestra en la base de autovectores
-    	subject = subject * autovectores;
-
-    	int dist = whoIsIt(kPoints, subject, samples);
-    	cout << "----------" << endl;
-    	int distCentre = whoIsIt(kCentros, subject, 1);
-
-    	assertionsDistance += dist == whom ? 1 : 0;
-    	assertionsDistanceToCentre += (distCentre == whom) ? 1 : 0;
-
-    	cout << "Distancia a todos   | Caso " << i+1 << ", expected: " << whom << " actual: " << dist << endl;
-    	cout << "Distancia al centro | Caso " << i+1 << ", expected: " << whom << " actual: " << distCentre << endl;
-    }
-
-    cout << "Promedio distancia: " << assertionsDistance/testImages << " , distancia al centro: " << assertionsDistanceToCentre/testImages << endl;
 
 	stream.close();
-   	inputFile.close();
+  inputFile.close();
 
 	return 0;
 }
