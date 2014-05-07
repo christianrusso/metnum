@@ -1,31 +1,45 @@
 El método de la potencia asume que tenemos un autovalor dominante y que todos los autovalores son
-mayores o iguales a 0. $A^t A$ es simétrica por lo, que tenemos una base ortonormal de autovectores,
-y además es semi-defininda positiva, por lo que sus autovalores son positivos o 0.
+mayores o iguales a 0. $A^t A$ es simétrica por lo que tenemos una base ortonormal de autovectores
+y además es semi-defininda positiva, por lo que sus autovalores son positivos o 0. El problema es
+que no podemos asegurar que después de aplicar deflación, la matriz seguirá siendo semi-definida
+positiva, aunque sí simétrica. En esta sección, demostraremos los supuestos que asumimos para
+aplicar las técnicas en el trabajo.
 
-Queremos ver que al aplicar el método de la potencia para obtener el autovector del autovalor
-dominante y luego deflación la matriz sigue cumpliendo con estas propiedades.
 
-\ \\
-\textbf{Lema:} la matriz $A^t A$ sigue siendo simétrica y semi definida positiva después de apicar el
-algoritmo de deflación.
 
 \ \\
-Prueba: Sean $\lambda$ el autovalor dominante, $v$ su autovalor asociado y
 
-$B = A^t A - \lambda_{1} v v^t$.
+Sean $A \in \mathbb{R}^{n \times m}$, $A^t A \in \mathbb{R}^{m \times m}$, $\lambda \in \mathbb{R}$
+, $v \in \mathbb{R}^m$ y $B = A^t A - \lambda_{1} v v^t$.
 
-\ Simétrica:
+\ \\
+\textbf{Lema:} la matriz $A^t A$ y $A A^t$ son simétricas.
 
+\ \\
+Prueba:
+
+\begin{center}
+  $(A^t A)^t = (A)^t (A^t)^t = A^t A$
+  $(A A^t)^t = (A^t)^t (A)^t = A A^t$
+\end{center}
+
+(1) $A^t A$ simétrica y $v$ vector.
+\ \\
+
+\ \\
+\textbf{Lema:} la matriz $B$ es simétrica
+
+\ \\
+Prueba:
 
 \begin{center}
   $B_{ij} = (A^t A)_{ij} - \lambda v_i (v^t)_j = (A^t A)_{ij} - \lambda v_i v_j =^{(1)} (A^t A)_{ji}
   - \lambda v_j (v^t)_i = B_{ji}$
 \end{center}
 
-(1) $A$ simétrica y $v$ vector.
+(1) $A^t A$ simétrica y $v$ vector.
 \ \\
 
-\ Semi definida positiva: FAAAAAAAAAAAAAAAAAAALTA ESTOOOOOOOOOOOOOOOOOOOOOOOOOOO
 
 \ \\
 \textbf{Lema:} Los valores singulares de $A$ son los mismos que los valores singulares de $A^t$.

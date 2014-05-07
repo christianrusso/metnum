@@ -23,13 +23,18 @@ $|\lambda_1| > |\lambda_2| \geq |\lambda_3| \geq ... \geq |\lambda_n| \geq 0$
 %
 %\[ A^k x =  \sum_{j = 1}^n \beta_j \lambda_j^k v_j\]
 
-El procedimiento consiste en elegir un vector inicial $x \in \mathbb{R}^n$ y multiplicarlo por izquierda por la matriz $A^k$ 
-con $k \in \mathbb{N}$, y normalizar el vector resultante. Se puede demostrar que cuando $k \rightarrow \infty$, 
-$\frac{A^k}{\| A^k \| }$ tiende al autovector asociado al autovalor  dominante $\lambda_1$. Para más información, referirse
-a \cite{burden} 
+El procedimiento consiste en elegir un vector inicial $x \in \mathbb{R}^n$ y multiplicarlo por
+izquierda por la matriz $A^k$ con $k \in \mathbb{N}$, y normalizar el vector resultante. Se puede
+demostrar que cuando $k \rightarrow \infty$, $\frac{A^k}{\| A^k \| }$ tiende al autovector asociado
+al autovalor  dominante $\lambda_1$. Para más información, referirse a \cite{burden}
 
 \subsection{Deflación}
 
-``Deflation techniques involve forming a new matrix B whose eigenvalues are the same as those of A, except that the dominant eigenvalue of A is replaced by the eigenvalue $0$ in B.'' - \cite[p.~604]{burden}
+\textit{``Deflation techniques involve forming a new matrix B whose eigenvalues are the same as
+  those of A, except that the dominant eigenvalue of A is replaced by the eigenvalue $0$ in B.''} -
+\cite[p.~604]{burden}
 
-En nuestro caso, para obtener la matriz B, le restaremos a la matriz A otra matriz formada por su autovalor dominante y el autovector asociado a éste, de la siguiente manera: $B = A^t A - \lambda_{1} v v^t$. Más adelante demostraremos que esta operación cumple con lo esperado de una deflación.
+En nuestro caso, para obtener la matriz B, le restaremos a la matriz A otra matriz formada por su
+autovalor dominante y el autovector asociado a éste, de la siguiente manera: $B = A^t A -
+\lambda_{1} v v^t $. Más adelante demostraremos que esta operación cumple con lo esperado de una
+deflación.
