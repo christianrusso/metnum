@@ -14,6 +14,9 @@
 \contentsline {subsubsection}{\numberline {2.3.2}Pseudocodigo}{4}{subsubsection.2.3.2}
 \contentsline {subsubsection}{\numberline {2.3.3}Ejemplo}{4}{subsubsection.2.3.3}
 \contentsline {subsection}{\numberline {2.4}Deflacion}{8}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}Explicacion}{8}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Pseudocodigo}{8}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.3}Ejemplo}{8}{subsubsection.2.4.3}
 \contentsline {subsection}{\numberline {2.5}Demostraciones}{8}{subsection.2.5}
 \contentsline {section}{\numberline {3}Tests}{10}{section.3}
 \contentsline {section}{\numberline {4}Ap\'endice}{11}{section.4}
