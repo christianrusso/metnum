@@ -7,29 +7,64 @@ Volviendo al mismo ejemplo que en el Método de la Potencia, teníamos a
    0 & -1 & 3 \\
   \end{array} } \right]
 \]
-
-Y habíamos calculado su autovector $\lambda = 4$ dominante y al autovector $
-v =
-    \left[ {\begin{array}{H}
-
+Y habíamos calculado su autovector $\lambda_1 = 4$ dominante y al autovector 
+$ v =
+    \left[ {\begin{array}{ccc}
    1 \\
    -1 \\
    1 \\
-  \end{array} } \right]$
+  \end{array} } \right]$ asociado. Para deflación requerimos de un autovector con norma igual a 1,
+ entonces lo dividimos por su norma: 
+\[ v_1 = \frac{1}{\sqrt{3}}
+    \left[ {\begin{array}{ccc}
+   1 \\
+   -1 \\
+   1 \\
+  \end{array} } \right] = 
+  \left[ {\begin{array}{ccc}
+   1/\sqrt{3} \\
+   -1/\sqrt{3} \\
+   1/\sqrt{3} \\
+  \end{array} } \right] \]
 
-  $B = A - \lambda_1 v v^t =
+\[   B = A - \lambda_1 v_1 v_1^t =
   \left[ {\begin{array}{ccc}
    3 & -1 & 0 \\
    -1 & 2 & -1 \\
-   0 & -1 & 3 \\
-  \end{array} } \right] - 4 
+   0 & -1 & 3 \\ 
+   \end{array} } \right] - 4/(\sqrt{3})^2 
   \left[ {\begin{array}{ccc}
    1 & -1 & 1 \\
    -1 & 1 & -1 \\
    1 & -1 & 1 \\
   \end{array} } \right] = 
   \left[ {\begin{array}{ccc}
-   -1 & 3 & -4 \\
-   3 & -2 & 3 \\
-   -4 & 3 & -1 \\
-  \end{array} } \right]
+   5/3 & 1/3 & -4/3 \\
+   1/3 & 2/3 & 1/3 \\
+   -4/3 & 1/3 & 5/3 \\
+  \end{array} } \right] \] 
+
+Si calculamos los autovectores y autovalores de esta matriz, usando software específico a elección o 
+usando lápiz y papel, obtendremos los siguientes:
+
+\ \\ 
+   Los autovalores quedarían: [ 0, 1, 3 ]  y sus respectivos autovectores por columna 
+\begin{center}
+$\left[ {\begin{array}{c}
+1 \\
+-1\\
+1  \\
+\end{array} } \right]  ,
+\left[ {\begin{array}{c}
+  -1  \\
+  0 \\
+  1  \\
+\end{array} }\right] ,
+\left[ {\begin{array}{c}
+ 1 \\
+ 2 \\
+ 1 \\
+\end{array} } \right]$
+\end{center}
+
+como esperábamos.

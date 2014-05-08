@@ -17,9 +17,9 @@
 \contentsline {subsubsection}{\numberline {2.4.1}Explicacion}{8}{subsubsection.2.4.1}
 \contentsline {subsubsection}{\numberline {2.4.2}Pseudocodigo}{8}{subsubsection.2.4.2}
 \contentsline {subsubsection}{\numberline {2.4.3}Ejemplo}{8}{subsubsection.2.4.3}
-\contentsline {subsection}{\numberline {2.5}Demostraciones}{8}{subsection.2.5}
-\contentsline {section}{\numberline {3}Tests}{10}{section.3}
-\contentsline {section}{\numberline {4}Ap\'endice}{11}{section.4}
-\contentsline {subsection}{\numberline {4.1}Enunciado}{11}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}M\'etodo de compilaci\'on}{11}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Referencias bibliogr\'aficas}{11}{subsection.4.3}
+\contentsline {subsection}{\numberline {2.5}Demostraciones}{9}{subsection.2.5}
+\contentsline {section}{\numberline {3}Tests}{11}{section.3}
+\contentsline {section}{\numberline {4}Ap\'endice}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}Enunciado}{12}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}M\'etodo de compilaci\'on}{12}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Referencias bibliogr\'aficas}{12}{subsection.4.3}
