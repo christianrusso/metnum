@@ -9,11 +9,11 @@ aplicar las técnicas en el trabajo.
 
 \ \\
 
-Sean $A \in \mathbb{R}^{n \times m}$, $A^t A \in \mathbb{R}^{m \times m}$, $\lambda \in \mathbb{R}$
+Sean $A \in \mathbb{R}^{n \times m}$, $A^t A \in \mathbb{R}^{m \times m}$, $A A^t \in \mathbb{R}^{n \times n}$, $\lambda \in \mathbb{R}$
 , $v \in \mathbb{R}^m$ y $B = A^t A - \lambda_{1} v v^t$.
 
 \ \\
-\textbf{Lema:} la matriz $A^t A$ y $A A^t$ son simétricas.
+\textbf{Lema:} las matrices $A^t A$ y $A A^t$ son simétricas.
 
 \ \\
 Prueba:
@@ -22,8 +22,6 @@ Prueba:
   $(A^t A)^t = (A)^t (A^t)^t = A^t A$
   $(A A^t)^t = (A^t)^t (A)^t = A A^t$
 \end{center}
-
-(1) $A^t A$ simétrica y $v$ vector.
 \ \\
 
 \ \\
@@ -58,8 +56,8 @@ mismos y, por ende, los valores singulares también.
 \textbf{Lema:} Si $A \in \mathbb{R}^{nxm},\Sigma \in \mathbb{R}^{mxn}, U \in \mathbb{C}^{mxm}, V \in
 \mathbb{C}^{nxn}, A = U \Sigma V^t$, entonces:
 \begin{compactitem}
-  \item $A^t = V \Sigma U^t $ con $A^t \in \mathbb{R}^{m \times n}$
-  \item $A A^t = U \Lambda U^t $ con $\Lambda$ la matriz con los autovalores de $A$ y $A^t$ en
+  \item $A^t = V \Sigma U^t$ con $A^t \in \mathbb{R}^{m \times n}$
+  \item $A A^t = U \Lambda U^t$ con $\Lambda$ la matriz con los autovalores de $A$ y $A^t$ en
     la diagonal y $A A^t \in \mathbb{R}^{n \times n}$.
   \item $A^t A = V \Lambda V^t $ con $\Lambda$ la matriz con los autovalores de $A$ y $A^t$ en
     la diagonal $A^t A \in \mathbb{R}^{m \times m}$.
@@ -78,5 +76,3 @@ $A^t A = V \Sigma U^t U \Sigma V^t =^{(1)} V \Sigma \Sigma V^t =^{(2)} V \Lambda
 (1) $U$ y $V$ matrices ortogonales
 
 (2) $\lambda$ diagonal con valores singulares en la diagonal.
-
-
