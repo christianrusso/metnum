@@ -21,5 +21,8 @@
 \contentsline {section}{\numberline {3}Tests}{11}{section.3}
 \contentsline {section}{\numberline {4}Ap\'endice}{12}{section.4}
 \contentsline {subsection}{\numberline {4.1}Enunciado}{12}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}M\'etodo de compilaci\'on}{12}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Referencias bibliogr\'aficas}{12}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.2}Generador de Tests}{13}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}M\'etodo de compilaci\'on}{13}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}M\'etodo 1}{13}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}M\'etodo 2}{13}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}Referencias bibliogr\'aficas}{13}{subsection.4.4}

@@ -41,7 +41,7 @@ def caseVariandoPersonasRed(k, cantPersonas, metodo):
 		f = open(directory+filename,'w')
 		
 		#fijamos la cantidad de iteraciones en 100 pues esto lo variamos dentro del codigo, por cuestiones de tiempo de computo, ya que con las 100 podemos realizar hacer los 100 casos.
-		f.write("../data/ImagenesCarasRed/ 28 23 " + str(cantPersonas) + ' ' + str(samples) + '' + str(k) + '' +'\n')
+		f.write("../data/ImagenesCarasRed/ 28 23 " + str(cantPersonas) + ' ' + str(samples) + ' ' + str(k) + '' +'\n')
 		for x in range(1,cantPersonas+1):
 			personas.append(random.sample(range(1, 11),10))
 		for x in range(1,cantPersonas+1):

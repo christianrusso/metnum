@@ -1,7 +1,89 @@
 \section{Ap\'endice}
 \subsection{Enunciado}
 
+
+Se pide implementar un programa en \verb+C+ o \verb-C++- que lea desde archivos las im\'agenes de entrenamiento correspondientes a distintas
+personas y que, utilizando la descomposici\'on en valores singulares y el n\'umero de componentes principales $k$
+mencionado anteriormente, calcule la transformaci\'on caracter\'istica de acuerdo con la descripci\'on anterior. Se debe
+proponer e implementar al menos un m\'etodo que, dada una nueva imagen de una cara, determine a que persona de la base
+de datos corresponde utilizando la transformaci\'on caracter\'istica.
+
+Con el objetivo de obtener la descomposici\'on en valores singulares, se deber\'a implementar el m\'etodo de la potencia
+con deflaci\'on para la estimaci\'on de autovalores/autovectores. En este contexto, la factibilidad de aplicar este
+m\'etodo es particularmente sensible al tama\~no de las im\'agenes de la base de datos. Por ejemplo, considerar im\'agenes
+en escala de grises de $100 \times 100$ p\'ixeles implicar\'ia trabajar con matrices de tama\~no $10000 \times
+10000$. Una alternativa es reducir el tama\~no de las im\'agenes, por ejemplo, mediante un submuestreo. 
+Sin embargo, es posible superar esta dificultad en los casos donde el n\'umero de muestras es menor que el
+n\'umero de variables. Se pide desarrollar las siguientes sugerencias y fundamentar como utilizarlas en el contexto del
+trabajo.
+
+\begin{itemize}
+\item Dada una matriz y su descomposici\'on en valores singulares $A = U \Sigma V^t$, encontrar la descomposici\'on en
+valores singulares de $A^t$. C\'omo se relacionan los valores singulares de $A$ y $A^t$?
+\item Dada la descomposici\'on en valores singulares de $A$, expresar en funci\'on de $U$, $\Sigma$ y $V$ las matrices
+$A^t$, $A^tA$ y $AA^t$. Analizar el tama\~no de cada una de ellas y deducir como relacionar las respectivas componentes
+principales.
+Combinar con el item anterior para el c\'omputo de los componentes principales.
+\end{itemize}
+
+En base a este an\'alisis, se pide desarrollar una herramienta alternativa que permita trabajar bajo ciertas condiciones
+con im\'agenes de tama\~no mediano/grande.
+
+Junto con este enunciado se provee una base de datos de im\'agenes correspondiente a 41 personas, con 10
+im\'agenes por cada una de ellas. Esta base de datos se encuentra disponible en dos resoluciones distintas: $92 \times
+112$ y $23 \times 28$ p\'ixeles por cada imagen. La segunda corresponde a un submuestreo de la base original.
+En relaci\'on a la experimentaci\'on, se pide como m\'inimo realizar los siguientes experimentos:
+\begin{itemize}
+\item Analizar para cada una de las variantes qu\'e versi\'on de la base de datos es posible utilizar, en base a
+requerimientos de memoria y tiempo de c\'omputo.
+
+\item Para cada una de las variantes propuestas, analizar el impacto en la tasa de efectividad del algoritmo de reconocimiento al
+variar la cantidad de componentes principales considerados. Estudiar tambi\'en como impacta la cantidad de im\'agenes
+consideradas para cada persona en la etapa de entrenamiento.
+
+\item En caso de considerar m\'as de una posibilidad para determinar a que persona corresponde una nueva cara,
+considerar para cada una la mejor configuraci\'on de par\'ametros y compararlas entre ellas.
+\end{itemize}
+
+El objetivo final de la experimentaci\'on es proponer una configuraci\'on de par\'armetros/m\'etodos que obtenga
+resultados un buen balance entre la tasa de efectividad de reconocimiento de caras, la factibilidad de la propuesta y el
+tiempo de c\'omputo requerido.
+
+
+
+
+
+\subsection{Generador de Tests}
+
+Para generar Tests realizamos un algoritmo en Python en el cual recibimos por parametros el $k$, la cantidad de personas y el metodo a aplicar. Luego variamos la cantidad de personas en un rango de \{1,11,21,31,41\}. Para cada una de estas  variamos la cantidad de imagenes por persona de en el intervalo de 1 a 10 de manera random y comparamos contra una imagen que no sea una muestra (exceptuando el caso en el que cada persona tiene 10 muestras).
+El valor de $k$ lo variamos desde adentro del codigo \verb-C++- con el fin de ahorrar calculos ya calculados anteriormente.
+
 \subsection{M\'etodo de compilaci\'on}
+
+\subsubsection{M\'etodo 1}
+\begin{framed}
+Parados en la carpeta /src del proyecto ejecutar 
+\begin{verbatim}
+$ make
+\end{verbatim}
+De esta forma se limpia, compila y ejecutan los test provistos por la c\'atedra.
+Para compilar por separado se puede hacer:  \textbf{make data.o}, \textbf{make functions.o}, \textbf{make Matrix.o,} \textbf{make main.o}. O tambien se puede borrar haciendo \textbf{make clean}. Por defecto al ejecutar \textbf{make} el nombre del ejecutable es \textbf{caritas}
+\end{framed}
+
+\subsubsection{M\'etodo 2}
+\begin{framed}
+Parados en la carpeta donde se encuentra el ejecutable (por ejemplo /src/) 
+\begin{verbatim}
+$ ./ejecutable < PATH TEST IN > <lala> <METODO>
+\end{verbatim}
+Donde METODO puede ser 
+\begin{itemize}
+	\item 0: Utiliza para los calculos $A^tA$
+	\item 1: Utiliza para los calculos $AA^t$
+\end{itemize}
+\end{framed}
+
+
 
 
 \subsection{Referencias bibliogr\'aficas}
