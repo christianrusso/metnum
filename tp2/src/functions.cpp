@@ -14,9 +14,9 @@ void init_time()
 
 double get_time()
 {
-     gettimeofday(&end,NULL);
-     return
-(1000000*(end.tv_sec-start.tv_sec)+(end.tv_usec-start.tv_usec))/1000000.0;
+    gettimeofday(&end,NULL);
+    return
+	(1000000*(end.tv_sec-start.tv_sec)+(end.tv_usec-start.tv_usec))/1000000.0;
 }
 
 double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
