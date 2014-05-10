@@ -15,19 +15,6 @@
  #include <sys/time.h>
 using namespace std;
 
-timeval start, end;
-
-void init_time()
-{
-     gettimeofday(&start,NULL);
-}
-
-double get_time()
-{
-     gettimeofday(&end,NULL);
-     return
-(1000000*(end.tv_sec-start.tv_sec)+(end.tv_usec-start.tv_usec))/1000000.0;
-}
 //////////////////////////////////////////////////////////////
 
 // Constructors
@@ -38,69 +25,103 @@ Data::Data(ifstream &inputFile, ofstream &stream, char* inFile, std::ofstream &t
 
   setearParamsSimples(inputFile, inFile);
   importarImgs(inputFile);
+  leerImagenesDeTest(inputFile);
+
   init_time();
   restarMuYHacerSqrt();
-  
-  calcularAutovectores(stream, method);
-  for (int i = 1; i <= k; i++){
-  
-      calcularNuevasCoordenadas();
+  kCommonTime = get_time();
 
-	  
-	  tTraspasarEspacios = get_time();
-	  
+  calcularAutovectores(stream, method); //este metodo caculas los tiempos de forma independiente
+
+  //guardo los autovectores originales
+  Matrix todosLosAutovectores = autovectores;
+  for (kActual = 1; kActual <= k; kActual++){
+    Matrix autovectoresK(todosLosAutovectores.n,kActual);
+    for(int j = 0; j < kActual; j++){
+      Matrix unAutovector = todosLosAutovectores.col(j);
+      autovectoresK.setColumn(j,unAutovector);
+    }
+    //defino autovectores, con los primeros i de la matriz orignal
+    autovectores = autovectoresK;
+
+    init_time();
+    calcularNuevasCoordenadas();
+	  tTodos = get_time(); //solo necesito cambiar de coordenadas para comparar contra todos
 	  calcularKCentrosDeMasa();
-	  identificarSujetos(inputFile);
-	  tK = get_time();
-	  tTraspasarEspacios = tk-get_time();
+	  tCentro = get_time(); //para comparar con los centors tambien los debo calcular
+
+    identificarSujetos();//este metodo guarda los tiempos de manera independiente en tTods y tCentro
+	  
+    timesLog << kActual << "\t" << samples << "\t" << subjects << "\t";
+    timesLog << (kCommonTime + tK[kActual-1] + kOnlyTransposedTime*kActual/k); //kOnlytransposedTime es cero en caso de utilizar el metodo de la matriz transpuesta, por lo que no afecta los calculos
+    timesLog << "\t" << tTodos << "\t" << tCentro;
+    timesLog << "\t"  <<  hitsTodos << "\t" << hitsCentro << "\t" << endl;
 	}
-  timesLog << k << "\t" << samples << "\t" << subjects << "\t" << tK << "\t" << tTraspasarEspacios << "\t" << tTodos << "\t" << tCentro << endl;
   
 }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 
 //Funciones
 //
-
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
-void Data::identificarSujetos(std::ifstream &inputFile){
+void Data::leerImagenesDeTest(std::ifstream &inputFile){
   string line;
   getline (inputFile,line);
   vector<string> param = split(line);
-  int testImages = atoi(param[0].c_str());
-
-  double assertionsDistance = 0;
-  double assertionsDistanceToCentre = 0;
-
-  for (int i = 0; i < testImages; ++i)
+  testSubjects = atoi(param[0].c_str());
+  
+  for (int i = 0; i < testSubjects; ++i)
   {
-  	getline (inputFile,line);
+    getline (inputFile,line);
     param = split(line);
-  	strcpy(img_dir, param[0].c_str());
-  	int whom = atoi(param[1].c_str());
+    strcpy(img_dir, param[0].c_str());
+    int whom = atoi(param[1].c_str());
+    testExpectedSubject.push_back(whom);
+    Matrix subject(img_dir);
+    testSubjectImg.push_back(subject);
+  }
+}
 
-  	Matrix subject(img_dir);
-	double rootOfN = sqrt(subjects*samples - 1);
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
+void Data::identificarSujetos(){
+  hitsTodos = 0;
+  hitsCentro = 0;
+
+  for (int i = 0; i < testSubjects; ++i)
+  {
+    Matrix subject = testSubjectImg[i];
+    int whom = testExpectedSubject[i];
+
+	  double rootOfN = sqrt(subjects*samples - 1);
 // Se le resta el Mu y se divide por la raiz de n-1 a la nueva muestra
-  	subject = (subject - Mu)/rootOfN;
+  	init_time(); //empiezo a contar el tiempo
+    subject = (subject - Mu)/rootOfN;
 
 // Se busca las coordenadas de la muestra en la base de autovectores
   	subject = subject * autovectores;
+    double processImage = get_time();
+    tCentro += processImage;
+    tTodos += processImage;
 
+    init_time(); //empiezo a contar el tiempo
   	int dist = whoIsIt(kPoints, subject, samples);
-  	cout << "----------" << endl;
-  	int distCentre = whoIsIt(kCentros, subject, 1);
-	
-  	assertionsDistance += dist == whom ? 1 : 0;
-  	assertionsDistanceToCentre += (distCentre == whom) ? 1 : 0;
+    tCentro += get_time();
 
-  	cout << "Distancia a todos   | Caso " << i+1 << ", expected: " << whom << " actual: " << dist << endl;
-  	cout << "Distancia al centro | Caso " << i+1 << ", expected: " << whom << " actual: " << distCentre << endl;
+    init_time(); //empiezo a contar el tiempo
+    int distCentre = whoIsIt(kCentros, subject, 1);
+    tCentro += get_time();
+
+  	hitsTodos += dist == whom ? 1 : 0;
+  	hitsCentro += (distCentre == whom) ? 1 : 0;
+
+  //	cout << "Distancia a todos   | Caso " << i+1 << ", expected: " << whom << " actual: " << dist << endl;
+  //	cout << "Distancia al centro | Caso " << i+1 << ", expected: " << whom << " actual: " << distCentre << endl;
   }
-
-  cout << "Promedio distancia: " << assertionsDistance/testImages << " , distancia al centro: " << assertionsDistanceToCentre/testImages << endl;
-
+  hitsTodos = hitsTodos/testSubjects;
+  hitsCentro = hitsCentro/testSubjects;
+  // cout << "Promedio distancia: " << assertionsDistance/testSubjects << " , distancia al centro: " << assertionsDistanceToCentre/testSubjects << endl;
 }
+
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 const Matrix& Data::getKCentros(){
   return kCentros;
@@ -117,6 +138,7 @@ void Data::calcularNuevasCoordenadas(){
 }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 void Data::calcularAutovectores(ofstream &stream, int method){
+  init_time();
   Matrix At = A_final.transpuesta();
   Matrix B;
 	if(method == 0){
@@ -124,8 +146,12 @@ void Data::calcularAutovectores(ofstream &stream, int method){
 	} else {
 	  B = A_final*At;
 	}
-	autovectores = calculateK(B,k,stream);
-	if(method == 1){
+  kCommonTime += get_time();
+
+	autovectores = calculateK(B,k,stream,tK);
+
+  init_time();
+  if(method == 1){
 	  autovectores = At * autovectores;
       for (int i = 0; i < autovectores.m ; ++i){
 		Matrix vector = autovectores.col(i); //agarro el vector
@@ -133,7 +159,7 @@ void Data::calcularAutovectores(ofstream &stream, int method){
 		autovectores.setColumn(i, vector);
 	  }
 	}
-
+  kOnlyTransposedTime = get_time();
 }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 void Data::restarMuYHacerSqrt(){

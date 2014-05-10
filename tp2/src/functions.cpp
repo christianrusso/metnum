@@ -1,7 +1,23 @@
 #include "functions.h"
 #include <math.h>
+#include <sys/time.h>
+
 
 using namespace std;
+
+timeval start, end;
+
+void init_time()
+{
+     gettimeofday(&start,NULL);
+}
+
+double get_time()
+{
+     gettimeofday(&end,NULL);
+     return
+(1000000*(end.tv_sec-start.tv_sec)+(end.tv_usec-start.tv_usec))/1000000.0;
+}
 
 double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 	Matrix v;
@@ -10,9 +26,7 @@ double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 	int i;
 	for (i = 0; i < niters; ++i)
 	{
-		//cout << "Ancho matriz " << B.m << " alto vector " << v.n << endl;
 		w = B*v;
-		//cout << "Ancho matriz " << B.m << " alto vector " << v.n << endl;
 		autovector = w/(w.normVector());
 		if (autovector == v) break;
 		v = autovector;
@@ -62,7 +76,9 @@ vector<string> split(string &line) {
 }
 
 
-Matrix calculateK(Matrix& B, int k, ofstream& stream){
+Matrix calculateK(Matrix& B, int k, ofstream& stream, std::vector<double>& tK){
+	init_time();
+	double kTime = 0;
 	int size = B.n;
 	Matrix x0(B.m,1);
 	Matrix autovector(size,1);
@@ -76,10 +92,14 @@ Matrix calculateK(Matrix& B, int k, ofstream& stream){
 	for (int i = 0; i < k; i++)
 	{
 		double lambda = powerMethod(B,x0,10000,autovector);
-		stream.precision(10);
-		stream << sqrt(lambda) << endl;
 		deflation(B, autovector,lambda);
 		autovectores.setColumn(k-1-i,autovector);
+
+		kTime += get_time();
+		tK.push_back(kTime); // Guardo el tiempo en calcular del primero al iesimo autovector
+		stream.precision(10);
+		stream << sqrt(lambda) << endl; // imprimo el lambda
+		init_time(); // Reinicio el tiempo
 	}
 	return autovectores;
 }
