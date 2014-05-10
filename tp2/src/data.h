@@ -12,7 +12,7 @@ class Data {
 public:
 
     Data();
-    Data(std::ifstream &inputFile, std::ofstream &stream, char* inFile);
+    Data(std::ifstream &inputFile, std::ofstream &stream, char* inFile, std::ofstream &timesLog, int method);
 
     /* Funciones Publicas */
     const Matrix& getKCentros();
@@ -23,13 +23,14 @@ private:
   int img_height, img_width;
   int subjects, samples;
   int k;
+  double tK, tTraspasarEspacios, tTodos, tCentro;
 
   Matrix A_orig, Mu, A_final, autovectores, kPoints, kCentros;
   //funciones privadas
   void setearParamsSimples(std::ifstream &inputFile, char* inFile);
   void importarImgs(std::ifstream &inputFile);
   void restarMuYHacerSqrt();
-  void calcularAutovectores(std::ofstream &stream);
+  void calcularAutovectores(std::ofstream &stream, int method);
   void calcularNuevasCoordenadas();
   void calcularKCentrosDeMasa();
   void identificarSujetos(std::ifstream &inputFile);
