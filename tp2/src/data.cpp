@@ -12,22 +12,50 @@
 #include "functions.h"
 #include "data.h"
 
-
+ #include <sys/time.h>
 using namespace std;
 
+timeval start, end;
+
+void init_time()
+{
+     gettimeofday(&start,NULL);
+}
+
+double get_time()
+{
+     gettimeofday(&end,NULL);
+     return
+(1000000*(end.tv_sec-start.tv_sec)+(end.tv_usec-start.tv_usec))/1000000.0;
+}
+//////////////////////////////////////////////////////////////
 
 // Constructors
 Data::Data(){ }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
-Data::Data(ifstream &inputFile, ofstream &stream, char* inFile){
+Data::Data(ifstream &inputFile, ofstream &stream, char* inFile, std::ofstream &timesLog, int method){
   //Instancia la clase que sabe hacer todo con las imagenes
+
   setearParamsSimples(inputFile, inFile);
   importarImgs(inputFile);
+  init_time();
   restarMuYHacerSqrt();
-  calcularAutovectores(stream);
-  calcularNuevasCoordenadas();
-  calcularKCentrosDeMasa();
-  identificarSujetos(inputFile);
+  
+  calcularAutovectores(stream, method);
+  for (int i = 1; i <= k; i++){
+  
+      calcularNuevasCoordenadas();
+
+	  
+	  tTraspasarEspacios = get_time();
+	  
+	  calcularKCentrosDeMasa();
+	  identificarSujetos(inputFile);
+	  tK = get_time();
+	  tTraspasarEspacios = tk-get_time();
+	}
+  timesLog << k << "\t" << samples << "\t" << subjects << "\t" << tK << "\t" << tTraspasarEspacios << "\t" << tTodos << "\t" << tCentro << endl;
+  
 }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 
@@ -47,7 +75,7 @@ void Data::identificarSujetos(std::ifstream &inputFile){
   for (int i = 0; i < testImages; ++i)
   {
   	getline (inputFile,line);
-		param = split(line);
+    param = split(line);
   	strcpy(img_dir, param[0].c_str());
   	int whom = atoi(param[1].c_str());
 
@@ -55,13 +83,14 @@ void Data::identificarSujetos(std::ifstream &inputFile){
 	double rootOfN = sqrt(subjects*samples - 1);
 // Se le resta el Mu y se divide por la raiz de n-1 a la nueva muestra
   	subject = (subject - Mu)/rootOfN;
+
 // Se busca las coordenadas de la muestra en la base de autovectores
   	subject = subject * autovectores;
 
   	int dist = whoIsIt(kPoints, subject, samples);
   	cout << "----------" << endl;
   	int distCentre = whoIsIt(kCentros, subject, 1);
-
+	
   	assertionsDistance += dist == whom ? 1 : 0;
   	assertionsDistanceToCentre += (distCentre == whom) ? 1 : 0;
 
@@ -84,13 +113,26 @@ void Data::calcularKCentrosDeMasa(){
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 void Data::calcularNuevasCoordenadas(){
   //Setea en kPoints las nuevas coordenadas de las imagenes originales
-	kPoints = A_orig*autovectores; // size: subjects*samples X k;
+	kPoints = A_final*autovectores; // size: subjects*samples X k;
 }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
-void Data::calcularAutovectores(ofstream &stream){
+void Data::calcularAutovectores(ofstream &stream, int method){
   Matrix At = A_final.transpuesta();
-	Matrix B = At*A_final;
+  Matrix B;
+	if(method == 0){
+	  B = At*A_final;
+	} else {
+	  B = A_final*At;
+	}
 	autovectores = calculateK(B,k,stream);
+	if(method == 1){
+	  autovectores = At * autovectores;
+      for (int i = 0; i < autovectores.m ; ++i){
+		Matrix vector = autovectores.col(i); //agarro el vector
+		vector = vector/vector.normVector(); //lo normalizo
+		autovectores.setColumn(i, vector);
+	  }
+	}
 
 }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/

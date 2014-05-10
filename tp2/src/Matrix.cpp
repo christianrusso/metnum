@@ -279,14 +279,22 @@ void Matrix::set(int i, int j, double value){
 
 double Matrix::normVector(){
     double r;
-    if(m>1) {
-        cout << "No es un vector columna" << endl;
-        exit(1);
-    } 
-    for (int i = 0; i < n; ++i)
-    {
-        r += mat[i][0]*mat[i][0];
-    }
+    if(m >= 1 && n == 1) {
+        for (int i = 0; i < n; ++i)
+		{
+			r += mat[0][i]*mat[0][i];
+		}
+    } else if(n > 1 && m == 1) {
+		for (int i = 0; i < n; ++i)
+		{
+			r += mat[i][0]*mat[i][0];
+		}
+	} else {
+		cout << "No se puede calcular la norma de una matriz que no es un vector" << endl;
+		exit(1);
+	}
+	
+    
     return sqrt(r);
 }
 
@@ -307,7 +315,7 @@ double Matrix::distance(Matrix& vector){
     double dist = 0;
     for (int i = 0; i < vector.m; ++i)
     {
-        double diff = mat[0][i] * vector.get(0,i);
+        double diff = mat[0][i] - vector.get(0,i);
         dist += diff*diff;
     }
     return sqrt(dist);

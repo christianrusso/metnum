@@ -27,15 +27,22 @@ int main(int argc, char* argv[]) {
   char* outFile = argv[2];
   int method = atoi(argv[3]);
 
+	char timesFile[strlen(inFile)+5];
+	strcpy(timesFile, outFile);
+	strcat(timesFile, ".times");
+
   string line;
   char img_dir[50];
   ifstream inputFile(inFile);
   ofstream stream;
   stream.open(outFile);
+  ofstream timesLog;
+  timesLog.open(timesFile);
+  timesLog << "k \t samples \t personas \t tK \t tTraspasarEspacios \t tTodos \t tCentro" << endl;
   //crear los datos, calculando y guardando todo en una instancia de la clase Data
-  Data datos(inputFile, stream, inFile);
+  Data datos(inputFile, stream, inFile, timesLog, method);
 
-
+  timesLog.close();
   stream.close();
   inputFile.close();
 
