@@ -1,16 +1,37 @@
 El método de la potencia asume que tenemos un autovalor dominante y que todos los autovalores son
 mayores o iguales a 0. $A^t A$ es simétrica por lo que tenemos una base ortonormal de autovectores
 y además es semi-defininda positiva, por lo que sus autovalores son positivos o 0. El problema es
-que no podemos asegurar que después de aplicar deflación, la matriz seguirá siendo semi-definida
-positiva, aunque sí simétrica. En esta sección, demostraremos los supuestos que asumimos para
-aplicar las técnicas en el trabajo.
-
+que no podemos asegurar que después de aplicar deflación la matriz seguirá siendo semi-definida
+positiva, aunque sí simétrica. Sin embargo, asumiremos estos supuestos de todas formas en este
+trabajo. Demostraremos algunas consecuencias de asumir esto.
 
 
 \ \\
 
 Sean $A \in \mathbb{R}^{n \times m}$, $A^t A \in \mathbb{R}^{m \times m}$, $A A^t \in \mathbb{R}^{n \times n}$, $\lambda \in \mathbb{R}$
-, $v \in \mathbb{R}^m$ y $B = A^t A - \lambda_{1} v v^t$.
+, $v \in \mathbb{R}^m$, $u \in \mathbb{R}^n$, $\lambda \in \mathbb{R}$, $B = A^t A - \lambda v v^t$, $\Sigma \in \mathbb{R}^{mxn}, U \in \mathbb{C}^{mxm}, V \in
+\mathbb{C}^{nxn}$ y $A = U \Sigma V^t$, demostraremos algunas hipótesis que habíamos asumido para
+este trabajo.
+
+\ \\
+\textbf{Lema:} Si $v$ y $v'$ son vectores de una base ortonormal de autovectores de $A^t A$ con
+autovalores asociados $\lambda$ y $\lambda'$, entonces v es autovector de B con autovalor 0 y $v'$
+es autovector de B con autovalor $\lambda'$
+\begin{compactitem}
+  \item $B v = 0 v = 0$
+  \item $B v' = \lambda' v$
+\end{compactitem}
+
+\ \\
+Prueba:
+\begin{center}
+$B v =  (A^t A)v - (\lambda v v^t)v = \lambda v - \lambda v (v^t v) = \lambda v - \lambda v = 0 v =
+0$
+
+$B v' =  (A^t A)v' - (\lambda v v^t)v' = \lambda' v' - \lambda v (v^t v') = \lambda' v -
+\lambda v (0) = \lambda' v'$
+\end{center}
+
 
 \ \\
 \textbf{Lema:} las matrices $A^t A$ y $A A^t$ son simétricas.
@@ -22,6 +43,8 @@ Prueba:
   $(A^t A)^t = (A)^t (A^t)^t = A^t A$
   $(A A^t)^t = (A^t)^t (A)^t = A A^t$
 \end{center}
+\ \\
+
 \ \\
 
 \ \\
@@ -53,8 +76,7 @@ mismos y, por ende, los valores singulares también.
 
 
 \ \\
-\textbf{Lema:} Si $A \in \mathbb{R}^{nxm},\Sigma \in \mathbb{R}^{mxn}, U \in \mathbb{C}^{mxm}, V \in
-\mathbb{C}^{nxn}, A = U \Sigma V^t$, entonces:
+\textbf{Lema:}
 \begin{compactitem}
   \item $A^t = V \Sigma U^t$ con $A^t \in \mathbb{R}^{m \times n}$
   \item $A A^t = U \Lambda U^t$ con $\Lambda$ la matriz con los autovalores de $A$ y $A^t$ en
@@ -76,3 +98,17 @@ $A^t A = V \Sigma U^t U \Sigma V^t =^{(1)} V \Sigma \Sigma V^t =^{(2)} V \Lambda
 (1) $U$ y $V$ matrices ortogonales
 
 (2) $\lambda$ diagonal con valores singulares en la diagonal.
+
+\ \\
+\textbf{Lema:} Si $u$ es autovector de $A A^t$ con $\lambda$ autovalor asociado, entonces $A^t u \in
+\mathbb{R}^m$ es autovector de $A^t A$ también con $\lambda$ autovalor asociado.
+\ \\
+Prueba:
+\begin{center}
+  $A A^t u = \lambda u \iff^{(1)} A^t A A^t u = \lambda A^t u \iff A^t A (A^t u) = \lambda (A^t u)$
+\end{center}
+(1) Se multiplica por $A^t$ de ambos lados.
+
+Por ende, $A^t u$ es autovector de $A^t A$.
+
+

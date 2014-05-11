@@ -1,0 +1,18 @@
+Después de aplicar el Método de la Potencia obtenemos un autovector y su autovalor asociado con
+módulo máximo, pero para obtener los siguientes debemos recurrir a algún tipo de deflación. Este
+proceso consiste en anular el autovalor del autovector dominante para luego de que se corra el
+Método de la Potencia una segunda vez, se obtenga el segundo autovalor dominante.
+
+Hay muchas técnicas de deflación, algunas de las más usadas se pueden encontrar en \cite{burden},
+pero la que aplicaremos en este trabajo consiste en restarle a una matriz A original una combinación
+entre el autovector dominante encontrado por el Método de la Potencia y su autovalor asociado.
+
+Sea $A$ la matriz original con por lo menos dos autovalores dominantes distintos, entonces la matriz
+$B = A^t A - \lambda_{1} v v^t$ tiene a los mismos autovectores que A y los mismos autovectores
+asociados para todo $\lambda_i$ con $i \neq 1$. En el caso de $\lambda_1$, ahora vale 0.
+\footnote{demostrado en la sección Demostraciones}.
+
+El único \textit{problema} de esto es que si aplicamos Método de la Potencia + Deflación \texttt{k}
+veces, entonces estaríamos asumiendo que hay por lo menos \texttt{k} autovalores dominantes
+distintos, que no siempre es el caso. Es una buena propuesta para un trabajo a futuro investigar más
+en detalle en qué situaciones no sería correcto asumir esto.
