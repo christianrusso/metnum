@@ -22,13 +22,13 @@
 \contentsline {subsection}{\numberline {3.1}Experimentacion con Imagenes Reducidas}{11}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}Metodo 0: Utilizando $A^tA$}{11}{subsubsection.3.1.1}
 \contentsline {subsubsection}{\numberline {3.1.2}Metodo 1: Utilizando $AA^t$}{20}{subsubsection.3.1.2}
-\contentsline {subsection}{\numberline {3.2}Experimentacion con Imagenes Full}{20}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Metodo 0: Utilizando $A^tA$}{20}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Metodo 1: Utilizando $AA^t$}{20}{subsubsection.3.2.2}
-\contentsline {section}{\numberline {4}Ap\'endice}{21}{section.4}
-\contentsline {subsection}{\numberline {4.1}Enunciado}{21}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Generador de Tests}{22}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}M\'etodo de compilaci\'on}{22}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}M\'etodo 1}{22}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}M\'etodo 2}{22}{subsubsection.4.3.2}
-\contentsline {subsection}{\numberline {4.4}Referencias bibliogr\'aficas}{22}{subsection.4.4}
+\contentsline {subsection}{\numberline {3.2}Experimentacion con Imagenes Full}{29}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Metodo 0: Utilizando $A^tA$}{29}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Metodo 1: Utilizando $AA^t$}{29}{subsubsection.3.2.2}
+\contentsline {section}{\numberline {4}Ap\'endice}{31}{section.4}
+\contentsline {subsection}{\numberline {4.1}Enunciado}{31}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Generador de Tests}{32}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}M\'etodo de compilaci\'on}{32}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}M\'etodo 1}{32}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}M\'etodo 2}{32}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}Referencias bibliogr\'aficas}{32}{subsection.4.4}
