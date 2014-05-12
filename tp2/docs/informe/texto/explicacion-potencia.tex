@@ -1,0 +1,32 @@
+El método de la potencia es un método para obtener una estimación del autovector asociado al
+autovalor de módulo máximo de una matriz. Se basa en elegir un vector, que puede ser elegido
+aleatoriamente, y multiplicarlo iterativamente por izquierda por la matriz de la cual queremos
+obtener sus autovectores/autovalores. Se puede demostrar, referirse a \cite[p.~576]{burden} por
+ejemplo, que cuando $k \rightarrow \infty$ entonces $A^k x$ tiende al autovalor dominante para cualquier x si
+la matriz cumple con las hipótesis. El autovector asociado a este autovalor sería el
+último vector resultante de multiplicar el inicial por la matriz iterativamente.
+
+Se pide de esta matriz que la matriz sea cuadrada, tenga n autovalores con una colección asociada de
+autovectores linealmente independientes. Además, se pide que haya un autovalor dominante por sobre
+los demás. Es decir, $ |\lambda_1| > |\lambda_2| \geq |\lambda_3| \geq \ldots \geq |\lambda_n|$ para
+$\lambda_i$ autovalor de A.
+
+La matriz por sobre la cual estaremos aplicando la técnica es la matriz de covarianzas, que es
+cuadrada y simétrica \footnote{Más de esto en la sección del algoritmo principal}, por lo cual tiene
+además una base ortonormal de autovectores, que son linealmente independientes.
+
+Sin embargo, no podremos asegurar que haya un autovalor dominante por sobre el resto, por lo que no
+estaríamos cumpliendo completamente con las hipótesis del método aquí enunciado. Queda como trabajo
+a futuro investigar cuáles serían las consecuencias de aplicarlo sobre matrices sin un autovalor
+dominante y, además, cómo identificarlas sin tener que encontrar sus autovalores.
+
+Además, la cantidad de iteraciones necesarias para poder obtener los autovectores puede ser inviable
+para el cómputo de un programa si ésta es muy grande. Por eso, está la opción de obtener un
+autovector y autovalores aproximados antes de llegar a la convergencia. En caso contrario, si el
+vector $A^k x$ es igual, para algún criterio de igualdad a elección, a $A^{k-1} x$ entonces se para
+el algoritmo y se devuelven el autovector y autovalor encontrados. Nuestro criterio para diferenciar
+a un autovector del anterior es que haya una diferencia de $10^{-7}$ para alguna de sus coordenadas.
+
+También es un dato importante el hecho de que la técnica de deflación a usar más adelante asume que
+el autovector es de norma uno, por eso cada vez que se multiplica por izquierda al vector obtenido
+en el paso anterior se lo divide por su norma para normalizarlo.

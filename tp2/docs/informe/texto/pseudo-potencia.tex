@@ -1,24 +1,17 @@
 
 \begin{algorithm}[H]
-\caption{Método de la Potencia(Matrix B, Matrix x0, int niters, Matrix autovector)}
-\label{pseudo:Metodo de la potencia}
+\caption{Método de la Potencia(Matrix B, vector $x_0$, int niters)}
+\label{pseudo:Metodo-de-la-potencia}
 \begin{algorithmic}
 
-\STATE v = x0
+\STATE v $\leftarrow$ x0
 \FOR{$i=0$ hasta $niters$}
-	\STATE w = B*v
-	\STATE autovector = w/(w.normVector())
-	\IF{(converge)}
-		\STATE Continue
-	\ELSE
-		\STATE Break
+	\STATE w $\leftarrow \frac{Bv}{ \| Bv \|}$
+	\IF{Es igual al anterior}
+		\STATE break
 	\ENDIF
 \ENDFOR
-\STATE vt = transponer v
-\STATE Bv = B*v
-\STATE vtbv = vt * bv
-\STATE lambda = vtbv.mat[0][0]/vtv.mat[0][0]
-\STATE vtv = vt*v
-\STATE \textbf{return} lambda
+\STATE $\lambda \leftarrow \frac{v^t Bv}{v^t v}$
+\STATE \textbf{return} $\lambda, v$
 \end{algorithmic}
 \end{algorithm}

@@ -1,0 +1,32 @@
+Teniendo ya todos los métodos necesarios, sólo faltaría enunciar cómo trabajarían entre ellos en
+este trabajo.
+
+El primer paso consiste en leer las imágenes de la base de datos y guardarlas en una matriz poniendo
+a cada una como filas obteniendo una matriz $A\_orig \in \mathbb{R}^{nxm}$ siendo n la cantidad de
+imágenes y m las dimensiones de éstas.
+
+Luego, buscamos la media $\mu$ para cada píxel de nuestra matriz para obtener a la matriz $A_final$
+definida como $A\_final \in \mathbb{R}^{n \times m} = \frac{A\_orig - \mu}{\sqrt{n -1}}$. Acá es
+donde aparece la primera decisión a tomar. El PCA estaba en un principio pensado para ser aplicado
+sobre la matriz de covarianzas de $A\_orig$, que sería igual a $A\_final^t A\_final \in \mathbb{R}^{m
+  \times m}$ una matriz simétrica. Sin embargo, si buscamos los autovalores y autovectores de la
+matriz $A\_final A\_final^t$, entonces serían los mismos autovalores que los de la matriz de
+covarianzas y para obtener sus autovectores asociados, simplemente multiplicamos por $A^t$ a
+izquierda al autovector asociado al mismo autovalor en $A\_final A\_final^t$. La diferencia sería
+que en el caso de las imágenes, la cantidad de filas tiende a ser mucho más basta que la cantidad de
+columnas, ya que la primera es la dimensión de la imagen y la segunda la cantidad de imágenes en
+la base de datos.\footnote{Para una explicación matemática de todo esto, referirse a la sección de
+Demostraciones.}
+
+Una vez que hicimos nuestra primera decisión, aplicamos el método de la potencia + deflación sobre
+la matriz elegida para obtener la cantidad deseada de autovectores. Una vez obtenidos, se buscan las
+coordenadas de cada imagen sobre estos nuevos ejes que pueden ser mucho menores a los de la matriz
+original. Ése es uno de los objetivos de aplicar PCA, disminuir la dimensión de los datos
+minimizando el error, es decir, la diferencia entre las varianzas.
+
+Ahora sólo quedaría identificar al sujeto de una nueva imagen. Llegó el momento de la segunda
+decisión, agrupar por el punto más cercano o por el centro de masa más cercano, dos técnicas
+previamente explicadas.
+
+Una vez obtenido el resultado del agrupamiento, se devuelve el sujeto al que pertenece la nueva
+imagen según el método.

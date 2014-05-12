@@ -12,25 +12,29 @@
 \contentsline {subsection}{\numberline {2.6}Metodo de la Potencia}{6}{subsection.2.6}
 \contentsline {subsubsection}{\numberline {2.6.1}Explicacion}{6}{subsubsection.2.6.1}
 \contentsline {subsubsection}{\numberline {2.6.2}Pseudocodigo}{6}{subsubsection.2.6.2}
-\contentsline {subsubsection}{\numberline {2.6.3}Ejemplo}{6}{subsubsection.2.6.3}
-\contentsline {subsection}{\numberline {2.7}Deflacion}{10}{subsection.2.7}
-\contentsline {subsubsection}{\numberline {2.7.1}Explicacion}{10}{subsubsection.2.7.1}
-\contentsline {subsubsection}{\numberline {2.7.2}Pseudocodigo}{10}{subsubsection.2.7.2}
-\contentsline {subsubsection}{\numberline {2.7.3}Ejemplo}{10}{subsubsection.2.7.3}
-\contentsline {subsection}{\numberline {2.8}Demostraciones}{11}{subsection.2.8}
-\contentsline {section}{\numberline {3}Resultados}{13}{section.3}
-\contentsline {subsection}{\numberline {3.1}Experimentacion con Imagenes Reducidas}{13}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Metodo 0: Utilizando $A^tA$}{13}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Metodo 1: Utilizando $AA^t$}{22}{subsubsection.3.1.2}
-\contentsline {subsection}{\numberline {3.2}Experimentacion con Imagenes Full}{31}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Metodo 0: Utilizando $A^tA$}{31}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Metodo 1: Utilizando $AA^t$}{31}{subsubsection.3.2.2}
-\contentsline {section}{\numberline {4}Ap\'endice}{33}{section.4}
-\contentsline {subsection}{\numberline {4.1}Enunciado}{33}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Generador de Tests}{34}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}M\'etodo de compilaci\'on}{34}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}M\'etodo 1}{34}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}M\'etodo 2}{34}{subsubsection.4.3.2}
-\contentsline {subsection}{\numberline {4.4}Script para correr casos}{34}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Equipo de pruebas}{34}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}Referencias bibliogr\'aficas}{35}{subsection.4.6}
+\contentsline {subsubsection}{\numberline {2.6.3}Ejemplo}{7}{subsubsection.2.6.3}
+\contentsline {subsection}{\numberline {2.7}Deflacion}{11}{subsection.2.7}
+\contentsline {subsubsection}{\numberline {2.7.1}Explicacion}{11}{subsubsection.2.7.1}
+\contentsline {subsubsection}{\numberline {2.7.2}Pseudocodigo}{11}{subsubsection.2.7.2}
+\contentsline {subsubsection}{\numberline {2.7.3}Ejemplo}{11}{subsubsection.2.7.3}
+\contentsline {subsection}{\numberline {2.8}Reconocimiento de caras}{12}{subsection.2.8}
+\contentsline {subsubsection}{\numberline {2.8.1}El punto m\IeC {\'a}s cerca}{12}{subsubsection.2.8.1}
+\contentsline {subsubsection}{\numberline {2.8.2}Centros de masa}{12}{subsubsection.2.8.2}
+\contentsline {subsection}{\numberline {2.9}Algoritmo Principal}{12}{subsection.2.9}
+\contentsline {subsection}{\numberline {2.10}Demostraciones}{13}{subsection.2.10}
+\contentsline {section}{\numberline {3}Resultados}{15}{section.3}
+\contentsline {subsection}{\numberline {3.1}Experimentacion con Imagenes Reducidas}{15}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Metodo 0: Utilizando $A^tA$}{15}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Metodo 1: Utilizando $AA^t$}{24}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Experimentacion con Imagenes Full}{33}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Metodo 0: Utilizando $A^tA$}{33}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Metodo 1: Utilizando $AA^t$}{33}{subsubsection.3.2.2}
+\contentsline {section}{\numberline {4}Ap\'endice}{35}{section.4}
+\contentsline {subsection}{\numberline {4.1}Enunciado}{35}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Generador de Tests}{36}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}M\'etodo de compilaci\'on}{36}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}M\'etodo 1}{36}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}M\'etodo 2}{36}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}Script para correr casos}{36}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Equipo de pruebas}{36}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Referencias bibliogr\'aficas}{37}{subsection.4.6}

@@ -2,11 +2,14 @@
 \subsection{Metodo de la Potencia}
 El \textbf{método de la potencia} es una técnica iterativa que permite determinar el autovalor dominante de una matriz, es decir, el autovalor con mayor magnitud. Una ligera modificación en el método permite usarlo para determinar otros autovalores. Una propiedad útil del método de la potencia es que no solo produce un autovalor, sino también un autovector asociado. 
 
-De hecho, es frecuente que el método se aplique para calcular un autovalor para un autovector determinado por otros medios.
+De hecho, es frecuente que el método se aplique para calcular un autovector para un autovalor determinado por otros medios.
 
-Para aplicar el método de la potencia supondremos que la matriz $A \in \mathbb{R}^{n \times n}$ tiene n autovalores $\lambda_1$, $\lambda_2$, ... , $\lambda_n$ con un conjunto asociado de autovectores linealmente independientes $\{v_1,v_2, ..., v_n\}$. Más aún, supondremos que A tiene exactamente un autovalor con módulo máximo, $\lambda_1$, cuya magnitud es la mayor, por lo que 
+Para aplicar el método de la potencia supondremos que la matriz $A \in \mathbb{R}^{n \times n}$
+tiene n autovalores $\lambda_1$, $\lambda_2$, \ldots , $\lambda_n$ con un conjunto asociado de
+autovectores linealmente independientes $\{v_1,v_2, \ldots, v_n\}$. Más aún, supondremos que A tiene
+exactamente un autovalor con módulo máximo, $\lambda_1$, cuya magnitud es la mayor, por lo que
 \begin{center}
-$|\lambda_1| > |\lambda_2| \geq |\lambda_3| \geq ... \geq |\lambda_n| \geq 0$
+$|\lambda_1| > |\lambda_2| \geq |\lambda_3| \geq \ldots \geq |\lambda_n| \geq 0$
 \end{center}
 
 %Si \textbf{x} es un vector cualquiera $\mathbb{R}^n$, el hecho de que $\{v_1,v_2, ..., v_n\}$ sea linealmente independiente implica que las constantes $\beta_1,\beta_2, ..., \beta_n$ existe con 

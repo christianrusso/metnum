@@ -1,0 +1,16 @@
+\subsubsection{El punto más cerca}
+El procedimiento más intuitivo para reconocer una nueva persona consiste en buscar las coordenadas
+de la imagen a reconocer según el nuevo ejes de coordenadas dados por los autovectores y buscar
+entre todos los puntos de la base de datos, también en las nuevas coordenadas, el que esté a menor
+distancia de esta nueva imagen. La distancia usada para comparar es la distancia euclídea, o la
+norma dos de la resta de ambos vectores. Luego, identificar al sujeto del cual pertenece esta imagen
+\textit{más cercana}.
+
+\subsubsection{Centros de masa}
+La otra técnica también consiste en llevar todo al nuevo eje de coordenadas, pero no comparar la
+nueva imagen con todas las otras, sino que buscar un \textit{punto medio} para todos los puntos de
+cada grupo de imágenes y buscar este punto medio, o centro de masa, que más se asemeje a la nueva
+imagen. Luego, identificar al sujeto por el cual ese centro de masa lo promedia.
+
+Otra similitud es que de nuevo usamos la distancia euclídea para comparar vectores en el espacio de
+coordenadas.
