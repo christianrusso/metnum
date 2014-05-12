@@ -1,34 +1,36 @@
 \select@language {spanish}
-\contentsline {section}{\numberline {1}Introducci\'on Te\'orica}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Metodo de la Potencia}{3}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Deflaci\IeC {\'o}n}{3}{subsection.1.2}
-\contentsline {section}{\numberline {2}Desarrollo}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Lectura de la Entrada}{4}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Explicacion}{4}{subsubsection.2.1.1}
-\contentsline {subsubsection}{\numberline {2.1.2}Pseudocodigo}{4}{subsubsection.2.1.2}
-\contentsline {subsection}{\numberline {2.2}Armado de Matriz}{4}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}Explicacion}{4}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}Pseudocodigo}{4}{subsubsection.2.2.2}
-\contentsline {subsection}{\numberline {2.3}Metodo de la Potencia}{4}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Explicacion}{4}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Pseudocodigo}{4}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Ejemplo}{4}{subsubsection.2.3.3}
-\contentsline {subsection}{\numberline {2.4}Deflacion}{8}{subsection.2.4}
-\contentsline {subsubsection}{\numberline {2.4.1}Explicacion}{8}{subsubsection.2.4.1}
-\contentsline {subsubsection}{\numberline {2.4.2}Pseudocodigo}{8}{subsubsection.2.4.2}
-\contentsline {subsubsection}{\numberline {2.4.3}Ejemplo}{8}{subsubsection.2.4.3}
-\contentsline {subsection}{\numberline {2.5}Demostraciones}{9}{subsection.2.5}
-\contentsline {section}{\numberline {3}Resultados}{11}{section.3}
-\contentsline {subsection}{\numberline {3.1}Experimentacion con Imagenes Reducidas}{11}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Metodo 0: Utilizando $A^tA$}{11}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Metodo 1: Utilizando $AA^t$}{20}{subsubsection.3.1.2}
-\contentsline {subsection}{\numberline {3.2}Experimentacion con Imagenes Full}{29}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Metodo 0: Utilizando $A^tA$}{29}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Metodo 1: Utilizando $AA^t$}{29}{subsubsection.3.2.2}
-\contentsline {section}{\numberline {4}Ap\'endice}{31}{section.4}
-\contentsline {subsection}{\numberline {4.1}Enunciado}{31}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Generador de Tests}{32}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}M\'etodo de compilaci\'on}{32}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}M\'etodo 1}{32}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}M\'etodo 2}{32}{subsubsection.4.3.2}
-\contentsline {subsection}{\numberline {4.4}Referencias bibliogr\'aficas}{32}{subsection.4.4}
+\contentsline {section}{\numberline {1}Introducci\'on Te\'orica}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}Metodo de la Potencia}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Deflaci\IeC {\'o}n}{4}{subsection.1.2}
+\contentsline {section}{\numberline {2}Desarrollo}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Archivo de Entrada}{5}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Explicacion}{5}{subsubsection.2.1.1}
+\contentsline {subsection}{\numberline {2.2}Archivos de salida}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Autovalores}{5}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Tiempos y porcentajes de acierto}{5}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Standard output}{6}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Metodo de la Potencia}{6}{subsection.2.6}
+\contentsline {subsubsection}{\numberline {2.6.1}Explicacion}{6}{subsubsection.2.6.1}
+\contentsline {subsubsection}{\numberline {2.6.2}Pseudocodigo}{6}{subsubsection.2.6.2}
+\contentsline {subsubsection}{\numberline {2.6.3}Ejemplo}{6}{subsubsection.2.6.3}
+\contentsline {subsection}{\numberline {2.7}Deflacion}{10}{subsection.2.7}
+\contentsline {subsubsection}{\numberline {2.7.1}Explicacion}{10}{subsubsection.2.7.1}
+\contentsline {subsubsection}{\numberline {2.7.2}Pseudocodigo}{10}{subsubsection.2.7.2}
+\contentsline {subsubsection}{\numberline {2.7.3}Ejemplo}{10}{subsubsection.2.7.3}
+\contentsline {subsection}{\numberline {2.8}Demostraciones}{11}{subsection.2.8}
+\contentsline {section}{\numberline {3}Resultados}{13}{section.3}
+\contentsline {subsection}{\numberline {3.1}Experimentacion con Imagenes Reducidas}{13}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Metodo 0: Utilizando $A^tA$}{13}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Metodo 1: Utilizando $AA^t$}{22}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Experimentacion con Imagenes Full}{31}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Metodo 0: Utilizando $A^tA$}{31}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Metodo 1: Utilizando $AA^t$}{31}{subsubsection.3.2.2}
+\contentsline {section}{\numberline {4}Ap\'endice}{33}{section.4}
+\contentsline {subsection}{\numberline {4.1}Enunciado}{33}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Generador de Tests}{34}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}M\'etodo de compilaci\'on}{34}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}M\'etodo 1}{34}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}M\'etodo 2}{34}{subsubsection.4.3.2}
+\contentsline {subsection}{\numberline {4.4}Script para correr casos}{34}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Equipo de pruebas}{34}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}Referencias bibliogr\'aficas}{35}{subsection.4.6}
