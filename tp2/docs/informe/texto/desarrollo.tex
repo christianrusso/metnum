@@ -1,15 +1,51 @@
 \section{Desarrollo}
-\subsection{Lectura de la Entrada}
-
+\subsection{Archivo de Entrada}
 \subsubsection{Explicacion}
+El ejecutable toma tres par\'ametros por l\'inea de comando, que ser\'a el archivo de entrada, el archivo de salida, y el m\'etodo a
+ejectutar (0 m\'etodo est\'andar, 1 m\'etodo alternativo).
+el archivo de entrada con la descripci\'on del experimento sigue la siguiente
+estructura:
+\begin{itemize}
+\item La primera l\'inea contendr\'a el \emph{path} al directorio que contiene la base de datos, seguido de 5 n\'umeros
+enteros que representan la cantidad de filas y columnas de las im\'agenes de la base, cuantas personas ($p$) y cuantas
+im\'agenes por cada una de ellas ($nimgp$), y cu\'antas componentes principales se utilizar\'an en el experimento ($k$). 
+A continuaci\'on de muestra un ejemplo de una base de datos de im\'agenes de $112 \times 92$, con 41 sujetos, 5 
+im\'agenes por sujeto y tomando 15 componentes principales.
 
-\subsubsection{Pseudocodigo}
+\begin{verbatim}
+../data/ImagenesCaras/ 112 92 41 5 15
+\end{verbatim}
 
-\subsection{Armado de Matriz}
+\item A continuaci\'on, el archivo contendr\'a $p$ l\'ineas donde en cada una de ellas se especificar\'a la carpeta
+correspondiente a la p-\'esima persona, seguido de $nimgp$ numeros enteros indicando las im\'agenes a considerar para el
+entrenamiento. La siguiente l\'inea muestra como ejemplo 5 im\'agenes (2, 4, 7, 8 y 10) a considerar para la persona
+\verb+s10+.
 
-\subsubsection{Explicacion}
+\begin{verbatim}
+s10/ 2 4 7 8 10
+\end{verbatim}
 
-\subsubsection{Pseudocodigo}
+\item Finalmente, se especifica un n\'umero $ntest$ de im\'agenes (preferentemente no contenidas en la base de
+im\'agenes) para las cuales se desea identificar a quien pertenecen. Cada una de ellas se especifica en una nueva
+l\'inea, indicando el \emph{path} al archivo seguido del n\'umero de individuo al que pertenece (relativo a la
+numeraci\'on establecida en el punto anterior). La siguiente l\'inea muestra un ejempo de una imagen a testear para el
+sujeto n\'umero 1:
+
+\begin{verbatim}
+../data/ImagenesCaras/s1/9.pgm 1
+\end{verbatim}
+\end{itemize}
+
+\subsection{Archivos de salida}
+\subsection{Autovalores}
+El archivo pasado por par\'ametro, tendr\'a el vector soluci\'on con los $k$ valores singulares de mayor magnitud, con una
+componente del mismo por l\'inea.
+
+\subsection{Tiempos y porcentajes de acierto}
+Adicionalmente se crear\'a otro archivo de salida, con mismo nombre pero finalizado en \emph{.times}, donde se brindar\'a la siguiente informacion en orden. Primero el k pasado por par\'ametro, la cantidad de personas, cantidad de muestras, el tiempo correspondiente a obtener la matriz con k vectores, el tiempo que tomo comparar las $ntest$ im\'agenes con el m\'etodo \emph{Todos}, el tiempo que tomo comparar las $ntest$ im\'agenes con el m\'etodo \emph{Centro}, el porcentaje de aciertos con el m\'etodo \emph{Todos} y el porcentaje de aciertos con el m\'etodo \emph{Centro}.
+
+\subsection{Standard output}
+Dado que con ciertos casos el tiempo de c\'omputo ser\'a muy extenso, se imprimir\'a por $stdOutput$ cuantas iteraciones necesarias para calcular el i\'esimo autovector.
 
 \subsection{Metodo de la Potencia}
 

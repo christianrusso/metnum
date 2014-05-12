@@ -84,8 +84,12 @@ Donde METODO puede ser
 Donde en PATH SALIDA se escriben los autovalores correspondientes.
 \end{framed}
 
+\subsection{Script para correr casos}
+Dado el tiempo de ejecuci\'on de los casos utilizados para este informe, realizamos un script en python, basadao en el provisto por la c\'atedra, que ejecuta secuencialmente los casos generados previamente y escribiendo el $stdOutput$ de cada caso, en el correspondiente archivo \emph{.console}. //
+El script ejecuta solo los casos que no tengan archivos de salida ya generados, por lo que se pueden correr m\'ultiples intancias de este en paralelo.
 
-
+\subsection{Equipo de pruebas}
+Los casos se corrieron sobre un procesador intel i5 de cuatro n\'ucleos sin $hyperthreadying$ y 16GB de memoria ram. Para no afectar las mediciones y optimizar el tiempo, se corrieron tres casos en paralelo continuamente, por lo que se pudo dar el 100\% de un n\'ucleo a todas las pruebas.
 
 \subsection{Referencias bibliogr\'aficas}
 \begin{thebibliography}{9}
