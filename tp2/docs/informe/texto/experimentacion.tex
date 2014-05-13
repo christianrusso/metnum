@@ -1,0 +1,12 @@
+Llegado el momento de la experimentación, se tenía una base de datos de imágenes divididas entre
+resoluciones de 112 x 92 píxeles y de 28 x 23 píxeles y se decidió divivir los tests de igual forma.
+
+A los tests hechos sobre las imágenes de 28 x 23 se los subdividió en dos, tests con el método 0 y
+tests con el método 1. Esto hace referencia al método empleado para buscar los autovectores y
+autovalores de la matriz de covarianzas. El método 0 consistía en hacerlo sobre la matriz $A^t A$
+mientras que el método 1 consistía en hacerlo sobre la matriz $A A^t$.
+
+Por el lado de las imágenes de 112 x 92 pixeles se volvió inviable el método 0, dado que la
+dimension de la matriz terminaría siendo de $(112x92)^2 > 106$ millones de celdas mientras que la
+matriz del método 1 tendría \textbf{cómo máximo} $(41*10)^2 = 168 100$ celdas si usamos a todas las
+imágenes.
