@@ -1,10 +1,29 @@
-\subsubsection{El punto más cerca}
+\subsubsection{El vecino más cerca}
 El procedimiento más intuitivo para reconocer una nueva persona consiste en buscar las coordenadas
 de la imagen a reconocer según el nuevo ejes de coordenadas dados por los autovectores y buscar
 entre todos los puntos de la base de datos, también en las nuevas coordenadas, el que esté a menor
 distancia de esta nueva imagen. La distancia usada para comparar es la distancia euclídea, o la
 norma dos de la resta de ambos vectores. Luego, identificar al sujeto del cual pertenece esta imagen
 \textit{más cercana}.
+
+
+
+\begin{algorithm}[H]
+\caption{Vecino Más Cerca(Matriz $A\_final$, vector $v$, Integer muestras)}
+\label{pseudo:vecino-mas-cerca}
+\begin{algorithmic}
+\REQUIRE El vector v ya ha sido restado el $\mu$ y ha sido dividido por $\sqrt{n-1}$
+  \STATE minVal $\leftarrow \| fila_0(A\_final)- v \| $
+  \STATE minFila $\leftarrow 0$ 
+  \FOR{i=0 \textbf{hasta} cant\_filas(A)}
+    \IF{minVal $> \| fila_i(A\_final)- v \| $}
+      \STATE minVal $\leftarrow \| fila_i(A\_final)- v \| $
+      \STATE minFila $\leftarrow i$
+    \ENDIF
+  \ENDFOR
+  \STATE \textbf{return} (minFila/muestras)+1
+\end{algorithmic}
+\end{algorithm}
 
 \subsubsection{Centros de masa}
 La otra técnica también consiste en llevar todo al nuevo eje de coordenadas, pero no comparar la
@@ -14,3 +33,29 @@ imagen. Luego, identificar al sujeto por el cual ese centro de masa lo promedia.
 
 Otra similitud es que de nuevo usamos la distancia euclídea para comparar vectores en el espacio de
 coordenadas.
+\begin{algorithm}[H]
+\caption{Calcular Centros de Masa(Matriz $A\_final$, Integer muestras, Integer sujetos)}
+\label{pseudo:vecino-mas-cerca}
+\begin{algorithmic}
+  \STATE centros $\leftarrow Matriz \in \mathbb{R}^{sujetos \times cant\_columnas(A)} $
+  \STATE unaFila $\leftarrow Vector \in \mathbb{R}^{cant\_columnas(A)} $
+  \FOR{i=0 \textbf{hasta} sujetos}
+    \STATE unaFila $\leftarrow fila_{i*muestras}(A\_final) $
+    \FOR{j=0 \textbf{hasta} muestras}
+      \STATE unaFila $\leftarrow unaFila + fila_{i*muestras+j}(A\_final) $
+    \ENDFOR
+    \STATE unaFila $\leftarrow unaFila/muestras$
+    \STATE $fila_i(centros) \leftarrow unaFila$
+  \ENDFOR
+  \STATE \textbf{return} centros
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Buscar Centro Más Cercano(Matriz $centros$, vector $v$,  Integer muestras, Integer sujetos)}
+\label{pseudo:vecino-mas-cerca}
+\begin{algorithmic}
+  \STATE \textbf{return} Vecino Más Cerca ( $centros$, $v$, 1)
+\end{algorithmic}
+\end{algorithm}
+
