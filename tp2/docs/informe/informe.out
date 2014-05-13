@@ -21,19 +21,44 @@
 \BOOKMARK [3][-]{subsubsection.2.8.2}{Centros de masa}{subsection.2.8}
 \BOOKMARK [2][-]{subsection.2.9}{Algoritmo Principal}{section.2}
 \BOOKMARK [2][-]{subsection.2.10}{Demostraciones}{section.2}
-\BOOKMARK [1][-]{section.3}{Resultados}{}
-\BOOKMARK [2][-]{subsection.3.1}{Experimentacion con Imagenes Reducidas}{section.3}
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Metodo 0: Utilizando AtA}{subsection.3.1}
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Metodo 1: Utilizando AAt}{subsection.3.1}
-\BOOKMARK [2][-]{subsection.3.2}{Experimentacion con Imagenes Full}{section.3}
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Metodo 0: Utilizando AtA}{subsection.3.2}
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Metodo 1: Utilizando AAt}{subsection.3.2}
-\BOOKMARK [1][-]{section.4}{Ap\351ndice}{}
-\BOOKMARK [2][-]{subsection.4.1}{Enunciado}{section.4}
-\BOOKMARK [2][-]{subsection.4.2}{Generador de Tests}{section.4}
-\BOOKMARK [2][-]{subsection.4.3}{M\351todo de compilaci\363n}{section.4}
-\BOOKMARK [3][-]{subsubsection.4.3.1}{M\351todo 1}{subsection.4.3}
-\BOOKMARK [3][-]{subsubsection.4.3.2}{M\351todo 2}{subsection.4.3}
-\BOOKMARK [2][-]{subsection.4.4}{Script para correr casos}{section.4}
-\BOOKMARK [2][-]{subsection.4.5}{Equipo de pruebas}{section.4}
-\BOOKMARK [2][-]{subsection.4.6}{Referencias bibliogr\341ficas}{section.4}
+\BOOKMARK [1][-]{section.3}{Experimentaci\363n}{}
+\BOOKMARK [1][-]{section.4}{Resultados}{}
+\BOOKMARK [2][-]{subsection.4.1}{Experimentacion con Imagenes Reducidas}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Metodo 0: Utilizando AtA}{subsection.4.1}
+\BOOKMARK [4][-]{figure.3}{Mediciones de TK}{subsubsection.4.1.1}
+\BOOKMARK [4][-]{figure.6}{Mediciones de Ttodos }{subsubsection.4.1.1}
+\BOOKMARK [4][-]{figure.9}{Mediciones de Tcentro }{subsubsection.4.1.1}
+\BOOKMARK [4][-]{figure.12}{Mediciones de HitsTodos }{subsubsection.4.1.1}
+\BOOKMARK [4][-]{figure.15}{Mediciones de HitsCentro }{subsubsection.4.1.1}
+\BOOKMARK [4][-]{section*.7}{Conclusiones:}{subsubsection.4.1.1}
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Metodo 1: Utilizando AAt}{subsection.4.1}
+\BOOKMARK [4][-]{figure.18}{Mediciones de TK }{subsubsection.4.1.2}
+\BOOKMARK [4][-]{figure.21}{Mediciones de Ttodos }{subsubsection.4.1.2}
+\BOOKMARK [4][-]{figure.24}{Mediciones de Tcentro }{subsubsection.4.1.2}
+\BOOKMARK [4][-]{figure.27}{Mediciones de HitsTodos}{subsubsection.4.1.2}
+\BOOKMARK [4][-]{figure.30}{Mediciones de HitsCentro}{subsubsection.4.1.2}
+\BOOKMARK [4][-]{section*.13}{Conclusiones:}{subsubsection.4.1.2}
+\BOOKMARK [2][-]{subsection.4.2}{Experimentacion con Imagenes Full}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Metodo 0: Utilizando AtA}{subsection.4.2}
+\BOOKMARK [4][-]{section*.14}{Mediciones de TK}{subsubsection.4.2.1}
+\BOOKMARK [4][-]{section*.15}{Mediciones de Ttodos }{subsubsection.4.2.1}
+\BOOKMARK [4][-]{section*.16}{Mediciones de Tcentro }{subsubsection.4.2.1}
+\BOOKMARK [4][-]{section*.17}{Mediciones de HitsTodos }{subsubsection.4.2.1}
+\BOOKMARK [4][-]{section*.18}{Mediciones de HitsCentro}{subsubsection.4.2.1}
+\BOOKMARK [4][-]{section*.19}{Conclusiones:}{subsubsection.4.2.1}
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Metodo 1: Utilizando AAt}{subsection.4.2}
+\BOOKMARK [4][-]{section*.20}{Mediciones de TK}{subsubsection.4.2.2}
+\BOOKMARK [4][-]{section*.21}{Mediciones de Ttodos }{subsubsection.4.2.2}
+\BOOKMARK [4][-]{section*.22}{Mediciones de Tcentro }{subsubsection.4.2.2}
+\BOOKMARK [4][-]{section*.23}{Mediciones de HitsTodos. }{subsubsection.4.2.2}
+\BOOKMARK [4][-]{section*.24}{Mediciones de HitsCentro }{subsubsection.4.2.2}
+\BOOKMARK [4][-]{section*.25}{Conclusiones:}{subsubsection.4.2.2}
+\BOOKMARK [1][-]{section.5}{Ap\351ndice}{}
+\BOOKMARK [2][-]{subsection.5.1}{Enunciado}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{Generador de Tests}{section.5}
+\BOOKMARK [2][-]{subsection.5.3}{M\351todo de compilaci\363n}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.3.1}{M\351todo 1}{subsection.5.3}
+\BOOKMARK [3][-]{subsubsection.5.3.2}{M\351todo 2}{subsection.5.3}
+\BOOKMARK [2][-]{subsection.5.4}{Script para correr casos}{section.5}
+\BOOKMARK [2][-]{subsection.5.5}{Equipo de pruebas}{section.5}
+\BOOKMARK [2][-]{subsection.5.6}{Referencias bibliogr\341ficas}{section.5}

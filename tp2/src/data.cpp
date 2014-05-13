@@ -51,13 +51,13 @@ Data::Data(ifstream &inputFile, ofstream &stream, char* inFile, std::ofstream &t
 	  tCentro = get_time(); //para comparar con los centors tambien los debo calcular
 
     identificarSujetos();//este metodo guarda los tiempos de manera independiente en tTods y tCentro
-	  
+
     timesLog << kActual << "\t" << samples << "\t" << subjects << "\t";
     timesLog << (kCommonTime + tK[kActual-1] + kOnlyTransposedTime*kActual/k); //kOnlytransposedTime es cero en caso de utilizar el metodo de la matriz transpuesta, por lo que no afecta los calculos
     timesLog << "\t" << tTodos << "\t" << tCentro;
     timesLog << "\t"  <<  hitsTodos << "\t" << hitsCentro << "\t" << endl;
 	}
-  
+
 }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 
@@ -69,7 +69,7 @@ void Data::leerImagenesDeTest(std::ifstream &inputFile){
   getline (inputFile,line);
   vector<string> param = split(line);
   testSubjects = atoi(param[0].c_str());
-  
+
   for (int i = 0; i < testSubjects; ++i)
   {
     getline (inputFile,line);

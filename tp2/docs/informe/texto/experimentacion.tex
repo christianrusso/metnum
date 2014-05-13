@@ -7,6 +7,51 @@ autovalores de la matriz de covarianzas. El método 0 consistía en hacerlo sobr
 mientras que el método 1 consistía en hacerlo sobre la matriz $A A^t$.
 
 Por el lado de las imágenes de 112 x 92 pixeles se volvió inviable el método 0, dado que la
-dimension de la matriz terminaría siendo de $(112x92)^2 > 106$ millones de celdas mientras que la
+dimension de la matriz terminaría siendo de $(112*92)^2 > 106$ millones de celdas mientras que la
 matriz del método 1 tendría \textbf{cómo máximo} $(41*10)^2 = 168 100$ celdas si usamos a todas las
 imágenes.
+
+En cada una de las subdivisiones se testeó lo siguiente al ir aumentando el K, o la cantidad de
+autovectores:
+\begin{compactitem}
+  \item \textbf{Mediciones de TK}: mide el tiempo de obtener la matriz de autovectores. Es decir:
+  \begin{compactenum}
+    \item Restarle el $\mu$ y dividir por $\sqrt{n-1}$ a la matriz
+    \item Tiempo de calcular los K autovectores
+    \item Tiempo de multiplicar por izquierda al autovector de $A A^t$ por $A^t$ para obtener el
+    autovector con el mismo autovalor pero de $A^t A$.
+  \end{compactenum}
+  \ \\ Se varía entre 1, 5 y 10 muestras para 11, 21 y 41 personas.
+  \item \textbf{Mediciones de Ttodos}: el tiempo de identificar a todos los sujetos usando el método
+  de identificación del vecino más cercano. Incluye el tiempo de restarle el $\mu$ y dividir por
+  $\sqrt{n-1}$ a la matriz. Se varía entre 1, 5 y 10 muestras para 11, 21 y 41 personas.
+  \item \textbf{Mediciones de Tcentro}: el tiempo de identificar a todos los sujetos usando el método
+  de identificación de los centros de masa. Incluye el tiempo de restarle el $\mu$ y dividir por
+  $\sqrt{n-1}$ a la matriz. Se varía entre 1, 5 y 10 muestras para 11, 21 y 41 personas.
+  \item \textbf{Mediciones de HitsTodos}: el coeficiente entre los \textit{hits} al identificar un
+  sujeto y la cantidad de estos usando el método del vecino más cercano. Se varía entre 1, 3, 5, 7,
+  9 y 10 muestras para 11, 21 y 41 personas.
+  \item \textbf{Mediciones de HitsCentro} el coeficiente entre los \textit{hits} al identificar un
+  sujeto y la cantidad de estos usando el método de los centros de masa. Se varía entre 1, 3, 5, 7,
+  9 y 10 muestras para 11, 21 y 41 personas.
+\end{compactitem}
+
+Con muestras nos referimos a cantidad de muestras por persona usadas para calcular la matriz de
+autovectores. En el caso de las personas a identificar, se elige una muestra random que no haya sido
+usada en el cálculo de los autovectores.
+
+Sobre estos tests esperamos encontrar que:
+\begin{compactitem}
+  \item Los tiempos son crecientes acorde al incremento de los autovectores buscados dado que
+  mientras más grande sea la matriz de autovectores, más tiempo se tardará en encontrarla y, en el
+  caso del método 1, se deberá multiplicar por izquierda a cada autovector para trasladarlo a un
+  autovector de la matriz de $A^t A$.
+  \item Los tiempos del método 1 deben ser mucho menores a los tiempos del método 0.
+  \item El coeficiente de HitsTodos debe ser siempre 1 para los casos en los que se usen 10 muestras
+  dado que toda muestra a identificar ha sido usada para generar la matriz de autovectores y,
+  además, este método de identificación compara con todos los puntos, y entre ellos va a estar él
+  mismo, que terminaría siendo el más cercano.
+  \item Los coeficientes de HitsTodos y HitsCentro deben aumentar acorde aumenten la cantidad de
+  muestras y la cantidad de autovectores.
+\end{compactitem}
+
