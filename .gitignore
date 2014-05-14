@@ -4,3 +4,7 @@
 *.log
 *.pyc
 tp2/src/caritas
+
+tp2/docs/informe/informe.synctex.gz
+
+tp2/docs/informe/informe.pdf
