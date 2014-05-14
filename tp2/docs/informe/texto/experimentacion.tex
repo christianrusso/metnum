@@ -21,7 +21,7 @@ autovectores:
     \item Tiempo de multiplicar por izquierda al autovector de $A A^t$ por $A^t$ para obtener el
     autovector con el mismo autovalor pero de $A^t A$.
   \end{compactenum}
-  \ \\ Se varía entre 1, 5 y 10 muestras para 11, 21 y 41 personas.
+  Se varía entre 1, 5 y 10 muestras para 11, 21 y 41 personas.
   \item \textbf{Mediciones de Ttodos}: el tiempo de identificar a todos los sujetos usando el método
   de identificación del vecino más cercano. Incluye el tiempo de restarle el $\mu$ y dividir por
   $\sqrt{n-1}$ a la matriz. Se varía entre 1, 5 y 10 muestras para 11, 21 y 41 personas.
@@ -36,10 +36,22 @@ autovectores:
   9 y 10 muestras para 11, 21 y 41 personas.
 \end{compactitem}
 
-DECIIIIIIIIIIIIIIIIIIIIR QUÉ SIGNIFICAN LAS MUEEEEEEEEEEEEEEEEEEEEEEEEEETRAAAAAAAAAAAAAAAAAAAS.
+Para los tests, eligiremos mostrar cómo se irán comportando estas mediciones acorde aumente el K.
+Además, para una cantidad fija de personas, cuando decimos, por ejemplo, \textit{se varía
+  entre 1, 5 y 10 muestras}, nos referimos a que medimos 3 instancias distintas. La primera, con una
+muestra, se refiera a que de la base de datos se elige aleatoriamente una muestra por cada persona
+para calcular la matriz inicial y, por ende, la matriz de autovectores. Además, se elige para
+identificar por cada persona una muestra que no haya sido usada para generar la matriz inicial. En
+el caso de 5 muestras, se genera la matriz usando 5 muestras por persona y de nuevo por cada una de
+las personas tenidas en cuenta, se trata de identificar una de sus muestras que no haya sido usada
+para calcular la matriz inicial.
 
-Siempre que se quiera identificar a alguien, se elije a una persona perteneciente a la base de datos
-usada para generar la matriz de autovectores.
+El caso \textbf{distinto} sería el caso de 10 muestras. Aquí, dado que se usan todas las muestras
+disponibles para cada una de las personas para generar la matriz inicial, no quedan muestras libres
+para identificar por cada persona. En ese caso se elige una muestra random y se testea qué tan
+buenos son los métodos de reconocimiento cuando se trata de identificar a alguien perteneciente a la
+base de datos.
+
 
 % Con muestras nos referimos a cantidad de muestras por persona usadas para calcular la matriz de
 % autovectores. En el caso de las personas a identificar, se elige una muestra random que no haya sido
@@ -59,4 +71,3 @@ Sobre estos tests esperamos encontrar que:
   \item Los coeficientes de HitsTodos y HitsCentro deben aumentar acorde aumenten la cantidad de
   muestras y la cantidad de autovectores.
 \end{compactitem}
-
