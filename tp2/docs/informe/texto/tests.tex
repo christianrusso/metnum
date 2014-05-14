@@ -9,86 +9,107 @@
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/image1.png}
      \caption{Tiempos Matrix $A^tA$ con 11 personas variando K}
-     \label{fig:figura1}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/image2.png}
      \caption{Tiempos Matrix $A^tA$ con 21 personas variando K}
-     \label{fig:figura1}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/image3.png}
      \caption{Tiempos Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
 \end{figure}
 
+Algo que en un principio parecería muy extraño es que el tiempo de calcular la matriz crece
+inversamente proporcional a la cantidad de muestras, sin ningún sentido obvio. Pero, si nos ponemos
+a analizar los tests, veremos que si sólo tenemos una muestra para identificar, eso significaría que
+tenemos 9 muestras para calcular los autovectores y por ende la matriz sería mucho mayor.
 
+Además, el tiempo crece con los K, totalmente intuitivo.
 \textbf{Mediciones de Ttodos }
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/image4.png}
-     \caption{Tiempos Todos \textcolor{red}{??} Matrix $A^tA$ con 11 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Todos con Matrix $A^tA$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/image5.png}
-     \caption{Tiempos Todos \textcolor{red}{??} Matrix $A^tA$ con 21 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Todos con Matrix $A^tA$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/image6.png}
-     \caption{Tiempos Todos \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Todos con Matrix $A^tA$ con 41 personas variando K}
 \end{figure}
 
+En el caso de los tiempos de encontrar al vecino más cercano, se ve que mientras mayor sea la
+cantidad de personas a identificar, mayor será el tiempo en el caso de usar 11, 21 y 41 personas.
+
+Un dato interesante e inesperado son los pequeños saltos que se pueden apreciar en los tiempos del
+caso de usar 11 personas y que se acentúan acorde aumentan la cantidad de muestras. Esto parecería
+ser extraño porque no importa si dado un punto empezamos a recorrer los vecinos más cercanos
+posibles de éste y lo encotramos apenas empezamos, el algoritmo seguirá iterando hasta haber
+recorrido todos los puntos.
 
 \textbf{Mediciones de Tcentro }
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/image7.png}
-     \caption{Tiempos Centro \textcolor{red}{??} Matrix $A^tA$ con 11 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Centro con Matrix $A^tA$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/image8.png}
-     \caption{Tiempos Centro \textcolor{red}{??} Matrix $A^tA$ con 21 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Centro con Matrix $A^tA$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/image9.png}
-     \caption{Tiempos Centro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Centro con Matrix $A^tA$ con 41 personas variando K}
 \end{figure}
 
-
+Aquí pasa algo muy parecido con el caso de las mediciones de TTodos (vecino más cercano). Los
+tiempos crecen a medida se incremente la cantidad de muestras, y tenemos picos inexplicables en los
+casos con pocas personas.
 
 \textbf{Mediciones de HitsTodos }
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/image10.png}
-     \caption{Tiempos HitTodos \textcolor{red}{??} Matrix $A^tA$ con 11 personas variando K}
-     \label{fig:figura1}
+\includegraphics[width=0.90\textwidth]{img/image10.png}
+     \caption{Coeficientes de efectivdad vecino más cercano con Matrix $A^tA$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/image11.png}
-     \caption{Tiempos HitTodos \textcolor{red}{??} Matrix $A^tA$ con 21 personas variando K}
-     \label{fig:figura1}
+\includegraphics[width=0.90\textwidth]{img/image11.png}
+     \caption{Coeficientes de efectivdad vecino más cercano con Matrix $A^tA$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/image12.png}
-     \caption{Tiempos HitTodos \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+\includegraphics[width=0.90\textwidth]{img/image12.png}
+     \caption{Coeficientes de efectivdad vecino más cercano con Matrix $A^tA$ con 41 personas variando K}
 \end{figure}
 
+A simple vista, parecen gráficos extraños, con muchos saltos y con el caso de 10 muestras constante
+en 1. Lo primero es mucho más sorprendente en el caso con 11 personas, dado que los saltos con mucho
+mayores al ir aumentando la cantidad de autovectores. Esto significaría que con menos autovectores
+obtendríamos un mejor coeficiente y no parecen ser cantidad de autovectores aislados, dado que, por
+ejemplo en el pico de la medición con 9 muestras, el coeficiente empieza a caer en lo que parecería
+ser $K=45$ y no se recupera hasta el $k=58$, para volver a caer inmediatamente y desde ahí empezar a
+subir hasta el 1 y seguir en ese valor casi hasta el final cuando cae con $k=90$.
 
+En un principio no tendríamos una explicación para este fenómeno, dado que la técnica parecería ser
+consistente con la cantidad de autovectores.
+
+Si aumentamos la cantidad de personas, se nota una tendencia más clara a aumentar la efectividad
+acorde aumenta la cantidad de autovectores. Siguen habiendo saltos pero no parecerían ser tan
+acentuados.
+
+También es interesante ver que en todos los gráficos, las mediciones con todas las muestras menos la
+de una sola muestra llegan hasta el 100\% de efectividad en algún momento o muy cerca.
+
+FALTA TERMINAR
 
 
 
@@ -96,21 +117,22 @@
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/image13.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 11 personas variando K}
-     \label{fig:figura1}
+     \caption{Coeficientes de efectivdad de Centros de Masa con Matrix $A^tA$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/image14.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 21 personas variando K}
-     \label{fig:figura1}
+     \caption{Coeficientes de efectivdad de Centros de Masa con Matrix $A^tA$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/image15.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Coeficientes de efectivdad de Centros de Masa con Matrix $A^tA$ con 41 personas variando K}
 \end{figure}
+
+*) Muy irregulares
+*) Mientras mayor la cantidad de muestras, mayor la efectividad
+*) tienden a subir mientras sube el k
 
 \textbf{Conclusiones:}
 
@@ -123,20 +145,17 @@
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagea.png}
-     \caption{Tiempos Matrix $A^tA$ con 11 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Matrix $AA^t$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imageb.png}
-     \caption{Tiempos Matrix $A^tA$ con 21 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Matrix $AA^t$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagec.png}
-     \caption{Tiempos Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
 
@@ -144,81 +163,69 @@
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imaged.png}
-     \caption{Tiempos Todos \textcolor{red}{??} Matrix $A^tA$ con 11 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Todos con Matrix $AA^t$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagee.png}
-     \caption{Tiempos Todos \textcolor{red}{??} Matrix $A^tA$ con 21 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Todos con Matrix $AA^t$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef.png}
-     \caption{Tiempos Todos \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Todos con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
 \textbf{Mediciones de Tcentro }
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imageg.png}
-     \caption{Tiempos Centro \textcolor{red}{??} Matrix $A^tA$ con 11 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Centro con Matrix $AA^t$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imageh.png}
-     \caption{Tiempos Centro \textcolor{red}{??} Matrix $A^tA$ con 21 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Centro con Matrix $AA^t$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagei.png}
-     \caption{Tiempos Centro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos Centro con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
 
 \textbf{Mediciones de HitsTodos}
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/imagej.png}
-     \caption{Tiempos HitTodos \textcolor{red}{??} Matrix $A^tA$ con 11 personas variando K}
-     \label{fig:figura1}
+\includegraphics[width=0.9\textwidth]{img/imagej.png}
+     \caption{Coeficientes de efectivdad vecino más cercano con Matrix $AA^t$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/imagek.png}
-     \caption{Tiempos HitTodos \textcolor{red}{??} Matrix $A^tA$ con 21 personas variando K}
-     \label{fig:figura1}
+\includegraphics[width=0.9\textwidth]{img/imagek.png}
+     \caption{Coeficientes de efectivdad vecino más cercano con Matrix $AA^t$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/imagel.png}
-     \caption{Tiempos HitTodos \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+\includegraphics[width=0.9\textwidth]{img/imagel.png}
+     \caption{Coeficientes de efectivdad vecino más cercano con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
 \textbf{Mediciones de HitsCentro}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagem.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 11 personas variando K}
-     \label{fig:figura1}
+     \caption{Coeficientes de efectivdad de Centros de Masa con Matrix $AA^t$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagen.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 21 personas variando K}
-     \label{fig:figura1}
+     \caption{Coeficientes de efectivdad de Centros de Masa Matrix $AA^t$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imager.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Coeficientes de efectividad de Centros de Masa con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
 \textbf{Conclusiones:}
@@ -249,20 +256,17 @@
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef1.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos de calcular la Matrix $AA^t$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef2.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos de calcular la Matrix $AA^t$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef3.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos de calcular la Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
 
@@ -271,20 +275,17 @@
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef4.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos de vecino más cercano con Matrix $AA^t$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef5.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos de vecino más cercano Matrix $AA^t$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef6.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos de vecino más cercano Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
 
@@ -292,61 +293,52 @@
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef7.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos de Centros de Masa Matrix $AA^t$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef8.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos de Centros de Masa con Matrix $AA^t$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef9.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Tiempos de Centros de Masa con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
 
 \textbf{Mediciones de HitsTodos. }
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/imagef10.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+\includegraphics[width=0.9\textwidth]{img/imagef10.png}
+     \caption{Coeficiente de efectividad de Vecino Más Cercano con Matrix $AA^t$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/imagef11.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+\includegraphics[width=0.9\textwidth]{img/imagef11.png}
+     \caption{Coeficiente de efectividad de Vecino Más Cercano Matrix $AA^t$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/imagef12.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+\includegraphics[width=0.9\textwidth]{img/imagef12.png}
+     \caption{Coeficiente de efectividad de Vecino Más Cercano con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
 \textbf{Mediciones de HitsCentro }
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef13.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Coeficiente de efectividad de Centros de Masa con Matrix $AA^t$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef14.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Coeficiente de efectividad de Centros de Masa con Matrix $AA^t$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=1\textwidth]{img/imagef15.png}
-     \caption{Tiempos HitsCentro \textcolor{red}{??} Matrix $A^tA$ con 41 personas variando K}
-     \label{fig:figura1}
+     \caption{Coeficiente de efectividad de Centros de Masa  con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
 

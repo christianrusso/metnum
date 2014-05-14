@@ -30,12 +30,12 @@
 \contentsline {subsection}{\numberline {4.2}Experimentacion con Imagenes Full}{35}{subsection.4.2}
 \contentsline {subsubsection}{\numberline {4.2.1}Metodo 0: Utilizando $A^tA$}{35}{subsubsection.4.2.1}
 \contentsline {subsubsection}{\numberline {4.2.2}Metodo 1: Utilizando $AA^t$}{35}{subsubsection.4.2.2}
-\contentsline {section}{\numberline {5}Ap\'endice}{45}{section.5}
-\contentsline {subsection}{\numberline {5.1}Enunciado}{45}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Generador de Tests}{46}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}M\'etodo de compilaci\'on}{46}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}M\'etodo 1}{46}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.2}M\'etodo 2}{46}{subsubsection.5.3.2}
-\contentsline {subsection}{\numberline {5.4}Script para correr casos}{46}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Equipo de pruebas}{46}{subsection.5.5}
-\contentsline {subsection}{\numberline {5.6}Referencias bibliogr\'aficas}{47}{subsection.5.6}
+\contentsline {section}{\numberline {5}Ap\'endice}{44}{section.5}
+\contentsline {subsection}{\numberline {5.1}Enunciado}{44}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Generador de Tests}{45}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}M\'etodo de compilaci\'on}{45}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}M\'etodo 1}{45}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}M\'etodo 2}{45}{subsubsection.5.3.2}
+\contentsline {subsection}{\numberline {5.4}Script para correr casos}{45}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Equipo de pruebas}{45}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.6}Referencias bibliogr\'aficas}{46}{subsection.5.6}
