@@ -227,6 +227,9 @@ Podemos notar  que para las 10 muestras el porcentaje de aciertos es el 100 porc
 
 Al igual que los graficos anteriores, estos graficos se comportan muy similar a los del Metodo 0, quiza en algunos casos particulares (como por ejemplo, Grafico 1 con 9 muestras) se tiene un porcentaje de acierto mas alto y en otros casos (como por ejemplo, Grafico 1 con 1 muestra) se tiene un porcentaje de acierto mas bajo. Pero en general los porcentajes entre este metodo y el anterior son similares.
 
+
+
+%%%%%%%%% ------------------------------------- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Experimentacion con Imagenes Full}
 
 \subsubsection{Metodo 0: Utilizando $A^tA$}
@@ -242,7 +245,7 @@ Estos tests no los realizamos ya que el tiempo de ejecucion es muy elevado y ade
  
 Notamos que el comportamiento es el mismo que en las imagenes reducidas.
 
-
+%%%%%%%%%%%%%%%%% *********** %%%%%%%%%%%%%%%%%
 \subsubsection{Metodo 1: Utilizando $AA^t$}
 
 \textbf{Mediciones de TK}
@@ -262,7 +265,13 @@ Notamos que el comportamiento es el mismo que en las imagenes reducidas.
      \caption{Tiempos de calcular la Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
-ES IGUAL AL VISTO CON EL METODO 1 EN IMAGENES REDUCIDAS, VER QUE ES MAS LENTO PERO SE COMPORTA IGUAL(IMAGENES MAS GRANDES).
+Si comparamos estas 3 imágenes con las hechas por el método 1 sobre las imágenes de menor
+resolución veremos que describen un comportamiento muy similar, sólo que en escalas distintas. Lo
+que sí vale la pena notar es que la diferencia en escala no es muy grande, en el gráfico para 11
+personas, el máximo tiempo es de 33 segundos aproximadamente para el de resoluciones pequeñas y 40
+para el caso de las resoluciones grandes, con un crecimiento similar. Algo parecido pasaría con 21 y
+41 personas. Esto es un hecho digno de remarcar dado que las imágenes tienen mil veces menos pixeles
+en el primer caso.
 
 \textbf{Mediciones de Ttodos }
 
@@ -281,7 +290,12 @@ ES IGUAL AL VISTO CON EL METODO 1 EN IMAGENES REDUCIDAS, VER QUE ES MAS LENTO PE
      \caption{Tiempos de vecino más cercano Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
-ES IGUAL AL VISTO CON EL METODO 1 EN IMAGENES REDUCIDAS, VER QUE ES MAS LENTO PERO SE COMPORTA IGUAL(IMAGENES MAS GRANDES).
+CUIADDO PORQUE ESTAS EXPLICACIONES SON CON LOS GRÁFICOS VIEJOS
+
+De nuevo aparentarían ser gráficos muy parecidos, sólo que en este caso la escala sí es diferente.
+2,88 segundos el máximo en el caso de mayores resoluciones y 0.117 en el restante.
+
+PENSAR CON LA CABEZA DESCANSADA POR QUÉ PUEDE SER LO ANTERIOR
 
 \textbf{Mediciones de Tcentro }
 
@@ -300,7 +314,13 @@ ES IGUAL AL VISTO CON EL METODO 1 EN IMAGENES REDUCIDAS, VER QUE ES MAS LENTO PE
      \caption{Tiempos de Centros de Masa con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
-ES IGUAL AL VISTO CON EL METODO 1 EN IMAGENES REDUCIDAS, VER QUE ES MAS LENTO PERO SE COMPORTA IGUAL(IMAGENES MAS GRANDES).
+CUDIADO PORQUE ESTAS EXPLICACIONES SON CON LOS GRÁFICOS VIEJOS
+
+Ya lejos de sorprendernos, los 6 gráficos tienen la misma pinta cada uno con su par de diferente
+resolución. A diferencia del de calcular la matriz pero ocurriendo algo parecido que con el tiempo
+de los vecinos más cercanos, la diferencia en escala es notable.
+
+PENSAR CON LA CABEZA DESCANSADA POR QUÉ PUEDE SER LO ANTERIOR
 
 \textbf{Mediciones de HitsTodos. }
 
@@ -319,7 +339,19 @@ ES IGUAL AL VISTO CON EL METODO 1 EN IMAGENES REDUCIDAS, VER QUE ES MAS LENTO PE
      \caption{Coeficiente de efectividad de Vecino Más Cercano con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
-ES IGUAL AL VISTO CON EL METODO 1. VEAR IMPLICANCIAS DE TAMANIO DE LA IMAGEN
+Comparándolos con los gráficos de menor resolución con método 1 como veníamos haciendo, de nuevo son
+parecidos. En el gráfico con 11 personas, el test con una muestra se toma su tiempo para ir
+incrementando su efectividad acorde sube el K mientras que los otros suben mucho más empinadamente.
+
+En el gráfico de 21 personas, de nuevo es muy parecido. El caso con 3 muestras sube rápidamente y
+luego se estanca en una efectividad menor a 1, mientras que el resto sube lentamente hasta llegar a
+una efectividad de 1, con excepción del test con una muestra en ambos casos.
+
+En el caso de 41 personas tampoco hay mucho para decir. Muy parecido a los tests para el método 1
+con resoluciones pequeñas.
+
+
+FALTA PONER POR QUÉ SON TAN PARECIDOS.
 
 \textbf{Mediciones de HitsCentro }
 
@@ -339,7 +371,10 @@ ES IGUAL AL VISTO CON EL METODO 1. VEAR IMPLICANCIAS DE TAMANIO DE LA IMAGEN
 \end{figure}
 
 
-ES IGUAL AL VISTO CON EL METODO 1. VEAR IMPLICANCIAS DE TAMANIO DE LA IMAGEN
+Ya en nuestros últimos tests notamos la misma tendencia. La pinta uno a uno con 11, 21 y 41 personas
+es de nuevo muy similar.
+
+FALTA PONER UNA EXPLICACIÓN DE POR QUÉ SON TAN PARECIDOS.
 
 \subsection{Conclusiones:}
 
