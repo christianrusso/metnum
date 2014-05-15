@@ -23,10 +23,10 @@
 
 Algo que en un principio parecería muy extraño es que el tiempo de calcular la matriz crece
 inversamente proporcional a la cantidad de muestras, sin ningún sentido obvio. Pero, si nos ponemos
-a analizar los tests, veremos que si sólo tenemos una muestra para identificar, eso significaría que
-tenemos 9 muestras para calcular los autovectores y por ende la matriz sería mucho mayor.
+a analizar los tests, sabemos que el tamaño de la matriz es igual para todos los casos ya que $A^tA$ siempre es de $DimImg \times DimImg$, lo que var\'ia es que la cantidad de autovalores no nulos es a lo sumo la cantidad de imagenes en la base de datos, o sea, esta acotado por $Muestras \times Personas$. Esto \'ultimo se traduce en que al pretender calcular m\'as autovalores, el m\'etodo de la potencia no converja. Es as\'i que como se ve en la gr\'afico de 11 personas, se ve esta divergencia en k = 11 y k = 55\footnote{Calculado como $Muestras \times Personas$, cota de autovalores}, para 1 Muestra y 5 Muestras respectivamente.
 
-Además, el tiempo crece con los K, totalmente intuitivo.
+Además, vemos que el tiempo crece con los K, totalmente intuitivo.
+
 \textbf{Mediciones de Ttodos }
 
 \begin{figure}[H]
@@ -44,14 +44,9 @@ Además, el tiempo crece con los K, totalmente intuitivo.
      \caption{Tiempos Todos con Matrix $A^tA$ con 41 personas variando K}
 \end{figure}
 
-En el caso de los tiempos de encontrar al vecino más cercano, se ve que mientras mayor sea la
-cantidad de personas a identificar, mayor será el tiempo en el caso de usar 11, 21 y 41 personas.
+En el caso de los tiempos de encontrar al vecino más cercano, se ve que mientras m\'as robusta es la base de datos, mayor será el tiempo requerido para la tarea. Esto se debe a que mientras m\'as muestras tengamos, m\'as puntos tendremos para comparar.
 
-Un dato interesante e inesperado son los pequeños saltos que se pueden apreciar en los tiempos del
-caso de usar 11 personas y que se acentúan acorde aumentan la cantidad de muestras. Esto parecería
-ser extraño porque no importa si dado un punto empezamos a recorrer los vecinos más cercanos
-posibles de éste y lo encotramos apenas empezamos, el algoritmo seguirá iterando hasta haber
-recorrido todos los puntos.
+Esto est\'a relacionado con la forma de encontrar al vecino, ya que se debe recorrer toda la base para encontrar la m\'inima cercan\'ia
 
 \textbf{Mediciones de Tcentro }
 
@@ -70,9 +65,14 @@ recorrido todos los puntos.
      \caption{Tiempos Centro con Matrix $A^tA$ con 41 personas variando K}
 \end{figure}
 
+CORRIENDO TODO DEVUELTA
+
+
 Aquí pasa algo muy parecido con el caso de las mediciones de TTodos (vecino más cercano). Los
 tiempos crecen a medida se incremente la cantidad de muestras, y tenemos picos inexplicables en los
 casos con pocas personas.
+
+CORRIENDO TODO DEVUELTA
 
 \textbf{Mediciones de HitsTodos }
 
@@ -91,27 +91,13 @@ casos con pocas personas.
      \caption{Coeficientes de efectivdad vecino más cercano con Matrix $A^tA$ con 41 personas variando K}
 \end{figure}
 
-A simple vista, parecen gráficos extraños, con muchos saltos y con el caso de 10 muestras constante
-en 1. Lo primero es mucho más sorprendente en el caso con 11 personas, dado que los saltos con mucho
-mayores al ir aumentando la cantidad de autovectores. Esto significaría que con menos autovectores
-obtendríamos un mejor coeficiente y no parecen ser cantidad de autovectores aislados, dado que, por
-ejemplo en el pico de la medición con 9 muestras, el coeficiente empieza a caer en lo que parecería
-ser $K=45$ y no se recupera hasta el $k=58$, para volver a caer inmediatamente y desde ahí empezar a
-subir hasta el 1 y seguir en ese valor casi hasta el final cuando cae con $k=90$.
+En estos tres gr\'aficos, vemos que el coeficiente de efectividad para reconocer personas, no necesariamente mejora a medida que se incrementa k. Por ejemplo, en el gr\'afico de 11 personas, con 5 muestras hay una gran p\'erdida de efectividad entre $k=18$ y $k=20$ aproximadamente, aunque luego mejora dr\'asticamente. Otro ejemplo ser\'ia para la misma cantidad de muestras en el caso de 21 personas, al rededor de $k=65$ y $k=75$.
 
-En un principio no tendríamos una explicación para este fenómeno, dado que la técnica parecería ser
-consistente con la cantidad de autovectores.
+Igualmente, se ve que, incrementando k, cuando hay suficientes muestras, el coeficiente de aciertos parece tender a 1.
 
-Si aumentamos la cantidad de personas, se nota una tendencia más clara a aumentar la efectividad
-acorde aumenta la cantidad de autovectores. Siguen habiendo saltos pero no parecerían ser tan
-acentuados.
+Por otro lado, se ve comparando los tres gr\'aficos que al aumentar la cantidad de personas a diferenciar, se precisan m\'as autovalores para lograr el mismo coeficiente de aciertos. Esto es esperable, dado que necesitamos m\'as informacion para diferenciar a estos.
 
-También es interesante ver que en todos los gráficos, las mediciones con todas las muestras menos la
-de una sola muestra llegan hasta el 100\% de efectividad en algún momento o muy cerca.
-
-Podemos notar tambien que para las 10 muestras el porcentaje de aciertos es el 100 porciento ya que se compara con una imagen que esta en la base de datos.
-
-
+Podemos notar tambi\'en que para las 10 muestras el coeficiente de aciertos es 1, ya que se compara con una imagen que esta en la base de datos, que es lo esperado en este caso, ya que al ser iguales, su distancia es cero, o sea es la mas parecida.
 
 \textbf{Mediciones de HitsCentro }
 
@@ -130,14 +116,11 @@ Podemos notar tambien que para las 10 muestras el porcentaje de aciertos es el 1
      \caption{Coeficientes de efectivdad de Centros de Masa con Matrix $A^tA$ con 41 personas variando K}
 \end{figure}
 
-*) Muy irregulares
-*) Mientras mayor la cantidad de muestras, mayor la efectividad
-*) tienden a subir mientras sube el k
+El comportamiento es similar al analizado en el caso anterior, a diferencia que en los distintos casos, la tendencia al coeficiente de aciertos 1 es m\'as lenta, o sea, precisa m\'as autovalores para lograr los mismos resultados.
 
-\textbf{Conclusiones:}
+Una diferencia con el caso anterior, es que usando 10 muestras no obtenemos una efectividad del 100\% para cualquier cantidad de autovectores. Esto se debe a que si las coordenadas de una persona a identificar, est\'an m\'as cerca del centro de masa de otra persona, este m\'etodo falla dado que no aprecia la distruci\'on de los conjuntos pertinentes.
 
-\textcolor{red}{COMPLETAR}
-Podemos ver para 10 muestras que a diferencia de Ttodos, en este caso cuesta mas llegar al 100 porciento ya que el metodo del \textbf{centro de masa} no es tan precioso. Esto se debe a que dadas dos personas parcidas el centro es casi el mismo pero las personas son distintas.
+En el caso del m\'etodo de vecinos mas cercanos, si las distribuciones son disjuntas, siempre encontraremos un vecino m\'as cerca que del otro conjunto. Si usamos las diez muestras, la imagen ya pertenece y por ende logramos el cien por ciento de efectividad.
 
 
 \subsubsection{Metodo 1: Utilizando $AA^t$}
@@ -159,7 +142,11 @@ Podemos ver para 10 muestras que a diferencia de Ttodos, en este caso cuesta mas
      \caption{Tiempos Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
-\textbf{Conclusiones:}
+A diferencia de antes, ahora la matriz utilizada dentro del m\'etodo de la potencia, tiene un tama\~no menor pero no constante, depende de cu\'an robusta es la base de datos. Esta medida es $Personas \times Muestras$.
+
+Logrando de esta manera despreocuparnos de la cantidad de autovalores no nulos, pues la cota del algoritmo no permite que al no converger (al no existir el pr\'oximo autovalor) se 
+
+CONCLUIR QUE LA MATRIZ ES MAS GRANDE Y NO IMPORTA LA CANTIDAD DE ITERACIONES PARA CONSEGUIR EL AUTOVALOR
 
 \textbf{Mediciones de Ttodos }
 
@@ -178,7 +165,7 @@ Podemos ver para 10 muestras que a diferencia de Ttodos, en este caso cuesta mas
      \caption{Tiempos Todos con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
-\textbf{Conclusiones:}
+ESTE CASO ES IGUAL, SE HACE LO MISMO, CON LOS MISMO TAMANIOS
 
 \textbf{Mediciones de Tcentro }
 
@@ -197,7 +184,7 @@ Podemos ver para 10 muestras que a diferencia de Ttodos, en este caso cuesta mas
      \caption{Tiempos Centro con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
-\textbf{Conclusiones:}
+FALTAN NUEVOS GRAFICOS, DEBERIA SER MAS RAPIDO QUE TODOS E IGUAL QUE AL METODO 0
 
 \textbf{Mediciones de HitsTodos}
 
@@ -216,9 +203,9 @@ Podemos ver para 10 muestras que a diferencia de Ttodos, en este caso cuesta mas
      \caption{Coeficientes de efectivdad vecino más cercano con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
-\textbf{Conclusiones:}
+MOSTRAR QUE SE COMPORTA IGUAL AL METODO 0
 
-Podemos notar  que para las 10 muestras el porcentaje de aciertos es el 100 porciento ya que se compara con una imagen que esta en la base de datos.
+Podemos notar  que para las 10 muestras el porcentaje de aciertos es el 100 porciento ya que se compara con una imagen que esta en la base de datos. VERDADERO
 
 \textbf{Mediciones de HitsCentro}
 
@@ -237,12 +224,7 @@ Podemos notar  que para las 10 muestras el porcentaje de aciertos es el 100 porc
      \caption{Coeficientes de efectividad de Centros de Masa con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
-\textbf{Conclusiones:}
-
-\textcolor{red}{COMPLETAR}
-
-Podemos ver para 10 muestras que a diferencia de Ttodos, en este caso cuesta mas llegar al 100 porciento ya que el metodo del \textbf{centro de masa} no es tan precioso. Esto se debe a que dadas dos personas parcidas el centro es casi el mismo pero las personas son distintas.
-
+IDEM ANTERIOR, PLANTEAR DADO LOS TIEMPOS SI ES MAS CONVENIENTE
 
 \subsection{Experimentacion con Imagenes Full}
 
@@ -279,7 +261,7 @@ Notamos que el comportamiento es el mismo que en las imagenes reducidas.
      \caption{Tiempos de calcular la Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
-
+ES IGUAL AL VISTO CON EL METODO 1 EN IMAGENES REDUCIDAS, VER QUE ES MAS LENTO PERO SE COMPORTA IGUAL(IMAGENES MAS GRANDES).
 
 \textbf{Mediciones de Ttodos }
 
@@ -298,6 +280,7 @@ Notamos que el comportamiento es el mismo que en las imagenes reducidas.
      \caption{Tiempos de vecino más cercano Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
+ES IGUAL AL VISTO CON EL METODO 1 EN IMAGENES REDUCIDAS, VER QUE ES MAS LENTO PERO SE COMPORTA IGUAL(IMAGENES MAS GRANDES).
 
 \textbf{Mediciones de Tcentro }
 
@@ -316,6 +299,7 @@ Notamos que el comportamiento es el mismo que en las imagenes reducidas.
      \caption{Tiempos de Centros de Masa con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
 
+ES IGUAL AL VISTO CON EL METODO 1 EN IMAGENES REDUCIDAS, VER QUE ES MAS LENTO PERO SE COMPORTA IGUAL(IMAGENES MAS GRANDES).
 
 \textbf{Mediciones de HitsTodos. }
 
@@ -333,6 +317,8 @@ Notamos que el comportamiento es el mismo que en las imagenes reducidas.
 \includegraphics[width=0.9\textwidth]{img/imagef12.png}
      \caption{Coeficiente de efectividad de Vecino Más Cercano con Matrix $AA^t$ con 41 personas variando K}
 \end{figure}
+
+ES IGUAL AL VISTO CON EL METODO 1. VEAR IMPLICANCIAS DE TAMANIO DE LA IMAGEN
 
 \textbf{Mediciones de HitsCentro }
 
@@ -352,6 +338,8 @@ Notamos que el comportamiento es el mismo que en las imagenes reducidas.
 \end{figure}
 
 
-\textbf{Conclusiones:}
+ES IGUAL AL VISTO CON EL METODO 1. VEAR IMPLICANCIAS DE TAMANIO DE LA IMAGEN
 
-\textcolor{red}{EXPLICAR}
+\subsection{Conclusiones:}
+
+HABLAR DE LA DIFICULTAD DE ELEGIR CUANTAS MUESTRAS UTILIZAR

@@ -109,7 +109,7 @@ void Data::identificarSujetos(){
 
     init_time(); //empiezo a contar el tiempo
     int distCentre = whoIsIt(kCentros, subject, 1);
-    tCentro += get_time();
+    tTodos += get_time();
 
   	hitsTodos += dist == whom ? 1 : 0;
   	hitsCentro += (distCentre == whom) ? 1 : 0;
