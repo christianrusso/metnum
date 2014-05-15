@@ -28,8 +28,8 @@ siempre es de $DimImg \times DimImg$, lo que var\'ia es que la cantidad de autov
 lo sumo la cantidad de imagenes en la base de datos, o sea, esta acotado por $Muestras \times
 Personas$. Esto \'ultimo se traduce en que al pretender calcular m\'as autovalores, el m\'etodo de
 la potencia no converja. Es as\'i que como se ve en la gr\'afico de 11 personas, se ve esta
-divergencia en k = 11 y k = 55\footnote{Calculado como $Muestras \times Personas$, cota de
-  autovalores}, para 1 Muestra y 5 Muestras respectivamente.
+divergencia en k = 11 y k = 55,\footnote{Calculado como $Muestras \times Personas$, cota de
+  autovalores} para 1 Muestra y 5 Muestras respectivamente.
 
 Además, vemos que el tiempo crece con los K, totalmente intuitivo.
 
@@ -71,8 +71,10 @@ para encontrar la m\'inima cercan\'ia
 
 
 Aquí pasa algo muy parecido con el caso de las mediciones de TTodos (vecino más cercano). Los
-tiempos crecen a medida se incremente la cantidad de muestras, y tenemos picos inexplicables en los
+tiempos crecen a medida se incremente la cantidad de muestras, y tenemos picos, probablemente causados por un context-switch, en los
 casos con pocas personas.
+
+Si se comparan uno a uno contra los tiempos obtenidos, se ve que utilizando la distancia al centro de masa, se pueden obtener resultados en menor tiempo.
 
 \textbf{Mediciones de HitsTodos }
 
@@ -99,7 +101,7 @@ diferenciar, se precisan m\'as autovalores para lograr el mismo coeficiente de a
 esperable, dado que necesitamos m\'as informacion para diferenciar a estos.
 
 Podemos notar tambi\'en que para las 10 muestras el coeficiente de aciertos es 1, ya que se compara
-con una imagen que esta en la base de datos, que es lo esperado en este caso, ya que al ser iguales,
+con una imagen que esta en la base de datos, esto es lo esperado en este caso ya que al ser iguales
 su distancia es cero, o sea es la mas parecida.
 
 \textbf{Mediciones de HitsCentro }
@@ -122,8 +124,8 @@ Una diferencia con el caso anterior, es que usando 10 muestras no obtenemos una 
 a identificar, est\'an m\'as cerca del centro de masa de otra persona, este m\'etodo falla dado que
 no aprecia la distruci\'on de los conjuntos pertinentes.
 
-En el caso del m\'etodo de vecinos mas cercanos, si las distribuciones son disjuntas, siempre
-encontraremos un vecino m\'as cerca que del otro conjunto. Si usamos las diez muestras, la imagen ya
+En el caso del m\'etodo de vecinos mas cercanos, si las distribuciones son disjuntas, en la mayor\'ia
+encontraremos un vecino m\'as cerca de la persona, que del otro conjunto. Si usamos las diez muestras, la imagen ya
 pertenece y por ende logramos el cien por ciento de efectividad.
 
 
@@ -162,9 +164,8 @@ una matriz chica y 200 iteraciones para una matriz grande es mucho mayor.
 \begin{figure}[H] \includegraphics[width=1\textwidth]{img/imagef.png} \caption{Tiempos Todos con
     Matrix $AA^t$ con 41 personas variando K} \end{figure}
 
-No se notan muchos cambios con el método 0. Esto se debe a que los autovectores terminarían siendo
-los mismos, sin importar el método 0 o método 1. En consecuencia, los tiempos de los algoritmos
-aplicados sobre ellos deberían ser muy similares.
+No se notan muchos cambios con el método 0. Esto se debe a que los autovectores terminarían casi identicos, sin importar el método 0 o método 1. En consecuencia, los tiempos son muy similares, dado que las operaciones
+aplicadas sobre ellos son exactamente las mismas.
 
 \textbf{Mediciones de Tcentro }
 
@@ -246,12 +247,12 @@ Notamos que el comportamiento es el mismo que en las imagenes reducidas.
     la Matrix $AA^t$ con 41 personas variando K} \end{figure}
 
 Si comparamos estas 3 imágenes con las hechas por el método 1 sobre las imágenes de menor resolución
-veremos que describen un comportamiento muy similar, sólo que en escalas distintas. Lo que sí vale
-la pena notar es que la diferencia en escala no es muy grande, en el gráfico para 11 personas, el
+veremos que describen el mismo comportamiento. Lo que vale
+la pena notar es que la diferencia de tiemops no es muy grande, en el gráfico para 11 personas, el
 máximo tiempo es de 33 segundos aproximadamente para el de resoluciones pequeñas y 40 para el caso
-de las resoluciones grandes, con un crecimiento similar. Algo parecido pasaría con 21 y 41 personas.
+de las resoluciones grandes, con un crecimiento similar. Algo parecido sucede con 21 y 41 personas.
 Esto es un hecho digno de remarcar dado que las imágenes tienen mil veces menos pixeles en el primer
-caso.
+caso. El causante de que el incremento sea tan peque\~no es que s\'olo se opera con la matriz de gran resoluci\'on al realizar las operaciones necesarias del producto $AA^t$, luego se operan en ambos casos matrices de igual tama\~no.
 
 \textbf{Mediciones de Ttodos }
 
@@ -264,10 +265,10 @@ caso.
 \begin{figure}[H] \includegraphics[width=1\textwidth]{img/imagef6.png} \caption{Tiempos de vecino
     más cercano Matrix $AA^t$ con 41 personas variando K} \end{figure}
 
-De nuevo aparentarían ser gráficos muy parecidos, sólo que en este caso la escala sí es diferente.
+De nuevo aparentarían ser gráficos muy parecidos, sólo que en este caso la constante de crecimiento es mayor.
 Por ejemplo, con 11 personas, 2,88 segundos es el máximo en el caso de mayores resoluciones mientras
 que era  0.117 en el de menores resoluciones.  Esto tiene sentido dado que las dimensiones de cada
-imagen es mayor, lo que implica mayor tiempo para restarle el $\mu$ y dividirlo por $\sqrt{n-1}$, y
+imagen es mayor, lo que implica mayor tiempo para restarle $\mu$ y dividirlo por $\sqrt{n-1}$, y
 también mayor tiempo para hacer el cambio de bases de ellos.
 
 \textbf{Mediciones de Tcentro }
@@ -281,7 +282,7 @@ también mayor tiempo para hacer el cambio de bases de ellos.
 \begin{figure}[H] \includegraphics[width=1\textwidth]{img/imagef9.png} \caption{Tiempos de Centros
     de Masa con Matrix $AA^t$ con 41 personas variando K} \end{figure}
 
-De nuevo, muy similares a los tests con baja resolución sólo que con escala notablemente mayor.
+De nuevo, muy similares a los tests con baja resolución sólo que con constante de costo algor\'itmico notablemente mayor.
 
 \textbf{Mediciones de HitsTodos. }
 
@@ -294,15 +295,14 @@ De nuevo, muy similares a los tests con baja resolución sólo que con escala no
 \begin{figure}[H] \includegraphics[width=0.9\textwidth]{img/imagef12.png} \caption{Coeficiente de
     efectividad de Vecino Más Cercano con Matrix $AA^t$ con 41 personas variando K} \end{figure}
 
-Comparándolos con los gráficos de menor resolución con método 1 como veníamos haciendo, de nuevo son
-parecidos. En el gráfico con 11 personas, el test con una muestra se toma su tiempo para ir
+Comparándolos con los gráficos de menor resolución con método 1 como veníamos haciendo, son a simple vista muy similares. En el gráfico con 11 personas, el test con una muestra se toma su tiempo para ir
 incrementando su efectividad acorde sube el K mientras que los otros suben mucho más empinadamente.
 
 En el gráfico de 21 personas, de nuevo es muy parecido. El caso con 3 muestras sube rápidamente y
 luego se estanca en una efectividad menor a 1, mientras que el resto sube lentamente hasta llegar a
 una efectividad de 1, con excepción del test con una muestra en ambos casos.
 
-En el caso de 41 personas tampoco hay mucho para decir. Muy parecido a los tests para el método 1
+En el caso de 41 personas tampoco hay mucho para decir. Muy parecido a los tests 
 con resoluciones pequeñas.
 
 Esta similitud contradice un poco la noción de que mayor resolución de las imágenes implica una
@@ -333,11 +333,16 @@ del vecino más cercano.
 
 En conclusión, el método 0 y el método 1 son intercambiables para el reconocimiento de rostros, pero
 el primero conlleva una necesidad de cómputo mucho mayor al segundo. Esto inclinaría la balanza
-claramente en favor del método 1 y no se verían razones por las cuales usar el método 0.
+claramente en favor del método 1 y no se verían razones por las cuales usar el método 0, dado que el peque\~no error que agregan los c\'alculos en el otro espacio, no son tan da\~ninos como para no poder ser superados utilizando m\'as autovalores.
 
-En el tema del reconocimiento de rostros en sí, no se consiguió una efectividad tan alta como se
-esperaba. Se necesitan 90 autovectores o más para lograr una efectividad del 75\% o más sin importar
+Sobre el reconocimiento de rostros en sí, no se consiguió una efectividad tan alta como se
+esperaba con una peque\~na cantidad de autovectores, se necesitan 90 o más para lograr una efectividad de al menos el 75\% sin importar
 la cantidad de muestras. Sin embargo, la cantidad de muestras sí parece influir en qué tan bueno es
 el reconocimiento, aunque conlleva un costo de cómputo mayor. Quedaría en el usuario de estos
 métodos decidir si el costo de tiempo es un precio que están dispuestos a pagar o no, dependiendo de
 las exigencias del uso elegido.
+
+Respecto a los m\'etodos de reconocimiento, utilizar el centro de masas s\'olo dar\'a \'optimos resultados si se logra con gr\'an cantidad de autovalores, alejar las muestras, dado el tiempo requerido en construir la base de datos, quizas no es tan costoso optar por un m\'etodo m\'as lento que precise menos autovalores para conseguir los mismos resultados, como el de comparar contra todas las muestras, o uno m\'as sofisticado. Por cierto, aqu\'i podr\'ian ya utilizarse m\'etodos para paralelizar estas cuentas(b\'usqueda de la m\i'nima distancia) que no son as\' aplicables aparentemente en el m\'etodo de la potencia, salvo en las propias operaciones matriciales.
+
+Otro experimento interesante a realizar, ser\'ia exponer un m\'etodo de reconocimiento que pueda diferenciar, dadas las distribuciones conocidas, si una nueva muestra no pertenece a los sujetos que se encuentran ya en la base de datos.
+
