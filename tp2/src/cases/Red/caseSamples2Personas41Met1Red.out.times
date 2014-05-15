@@ -1,6 +1,4 @@
 k , samples ,  personas , tK , tTodos , tCentro , hitsTodos , hitsCentro ,
-k \t samples \t personas \t tK \t tTodos \t tCentro \t hitsTodos \t hitsCentro \t
-k 	 samples 	 personas 	 tK 	 tTodos 	 tCentro 	 hitsTodos 	 hitsCentro
 1	2	41	0.080296	0.002345	0.005845	0.0243902	0	
 2	2	41	0.0931811	0.003446	0.007149	0.0243902	0.0243902	
 3	2	41	0.108313	0.004569	0.008449	0.097561	0.0731707	
