@@ -1,0 +1,84 @@
+../data/ImagenesCaras/ 112 92 41 5 100
+s1/ 1 3 4 9 10
+s2/ 8 6 7 3 1
+s3/ 1 8 5 3 4
+s4/ 2 5 3 1 4
+s5/ 3 2 4 1 7
+s6/ 7 2 6 4 10
+s7/ 1 6 7 10 8
+s8/ 9 6 1 2 7
+s9/ 6 9 2 1 5
+s10/ 2 8 6 9 3
+s11/ 2 6 3 5 1
+s12/ 10 2 5 1 3
+s13/ 9 3 1 4 7
+s14/ 1 4 6 10 5
+s15/ 6 3 9 7 8
+s16/ 2 1 9 7 5
+s17/ 2 4 6 10 9
+s18/ 8 5 2 9 1
+s19/ 1 2 10 4 9
+s20/ 2 9 4 6 8
+s21/ 4 8 6 3 2
+s22/ 8 7 9 4 5
+s23/ 9 7 4 5 6
+s24/ 6 7 5 10 2
+s25/ 10 2 4 6 7
+s26/ 10 4 2 6 7
+s27/ 4 3 10 2 1
+s28/ 1 9 3 10 8
+s29/ 8 1 2 3 7
+s30/ 6 2 3 8 1
+s31/ 7 6 2 5 9
+s32/ 8 10 9 7 3
+s33/ 8 10 2 3 9
+s34/ 10 6 9 1 3
+s35/ 5 6 7 2 1
+s36/ 10 2 3 6 4
+s37/ 3 6 2 9 1
+s38/ 5 6 1 2 7
+s39/ 7 9 5 3 2
+s40/ 2 10 8 7 9
+s41/ 7 10 4 5 1
+41
+../data/ImagenesCaras/s1/2.pgm 1
+../data/ImagenesCaras/s2/4.pgm 2
+../data/ImagenesCaras/s3/9.pgm 3
+../data/ImagenesCaras/s4/8.pgm 4
+../data/ImagenesCaras/s5/5.pgm 5
+../data/ImagenesCaras/s6/5.pgm 6
+../data/ImagenesCaras/s7/4.pgm 7
+../data/ImagenesCaras/s8/10.pgm 8
+../data/ImagenesCaras/s9/3.pgm 9
+../data/ImagenesCaras/s10/7.pgm 10
+../data/ImagenesCaras/s11/9.pgm 11
+../data/ImagenesCaras/s12/6.pgm 12
+../data/ImagenesCaras/s13/5.pgm 13
+../data/ImagenesCaras/s14/7.pgm 14
+../data/ImagenesCaras/s15/2.pgm 15
+../data/ImagenesCaras/s16/10.pgm 16
+../data/ImagenesCaras/s17/3.pgm 17
+../data/ImagenesCaras/s18/10.pgm 18
+../data/ImagenesCaras/s19/6.pgm 19
+../data/ImagenesCaras/s20/1.pgm 20
+../data/ImagenesCaras/s21/1.pgm 21
+../data/ImagenesCaras/s22/10.pgm 22
+../data/ImagenesCaras/s23/1.pgm 23
+../data/ImagenesCaras/s24/3.pgm 24
+../data/ImagenesCaras/s25/8.pgm 25
+../data/ImagenesCaras/s26/8.pgm 26
+../data/ImagenesCaras/s27/5.pgm 27
+../data/ImagenesCaras/s28/6.pgm 28
+../data/ImagenesCaras/s29/10.pgm 29
+../data/ImagenesCaras/s30/4.pgm 30
+../data/ImagenesCaras/s31/10.pgm 31
+../data/ImagenesCaras/s32/1.pgm 32
+../data/ImagenesCaras/s33/5.pgm 33
+../data/ImagenesCaras/s34/4.pgm 34
+../data/ImagenesCaras/s35/10.pgm 35
+../data/ImagenesCaras/s36/8.pgm 36
+../data/ImagenesCaras/s37/5.pgm 37
+../data/ImagenesCaras/s38/4.pgm 38
+../data/ImagenesCaras/s39/6.pgm 39
+../data/ImagenesCaras/s40/5.pgm 40
+../data/ImagenesCaras/s41/3.pgm 41
