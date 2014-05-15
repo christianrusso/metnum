@@ -5,22 +5,22 @@
 \BOOKMARK [2][-]{subsection.2.1}{Archivo de Entrada}{section.2}% 5
 \BOOKMARK [3][-]{subsubsection.2.1.1}{Explicacion}{subsection.2.1}% 6
 \BOOKMARK [2][-]{subsection.2.2}{Archivos de salida}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.3}{Autovalores}{section.2}% 8
-\BOOKMARK [2][-]{subsection.2.4}{Tiempos y porcentajes de acierto}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.5}{Standard output}{section.2}% 10
-\BOOKMARK [2][-]{subsection.2.6}{Metodo de la Potencia}{section.2}% 11
-\BOOKMARK [3][-]{subsubsection.2.6.1}{Explicacion}{subsection.2.6}% 12
-\BOOKMARK [3][-]{subsubsection.2.6.2}{Pseudocodigo}{subsection.2.6}% 13
-\BOOKMARK [3][-]{subsubsection.2.6.3}{Ejemplo}{subsection.2.6}% 14
-\BOOKMARK [2][-]{subsection.2.7}{Deflacion}{section.2}% 15
-\BOOKMARK [3][-]{subsubsection.2.7.1}{Explicacion}{subsection.2.7}% 16
-\BOOKMARK [3][-]{subsubsection.2.7.2}{Pseudocodigo}{subsection.2.7}% 17
-\BOOKMARK [3][-]{subsubsection.2.7.3}{Ejemplo}{subsection.2.7}% 18
-\BOOKMARK [2][-]{subsection.2.8}{Reconocimiento de caras}{section.2}% 19
-\BOOKMARK [3][-]{subsubsection.2.8.1}{El vecino m\341s cerca}{subsection.2.8}% 20
-\BOOKMARK [3][-]{subsubsection.2.8.2}{Centros de masa}{subsection.2.8}% 21
-\BOOKMARK [2][-]{subsection.2.9}{Algoritmo Principal}{section.2}% 22
-\BOOKMARK [2][-]{subsection.2.10}{Demostraciones}{section.2}% 23
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Autovalores}{subsection.2.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Tiempos y porcentajes de acierto}{subsection.2.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Standard output}{subsection.2.2}% 10
+\BOOKMARK [2][-]{subsection.2.3}{Metodo de la Potencia}{section.2}% 11
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Explicacion}{subsection.2.3}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Pseudocodigo}{subsection.2.3}% 13
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Ejemplo}{subsection.2.3}% 14
+\BOOKMARK [2][-]{subsection.2.4}{Deflacion}{section.2}% 15
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Explicacion}{subsection.2.4}% 16
+\BOOKMARK [3][-]{subsubsection.2.4.2}{Pseudocodigo}{subsection.2.4}% 17
+\BOOKMARK [3][-]{subsubsection.2.4.3}{Ejemplo}{subsection.2.4}% 18
+\BOOKMARK [2][-]{subsection.2.5}{Reconocimiento de caras}{section.2}% 19
+\BOOKMARK [3][-]{subsubsection.2.5.1}{El vecino m\341s cerca}{subsection.2.5}% 20
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Centros de masa}{subsection.2.5}% 21
+\BOOKMARK [2][-]{subsection.2.6}{Algoritmo Principal}{section.2}% 22
+\BOOKMARK [2][-]{subsection.2.7}{Demostraciones}{section.2}% 23
 \BOOKMARK [1][-]{section.3}{Experimentaci\363n}{}% 24
 \BOOKMARK [1][-]{section.4}{Resultados}{}% 25
 \BOOKMARK [2][-]{subsection.4.1}{Experimentacion con Imagenes Reducidas}{section.4}% 26
@@ -29,12 +29,13 @@
 \BOOKMARK [2][-]{subsection.4.2}{Experimentacion con Imagenes Full}{section.4}% 29
 \BOOKMARK [3][-]{subsubsection.4.2.1}{Metodo 0: Utilizando AtA}{subsection.4.2}% 30
 \BOOKMARK [3][-]{subsubsection.4.2.2}{Metodo 1: Utilizando AAt}{subsection.4.2}% 31
-\BOOKMARK [1][-]{section.5}{Ap\351ndice}{}% 32
-\BOOKMARK [2][-]{subsection.5.1}{Enunciado}{section.5}% 33
-\BOOKMARK [2][-]{subsection.5.2}{Generador de Tests}{section.5}% 34
-\BOOKMARK [2][-]{subsection.5.3}{M\351todo de compilaci\363n}{section.5}% 35
-\BOOKMARK [3][-]{subsubsection.5.3.1}{M\351todo 1}{subsection.5.3}% 36
-\BOOKMARK [3][-]{subsubsection.5.3.2}{M\351todo 2}{subsection.5.3}% 37
-\BOOKMARK [2][-]{subsection.5.4}{Script para correr casos}{section.5}% 38
-\BOOKMARK [2][-]{subsection.5.5}{Equipo de pruebas}{section.5}% 39
-\BOOKMARK [2][-]{subsection.5.6}{Referencias bibliogr\341ficas}{section.5}% 40
+\BOOKMARK [2][-]{subsection.4.3}{Conclusiones:}{section.4}% 32
+\BOOKMARK [1][-]{section.5}{Ap\351ndice}{}% 33
+\BOOKMARK [2][-]{subsection.5.1}{Enunciado}{section.5}% 34
+\BOOKMARK [2][-]{subsection.5.2}{Generador de Tests}{section.5}% 35
+\BOOKMARK [2][-]{subsection.5.3}{M\351todo de compilaci\363n}{section.5}% 36
+\BOOKMARK [3][-]{subsubsection.5.3.1}{M\351todo 1}{subsection.5.3}% 37
+\BOOKMARK [3][-]{subsubsection.5.3.2}{M\351todo 2}{subsection.5.3}% 38
+\BOOKMARK [2][-]{subsection.5.4}{Script para correr casos}{section.5}% 39
+\BOOKMARK [2][-]{subsection.5.5}{Equipo de pruebas}{section.5}% 40
+\BOOKMARK [2][-]{subsection.5.6}{Referencias bibliogr\341ficas}{section.5}% 41
