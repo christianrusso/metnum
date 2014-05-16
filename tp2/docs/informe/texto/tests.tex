@@ -2,22 +2,22 @@
 \input{texto/experimentacion.tex}
 
 \section{Resultados}
-\subsection{Experimentacion con Imagenes Reducidas}
-\subsubsection{Metodo 0: Utilizando $A^tA$}
+\subsection{Experimentaci\'on con Imagenes Reducidas}
+\subsubsection{M\'etodo 0: Utilizando $A^tA$}
 
 \textbf{Mediciones de TK}
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/image1.png}
+\includegraphics[width=0.95\textwidth]{img/image1.png}
      \caption{Tiempos Matrix $A^tA$ con 11 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/image2.png}
+\includegraphics[width=0.95\textwidth]{img/image2.png}
      \caption{Tiempos Matrix $A^tA$ con 21 personas variando K}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=1\textwidth]{img/image3.png}
+\includegraphics[width=0.95\textwidth]{img/image3.png}
      \caption{Tiempos Matrix $A^tA$ con 41 personas variando K}
 \end{figure}
 
@@ -57,6 +57,8 @@ muestras tengamos, m\'as puntos tendremos para comparar.
 Esto est\'a relacionado con la forma de encontrar al vecino, ya que se debe recorrer toda la base
 para encontrar la m\'inima cercan\'ia
 
+\newpage
+
 \textbf{Mediciones de Tcentro }
 
 \begin{figure}[H] \includegraphics[width=1\textwidth]{img/image7.png} \caption{Tiempos Centro con
@@ -75,6 +77,8 @@ tiempos crecen a medida se incremente la cantidad de muestras, y tenemos picos, 
 casos con pocas personas.
 
 Si se comparan uno a uno contra los tiempos obtenidos, se ve que utilizando la distancia al centro de masa, se pueden obtener resultados en menor tiempo.
+
+\newpage
 
 \textbf{Mediciones de HitsTodos }
 
@@ -104,6 +108,8 @@ Podemos notar tambi\'en que para las 10 muestras el coeficiente de aciertos es 1
 con una imagen que esta en la base de datos, esto es lo esperado en este caso ya que al ser iguales
 su distancia es cero, o sea es la mas parecida.
 
+\newpage
+
 \textbf{Mediciones de HitsCentro }
 
 \begin{figure}[H] \includegraphics[width=1\textwidth]{img/image13.png} \caption{Coeficientes de
@@ -129,7 +135,7 @@ encontraremos un vecino m\'as cerca de la persona, que del otro conjunto. Si usa
 pertenece y por ende logramos el cien por ciento de efectividad.
 
 
-\subsubsection{Metodo 1: Utilizando $AA^t$}
+\subsubsection{M\'etodo 1: Utilizando $AA^t$}
 
 \textbf{Mediciones de TK }
 
@@ -191,14 +197,16 @@ Ocurre lo mismo que con el tiempo de Ttodos (vecino más cercano).
 \begin{figure}[H] \includegraphics[width=0.9\textwidth]{img/imagel.png} \caption{Coeficientes de
     efectivdad vecino más cercano con Matrix $AA^t$ con 41 personas variando K} \end{figure}
 
-Notamos que el comportamiento es muy parecido al comportamientos del Metodo 0, entre otras cosas
+Notamos que el comportamiento es muy parecido al comportamientos del M\'etodo 0, entre otras cosas
 vemos que al incrementar el k el coeficiente de aciertos tiene a 1.  Un detalle que notamos que
-tiene diferencia con el Metodo 0, es que para algunos valores de muestra chicos, como por ejemplo
+tiene diferencia con el M\'etodo 0, es que para algunos valores de muestra chicos, como por ejemplo
 Grafico 1 con 1 muestra o Grafico 2 con 3 muestras, le cuesta mas aumentar el porcentaje de
 aciertos.
 
 Podemos notar  que para las 10 muestras el porcentaje de aciertos es el 100 porciento ya que se
 compara con una imagen que esta en la base de datos.
+
+\newpage
 
 \textbf{Mediciones de HitsCentro}
 
@@ -211,10 +219,10 @@ compara con una imagen que esta en la base de datos.
 \begin{figure}[H] \includegraphics[width=1\textwidth]{img/imager.png} \caption{Coeficientes de
     efectividad de Centros de Masa con Matrix $AA^t$ con 41 personas variando K} \end{figure}
 
-Al igual que los graficos anteriores, estos graficos se comportan muy similar a los del Metodo 0,
+Al igual que los graficos anteriores, estos graficos se comportan muy similar a los del M\'etodo 0,
 quiza en algunos casos particulares (como por ejemplo, Grafico 1 con 9 muestras) se tiene un
 porcentaje de acierto mas alto y en otros casos (como por ejemplo, Grafico 1 con 1 muestra) se tiene
-un porcentaje de acierto mas bajo. Pero en general los porcentajes entre este metodo y el anterior
+un porcentaje de acierto mas bajo. Pero en general los porcentajes entre este m\'etodo y el anterior
 son similares.
 
 
@@ -222,10 +230,10 @@ son similares.
 %%%%%%%%% ------------------------------------- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Experimentacion con Imagenes Full}
 
-\subsubsection{Metodo 0: Utilizando $A^tA$}
+\subsubsection{M\'etodo 0: Utilizando $A^tA$}
 
 Estos tests no los realizamos ya que el tiempo de ejecucion es muy elevado y ademas vamos  a obtener
-los mismos resultados que a los aplicados con el \textbf{metodo 1} por lo demostrado en el lema: \\
+los mismos resultados que a los aplicados con el \textbf{m\'etodo 1} por lo demostrado en el lema: \\
 \\ \textbf{Lema:} Si $u$ es autovector de $A A^t$ con $\lambda$ autovalor asociado, entonces $A^t u
 \in \mathbb{R}^m$ es autovector de $A^t A$ también con $\lambda$ autovalor asociado.  \\ \\ el cual
 esta demostrado en la seccion \textbf{Demostraciones}
@@ -233,7 +241,7 @@ esta demostrado en la seccion \textbf{Demostraciones}
 Notamos que el comportamiento es el mismo que en las imagenes reducidas.
 
 %%%%%%%%%%%%%%%%% *********** %%%%%%%%%%%%%%%%%
-\subsubsection{Metodo 1: Utilizando $AA^t$}
+\subsubsection{M\'etodo 1: Utilizando $AA^t$}
 
 \textbf{Mediciones de TK}
 
@@ -311,6 +319,8 @@ posibles razones podrían ser que los primeros autovectores de ambas versiones d
 acumulan la misma cantidad de varianza, y por ende, la misma cantidad de autovectores nos resumiría
 la misma información en ambos casos. Se debería hacer tests más específicos para poder confirmar
 ésta u otra hipótesis.
+
+\newpage
 
 \textbf{Mediciones de HitsCentro }
 
