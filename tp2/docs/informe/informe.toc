@@ -30,7 +30,7 @@
 \contentsline {subsection}{\numberline {4.2}Experimentacion con Imagenes Full}{37}{subsection.4.2}
 \contentsline {subsubsection}{\numberline {4.2.1}M\'etodo 0: Utilizando $A^tA$}{37}{subsubsection.4.2.1}
 \contentsline {subsubsection}{\numberline {4.2.2}M\'etodo 1: Utilizando $AA^t$}{37}{subsubsection.4.2.2}
-\contentsline {subsection}{\numberline {4.3}Conclusiones:}{47}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.3}Conclusiones}{47}{subsection.4.3}
 \contentsline {section}{\numberline {5}Ap\'endice}{48}{section.5}
 \contentsline {subsection}{\numberline {5.1}Enunciado}{48}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Generador de Tests}{49}{subsection.5.2}
