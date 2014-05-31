@@ -1,1 +1,6 @@
 \select@language {spanish}
+\contentsline {section}{\numberline {1}Desarrollo}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}M\IeC {\'e}todo Uno: Usando Cuadrados M\IeC {\'\i }nimos}{3}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Cuadrados M\IeC {\'\i }nimos: General con Funciones Normales}{3}{subsubsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.2}Cuadrados M\IeC {\'\i }nimos: Nuestro trabajo}{3}{subsubsection.1.1.2}
+\contentsline {subsection}{\numberline {1.2}Referencias bibliogr\'aficas}{4}{subsection.1.2}

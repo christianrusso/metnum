@@ -1,0 +1,54 @@
+\subsection{Método Uno: Usando Cuadrados Mínimos}
+Nuestro primer enfoque fue mirar al problema como si fuera uno de analizar los datos obtenidos en un
+experimento y tratásemos de describir la distribución de estos mediante una función.
+
+En esta perspectiva, nuestra entrada sería el tiempo y la salida la posición en la cancha de la
+pelota. Además, como las variaciones en las coordenadas $x$ e $y$ de la pelota son independientes
+podemos dividir al problema en una entrada y dos salidas. De esta forma, deberíamos resolver dos
+problemas de cuadrados mínimos.
+
+\subsubsection{Cuadrados Mínimos: General con Funciones Normales}
+La siguiente información sobre \texttt{Cuadrados Mínimos} fue sacada de \cite[p~501]{burden}:
+
+El problema general de aproximar un conjunto de datos, $\{(x_i, y_i) | i = 1,2, \ldots, m\}$ con un
+polinomio
+\begin{center}
+  $P_n = a_n x^n + a_{n-1}x^{n-1}+ \hdots + a_1x+a_0,   $
+\end{center}
+de grado $n < m-1$, se reduce a elegir las constantes $a_0, a_1, \ldots, a_n$ que minimicen el
+cuadrado mínimo $E = E_2(a_0, a_1,\ldots, a_n) donde$
+\begin{center}
+  $E = \sum_{i=1}^{m} (y_i - Pn(x_i))^2$
+
+  $= \ldots  $\footnote{Para el desarrollo completo referirse al libro citado} $=$
+
+  $ = \sum_{i=1}^{m} y_i^2 -2 \sum_{j=0}^{n} a_j \left(\sum_{i=1}^{m} y_i x_i^j \right) + 
+    \sum_{j=0}^{n} \sum_{k=0}^{n} a_j a_k \left(x_i^{j+k}\right)$
+\end{center}
+
+Para encontrar los mínimos, dado que es una función convexa (falta demostrar), debemos buscar los
+puntos críticos y éstos serán los mínimos globales. Para ello, diferenciaremos la función por sus
+constantes $a_i$ y las igualaremos a 0:
+\begin{center}
+  $0 =  \frac{\partial E}{\partial a_j}$
+\end{center}
+Lo que daría, después de algunos pasos$^1$, $n+1$ ecuaciones del siguiente estilo, con $0 \leq k
+\leq n$:
+\begin{center}
+  $a_o \sum{i=1}{m} x_i^{k} + a_1 \sum{i=1}{m} x_i^{k+1}+ a_2 \sum{i=1}{m} x_i^{k+2} + \hdots +
+   a_n \sum{i=1}{m} x_i^{k+n} =   \sum{i=1}{m} y_i x_i^k$
+\end{center}
+
+Estas ecuaciones terminarían formando las filas de nuestra matriz extendida y el sistema
+lineal\footnote{Es lineal dado que las incógnitas están relacionadas entre ellas de forma lineal}
+resultante tiene solución única si los $x_i$ distintos.
+
+\subsubsection{Cuadrados Mínimos: Nuestro trabajo}
+
+Adaptado a nuestro trabajo, tendríamos dos sistemas lineales de ecuaciones de $n+1$ filas y $n+1$
+columnas representando las funciones normales con entrada $t$ tiempo y salida coordenada $x$; y
+entrada $t$ tiempo y salida coordenada $y$, respectivamente.
+
+Es decir, para poder describir el comportamiento de ambas variables con un polinomio de grado como
+máximo n, necesitaríamos n+1 tiempos.
+
