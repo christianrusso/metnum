@@ -1,0 +1,31 @@
+{
+    ".deps_version": 2, 
+    "g++ -c ./Matrix.cpp -o ./Matrix.o": {
+        ".": "input-5058f1af8388633f609cadb75a75dc9d", 
+        "Matrix.cpp": "input-7ea7d4143c5c976455964ff85cb81f14", 
+        "Matrix.h": "input-8fe163afb0389031d4785b5babc6de88", 
+        "Matrix.o": "output-051842d84328cd7e0bf39ceccf42ddd7", 
+        "functions.h": "input-3035dd418a7566b78e2be3d5aacf76ca"
+    }, 
+    "g++ -c ./functions.cpp -o ./functions.o": {
+        ".": "input-5058f1af8388633f609cadb75a75dc9d", 
+        "Matrix.h": "input-8fe163afb0389031d4785b5babc6de88", 
+        "functions.cpp": "input-63df2852a3aff405a0ed496337dc674c", 
+        "functions.h": "input-3035dd418a7566b78e2be3d5aacf76ca", 
+        "functions.o": "output-1ad93cdc77784126cfc5467eb61e88f7"
+    }, 
+    "g++ -c ./main.cpp -o ./main.o": {
+        ".": "input-5058f1af8388633f609cadb75a75dc9d", 
+        "Matrix.h": "input-8fe163afb0389031d4785b5babc6de88", 
+        "functions.h": "input-3035dd418a7566b78e2be3d5aacf76ca", 
+        "main.cpp": "input-20219a42e11a73228d18d2cb1c025426", 
+        "main.o": "output-5ae64a36aef238372c8c379526289f9e"
+    }, 
+    "g++ -o ./tp ./Matrix.o ./main.o ./functions.o": {
+        ".": "input-5058f1af8388633f609cadb75a75dc9d", 
+        "Matrix.o": "input-051842d84328cd7e0bf39ceccf42ddd7", 
+        "functions.o": "input-1ad93cdc77784126cfc5467eb61e88f7", 
+        "main.o": "input-5ae64a36aef238372c8c379526289f9e", 
+        "tp": "output-678ae52ba94dd33cd34ce66ddc551405"
+    }
+}
