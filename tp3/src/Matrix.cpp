@@ -354,7 +354,7 @@ double Matrix::distance(Matrix& vector){
 void Matrix::metodoQR(Matrix& A) {
     cout << "A" << endl;
     cout << A << endl;
-    Matrix Q(A.n,A.m);
+    Matrix Q(A.n,A.n);
     Q.identidad();
     Matrix R(A.n,A.m);
     factorizacionQR(A,Q, R);
@@ -369,8 +369,12 @@ void Matrix::metodoQR(Matrix& A) {
 
 void Matrix::factorizacionQR(Matrix& A,Matrix& Q, Matrix& R) {
     R = A;
+    
+    
     for (int i = 0; i < A.m; ++i)
     {
+        Matrix tmp(Q.n,Q.m);
+        tmp.identidad();
         Matrix subR(R.n - i, R.m - i);
         Matrix subQ(Q.n - i, Q.m - i);
         subQ.identidad();
@@ -378,10 +382,11 @@ void Matrix::factorizacionQR(Matrix& A,Matrix& Q, Matrix& R) {
             generarSubMatrix(subR,R,i);
             elminarPrimerColumna(subR,subQ);
             agregarSubMatrix(subR,R,i);
+            agregarSubMatrix(subQ,tmp,i);
         }
-        cout << "subQ" << endl;
-        cout << subQ << endl;
+        Q = tmp*Q;
     }
+    Q = Q.transpuesta();
 
 }
 
