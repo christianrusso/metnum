@@ -39,9 +39,11 @@ Data::Data(ifstream &inputFile, ofstream &stream, int method){
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 void Data::setearParamsSimples(ifstream &inputFile){
   // Setea las variables ints y el img_dir que es un char*
-  x_goal, x_keeper = 125;
+  x_goal = 125;
+  x_keeper = 125;
   gameHasEnd = false;
-  x_ball, y_ball = Matrix();
+  x_ball = Matrix();
+  y_ball = Matrix();
 
   string line;
   if (inputFile.peek() != char_traits<char>::eof())  {

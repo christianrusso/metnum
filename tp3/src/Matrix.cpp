@@ -157,7 +157,9 @@ Matrix Matrix::add(const Matrix &other, bool isadd) {
             if (isadd) {
                 R.mat[i][j] = mat[i][j] + other.mat[i][j];
             } else {
-                R.mat[i][j] = mat[i][j] - other.mat[i][j];
+                double res = mat[i][j] - other.mat[i][j];
+                if((res < 0.000001) && (res > -0.000001)) res = 0;
+                R.mat[i][j] = res;
             }
         }
     }
@@ -348,3 +350,129 @@ double Matrix::distance(Matrix& vector){
     }
     return sqrt(dist);
 }
+
+void Matrix::metodoQR(Matrix& A) {
+    cout << "A" << endl;
+    cout << A << endl;
+    Matrix Q(A.n,A.m);
+    Q.identidad();
+    Matrix R(A.n,A.m);
+    factorizacionQR(A,Q, R);
+    cout << "R" << endl;
+    cout << R << endl;
+    cout << "Q" << endl;
+    cout << Q << endl;   
+
+}
+
+
+
+void Matrix::factorizacionQR(Matrix& A,Matrix& Q, Matrix& R) {
+    R = A;
+    for (int i = 0; i < A.m; ++i)
+    {
+        Matrix subR(R.n - i, R.m - i);
+        Matrix subQ(Q.n - i, Q.m - i);
+        subQ.identidad();
+        if(subR.n > 1){
+            generarSubMatrix(subR,R,i);
+            elminarPrimerColumna(subR,subQ);
+            agregarSubMatrix(subR,R,i);
+        }
+        cout << "subQ" << endl;
+        cout << subQ << endl;
+    }
+
+}
+
+
+void Matrix::generarSubMatrix(Matrix& sub, Matrix& A, int i){
+    int w = 0;
+        for (int j = i; j < A.n; ++j)
+        {
+            int p = 0;
+            for (int k = i; k < A.m; ++k)
+            {
+                
+                sub.mat[w][p] = A.mat[j][k];
+                p++;
+            }
+            w++;
+        }           
+}
+
+void Matrix::elminarPrimerColumna(Matrix& sub, Matrix& subQ){
+    Matrix x(sub.n,1);
+    Matrix y(sub.n,1);
+    Matrix u(sub.n,1);
+    for (int i = 0; i < x.n; ++i)
+    {
+        x.mat[i][0] = sub.mat[i][0];
+    }
+
+    //LINEA DE MIERDA
+    cout << "";
+
+    y.mat[0][0] = x.normVector();
+    u = x - y;
+    double normaU;
+    normaU = u.normVector();
+    normaU = normaU * normaU;
+    Matrix aux(u.n,u.m);
+    Matrix uTranspuesto(u.m,u.n);
+    uTranspuesto = u.transpuesta();
+    aux = uTranspuesto * sub;
+    Matrix aux2(sub.n,sub.n);
+    aux2 = u*aux;
+    double coeficiente = 2/normaU;
+    matrixPorK(aux2,coeficiente);
+    sub = sub - aux2;
+    
+   
+   //CALCULOS PARA Q_t
+
+    aux = uTranspuesto * subQ;
+    aux2 = u*aux;
+    matrixPorK(aux2,coeficiente);
+    subQ = subQ - aux2;
+
+}
+
+void Matrix::agregarSubMatrix(Matrix& sub, Matrix& A, int i){
+    int w = 0;
+    for (int j = i; j < A.n; ++j)
+    {
+        int p = 0;
+        for (int k = i; k < A.m; ++k)
+        {
+            A.mat[j][k] = sub.mat[w][p];
+            p++;
+        }
+        w++;        
+    }          
+}
+
+
+void Matrix::matrixPorK(Matrix& A, double k){
+    for (int i = 0; i < A.n; ++i)
+    {
+        for (int j = 0; j < A.m; ++j)
+        {
+            double valor = k*A.mat[i][j];
+            A.mat[i][j] = valor;
+        }
+    }
+}
+
+void Matrix::identidad(){
+    for (int i = 0; i < this->n; ++i)
+    {
+        for (int j = 0; j < this->m; ++j)
+        {
+            if(i == j){
+                this->mat[i][j] = 1;
+            }
+        }
+    }
+}
+

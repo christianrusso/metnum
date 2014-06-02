@@ -51,6 +51,15 @@ public:
     double multiplyRowByVector(int i, Matrix& b);
     Matrix transpuesta();
 
+    //QR
+    void metodoQR(Matrix& A);
+    void factorizacionQR(Matrix& A,Matrix& Q, Matrix& R);
+    void generarSubMatrix(Matrix& sub, Matrix& A, int i);
+    void elminarPrimerColumna(Matrix& sub, Matrix& subQ);
+    void agregarSubMatrix(Matrix& sub, Matrix& A, int i);
+    void matrixPorK(Matrix& A, double k);
+    void identidad();
+
     int n, m;
     std::vector<std::vector<double> > mat;
 private:
