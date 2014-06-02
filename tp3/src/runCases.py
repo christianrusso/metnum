@@ -6,7 +6,7 @@ from fnmatch import fnmatch
 
 
 # Programa compilado
-executable = './caritas' if os.name == 'posix' else 'caritas.exe'
+executable = './yoAtajo' if os.name == 'posix' else 'yoAtajo.exe'
 
 def listfiles(root, pattern):
   for path, subdirs, files in os.walk(root):
@@ -26,11 +26,11 @@ def runTp(input, output):
     	call([executable, input, output, '1'] , stdin=None, stdout=fileOut, stderr=fileOut)
 
 def run():
-	for fname in listfiles('cases', '*.in'):
-		if (fname.replace(".in", ".out.times") in listfiles('cases', '*.times')):
-			print("Case " + fname + " was already run")
-		else:
-			print("Running case: " + fname)
-			runTp(fname,  fname.replace(".in", ".out"))
+	for fname in listfiles('../visualizador/instancias', '*.tiro'):
+		#if (fname.replace(".tiro", ".out.times") in listfiles('cases', '*.times')):
+		#	print("Case " + fname + " was already run")
+		#else:
+		#	print("Running case: " + fname)
+		runTp(fname,  fname.replace(".tiro", ".arq"))
 
 run();

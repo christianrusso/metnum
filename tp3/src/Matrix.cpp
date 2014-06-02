@@ -270,10 +270,18 @@ Matrix Matrix::transpuesta(){
 }
 
 double Matrix::get(int i, int j) const {
+    if(i>=n || j>=m){
+        cout << "Get: No se puede acceder a una posicion inexistente" << endl;
+        exit(1);
+    }
     return mat[i][j];
 }
 
 void Matrix::set(int i, int j, double value){
+    if(i>n || j>m){
+        cout << "Set: No se puede escribir a una posicion inexistente" << endl;
+        exit(1);
+    }
     mat[i][j] = value;
 }
 
@@ -297,6 +305,26 @@ double Matrix::normVector(){
     
     return sqrt(r);
 }
+
+void Matrix::insertToVector(double val){
+    if(m == 0 && n == 0){
+        m++;
+        std::vector<double> v(1,val);
+        mat.push_back(v);
+        n++;        
+    } else if(m == 1 && n >= 1) {
+        std::vector<double> v(1,val);
+        mat.push_back(v);
+        n++;
+    } else if(n == 1 && m >= 1) {
+        mat[0].push_back(val);
+        m++;
+    } else {
+        cout << "No se puede insertar el elemento ya que no es un vector" << endl;
+        exit(1);
+    }
+}
+
 
 double Matrix::distance(Matrix& vector){
     if (vector.m != m) {

@@ -1,5 +1,5 @@
 all: Matrix.o functions.o data.o main.o
-	g++ main.o functions.o Matrix.o data.o -o  caritas -O2
+	g++ main.o functions.o Matrix.o data.o -o  yoAtajo -O2
 
 data.o: data.h data.cpp
 	g++ -c data.cpp
@@ -14,4 +14,4 @@ main.o: main.cpp
 	g++ -c main.cpp
 
 clean:
-	rm main.o Matrix.o caritas functions.o data.o
+	rm main.o Matrix.o yoAtajo functions.o data.o
