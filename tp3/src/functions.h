@@ -15,6 +15,12 @@ Matrix calculateK(Matrix& B, int k, std::ofstream& stream, std::vector<double>& 
 std::vector<std::string> split(std::string &line);
 Matrix centrosDeMasa(Matrix& B, int samples, int subjects);
 int whoIsIt(Matrix& M, Matrix& Subject, int samples);
+Matrix metodoQR(Matrix& A, Matrix& b);
+void factorizacionQR(Matrix& A,Matrix& Qt, Matrix& R);
+void generarSubMatrix(Matrix& sub, Matrix& A, int i);
+void elminarPrimerColumna(Matrix& sub, Matrix& subQt);
+void agregarSubMatrix(Matrix& sub, Matrix& A, int i);
+
 
 
 #endif

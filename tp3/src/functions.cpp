@@ -120,3 +120,112 @@ int whoIsIt(Matrix& M, Matrix& Subject, int samples){
 
 	return (minIndex/samples) + 1;
 }
+
+
+/**********************************************************/
+// TP3 //
+/**********************************************************/
+
+Matrix metodoQR(Matrix& A, Matrix& b) {
+    if (A.n < A.m) {
+        cout << "QR:: No se puede aplicar el metodo a una matriz con n < m" << endl;
+        exit(1);
+    }
+    Matrix Qt(A.n,A.n);
+    Matrix R(A.n,A.m);
+
+    factorizacionQR(A,Qt, R);
+    
+    Matrix R1 = R.primerasKFilas(A.n);
+    Matrix C = R1.backwardSubstitution(b);
+
+    return Qt.primerasKFilas(A.n)*C;
+}
+
+
+void factorizacionQR(Matrix& A,Matrix& Qt, Matrix& R) {
+    R = A;
+    Matrix square (A.n,A.n);
+    Qt = square;
+    Qt.identidad();
+
+    
+    for (int i = 0; i < A.m; ++i)
+    {
+        Matrix tmp(Qt.n,Qt.m);
+        tmp.identidad();
+        Matrix subR(R.n - i, R.m - i);
+        Matrix subQt(Qt.n - i, Qt.m - i);
+        subQt.identidad();
+        if(subR.n > 1){
+            generarSubMatrix(subR,R,i);
+            elminarPrimerColumna(subR,subQt);
+            agregarSubMatrix(subR,R,i);
+            agregarSubMatrix(subQt,tmp,i);
+        }
+        Qt = tmp*Qt;
+    }
+}
+
+
+void generarSubMatrix(Matrix& sub, Matrix& A, int i){
+    int w = 0;
+        for (int j = i; j < A.n; ++j)
+        {
+            int p = 0;
+            for (int k = i; k < A.m; ++k)
+            {
+                
+                sub.mat[w][p] = A.mat[j][k];
+                p++;
+            }
+            w++;
+        }           
+}
+
+void elminarPrimerColumna(Matrix& sub, Matrix& subQt){
+    Matrix x(sub.n,1);
+    Matrix y(sub.n,1);
+    Matrix u(sub.n,1);
+    for (int i = 0; i < x.n; ++i)
+    {
+        x.mat[i][0] = sub.mat[i][0];
+    }
+
+    y.mat[0][0] = x.normVector();
+    u = x - y;
+    double normaU;
+    normaU = u.normVector();
+    normaU = normaU * normaU;
+    Matrix aux(u.n,u.m);
+    Matrix uTranspuesto(u.m,u.n);
+    uTranspuesto = u.transpuesta();
+    aux = uTranspuesto * sub;
+    Matrix aux2(sub.n,sub.n);
+    aux2 = u*aux;
+    double coeficiente = 2/normaU;
+    
+    sub = sub - (aux2*coeficiente);
+    
+   
+   //CALCULOS PARA Qt_t
+
+    aux = uTranspuesto * subQt;
+    aux2 = u*aux;
+    subQt = subQt - (aux2 * coeficiente);
+
+}
+
+void agregarSubMatrix(Matrix& sub, Matrix& A, int i){
+    int w = 0;
+    for (int j = i; j < A.n; ++j)
+    {
+        int p = 0;
+        for (int k = i; k < A.m; ++k)
+        {
+            A.mat[j][k] = sub.mat[w][p];
+            p++;
+        }
+        w++;        
+    }          
+}

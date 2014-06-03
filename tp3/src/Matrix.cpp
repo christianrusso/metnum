@@ -132,7 +132,7 @@ bool Matrix::operator==(const Matrix &other) {
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            if (fabs(mat[i][j] - other.mat[i][j]) > 0.0000000000000001) {
+            if (!isZero(mat[i][j] - other.mat[i][j])) {
                 return false;
             }
         }
@@ -158,7 +158,7 @@ Matrix Matrix::add(const Matrix &other, bool isadd) {
                 R.mat[i][j] = mat[i][j] + other.mat[i][j];
             } else {
                 double res = mat[i][j] - other.mat[i][j];
-                if((res < 0.000001) && (res > -0.000001)) res = 0;
+                if(isZero(res)) res = 0;
                 R.mat[i][j] = res;
             }
         }
@@ -351,122 +351,42 @@ double Matrix::distance(Matrix& vector){
     return sqrt(dist);
 }
 
-void Matrix::metodoQR(Matrix& A) {
-    cout << "A" << endl;
-    cout << A << endl;
-    Matrix Q(A.n,A.n);
-    Q.identidad();
-    Matrix R(A.n,A.m);
-    factorizacionQR(A,Q, R);
-    cout << "R" << endl;
-    cout << R << endl;
-    cout << "Q" << endl;
-    cout << Q << endl;   
 
-}
-
-
-
-void Matrix::factorizacionQR(Matrix& A,Matrix& Q, Matrix& R) {
-    R = A;
-    
-    
-    for (int i = 0; i < A.m; ++i)
-    {
-        Matrix tmp(Q.n,Q.m);
-        tmp.identidad();
-        Matrix subR(R.n - i, R.m - i);
-        Matrix subQ(Q.n - i, Q.m - i);
-        subQ.identidad();
-        if(subR.n > 1){
-            generarSubMatrix(subR,R,i);
-            elminarPrimerColumna(subR,subQ);
-            agregarSubMatrix(subR,R,i);
-            agregarSubMatrix(subQ,tmp,i);
-        }
-        Q = tmp*Q;
+Matrix Matrix::primerasKFilas(int k){
+    Matrix B(k,this->m);
+    for (int i = 0; i < k; ++i) {
+        Matrix row = this->row(i);
+        B.setRow(i,row);
     }
-    Q = Q.transpuesta();
-
+    return B;
 }
 
 
-void Matrix::generarSubMatrix(Matrix& sub, Matrix& A, int i){
-    int w = 0;
-        for (int j = i; j < A.n; ++j)
-        {
-            int p = 0;
-            for (int k = i; k < A.m; ++k)
-            {
-                
-                sub.mat[w][p] = A.mat[j][k];
-                p++;
-            }
-            w++;
-        }           
-}
-
-void Matrix::elminarPrimerColumna(Matrix& sub, Matrix& subQ){
-    Matrix x(sub.n,1);
-    Matrix y(sub.n,1);
-    Matrix u(sub.n,1);
-    for (int i = 0; i < x.n; ++i)
-    {
-        x.mat[i][0] = sub.mat[i][0];
+Matrix Matrix::backwardSubstitution(Matrix& b){
+    if(b.m != 1){
+        cout << "BS:: X no es un vector columna" << endl;
+        exit(1);
     }
-
-    //LINEA DE MIERDA
-    cout << "";
-
-    y.mat[0][0] = x.normVector();
-    u = x - y;
-    double normaU;
-    normaU = u.normVector();
-    normaU = normaU * normaU;
-    Matrix aux(u.n,u.m);
-    Matrix uTranspuesto(u.m,u.n);
-    uTranspuesto = u.transpuesta();
-    aux = uTranspuesto * sub;
-    Matrix aux2(sub.n,sub.n);
-    aux2 = u*aux;
-    double coeficiente = 2/normaU;
-    matrixPorK(aux2,coeficiente);
-    sub = sub - aux2;
-    
-   
-   //CALCULOS PARA Q_t
-
-    aux = uTranspuesto * subQ;
-    aux2 = u*aux;
-    matrixPorK(aux2,coeficiente);
-    subQ = subQ - aux2;
-
-}
-
-void Matrix::agregarSubMatrix(Matrix& sub, Matrix& A, int i){
-    int w = 0;
-    for (int j = i; j < A.n; ++j)
-    {
-        int p = 0;
-        for (int k = i; k < A.m; ++k)
-        {
-            A.mat[j][k] = sub.mat[w][p];
-            p++;
-        }
-        w++;        
-    }          
-}
-
-
-void Matrix::matrixPorK(Matrix& A, double k){
-    for (int i = 0; i < A.n; ++i)
-    {
-        for (int j = 0; j < A.m; ++j)
-        {
-            double valor = k*A.mat[i][j];
-            A.mat[i][j] = valor;
-        }
+    if(b.n != this->m){
+        cout << "BS:: X no tiene el mismo tamaño de A" << endl;
+        exit(1);
     }
+    if(this->m > this->n){
+        cout << "BS:: No se puede aplicar el metodo en una matriz con m > n" << endl;
+        exit(1);
+    }
+    Matrix x (b);
+    for (int i = this->n-1; i >= 0; i--) {
+        //x[i] = b[i]; ya fue copiado
+        double Xi = b.get(i,0);
+        for (int j = this->n-1; j > i; j--)
+        {
+            Xi = Xi - this->get(i,j)*x.get(j,0);
+        }
+        Xi = Xi/this->get(i,i);
+        x.set(i, 0, Xi);
+    }
+    return x;
 }
 
 void Matrix::identidad(){
@@ -481,3 +401,6 @@ void Matrix::identidad(){
     }
 }
 
+bool Matrix::isZero(double number){
+    return fabs(number) < 0.0000000000000001;
+}

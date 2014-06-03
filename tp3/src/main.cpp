@@ -18,7 +18,7 @@ using namespace std;
 // Main Release
 int main(int argc, char* argv[]) {
 //Creamos los streams para leer archivos y se lo pasamos a una instancia nueva de la clase Data
-  /* COMENTO PARA PROBAR QR
+  
   if (argc < 4) {
    cout << "Parametros: archivo_entrada archivo_salida metodo(0 o 1)\n";
    exit(1);
@@ -46,12 +46,10 @@ int main(int argc, char* argv[]) {
   // timesLog.close();
   stream.close();
   inputFile.close();
-*/ 
-  //TERMINO MI GRAN COMENTARIO
 
 
-  double value[] = {0.0,-3.0,4.0,4.0,0.0,2.0,-3.0,5.0,1.0,1.0,2.0,3.0};
-  Matrix A(4,3,value);
+  //double value[] = {0.0,-3.0,4.0,4.0,0.0,2.0,-3.0,5.0,1.0,1.0,2.0,3.0};
+  //Matrix A(4,3,value);
 
   //double value[] = {0.0,-3.0,4.0,4.0,0.0,2.0,-3.0,5.0,1.0};
   //Matrix A(3,3,value);
@@ -59,6 +57,6 @@ int main(int argc, char* argv[]) {
   //double value[] = {8.0,5.0,3.0,9.0,12.0,2.0,1.0,7.0,6.0,0.0,4.0,8.0,1.0,2.0,5.0,10.0,9.0,8.0,3.0,1.0,9.0,5.0,11.0,19.0,2.0};
   //Matrix A(5,5,value);
   //cout << A << endl;
-  A.metodoQR(A);
+  //A.metodoQR(A);
   return 0;
 }

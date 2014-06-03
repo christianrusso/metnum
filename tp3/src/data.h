@@ -29,6 +29,10 @@ private:
   void setearParamsSimples(std::ifstream &inputFile);
   void leerNuevosDatos(std::ifstream &inputFile);
   double moverArquero(int method);
+  double calcularMovimientoHacia(float there);
+  double maxSpaceToGoal(double space);
+  double min(float This, float That);
+  double max(float This, float That);
 };
 
 #endif //__DATA__

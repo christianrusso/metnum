@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h> 
 
-
 class Matrix {
 public:
 
@@ -52,13 +51,11 @@ public:
     Matrix transpuesta();
 
     //QR
-    void metodoQR(Matrix& A);
-    void factorizacionQR(Matrix& A,Matrix& Q, Matrix& R);
-    void generarSubMatrix(Matrix& sub, Matrix& A, int i);
-    void elminarPrimerColumna(Matrix& sub, Matrix& subQ);
-    void agregarSubMatrix(Matrix& sub, Matrix& A, int i);
-    void matrixPorK(Matrix& A, double k);
+    Matrix primerasKFilas(int k);
+    Matrix backwardSubstitution(Matrix& x);
     void identidad();
+
+    static bool isZero(double number);
 
     int n, m;
     std::vector<std::vector<double> > mat;

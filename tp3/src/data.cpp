@@ -22,7 +22,6 @@ using namespace std;
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 Data::Data(ifstream &inputFile, ofstream &stream, int method){
   setearParamsSimples(inputFile);
-  cout << "IIIIIIIII" << endl;
   double new_y_keeper;
   while(!inputFile.eof()){
     leerNuevosDatos(inputFile);
@@ -91,17 +90,45 @@ void Data::leerNuevosDatos(std::ifstream &inputFile){
 
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 double Data::moverArquero(int method){
-  double y_ball_actual = y_ball.get(y_ball.n - 1,0);
-  double movement;
-  if (y_ball_actual <= y_keeper){
-    //TODO tomar en cuenta el radio de ataje
-    double max_movement = (y_keeper - y_goal_right) < mu ? y_keeper - y_goal_right : mu;
-    movement = (y_keeper - y_ball_actual) < max_movement ? y_ball_actual - y_keeper : -max_movement;
+  double movement = 0;
+  if (method == 0) {
+    double y_ball_actual = y_ball.get(y_ball.n - 1,0);
+    movement =calcularMovimientoHacia(y_ball_actual);
   } else {
-    //TODO tomar en cuenta el radio de ataje
-    double max_movement = (y_goal_left - y_keeper) < mu ? y_goal_left - y_keeper : mu;
-    y_keeper = (y_ball_actual - y_keeper) < max_movement ? y_ball_actual - y_keeper : max_movement;
+    cout << "Hay un solo metodo definido, utilizar los metodos: 0 " << endl;
+    exit(1);
   }
   y_keeper = y_keeper + movement;
+  return movement;  
+}
+
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
+double Data::calcularMovimientoHacia(float there){
+  //suponemos que dejando 4 de espacio entre el arquero y el palo la va a atajar igual
+  double spaceToGoal = maxSpaceToGoal(4);
+  double movement;
+  if (Matrix::isZero(y_keeper - there)) return 0;
+  if (there <= y_keeper){
+    //TODO tomar en cuenta el radio de ataje
+    double max_movement = min(y_keeper - (y_goal_left + spaceToGoal), mu);
+    movement = - min(y_keeper - there, max_movement);
+  } else {
+    //TODO tomar en cuenta el radio de ataje
+    double max_movement = min((y_goal_right - spaceToGoal) - y_keeper, mu);
+    movement = min(there - y_keeper, max_movement);
+  }
   return movement;
+}
+
+double Data::maxSpaceToGoal(double space){
+  if (y_goal_right - y_goal_left < space) return (y_goal_right - y_goal_left) / 2;
+  else return space;
+}
+
+double Data::min(float This, float That){
+  return This <= That ? This : That;
+}
+
+double Data::max(float This, float That){
+  return This >= That ? This : That;
 }
