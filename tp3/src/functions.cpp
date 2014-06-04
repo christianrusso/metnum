@@ -239,6 +239,7 @@ float aQuePosicionLlegaEn(float tiempo, Matrix C){
 	float pos = 0;
 	for (int i = 0; i < C.n; ++i)
 	{
+		//cout << "constant: " << C.get(i,0) << " time^something: " << pow(tiempo, (C.n -1) - i) <<  endl;
 		pos += C.get(i,0) * pow(tiempo, (C.n -1) - i);
 	}
 	//cout << "llega a la posicion: " << pos << endl;
@@ -252,6 +253,7 @@ float enQueTiempoLlegaA(float pos,int time, Matrix C){
 	do{
 		newPos = aQuePosicionLlegaEn(time, C);
 		time++;
+		//cout << newPos << endl;
 	} while(time < maxIter && newPos > pos);
 	//cout << "Tiempo final: " << time << endl;
 	//cout << "Tiempo maximo: " << maxIter << endl;

@@ -99,8 +99,10 @@ double Data::moverArquero(int method){
     else {
       movement = calcularMovimientoHacia(cuadradosMinimosQR());
     }
-  } else {
-    cout << "Hay un solo metodo definido, utilizar los metodos: 0 " << endl;
+  } else if (method == 2){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion());
+  } else{
+    cout << "Hay tres metodos definido, utilizar los metodos: 0, 1 o 2 " << endl;
     exit(1);
   }
   y_keeper = y_keeper + movement;
@@ -147,15 +149,43 @@ double Data::cuadradosMinimosQR(){
   Matrix x_const =  metodoQR(A, x_ball);
   Matrix y_const =  metodoQR(A, y_ball);
 
-  cout << "x const: " << endl << x_const << endl;
-  cout << "y const: " << endl << y_const << endl;
+  //cout << "x const: " << endl << x_const << endl;
+  //cout << "y const: " << endl << y_const << endl;
 
-  float tiempo = enQueTiempoLlegaA(x_keeper, current_time, x_ball);
+  float tiempo = enQueTiempoLlegaA(x_keeper, current_time, x_const);
 
   cout << "tiempo retornado " << tiempo << endl;
   if (tiempo == -1){
-    return aQuePosicionLlegaEn(tiempo+1,y_ball);
+    return aQuePosicionLlegaEn(tiempo+1,y_const);
   } else {
-    return aQuePosicionLlegaEn(current_time, y_ball);
+    return aQuePosicionLlegaEn(current_time, y_const);
+  } 
+}
+
+double Data::cuadradosMinimosQRConEstimacion(){
+  int m = min(current_time,5);
+  Matrix A = crearMatrixCuadradosMinimosConGrado(current_time + 1,m); //grado maximo 5
+  //Agrego una linea mas que predice el futuro en 10 pasos
+  for (int i = 0; i < m; ++i){
+    A.set(current_time,i,pow(current_time + 10,(m-1)-i));
+  }
+  Matrix x = x_ball;
+  Matrix y = y_ball;
+  //la pelota va a estar atras del arco (x = 0 < 125) y en su centro
+  x.insertToVector(0);
+  y.insertToVector((y_goal_right - y_goal_left) / 2);
+  Matrix x_const =  metodoQR(A, x );
+  Matrix y_const =  metodoQR(A, y );
+
+  //cout << "x const: " << endl << x_const << endl;
+  //cout << "y const: " << endl << y_const << endl;
+
+  float tiempo = enQueTiempoLlegaA(x_keeper, current_time, x);
+
+  cout << "tiempo retornado " << tiempo << endl;
+  if (tiempo == -1){
+    return aQuePosicionLlegaEn(tiempo+1,y);
+  } else {
+    return aQuePosicionLlegaEn(current_time, y);
   } 
 }

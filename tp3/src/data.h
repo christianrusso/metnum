@@ -36,6 +36,7 @@ private:
   int min(int This, int That);
   double max(double This, double That);
   double cuadradosMinimosQR();
+  double cuadradosMinimosQRConEstimacion();
 };
 
 #endif //__DATA__
