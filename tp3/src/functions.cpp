@@ -160,7 +160,7 @@ void factorizacionQR(Matrix& A,Matrix& Qt, Matrix& R) {
         subQt.identidad();
         if(subR.n > 1){
             generarSubMatrix(subR,R,i);
-            elminarPrimerColumna(subR,subQt);
+            triangularColumna(subR,subQt);
             agregarSubMatrix(subR,R,i);
             agregarSubMatrix(subQt,tmp,i);
         }
@@ -184,7 +184,7 @@ void generarSubMatrix(Matrix& sub, Matrix& A, int i){
         }           
 }
 
-void elminarPrimerColumna(Matrix& sub, Matrix& subQt){
+void triangularColumna(Matrix& sub, Matrix& subQt){
     Matrix x(sub.n,1);
     Matrix y(sub.n,1);
     Matrix u(sub.n,1);

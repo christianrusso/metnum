@@ -18,7 +18,7 @@ int whoIsIt(Matrix& M, Matrix& Subject, int samples);
 Matrix metodoQR(Matrix& A, Matrix& b);
 void factorizacionQR(Matrix& A,Matrix& Qt, Matrix& R);
 void generarSubMatrix(Matrix& sub, Matrix& A, int i);
-void elminarPrimerColumna(Matrix& sub, Matrix& subQt);
+void triangularColumna(Matrix& sub, Matrix& subQt);
 void agregarSubMatrix(Matrix& sub, Matrix& A, int i);
 float aQuePosicionLlegaEn(float tiempo, Matrix C);
 float enQueTiempoLlegaA(float pos,int time, Matrix C);
