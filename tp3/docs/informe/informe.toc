@@ -1,6 +1,20 @@
 \select@language {spanish}
-\contentsline {section}{\numberline {1}Desarrollo}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}M\IeC {\'e}todo Uno: Usando Cuadrados M\IeC {\'\i }nimos}{3}{subsection.1.1}
-\contentsline {subsubsection}{\numberline {1.1.1}Cuadrados M\IeC {\'\i }nimos: General con Funciones Normales}{3}{subsubsection.1.1.1}
-\contentsline {subsubsection}{\numberline {1.1.2}Cuadrados M\IeC {\'\i }nimos: Nuestro trabajo}{3}{subsubsection.1.1.2}
-\contentsline {subsection}{\numberline {1.2}Referencias bibliogr\'aficas}{4}{subsection.1.2}
+\contentsline {section}{\numberline {1}Introduccion Teorica}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Factorizacion QR}{3}{subsection.1.1}
+\contentsline {section}{\numberline {2}Desarrollo}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Archivo de entrada}{4}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Explicacion}{4}{subsubsection.2.1.1}
+\contentsline {subsection}{\numberline {2.2}Archivo de salida}{4}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Explicacion}{4}{subsubsection.2.2.1}
+\contentsline {subsection}{\numberline {2.3}Factorizacion QR}{4}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Explicacion}{4}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Pseudocodigo}{4}{subsubsection.2.3.2}
+\contentsline {subsection}{\numberline {2.4}M\IeC {\'e}todo Uno: Usando Cuadrados M\IeC {\'\i }nimos}{5}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}Cuadrados M\IeC {\'\i }nimos: General con Funciones Normales}{5}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Cuadrados M\IeC {\'\i }nimos: Nuestro trabajo}{6}{subsubsection.2.4.2}
+\contentsline {section}{\numberline {3}Experimentacion}{7}{section.3}
+\contentsline {section}{\numberline {4}Resultados}{7}{section.4}
+\contentsline {section}{\numberline {5}Apendice}{8}{section.5}
+\contentsline {subsection}{\numberline {5.1}Metodo de compilacion}{8}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Equipo de pruebas}{8}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Referencias bibliogr\'aficas}{8}{subsection.5.3}

@@ -1,0 +1,99 @@
+\subsubsection{Pseudocodigo}
+
+\begin{algorithm}[H]
+\caption{FactorizacionQR(Matrix A, Matrix Qt, Matrix R)}
+\label{pseudo:Factorizacion-QR}
+\begin{algorithmic}
+
+\STATE R = A
+
+\STATE Matrix square 
+\STATE Qt = square(A.n, A.n)
+\STATE Q = identidad();
+
+\FOR{$i=0$ hasta $A.m$}
+        \STATE Matrix tmp(Qt.n,Qt.m) = identidad()
+        \STATE Matrix subR(R.n - i, R.m - i)
+        \STATE Matrix subQt(Qt.n - i, Qt.m - i) = identidad()
+        \IF{subR.n $>$ 1}
+        	   \STATE generarSubMatrix(subR, R, i)
+            \STATE triangularColumna(subR, subQt)
+            \STATE agregarSubMatrix(subR, R, i)
+            \STATE agregarSubMatrix(subQt, tmp, i)	
+        \ENDIF
+	\STATE Qt = tmp*Qt
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}[H]
+\caption{generarSubMatrix(Matrix sub, Matrix A, int i)}
+\label{pseudo:generar-sub-matrix}
+\begin{algorithmic}
+
+\STATE w = 0
+\FOR{$j=i$ hasta $A.n$}
+	\STATE p = 0
+	\FOR{$k=i$ hasta $A.m$}
+		\STATE $sub_{w,p}$ = $A_{j,k}$
+		\STATE p = p + 1
+	\ENDFOR
+	\STATE w = w + 1
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\begin{algorithm}[H]
+\caption{triangularColumna(Matrix sub, Matrix subQt)}
+\label{pseudo:triangular-columna}
+\begin{algorithmic}
+
+\STATE Matrix x(sub.n,1)
+\STATE Matrix y(sub.n,1)
+\STATE Matrix u(sub.n,1)
+
+\FOR{$i = 0$ hasta $x.n$}
+  	\STATE $x_{i,0}$ = $sub_{i,0}$
+\ENDFOR
+
+\STATE $y_{0,0}$ = x.normVector()
+\STATE u = x - y
+\STATE normaU = u.normVector()$^2$
+
+\STATE uTranspuesto = u.transpuesta()
+\STATE Matrix aux(u.n,u.m) = uTranspuesto*sub
+\STATE Matrix aux2(sub.n,sub.n) = u*aux
+\STATE coeficiente = 2/normaU
+
+\STATE sub = sub - (aux2*coeficiente)
+
+\STATE aux = uTranspuesto * subQt
+\STATE aux2 = u*aux
+\STATE subQt = subQt - (aux2 * coeficiente)
+
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}[H]
+\caption{agregarSubMatrix(Matrix sub, Matrix A, int i)}
+\label{pseudo:agregar-sub-matrix}
+\begin{algorithmic}
+
+
+\STATE w = 0
+\FOR{$j=i$ hasta $A.n$}
+	\STATE p = 0
+	\FOR{$k=i$ hasta $A.m$}
+		\STATE $A_{w,p}$ = $sub_{j,k}$
+		\STATE p = p + 1
+	\ENDFOR
+	\STATE w = w + 1
+\ENDFOR
+
+
+\end{algorithmic}
+\end{algorithm}
