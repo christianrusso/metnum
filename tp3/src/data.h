@@ -24,15 +24,18 @@ private:
   double y_goal_left, y_goal_right;
   bool gameHasEnd;
   Matrix x_ball, y_ball;
+  int current_time;
 
   //funciones privadas
   void setearParamsSimples(std::ifstream &inputFile);
   void leerNuevosDatos(std::ifstream &inputFile);
   double moverArquero(int method);
-  double calcularMovimientoHacia(float there);
+  double calcularMovimientoHacia(double there);
   double maxSpaceToGoal(double space);
-  double min(float This, float That);
-  double max(float This, float That);
+  double min(double This, double That);
+  int min(int This, int That);
+  double max(double This, double That);
+  double cuadradosMinimosQR();
 };
 
 #endif //__DATA__

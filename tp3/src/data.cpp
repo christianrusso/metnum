@@ -22,14 +22,13 @@ using namespace std;
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 Data::Data(ifstream &inputFile, ofstream &stream, int method){
   setearParamsSimples(inputFile);
-  double new_y_keeper;
+  double keeper_movement;
   while(!inputFile.eof()){
     leerNuevosDatos(inputFile);
-    double new_y_keeper = moverArquero(method);
-    stream << new_y_keeper << endl;
+    double keeper_movement = moverArquero(method);
+    stream << keeper_movement << endl;
+    current_time++;
   }
-
-
 }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 
@@ -43,6 +42,7 @@ void Data::setearParamsSimples(ifstream &inputFile){
   gameHasEnd = false;
   x_ball = Matrix();
   y_ball = Matrix();
+  current_time = 0;
 
   string line;
   if (inputFile.peek() != char_traits<char>::eof())  {
@@ -94,6 +94,11 @@ double Data::moverArquero(int method){
   if (method == 0) {
     double y_ball_actual = y_ball.get(y_ball.n - 1,0);
     movement =calcularMovimientoHacia(y_ball_actual);
+  } if(method == 1) {
+    if(time == 0) movement = calcularMovimientoHacia((y_goal_right - y_goal_left) / 2);
+    else {
+      movement = calcularMovimientoHacia(cuadradosMinimosQR());
+    }
   } else {
     cout << "Hay un solo metodo definido, utilizar los metodos: 0 " << endl;
     exit(1);
@@ -103,9 +108,9 @@ double Data::moverArquero(int method){
 }
 
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
-double Data::calcularMovimientoHacia(float there){
+double Data::calcularMovimientoHacia(double there){
   //suponemos que dejando 4 de espacio entre el arquero y el palo la va a atajar igual
-  double spaceToGoal = maxSpaceToGoal(4);
+  double spaceToGoal = maxSpaceToGoal(6);
   double movement;
   if (Matrix::isZero(y_keeper - there)) return 0;
   if (there <= y_keeper){
@@ -125,10 +130,32 @@ double Data::maxSpaceToGoal(double space){
   else return space;
 }
 
-double Data::min(float This, float That){
+double Data::min(double This, double That){
   return This <= That ? This : That;
 }
 
-double Data::max(float This, float That){
+int Data::min(int This, int That){
+  return This <= That ? This : That;
+}
+
+double Data::max(double This, double That){
   return This >= That ? This : That;
+}
+
+double Data::cuadradosMinimosQR(){
+  Matrix A = crearMatrixCuadradosMinimosConGrado(current_time,min(current_time,5)); //grado maximo 5
+  Matrix x_const =  metodoQR(A, x_ball);
+  Matrix y_const =  metodoQR(A, y_ball);
+
+  cout << "x const: " << endl << x_const << endl;
+  cout << "y const: " << endl << y_const << endl;
+
+  float tiempo = enQueTiempoLlegaA(x_keeper, current_time, x_ball);
+
+  cout << "tiempo retornado " << tiempo << endl;
+  if (tiempo == -1){
+    return aQuePosicionLlegaEn(tiempo+1,y_ball);
+  } else {
+    return aQuePosicionLlegaEn(current_time, y_ball);
+  } 
 }

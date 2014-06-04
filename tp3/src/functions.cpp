@@ -136,10 +136,11 @@ Matrix metodoQR(Matrix& A, Matrix& b) {
 
     factorizacionQR(A,Qt, R);
     
-    Matrix R1 = R.primerasKFilas(A.n);
-    Matrix C = R1.backwardSubstitution(b);
-
-    return Qt.primerasKFilas(A.n)*C;
+    Matrix R1 = R.primerasKFilas(A.m);
+    Matrix CD = Qt * b;
+    Matrix C = CD.primerasKFilas(A.m);
+    
+    return R1.backwardSubstitution(C);
 }
 
 
@@ -226,6 +227,46 @@ void agregarSubMatrix(Matrix& sub, Matrix& A, int i){
             A.mat[j][k] = sub.mat[w][p];
             p++;
         }
-        w++;        
-    }          
+        w++;    
+    }    
+}          
+
+float aQuePosicionLlegaEn(float tiempo, Matrix C){
+	if(C.m != 1 ){
+		cout << "No es un vector columna" << endl;
+		exit(1);
+	}
+	float pos = 0;
+	for (int i = 0; i < C.n; ++i)
+	{
+		pos += C.get(i,0) * pow(tiempo, (C.n -1) - i);
+	}
+	//cout << "llega a la posicion: " << pos << endl;
+	return pos;
+}
+
+float enQueTiempoLlegaA(float pos,int time, Matrix C){
+	cout << "Tiempo inicial: " << time << endl;
+	int maxIter = time + 1000;
+	float newPos;
+	do{
+		newPos = aQuePosicionLlegaEn(time, C);
+		time++;
+	} while(time < maxIter && newPos > pos);
+	//cout << "Tiempo final: " << time << endl;
+	//cout << "Tiempo maximo: " << maxIter << endl;
+	//cout << "Posicion final: " << newPos << endl;
+	return newPos < pos ? time : -1;
+}
+
+Matrix crearMatrixCuadradosMinimosConGrado(int n, int m){
+	Matrix A(n,m);
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < m; ++j)
+		{
+			A.set(i,j, pow(i,(m-1)-j));
+			//cout << "pos i,j, i^(m-1-j) : " << i << j << A.get(i,j) << endl;
+		}
+	}
+	return A;
 }

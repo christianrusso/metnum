@@ -376,10 +376,10 @@ Matrix Matrix::backwardSubstitution(Matrix& b){
         exit(1);
     }
     Matrix x (b);
-    for (int i = this->n-1; i >= 0; i--) {
+    for (int i = this->m-1; i >= 0; i--) {
         //x[i] = b[i]; ya fue copiado
         double Xi = b.get(i,0);
-        for (int j = this->n-1; j > i; j--)
+        for (int j = this->m-1; j > i; j--)
         {
             Xi = Xi - this->get(i,j)*x.get(j,0);
         }
