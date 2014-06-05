@@ -7,48 +7,84 @@ pelota. Además, como las variaciones en las coordenadas $x$ e $y$ de la pelota 
 podemos dividir al problema en una entrada y dos salidas. De esta forma, deberíamos resolver dos
 problemas de cuadrados mínimos.
 
-\subsubsection{Cuadrados Mínimos: General con Funciones Normales}
-La siguiente información sobre \texttt{Cuadrados Mínimos} fue sacada de \cite[p~501]{burden}:
+\subsubsection{Cuadrados Mínimos: General}
+El estudio de Cuadrados Mínimos nació al querer describir el comportamiento de datos con funciones
+polinómicas. Normalmente, las mediciones traen inherentemente una cuota de ruido y si se sospecha
+que éstas siguen un crecimiento de un polinomio de grado como máximo n, es díficil encontrar los
+coeficientes de este polinomio dado que el ruido afecta a los puntos. Cuadrados Mínimos trata de
+solucionar este problema.
 
-El problema general de aproximar un conjunto de datos, $\{(x_i, y_i) | i = 1,2, \ldots, m\}$ con un
-polinomio
-\begin{center}
-  $P_n = a_n x^n + a_{n-1}x^{n-1}+ \hdots + a_1x+a_0,   $
-\end{center}
-de grado $n < m-1$, se reduce a elegir las constantes $a_0, a_1, \ldots, a_n$ que minimicen el
-cuadrado mínimo $E = E_2(a_0, a_1,\ldots, a_n) donde$
-\begin{center}
-  $E = \sum_{i=1}^{m} (y_i - Pn(x_i))^2$
+Más formalmente, si se tiene $m$ entradas y para cada una de ellas una salida asociada, $x_i$ e
+$y_i$ respectivamente, y se los quiere describir con un polinomio $P_n(x) = a_n x^n+a_{n-1}x^{n-1} +
+\cdots + a_1x + a_0$ de grado máximo fijo $n$, entonces la técnica de Cuadrados Mínimos busca a los
+$n+1$ coeficientes $a_i \ \forall i=0\cdots n$ resolviendo el problema buscar el vector a tal que
+minimice a la norma de $A \times a - b$ al cuadrado, con $A \in \mathbb{R}^{m\times (n+1)}$,
+$a \in \mathbb{R}^m$ y $b \in \mathbb{R}^n$ los siguientes:
 
-  $= \ldots  $\footnote{Para el desarrollo completo referirse al libro citado} $=$
+  $ A = \begin{pmatrix}
+    x_0^n & x_0^{n-1} & \cdots &  x_0  & 1 \\
+    x_1^{n} & x_1^{n-1} & \cdots & x_1 & 1 \\
+    \vdots  & \vdots  & \ddots & \vdots  & \vdots \\
+    x_m^{n} & x_m^{n-1} & \cdots & x_m^1 & 1
+              \end{pmatrix}, \ 
+   a = \begin{pmatrix}
+        a_n \\
+        a_{n-1} \\
+        \vdots \\
+        a_1 \\
+        a_0
+       \end{pmatrix}
+  $ y $
+  b = \begin{pmatrix}
+        y_m \\
+        y_{m-1} \\
+        \vdots \\
+        y_1 \\
+        y_0
+       \end{pmatrix}
+  $
 
-  $ = \sum_{i=1}^{m} y_i^2 -2 \sum_{j=0}^{n} a_j \left(\sum_{i=1}^{m} y_i x_i^j \right) + 
-    \sum_{j=0}^{n} \sum_{k=0}^{n} a_j a_k \left(x_i^{j+k}\right)$
-\end{center}
+  La diferencia entre resolver directamente el sistema $A \times a = b$ y minimizar a $\| A \times a
+  - b \|$ consta en que el primero busca a los coeficientes tal que el polinimio pasa exactamente
+  por los puntos $y_i$, es decir, $P(x_i)=y_i \ \forall i= 0..m$, mientras que el segundo trata de
+  buscar los coeficientes que minimicen a $\sum{i=0}{m} (P(x_i)-y_i)^2$, o la suma de los errores.
 
-Para encontrar los mínimos, dado que es una función convexa (falta demostrar), debemos buscar los
-puntos críticos y éstos serán los mínimos globales. Para ello, diferenciaremos la función por sus
-constantes $a_i$ y las igualaremos a 0:
-\begin{center}
-  $0 =  \frac{\partial E}{\partial a_j}$
-\end{center}
-Lo que daría, después de algunos pasos$^1$, $n+1$ ecuaciones del siguiente estilo, con $0 \leq k
-\leq n$:
-\begin{center}
-  $a_o \sum{i=1}{m} x_i^{k} + a_1 \sum{i=1}{m} x_i^{k+1}+ a_2 \sum{i=1}{m} x_i^{k+2} + \hdots +
-   a_n \sum{i=1}{m} x_i^{k+n} =   \sum{i=1}{m} y_i x_i^k$
-\end{center}
 
-Estas ecuaciones terminarían formando las filas de nuestra matriz extendida y el sistema
-lineal\footnote{Es lineal dado que las incógnitas están relacionadas entre ellas de forma lineal}
-resultante tiene solución única si los $x_i$ distintos.
+% La siguiente información sobre \texttt{Cuadrados Mínimos} fue sacada de \cite[p~501]{burden}:
+%
+% El problema general de aproximar un conjunto de datos, $\{(x_i, y_i) | i = 1,2, \ldots, m\}$ con
+% un polinomio \begin{center} $P_n = a_n x^n + a_{n-1}x^{n-1}+ \hdots + a_1x+a_0,   $ \end{center}
+% de grado $n < m-1$, se reduce a elegir las constantes $a_0, a_1, \ldots, a_n$ que minimicen el
+% cuadrado mínimo $E = E_2(a_0, a_1,\ldots, a_n) donde$ \begin{center} $E = \sum_{i=1}^{m} (y_i -
+% Pn(x_i))^2$
+%
+%   $= \ldots  $\footnote{Para el desarrollo completo referirse al libro citado} $=$
+%
+%   $ = \sum_{i=1}^{m} y_i^2 -2 \sum_{j=0}^{n} a_j \left(\sum_{i=1}^{m} y_i x_i^j \right) +
+%   \sum_{j=0}^{n} \sum_{k=0}^{n} a_j a_k \left(x_i^{j+k}\right)$ \end{center}
+%
+% Para encontrar los mínimos, dado que es una función convexa (falta demostrar), debemos buscar los
+% puntos críticos y éstos serán los mínimos globales. Para ello, diferenciaremos la función por sus
+% constantes $a_i$ y las igualaremos a 0: \begin{center} $0 =  \frac{\partial E}{\partial a_j}$
+% \end{center} Lo que daría, después de algunos pasos$^1$, $n+1$ ecuaciones del siguiente estilo,
+% con $0 \leq k \leq n$: \begin{center} $a_o \sum{i=1}{m} x_i^{k} + a_1 \sum{i=1}{m} x_i^{k+1}+ a_2
+% \sum{i=1}{m} x_i^{k+2} + \hdots + a_n \sum{i=1}{m} x_i^{k+n} =   \sum{i=1}{m} y_i x_i^k$
+% \end{center}
+%
+% Estas ecuaciones terminarían formando las filas de nuestra matriz extendida y el sistema
+% lineal\footnote{Es lineal dado que las incógnitas están relacionadas entre ellas de forma lineal}
+% resultante tiene solución única si los $x_i$ distintos.
 
-\subsubsection{Cuadrados Mínimos: Nuestro trabajo \textbf{QR????}}
+\subsubsection{Cuadrados Mínimos: Específico a nuestro trabajo}
+En nuestro caso, deberíamos resolver dos problemas de Cuadrados Mínimos dado que para cada tiempo
+$t_i$ tenemos dos coordenadas independientes: $x_i$ e $y_i$. Si seguimos la notación anterior, la
+matriz A no cambiaría entre una coordenada y otra aunque sí el vector b sí tendría dos casos a
+parte, que llamaremos $b_x$ y $b_y$.
 
-Adaptado a nuestro trabajo, tendríamos dos sistemas lineales de ecuaciones de $n+1$ filas y $n+1$
-columnas representando las funciones normales con entrada $t$ tiempo y salida coordenada $x$; y
-entrada $t$ tiempo y salida coordenada $y$, respectivamente.
-
-Es decir, para poder describir el comportamiento de ambas variables con un polinomio de grado como
-máximo n, necesitaríamos n+1 tiempos.
-
+% Adaptado a nuestro trabajo, tendríamos dos sistemas lineales de ecuaciones de $m$ filas y $n+1$
+% columnas representando las funciones normales con entrada $t$ tiempo y salida coordenada $x$; y
+% entrada $t$ tiempo y salida coordenada $y$, respectivamente.
+%
+% Es decir, para poder describir el comportamiento de ambas variables con un polinomio de grado como
+% máximo n, necesitaríamos n+1 tiempos.
+%
