@@ -12,8 +12,9 @@
 \contentsline {subsubsection}{\numberline {2.3.1}Explicacion}{4}{subsubsection.2.3.1}
 \contentsline {subsubsection}{\numberline {2.3.2}Pseudocodigo}{4}{subsubsection.2.3.2}
 \contentsline {subsection}{\numberline {2.4}M\IeC {\'e}todo Uno: Usando Cuadrados M\IeC {\'\i }nimos}{5}{subsection.2.4}
-\contentsline {subsubsection}{\numberline {2.4.1}Cuadrados M\IeC {\'\i }nimos: General con Funciones Normales}{5}{subsubsection.2.4.1}
-\contentsline {subsubsection}{\numberline {2.4.2}Cuadrados M\IeC {\'\i }nimos: Nuestro trabajo \textbf {QR????}}{6}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.1}Cuadrados M\IeC {\'\i }nimos: General}{5}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Cuadrados M\IeC {\'\i }nimos: Espec\IeC {\'\i }fico a nuestro trabajo}{6}{subsubsection.2.4.2}
+\contentsline {subsection}{\numberline {2.5}Demostraciones}{6}{subsection.2.5}
 \contentsline {section}{\numberline {3}Experimentacion}{7}{section.3}
 \contentsline {section}{\numberline {4}Resultados}{7}{section.4}
 \contentsline {section}{\numberline {5}Apendice}{8}{section.5}
