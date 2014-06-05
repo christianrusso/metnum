@@ -23,6 +23,9 @@ void agregarSubMatrix(Matrix& sub, Matrix& A, int i);
 float aQuePosicionLlegaEn(float tiempo, Matrix C);
 float enQueTiempoLlegaA(float pos,int time, Matrix C);
 Matrix crearMatrixCuadradosMinimosConGrado(int n, int m);
+void eliminacionGauss(Matrix& A, Matrix& resultados,Matrix& incognitas);
+void obtenerIncognitas(Matrix& A, Matrix& resultados,Matrix& incognitas);
+Matrix ecuacionesNormales(Matrix& A, Matrix& b);
 
 
 #endif

@@ -5,6 +5,7 @@
 
 using namespace std;
 
+double tolerancia = 10e-10;
 
 double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 	Matrix v;
@@ -271,4 +272,60 @@ Matrix crearMatrixCuadradosMinimosConGrado(int n, int m){
 		}
 	}
 	return A;
+}
+
+
+Matrix ecuacionesNormales(Matrix& A, Matrix& b){
+	Matrix AtA = A.transpuesta()*A;
+	Matrix Atb = A.transpuesta()*b;
+	Matrix incog(A.n,1);
+	eliminacionGauss(AtA,Atb,incog);
+	return incog;
+}
+
+
+void eliminacionGauss(Matrix& A, Matrix& resultados,Matrix& incognitas)
+{
+    int i, j, k;
+    double m_ik,temp;
+
+    for (k=0;k<A.n;++k)
+    {
+        for (i=k+1;i<A.n;++i)
+        {
+            m_ik =  A.get(i,k) / A.get(k,k);
+            for (j=k;j<A.n;++j)
+            {
+                temp=A.get(i,j) - m_ik * A.get(k,j);
+                if((temp < tolerancia) && temp > -tolerancia){
+                    A.set(i,j,0.0);
+                }else{
+                    A.set(i,j,temp);
+                }
+
+            }
+            temp=resultados.get(i,0) - m_ik * resultados.get(k,0);
+            resultados.set(i,0,temp);
+        }
+    }
+    obtenerIncognitas(A, resultados,incognitas);
+}
+
+void obtenerIncognitas(Matrix& A, Matrix& resultados,Matrix& incognitas){
+	int dimension = A.n;
+    int n = dimension -1;
+    double xn = resultados.get(n, 0) / A.get(n, n);
+    incognitas.set(n, 0, xn);
+
+    for (int i = n-1; i >= 0; i--) {
+        double valorIncog = resultados.get(i, 0);
+        double sumatoria=0;
+
+        for (int j = i +1; j <= n; j++) {
+            sumatoria += A.get(i, j) * incognitas.get(j, 0);
+        }
+        valorIncog = (valorIncog - sumatoria)/ A.get(i,i);
+        incognitas.set(i, 0, valorIncog);
+
+    }
 }
