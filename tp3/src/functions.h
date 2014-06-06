@@ -10,7 +10,7 @@
 void init_time();
 double get_time();
 double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector);
-void deflation(Matrix& A, Matrix& v, float lambda);
+void deflation(Matrix& A, Matrix& v, double lambda);
 Matrix calculateK(Matrix& B, int k, std::ofstream& stream, std::vector<double>& tK);
 std::vector<std::string> split(std::string &line);
 Matrix centrosDeMasa(Matrix& B, int samples, int subjects);
@@ -20,12 +20,12 @@ void factorizacionQR(Matrix& A,Matrix& Qt, Matrix& R);
 void generarSubMatrix(Matrix& sub, Matrix& A, int i);
 void triangularColumna(Matrix& sub, Matrix& subQt);
 void agregarSubMatrix(Matrix& sub, Matrix& A, int i);
-float aQuePosicionLlegaEn(float tiempo, Matrix C);
-float enQueTiempoLlegaA(float pos,int time, Matrix C);
+double aQuePosicionLlegaEn(double tiempo, Matrix C);
+double enQueTiempoLlegaA(double pos,int time, Matrix C);
 Matrix crearMatrixCuadradosMinimosConGrado(int n, int m);
 void eliminacionGauss(Matrix& A, Matrix& resultados,Matrix& incognitas);
 void obtenerIncognitas(Matrix& A, Matrix& resultados,Matrix& incognitas);
 Matrix ecuacionesNormales(Matrix& A, Matrix& b);
-
+double dist_euclidea(double x,double y);
 
 #endif

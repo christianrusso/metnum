@@ -18,8 +18,8 @@ def listfiles(root, pattern):
 def runTp(input, output):
     """Invoca al tp con input y output como parametros"""
     #fileOut = open(input.replace(".in", ".console"), 'w')
-    print("usando metodo 1")
-    call([executable, input, output, '1'] , stdin=None, stdout=PIPE, stderr=PIPE)
+    print("usando metodo 4")
+    call([executable, input, output, '4'] , stdin=None, stdout=PIPE, stderr=PIPE)
     #if (input.find("Met0") > 0):
     #	print("usando metodo 0")
     #	call([executable, input, output, '0'] , stdin=None, stdout=fileOut, stderr=fileOut)

@@ -35,7 +35,7 @@ double powerMethod(Matrix& B, Matrix& x0, int niters, Matrix& autovector){
 	return lambda;
 }
 
-void deflation(Matrix& A, Matrix& v, float lambda){
+void deflation(Matrix& A, Matrix& v, double lambda){
 	//Matrix A en R nxn
 	// autovector v en R n de A con lambda autovector asociado
 	int n = A.n;
@@ -232,12 +232,12 @@ void agregarSubMatrix(Matrix& sub, Matrix& A, int i){
     }    
 }          
 
-float aQuePosicionLlegaEn(float tiempo, Matrix C){
+double aQuePosicionLlegaEn(double tiempo, Matrix C){
 	if(C.m != 1 ){
 		cout << "No es un vector columna" << endl;
 		exit(1);
 	}
-	float pos = 0;
+	double pos = 0;
 	for (int i = 0; i < C.n; ++i)
 	{
 		//cout << "constant: " << C.get(i,0) << " time^something: " << pow(tiempo, (C.n -1) - i) <<  endl;
@@ -247,19 +247,25 @@ float aQuePosicionLlegaEn(float tiempo, Matrix C){
 	return pos;
 }
 
-float enQueTiempoLlegaA(float pos,int time, Matrix C){
-	cout << "Tiempo inicial: " << time << endl;
-	int maxIter = time + 1000;
-	float newPos;
-	do{
-		newPos = aQuePosicionLlegaEn(time, C);
-		time++;
-		//cout << newPos << endl;
-	} while(time < maxIter && newPos > pos);
-	//cout << "Tiempo final: " << time << endl;
-	//cout << "Tiempo maximo: " << maxIter << endl;
-	//cout << "Posicion final: " << newPos << endl;
-	return newPos < pos ? time : -1;
+double enQueTiempoLlegaA(double pos,int time, Matrix C){
+	if(C.n == 2){
+		cout << "Es lineal" << endl;
+		//al ser de grado uno, puedo despejar el tiemop
+		return (pos - C.get(1,0))/C.get(0,0);
+	} else {
+		cout << "Tiempo inicial: " << time << endl;
+		int maxIter = time + 1000;
+		double newPos;
+		do{
+			newPos = aQuePosicionLlegaEn(time, C);
+			time++;
+			//cout << newPos << endl;
+		} while(time < maxIter && newPos > pos);
+		//cout << "Tiempo final: " << time << endl;
+		//cout << "Tiempo maximo: " << maxIter << endl;
+		//cout << "Posicion final: " << newPos << endl;
+		return newPos < pos ? time : -1;
+	}
 }
 
 Matrix crearMatrixCuadradosMinimosConGrado(int n, int m){
@@ -328,4 +334,8 @@ void obtenerIncognitas(Matrix& A, Matrix& resultados,Matrix& incognitas){
         incognitas.set(i, 0, valorIncog);
 
     }
+}
+
+double dist_euclidea(double x,double y){
+	return sqrt(x*x + y*y);
 }

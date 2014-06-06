@@ -25,6 +25,12 @@ private:
   bool gameHasEnd;
   Matrix x_ball, y_ball;
   int current_time;
+  int grado_actual_x;
+  int grado_actual_y;
+  int pos_grado_x;
+  int pos_grado_y;
+  int pos_grado_sig_x;
+  int pos_grado_sig_y;
 
   //funciones privadas
   void setearParamsSimples(std::ifstream &inputFile);
@@ -37,6 +43,9 @@ private:
   double max(double This, double That);
   double cuadradosMinimosQR();
   double cuadradosMinimosQRConEstimacion();
+  double cuadradosMinimosQRGradoGradual();
+  double cuadradosMinimosQRGradoUno();
+
 };
 
 #endif //__DATA__
