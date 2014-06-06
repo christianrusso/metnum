@@ -87,6 +87,7 @@ void Data::leerNuevosDatos(std::ifstream &inputFile){
 
   x_ball.insertToVector(atof(param[0].c_str()));
   y_ball.insertToVector(atof(param[1].c_str()));
+  cout << "La pelota esta en: " << param[0] << ", " << param[1] << endl;
 }
 
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
@@ -96,7 +97,7 @@ double Data::moverArquero(int method){
     double y_ball_actual = y_ball.get(y_ball.n - 1,0);
     movement =calcularMovimientoHacia(y_ball_actual);
   } if(method == 1) {
-    if(current_time == 0) movement = calcularMovimientoHacia((y_goal_right - y_goal_left) / 2);
+    if(current_time == 0) movement = calcularMovimientoHacia(((y_goal_right - y_goal_left) / 2) + y_goal_left);
     else {
       movement = calcularMovimientoHacia(cuadradosMinimosQR());
     }
@@ -105,7 +106,7 @@ double Data::moverArquero(int method){
   } else if (method == 3){
     movement = calcularMovimientoHacia(cuadradosMinimosQRGradoGradual());
   } else if (method == 4){
-    if(current_time == 0) movement = calcularMovimientoHacia((y_goal_right - y_goal_left) / 2);
+    if(current_time == 0) movement = calcularMovimientoHacia(((y_goal_right - y_goal_left) / 2)+ y_goal_left);
     else {
       movement = calcularMovimientoHacia(cuadradosMinimosQRGradoUno());
     }
@@ -123,6 +124,8 @@ double Data::calcularMovimientoHacia(double there){
   //suponemos que dejando 4 de espacio entre el arquero y el palo la va a atajar igual
   double spaceToGoal = maxSpaceToGoal(6);
   double movement;
+  cout << "El arquero debe moverse hacia: " << there << endl;
+  cout << "Esta parado en: " << y_keeper << endl;
   if (Matrix::isZero(y_keeper - there)) return 0;
   if (there <= y_keeper){
     double max_movement = min(y_keeper - (y_goal_left + spaceToGoal), mu);
@@ -163,9 +166,9 @@ double Data::cuadradosMinimosQR(){
 
   cout << "tiempo retornado " << tiempo << endl;
   if (tiempo == -1){
-    return aQuePosicionLlegaEn(tiempo+1,y_const);
+    return aQuePosicionLlegaEn(current_time+1,y_const);
   } else {
-    return aQuePosicionLlegaEn(current_time, y_const);
+    return aQuePosicionLlegaEn(tiempo, y_const);
   } 
 }
 
@@ -180,7 +183,7 @@ double Data::cuadradosMinimosQRConEstimacion(){
   Matrix y = y_ball;
   //la pelota va a estar atras del arco (x = 0 < 125) y en su centro
   x.insertToVector(0);
-  y.insertToVector((y_goal_right - y_goal_left) / 2);
+  y.insertToVector(((y_goal_right - y_goal_left) / 2) + y_goal_left);
   Matrix x_const =  metodoQR(A, x );
   Matrix y_const =  metodoQR(A, y );
 
@@ -191,9 +194,9 @@ double Data::cuadradosMinimosQRConEstimacion(){
 
   cout << "tiempo retornado " << tiempo << endl;
   if (tiempo == -1){
-    return aQuePosicionLlegaEn(tiempo+1,y);
+    return aQuePosicionLlegaEn(current_time+1,y_const);
   } else {
-    return aQuePosicionLlegaEn(current_time, y);
+    return aQuePosicionLlegaEn(tiempo, y_const);
   } 
 }
 
@@ -205,7 +208,7 @@ double Data::cuadradosMinimosQRGradoGradual(){
     pos_grado_y = 0;
     pos_grado_sig_x = 0;
     pos_grado_sig_y = 0;
-    return ((y_goal_right - y_goal_left) / 2);
+    return (((y_goal_right - y_goal_left) / 2)+y_goal_left);
   } else {
     double x_ball_now = x_ball.get(current_time,0);
     double y_ball_now = y_ball.get(current_time,0);
@@ -252,9 +255,9 @@ double Data::cuadradosMinimosQRGradoGradual(){
     //devuelvo la posicion en la que estara la pelota en el tiempo calculado
     cout << "tiempo retornado " << tiempo_meta << endl;
     if (tiempo_meta == -1){
-      return aQuePosicionLlegaEn(tiempo_meta+1,y_const);
+      return aQuePosicionLlegaEn(current_time+1,y_const);
     } else {
-      return aQuePosicionLlegaEn(current_time, y_const);
+      return aQuePosicionLlegaEn(tiempo_meta, y_const);
     } 
   }
 }
@@ -272,9 +275,9 @@ double Data::cuadradosMinimosQRGradoUno(){
 
   cout << "tiempo retornado " << tiempo << endl;
   if (tiempo == -1){
-    return aQuePosicionLlegaEn(tiempo+1,y_const);
+    return aQuePosicionLlegaEn(current_time+1,y_const);
   } else {
-    double pos = aQuePosicionLlegaEn(current_time, y_const);
+    double pos = aQuePosicionLlegaEn(tiempo, y_const);
     cout << "posicion en el tiempo futuro: " << pos << endl;
     return pos;
   } 

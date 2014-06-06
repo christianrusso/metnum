@@ -14,7 +14,7 @@
 #include "data.h"
 
 using namespace std;
-/*
+
 // Main Release
 int main(int argc, char* argv[]) {
 //Creamos los streams para leer archivos y se lo pasamos a una instancia nueva de la clase Data
@@ -69,17 +69,17 @@ int main(int argc, char* argv[]) {
   //cout <<  result << endl;
   return 0;
 }
-*/
 
-int main(int argc, char* argv[]) {
-  Matrix b = Matrix();
-  for (int i = 0; i < 50; ++i)
-  {
-    b.insertToVector(-2000+8568.34*i+1235*i*i + (rand() % 10000)/735);
-  }
 
-  Matrix A = crearMatrixCuadradosMinimosConGrado(50,3); //grado maximo 5
-  Matrix x =  metodoQR(A, b);
+// int main(int argc, char* argv[]) {
+//   Matrix b = Matrix();
+//   for (int i = 0; i < 50; ++i)
+//   {
+//     b.insertToVector(-2000+8568.34*i+1235*i*i + (rand() % 10000)/735);
+//   }
 
-  cout << x << endl;
-}
+//   Matrix A = crearMatrixCuadradosMinimosConGrado(50,3); //grado maximo 5
+//   Matrix x =  metodoQR(A, b);
+
+//   cout << x << endl;
+// }
