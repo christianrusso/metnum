@@ -1,7 +1,16 @@
 # rectas
-python main.py instancias/rectas/r1.arq instancias/rectas/r1.tiro instancias/vacio.jug
-python main.py instancias/rectas/r2.arq instancias/rectas/r2.tiro instancias/vacio.jug
+python main.py instancias/rectas/lineal1.arq instancias/rectas/lineal1.tiro instancias/vacio.jug
+python main.py instancias/rectas/lineal2.arq instancias/rectas/lineal2.tiro instancias/vacio.jug
+python main.py instancias/rectas/lineal3.arq instancias/rectas/lineal3.tiro instancias/vacio.jug
+python main.py instancias/rectas/lineal4.arq instancias/rectas/lineal4.tiro instancias/vacio.jug
+python main.py instancias/rectas/lineal5.arq instancias/rectas/lineal5.tiro instancias/vacio.jug
+python main.py instancias/rectas/lineal6.arq instancias/rectas/lineal6.tiro instancias/vacio.jug
+python main.py instancias/rectas/lineal7.arq instancias/rectas/lineal7.tiro instancias/vacio.jug
+python main.py instancias/rectas/lineal8.arq instancias/rectas/lineal8.tiro instancias/vacio.jug
+python main.py instancias/rectas/lineal9.arq instancias/rectas/lineal9.tiro instancias/vacio.jug
+python main.py instancias/rectas/lineal10.arq instancias/rectas/lineal10.tiro instancias/vacio.jug
 #python main.py instancias/rectas/r3.arq instancias/rectas/r3.tiro instancias/vacio.jug
+
 #python main.py instancias/rectas/r4.arq instancias/rectas/r4.tiro instancias/vacio.jug
 #python main.py instancias/rectas/r5.arq instancias/rectas/r5.tiro instancias/vacio.jug
 

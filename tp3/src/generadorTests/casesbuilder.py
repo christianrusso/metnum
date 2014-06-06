@@ -2,15 +2,32 @@
 import math
 import random
 
-directory = 'cases/'
+directory = '../../testVisualizador/instancias/rectas/'
 
 
-def caseLineal(palox, paloy):
-		filename = 'lineal.in'
-		f = open(directory+"lineal/"+filename,'w')	
+def caseLineal(palo1, palo2,bx,by):
+	for i in range(1,11):
+		filename = 'lineal'+str(i)+'.tiro'
+		f = open(directory+filename,'w')
+		bx = random.uniform(300,1000)
+		by = random.uniform(0,500)	
 		f.write("375 315 385 4"  +'\n')
-		for samples in range(1,11):
-			f.write("375"  +'\n')
+		ax = 1.0		
+		ay = 1.0
+		x0 = 100.0
+		y0 = random.uniform(palo1, palo2)
+		print y0
+		x1= bx
+		y1 = by
+		my = -(y1-y0)/(x1-x0)
+		result_x = 1000.0
+		t = 0 
+		while(result_x > 100.0):
+			result_y = my*t +by
+			result_x = -ax*t + bx
+			if(t%17 == 0):
+				f.write(str(result_x)[:6] + " " + str(result_y)[:6]  +'\n')
+			t = t + 1
 		f.close()
 
 
@@ -23,13 +40,13 @@ def linealFunction(palo1,palo2,bx,by):
 	x1= bx
 	y1 = by
 	my = -(y1-y0)/(x1-x0)
-	print my
-	print str(x0) + " " + str(y0)
-	print str(x1) + " " + str(y1)
-	for t in range(1,300):
+	result_x = 1000.0
+	t = 0 
+	while(result_x > 100.0):
 		result_y = my*t +by
 		result_x = -ax*t + bx
 		print str(result_x) + " " + str(result_y);
+		t = t + 1
 	
 #caseLineal();
-linealFunction(375,315,300,200);
+caseLineal(375,315,300,200);
