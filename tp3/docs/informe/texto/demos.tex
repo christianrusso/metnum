@@ -1,0 +1,44 @@
+\subsection{Demostraciones}
+
+En esta sección daremos demostraciones de los supuestos considerados en los algoritmos usados en el
+trabajo.
+
+Sean $A \in \mathbb{R}^{m\times (n+1)}$ con:
+
+
+  $ A = \begin{pmatrix}
+    x_0^n & x_0^{n-1} & \cdots &  x_0  & 1 \\
+    x_1^{n} & x_1^{n-1} & \cdots & x_1 & 1 \\
+    \vdots  & \vdots  & \ddots & \vdots  & \vdots \\
+    x_m^{n} & x_m^{n-1} & \cdots & x_m^1 & 1
+        \end{pmatrix}, \
+   a = \begin{pmatrix}
+        a_n \\
+        a_{n-1} \\
+        \vdots \\
+        a_1 \\
+        a_0
+       \end{pmatrix}
+  $ y $
+  b = \begin{pmatrix}
+        y_m \\
+        y_{m-1} \\
+        \vdots \\
+        y_1 \\
+        y_0
+       \end{pmatrix}
+  $
+
+
+
+\ \\
+\textbf{Lema}Si m>n+1 A tiene rango de columnas máximo.
+
+\ \\
+Prueba:
+  $A = ( C_1, C_2, \ldots, C_n, C_{n+1} )$ si la miramos como columnas. Queremos ver que:
+
+$\alpha_1C_1+\alpha_2C_2+\hdots+\alpha_nC_n+\alpha_{n+1}C_{n+1} = 0$ con $\alpha_i \in R$ y $\alpha_i
+\neq 0$ para algún i, que es equivalente a que $A*\Alpha=0$, con $\Alpha_i = \alpha_i$. O sea, que
+el polinomio $P(x)$ de grado n tendría m>n+1 raíces. Absurdo.
+

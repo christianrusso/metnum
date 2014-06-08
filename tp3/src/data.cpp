@@ -27,7 +27,8 @@ Data::Data(ifstream &inputFile, ofstream &stream, int method){
     leerNuevosDatos(inputFile);
     double keeper_movement = moverArquero(method);
     //cout << "voy a imprimir: " << keeper_movement << endl;
-    stream << keeper_movement << endl;
+    stream << keeper_movement;
+    if(!inputFile.eof()) stream << endl;
     current_time++;
   }
 }
