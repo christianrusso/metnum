@@ -1,99 +1,83 @@
 \subsubsection{Pseudocodigo}
 
 \begin{algorithm}[H]
-\caption{FactorizacionQR(Matrix A, Matrix Qt, Matrix R)}
+\caption{FactorizacionQR(Matrix A $\in \mathbb{R}^{n \times m}$)}
 \label{pseudo:Factorizacion-QR}
 \begin{algorithmic}
 
-\STATE R = A
+\STATE Matriz $R \leftarrow A$
 
-\STATE Matrix square 
-\STATE Qt = square(A.n, A.n)
-\STATE Q = identidad();
+\STATE Matriz $Q \leftarrow$ Matriz Identidad $\in \mathbb{R}^{n \times n}$
+\STATE Matriz $Qt \leftarrow$ Matriz Identidad $\in \mathbb{R}^{n \times n}$
 
-\FOR{$i=0$ hasta $A.m$}
-        \STATE Matrix tmp(Qt.n,Qt.m) = identidad()
-        \STATE Matrix subR(R.n - i, R.m - i)
-        \STATE Matrix subQt(Qt.n - i, Qt.m - i) = identidad()
-        \IF{subR.n $>$ 1}
-        	   \STATE generarSubMatrix(subR, R, i)
-            \STATE triangularColumna(subR, subQt)
-            \STATE agregarSubMatrix(subR, R, i)
-            \STATE agregarSubMatrix(subQt, tmp, i)	
-        \ENDIF
-	\STATE Qt = tmp*Qt
+\FOR{$i=0$ hasta $m$}
+    \IF{$(n - i) > 1 $}
+    %\COMMENT{tmp siempre tiene el mismo tamaño, a diferencia de subR y subQt}
+    \STATE Matrix $tmp \leftarrow$ Matriz Identidad $\in \mathbb{R}^{n \times n}$
+    \STATE Matrix $subQt \leftarrow$ Matriz Identidad $\in \mathbb{R}^{(n-i) \times (n-i)}$
+    \STATE Matrix $subR \leftarrow generarSubMatriz(R,i) \in \mathbb{R}^{(n-i) \times (m-i)}$
+     %  \COMMENT{Si no entra a acá, es el último caso y no es necesario triangular}
+    \STATE $(subR, subQt) \leftarrow$ triangularColumna($subR, subQt)$
+    \STATE $R \leftarrow$ agregarSubMatrix($subR, R, i)$
+    \STATE $tmp \leftarrow$ agregarSubMatrix($subQt, tmp, i)	$
+    \ENDIF
+	\STATE $Qt \leftarrow tmp*Qt$
 \ENDFOR
+\STATE \textbf{return} $(Qt, R)$
 \end{algorithmic}
 \end{algorithm}
 
 
 \begin{algorithm}[H]
-\caption{generarSubMatrix(Matrix sub, Matrix A, int i)}
+\caption{generarSubMatrix(Matrix $A \in \mathbb{R}^{n \times m}$, int $i$)}
 \label{pseudo:generar-sub-matrix}
 \begin{algorithmic}
-
-\STATE w = 0
-\FOR{$j=i$ hasta $A.n$}
-	\STATE p = 0
-	\FOR{$k=i$ hasta $A.m$}
-		\STATE $sub_{w,p}$ = $A_{j,k}$
-		\STATE p = p + 1
-	\ENDFOR
-	\STATE w = w + 1
-\ENDFOR
+\STATE Matriz $res \leftarrow$ Matriz $\in \mathbb{R}^{(n-i) \times (m-i)}$
+\STATE $res_{k,l} \leftarrow A_{i+k,i+l} \ \ \forall k=0,\ldots,(n-i)$ y $l=0,\ldots,(m-i)$
+\STATE \textbf{return} $res$
 \end{algorithmic}
 \end{algorithm}
 
 
 
 \begin{algorithm}[H]
-\caption{triangularColumna(Matrix sub, Matrix subQt)}
+\caption{triangularColumna(Matrix $sub \in \mathbb{R}^{n \times m}$, Matrix $subQt \in \mathbb{R}^{n \times m}$)}
 \label{pseudo:triangular-columna}
 \begin{algorithmic}
 
-\STATE Matrix x(sub.n,1)
-\STATE Matrix y(sub.n,1)
-\STATE Matrix u(sub.n,1)
+\STATE Vector x $\leftarrow$ Vector de Ceros$ \in \mathbb{R}^n$
+\STATE Vector y $\leftarrow$ Vector de Ceros$ \in \mathbb{R}^n$
+\STATE Vector u $\leftarrow$ Vector de Ceros$ \in \mathbb{R}^n$
+
 
 \FOR{$i = 0$ hasta $x.n$}
-  	\STATE $x_{i,0}$ = $sub_{i,0}$
+  	\STATE $x_i \leftarrow sub_i$
 \ENDFOR
 
-\STATE $y_{0,0}$ = x.normVector()
-\STATE u = x - y
-\STATE normaU = u.normVector()$^2$
+\STATE $y_0 \leftarrow \| x \|$
+\STATE $u \leftarrow x - y$
 
-\STATE uTranspuesto = u.transpuesta()
-\STATE Matrix aux(u.n,u.m) = uTranspuesto*sub
-\STATE Matrix aux2(sub.n,sub.n) = u*aux
-\STATE coeficiente = 2/normaU
+\STATE Vector $uTranspuesto \leftarrow u^t \in \mathbb{R}^{1 \times n}$
+\STATE Vector $aux \leftarrow$ Vector $uTranspuesto*sub \ \in \mathbb{R}^n$
+\STATE Matriz $aux2 \leftarrow$ Matriz $u*aux \ \in \mathbb{R}^{n \times m}$
+\STATE int $coeficiente \leftarrow 2/\| u \| ^2$
 
-\STATE sub = sub - (aux2*coeficiente)
+\STATE $sub \leftarrow sub - (aux2*coeficiente)$
 
-\STATE aux = uTranspuesto * subQt
-\STATE aux2 = u*aux
-\STATE subQt = subQt - (aux2 * coeficiente)
+\STATE $aux \leftarrow uTranspuesto * subQt$
+\STATE $aux2 \leftarrow u*aux$
+\STATE $subQt \leftarrow subQt - (aux2 * coeficiente)$
+\STATE \textbf{return} (sub, subQt)
 
 \end{algorithmic}
 \end{algorithm}
 
 
 \begin{algorithm}[H]
-\caption{agregarSubMatrix(Matrix sub, Matrix A, int i)}
+\caption{agregarSubMatrix(Matrix $sub \in \mathbb{R}^{(n-i)\times (m-i)}$, Matrix $A \in \mathbb{R}^{n \times m}$, int $i$)}
 \label{pseudo:agregar-sub-matrix}
 \begin{algorithmic}
-
-
-\STATE w = 0
-\FOR{$j=i$ hasta $A.n$}
-	\STATE p = 0
-	\FOR{$k=i$ hasta $A.m$}
-		\STATE $A_{w,p}$ = $sub_{j,k}$
-		\STATE p = p + 1
-	\ENDFOR
-	\STATE w = w + 1
-\ENDFOR
-
-
+\STATE $A_{i+k,i+l} \leftarrow sub_{k,l} \ \ \forall k=0,\ldots,(n-i)$ y $l=0,\ldots,(m-i)$
+\STATE \textbf{return} Matriz A modificada
 \end{algorithmic}
 \end{algorithm}
