@@ -1,44 +1,43 @@
 # rectas
-# python main.py instancias/rectas/lineal1.arq instancias/rectas/lineal1.tiro instancias/vacio.jug
-# python main.py instancias/rectas/lineal2.arq instancias/rectas/lineal2.tiro instancias/vacio.jug
-# python main.py instancias/rectas/lineal3.arq instancias/rectas/lineal3.tiro instancias/vacio.jug
-# python main.py instancias/rectas/lineal4.arq instancias/rectas/lineal4.tiro instancias/vacio.jug
-# python main.py instancias/rectas/lineal5.arq instancias/rectas/lineal5.tiro instancias/vacio.jug
-# python main.py instancias/rectas/lineal6.arq instancias/rectas/lineal6.tiro instancias/vacio.jug
-# python main.py instancias/rectas/lineal7.arq instancias/rectas/lineal7.tiro instancias/vacio.jug
-# python main.py instancias/rectas/lineal8.arq instancias/rectas/lineal8.tiro instancias/vacio.jug
-# python main.py instancias/rectas/lineal9.arq instancias/rectas/lineal9.tiro instancias/vacio.jug
-# python main.py instancias/rectas/lineal10.arq instancias/rectas/lineal10.tiro instancias/vacio.jug
-# python main.py instancias/rectas/r3.arq instancias/rectas/r3.tiro instancias/vacio.jug
-
-#python main.py instancias/rectas/r4.arq instancias/rectas/r4.tiro instancias/vacio.jug
-#python main.py instancias/rectas/r5.arq instancias/rectas/r5.tiro instancias/vacio.jug
-
-#cuadraticas
-python main.py instancias/cuadraticas/cuadratica0.arq instancias/cuadraticas/cuadratica0.tiro instancias/vacio.jug
-python main.py instancias/cuadraticas/cuadratica1.arq instancias/cuadraticas/cuadratica1.tiro instancias/vacio.jug
-python main.py instancias/cuadraticas/cuadratica2.arq instancias/cuadraticas/cuadratica2.tiro instancias/vacio.jug
-python main.py instancias/cuadraticas/cuadratica3.arq instancias/cuadraticas/cuadratica3.tiro instancias/vacio.jug
-python main.py instancias/cuadraticas/cuadratica4.arq instancias/cuadraticas/cuadratica4.tiro instancias/vacio.jug
-python main.py instancias/cuadraticas/cuadratica5.arq instancias/cuadraticas/cuadratica5.tiro instancias/vacio.jug
-python main.py instancias/cuadraticas/cuadratica6.arq instancias/cuadraticas/cuadratica6.tiro instancias/vacio.jug
-python main.py instancias/cuadraticas/cuadratica7.arq instancias/cuadraticas/cuadratica7.tiro instancias/vacio.jug
-python main.py instancias/cuadraticas/cuadratica8.arq instancias/cuadraticas/cuadratica8.tiro instancias/vacio.jug
-python main.py instancias/cuadraticas/cuadratica9.arq instancias/cuadraticas/cuadratica9.tiro instancias/vacio.jug
+#python main.py instancias/rectas/lineal1.arq instancias/rectas/lineal1.tiro instancias/vacio.jug
+#python main.py instancias/rectas/lineal2.arq instancias/rectas/lineal2.tiro instancias/vacio.jug
+#python main.py instancias/rectas/lineal3.arq instancias/rectas/lineal3.tiro instancias/vacio.jug
+#python main.py instancias/rectas/lineal4.arq instancias/rectas/lineal4.tiro instancias/vacio.jug
+#python main.py instancias/rectas/lineal5.arq instancias/rectas/lineal5.tiro instancias/vacio.jug
+#python main.py instancias/rectas/lineal6.arq instancias/rectas/lineal6.tiro instancias/vacio.jug
+#python main.py instancias/rectas/lineal7.arq instancias/rectas/lineal7.tiro instancias/vacio.jug
+#python main.py instancias/rectas/lineal8.arq instancias/rectas/lineal8.tiro instancias/vacio.jug
+#python main.py instancias/rectas/lineal9.arq instancias/rectas/lineal9.tiro instancias/vacio.jug
+#python main.py instancias/rectas/lineal10.arq instancias/rectas/lineal10.tiro instancias/vacio.jug
 
 # cuadraticas
-#python main.py instancias/cuadraticas/c1.arq instancias/cuadraticas/c1.tiro instancias/vacio.jug
-#python main.py instancias/cuadraticas/c2.arq instancias/cuadraticas/c2.tiro instancias/vacio.jug
-#python main.py instancias/cuadraticas/c3.arq instancias/cuadraticas/c3.tiro instancias/vacio.jug
-#python main.py instancias/cuadraticas/c4.arq instancias/cuadraticas/c4.tiro instancias/vacio.jug
-#python main.py instancias/cuadraticas/c5.arq instancias/cuadraticas/c5.tiro instancias/vacio.jug
+#python main.py instancias/cuadraticas/cuadr1.arq instancias/cuadraticas/cuadr1.tiro instancias/vacio.jug
+#python main.py instancias/cuadraticas/cuadr2.arq instancias/cuadraticas/cuadr2.tiro instancias/vacio.jug
+#python main.py instancias/cuadraticas/cuadr3.arq instancias/cuadraticas/cuadr3.tiro instancias/vacio.jug
+#python main.py instancias/cuadraticas/cuadr4.arq instancias/cuadraticas/cuadr4.tiro instancias/vacio.jug
+#python main.py instancias/cuadraticas/cuadr5.arq instancias/cuadraticas/cuadr5.tiro instancias/vacio.jug
+#python main.py instancias/cuadraticas/cuadr6.arq instancias/cuadraticas/cuadr6.tiro instancias/vacio.jug
+#python main.py instancias/cuadraticas/cuadr7.arq instancias/cuadraticas/cuadr7.tiro instancias/vacio.jug
+#python main.py instancias/cuadraticas/cuadr8.arq instancias/cuadraticas/cuadr8.tiro instancias/vacio.jug
+#python main.py instancias/cuadraticas/cuadr9.arq instancias/cuadraticas/cuadr9.tiro instancias/vacio.jug
+#python main.py instancias/cuadraticas/cuadr10.arq instancias/cuadraticas/cuadr10.tiro instancias/vacio.jug
 
-# cubicas
-#python main.py instancias/cubicas/cb1.arq instancias/cubicas/cb1.tiro instancias/vacio.jug
-#python main.py instancias/cubicas/cb2.arq instancias/cubicas/cb2.tiro instancias/vacio.jug
-#python main.py instancias/cubicas/cb3.arq instancias/cubicas/cb3.tiro instancias/vacio.jug
-#python main.py instancias/cubicas/cb4.arq instancias/cubicas/cb4.tiro instancias/vacio.jug
-#python main.py instancias/cubicas/cb5.arq instancias/cubicas/cb5.tiro instancias/vacio.jug
+# con jugadores
+#python main.py instancias/conjugadores/conj1.arq instancias/conjugadores/conj1.tiro instancias/conjugadores/conj1.jug
+#python main.py instancias/conjugadores/conj2.arq instancias/conjugadores/conj2.tiro instancias/conjugadores/conj2.jug
+#python main.py instancias/conjugadores/conj3.arq instancias/conjugadores/conj3.tiro instancias/conjugadores/conj3.jug
+#python main.py instancias/conjugadores/conj4.arq instancias/conjugadores/conj4.tiro instancias/conjugadores/conj4.jug
+#python main.py instancias/conjugadores/conj5.arq instancias/conjugadores/conj5.tiro instancias/conjugadores/conj5.jug
+#python main.py instancias/conjugadores/conj6.arq instancias/conjugadores/conj6.tiro instancias/conjugadores/conj6.jug
+#python main.py instancias/conjugadores/conj7.arq instancias/conjugadores/conj7.tiro instancias/conjugadores/conj7.jug
+#python main.py instancias/conjugadores/conj8.arq instancias/conjugadores/conj8.tiro instancias/conjugadores/conj8.jug
+#python main.py instancias/conjugadores/conj9.arq instancias/conjugadores/conj9.tiro instancias/conjugadores/conj9.jug
+#python main.py instancias/conjugadores/conj10.arq instancias/conjugadores/conj10.tiro instancias/conjugadores/conj10.jug
 
-# fancy
-#python main.py instancias/fancy/tirolibre1.arq instancias/fancy/tirolibre1.tiro instancias/fancy/tirolibre1.jug
+
+# exoticos
+python main.py instancias/exoticos/ex1.arq instancias/exoticos/ex1.tiro instancias/exoticos/ex1.jug
+python main.py instancias/exoticos/ex2.arq instancias/exoticos/ex2.tiro instancias/exoticos/ex2.jug
+python main.py instancias/exoticos/ex3.arq instancias/exoticos/ex3.tiro instancias/exoticos/ex3.jug
+python main.py instancias/exoticos/ex4.arq instancias/exoticos/ex4.tiro instancias/exoticos/ex4.jug
+python main.py instancias/exoticos/ex5.arq instancias/exoticos/ex5.tiro instancias/exoticos/ex5.jug
