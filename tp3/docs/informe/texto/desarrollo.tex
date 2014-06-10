@@ -4,9 +4,21 @@ ventajas y desventajas.
 
 \subsection{Archivo de entrada}
 \subsubsection{Explicacion}
+El ejecutable toma tres parámetros por línea de comando, que serán el \textit{path} del archivo de entrada, el \textit{path} del archivo de salida y la estrategia que utilizaremos con el arquero.
+
+El archivo de entrada seguirá el siguiente formato:
+\begin{itemize}
+	\item La primera línea contendrá la posición inicial del arquero en y, luego las coordenadas que defininen los límietes del arco, también sobre el eye y. Se asume que la posición en x del arquero y de la línea de gol son las mismas: $x = 125$. Finalmente estará $\mu$, la cota sobre el máximo desplazamiento que puede realizar el arquero en un instante de tiempo.
+	\item Luego se muestra la secuencia de posiciones en \mathbb{R}^2, una por lína, que toma la pelota para los instantes de tiempo $0, \ 1, \ldots, T$, siendo $T$ el tiempo final.
+\end{itemize}
+
+En un primer lugar, leeremos la primera línea del archivo de entrada para \textit{setear} los valores correctos de la posición en y del arquero, las posiciones de los palos y el $\mu$. Luego, dado que se asume que no podemos saber qué pasará más allá del tiempo actual, iremos leyendo la entrada a medida que hagamos hecho los cálculos para el tiempo anterior.
 
 \subsection{Archivo de salida}
 \subsubsection{Explicacion}
+El archivo de salida especificado como parámetro será creado en caso de que no exista y reemplazado por uno nuevo en caso de que ya exista. Este nuevo archivo contendrá una instrucción por línea, correspondiente a la acción que realiza el arquero en el instante $0 \leq t \leq T$, siendo $T$ el instante final.
+
+Este archivo luego podrá ser usado junto con el archivo de entrada para analizar qué sucede con el visualizador proporcionado por la cátedra.
 
 
 \subsection{Factorizacion QR}
