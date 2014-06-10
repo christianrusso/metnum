@@ -131,6 +131,9 @@ Matrix metodoQR(Matrix& A, Matrix& b) {
     if (A.n < A.m) {
         cout << "QR:: No se puede aplicar el metodo a una matriz con n < m" << endl;
         exit(1);
+    } else if(b.n != A.n) {
+    	cout << "QR:: La matriz A y el vector b no tienen el mismo tamanio " << endl;
+    	exit(1);
     }
     Matrix Qt(A.n,A.n);
     Matrix R(A.n,A.m);
@@ -261,19 +264,36 @@ double enQueTiempoLlegaA(double pos,int time, Matrix C){
 			time++;
 			//cout << newPos << endl;
 		} while(time < maxIter && newPos > pos);
-		//cout << "Tiempo final: " << time << endl;
-		//cout << "Tiempo maximo: " << maxIter << endl;
-		//cout << "Posicion final: " << newPos << endl;
-		return newPos < pos ? time : -1;
+		double currentTime = time;
+		if(pos > newPos){
+			//por construccion se que newPos < pos < posAnt
+			double timeAnt = time -1;
+			double posAnt = aQuePosicionLlegaEn(timeAnt, C);
+			int iter = 0;
+			while(!Matrix::isZero(newPos - posAnt) && iter < 1000){
+				double middleTime = (currentTime - timeAnt)/2;
+				double middlePos = aQuePosicionLlegaEn(middleTime,C);
+				if(middlePos > pos) {
+					posAnt = middlePos;
+					timeAnt = middleTime;
+				} else {
+					pos = middlePos;
+					currentTime = middleTime;
+				}
+				iter++;
+			}
+		}
+		return newPos < pos ? currentTime : -1;
 	}
 }
 
 Matrix crearMatrixCuadradosMinimosConGrado(int n, int m){
-	Matrix A(n,m);
-	for (int i = 0; i < n; ++i) {
-		for (int j = 0; j < m; ++j)
+	//cout << "Creando matriz de " << n+1 << " x " << m+1 << endl;
+	Matrix A(n+1,m+1);
+	for (int i = 0; i <= n; ++i) {
+		for (int j = 0; j <= m; ++j)
 		{
-			A.set(i,j, pow(i,(m-1)-j));
+			A.set(i,j, pow(i,m-j));
 			//cout << "pos i,j, i^(m-1-j) : " << i << j << A.get(i,j) << endl;
 		}
 	}

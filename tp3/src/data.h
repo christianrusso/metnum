@@ -41,10 +41,10 @@ private:
   double min(double This, double That);
   int min(int This, int That);
   double max(double This, double That);
-  double cuadradosMinimosQR();
+  double cuadradosMinimosQR(int gradoX, int gradoY);
   double cuadradosMinimosQRConEstimacion();
   double cuadradosMinimosQRGradoGradual();
-  double cuadradosMinimosQRGradoUno();
+  double cuadradosMinimosQRLimiteDeMuestras(int gradoX, int gradoY, int maxMuestras);
 
 };
 

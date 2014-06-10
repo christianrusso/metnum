@@ -98,19 +98,19 @@ double Data::moverArquero(int method){
     double y_ball_actual = y_ball.get(y_ball.n - 1, 0);
     movement =calcularMovimientoHacia(y_ball_actual);
   } if(method == 1) {
-    if(current_time == 0) movement = calcularMovimientoHacia(((y_goal_right - y_goal_left) / 2) + y_goal_left);
-    else {
-      movement = calcularMovimientoHacia(cuadradosMinimosQR());
-    }
+      movement = calcularMovimientoHacia(cuadradosMinimosQR(4,4));
   } else if (method == 2){
     movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion());
   } else if (method == 3){
     movement = calcularMovimientoHacia(cuadradosMinimosQRGradoGradual());
   } else if (method == 4){
-    if(current_time == 0) movement = calcularMovimientoHacia(((y_goal_right - y_goal_left) / 2)+ y_goal_left);
-    else {
-      movement = calcularMovimientoHacia(cuadradosMinimosQRGradoUno());
-    }
+    movement = calcularMovimientoHacia(cuadradosMinimosQR(1,1));
+  } else if (method == 5){
+    movement = calcularMovimientoHacia(cuadradosMinimosQR(2,2));
+  } else if (method == 6){
+    movement = calcularMovimientoHacia(cuadradosMinimosQR(3,3));
+  } else if (method == 7){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(2,2,10));
   } else {
     cout << "Hay tres metodos definido, utilizar los metodos: 0, 1 o 2 " << endl;
     exit(1);
@@ -155,9 +155,12 @@ double Data::max(double This, double That){
   return This >= That ? This : That;
 }
 
-double Data::cuadradosMinimosQR(){
-  Matrix A = crearMatrixCuadradosMinimosConGrado(current_time,min(current_time,5)); //grado maximo 5
+double Data::cuadradosMinimosQR(int gradoX, int gradoY){
+  if(current_time == 0) return ((y_goal_right - y_goal_left) / 2) + y_goal_left;
+
+  Matrix A = crearMatrixCuadradosMinimosConGrado(current_time,min(current_time,gradoX)); //grado maximo 5
   Matrix x_const =  metodoQR(A, x_ball);
+  if (gradoX != gradoY) A = crearMatrixCuadradosMinimosConGrado(current_time,min(current_time,gradoY));
   Matrix y_const =  metodoQR(A, y_ball);
 
   //cout << "x const: " << endl << x_const << endl;
@@ -174,8 +177,8 @@ double Data::cuadradosMinimosQR(){
 }
 
 double Data::cuadradosMinimosQRConEstimacion(){
-  int m = min(current_time,5);
-  Matrix A = crearMatrixCuadradosMinimosConGrado(current_time + 1,m); //grado maximo 5
+  int m = min(current_time,4);
+  Matrix A = crearMatrixCuadradosMinimosConGrado(current_time ,m); //grado maximo 5
   //Agrego una linea mas que predice el futuro en 10 pasos
   for (int i = 0; i < m; ++i){
     A.set(current_time,i,pow(current_time + 10,(m-1)-i));
@@ -223,20 +226,20 @@ double Data::cuadradosMinimosQRGradoGradual(){
       cout << "Aumento el grado del polinomio X a: " << grado_actual_x << endl;
     }
     //calculos sobre x para el grado actual
-    Matrix A = crearMatrixCuadradosMinimosConGrado(current_time+1,grado_actual_x+1);
+    Matrix A = crearMatrixCuadradosMinimosConGrado(current_time,grado_actual_x);
     Matrix x_const =  metodoQR(A, x_ball);
     pos_grado_x = aQuePosicionLlegaEn(current_time+1,x_ball);
     double tiempo_meta = enQueTiempoLlegaA(x_keeper, current_time, x_const);
     //calculos sobre y para el grado actual
     if(grado_actual_x != grado_actual_y){
-      A = crearMatrixCuadradosMinimosConGrado(current_time+1,grado_actual_y+1);
+      A = crearMatrixCuadradosMinimosConGrado(current_time,grado_actual_y);
     }
     Matrix y_const =  metodoQR(A, y_ball);
     pos_grado_y = aQuePosicionLlegaEn(current_time+1,y_const);
     //calculos sobre x para el grado siguiente
     if (grado_actual_x+1 <= current_time) {
       if (grado_actual_y != grado_actual_x+1){
-      A = crearMatrixCuadradosMinimosConGrado(current_time+1,grado_actual_x+2);
+      A = crearMatrixCuadradosMinimosConGrado(current_time,grado_actual_x+1);
       }
       x_const =  metodoQR(A, x_ball);
       pos_grado_sig_x = aQuePosicionLlegaEn(current_time+1,x_const);
@@ -246,7 +249,7 @@ double Data::cuadradosMinimosQRGradoGradual(){
     if (grado_actual_y+1 <= current_time) {
     //calculos sobre y para el grado siguiente
       if(grado_actual_x != grado_actual_y){
-        A = crearMatrixCuadradosMinimosConGrado(current_time+1,grado_actual_y+2);
+        A = crearMatrixCuadradosMinimosConGrado(current_time,grado_actual_y+1);
       }
       x_const =  metodoQR(A, y_ball); //lo piso total no se vuelve a utilizar
       pos_grado_y = aQuePosicionLlegaEn(current_time+1,x_const);
@@ -263,23 +266,41 @@ double Data::cuadradosMinimosQRGradoGradual(){
   }
 }
 
-double Data::cuadradosMinimosQRGradoUno(){
-  Matrix A = crearMatrixCuadradosMinimosConGrado(current_time,min(current_time,2)); //grado maximo 5
-  Matrix x_const =  metodoQR(A, x_ball);
-  Matrix y_const =  metodoQR(A, y_ball);
-  //cout << "x_ball: " << x_ball << endl;
-  // cout << "x const: " << endl << x_const << endl;
-  // cout << "y_ball: " << y_ball << endl;
-  // cout << "y const: " << endl << y_const << endl;
+double Data::cuadradosMinimosQRLimiteDeMuestras(int gradoX, int gradoY, int maxMuestras){
+  if(current_time == 0) return ((y_goal_right - y_goal_left) / 2) + y_goal_left;
+  int maxTime = current_time;
+  if (current_time >= maxMuestras){
+    cout << "jijiji" << endl;
+    maxTime = maxMuestras;
+    x_ball.deleteFirstFromVector();
+        cout << "jijiji" << endl;
 
-  double tiempo = enQueTiempoLlegaA(x_keeper, current_time, x_const);
+    y_ball.deleteFirstFromVector();
+        cout << "jijiji" << endl;
+  }
+    cout << "jijijiJAJAJA" << endl;
+
+  Matrix A = crearMatrixCuadradosMinimosConGrado(maxTime,min(maxTime,gradoX)); //grado maximo 5
+      cout << "jijijiJAJAJA" << endl;
+  cout << A.n << ":A  b: " << x_ball.n << endl;
+
+  Matrix x_const =  metodoQR(A, x_ball);
+      cout << "jijijiJAJAJA" << endl;
+
+  if (gradoX != gradoY) A = crearMatrixCuadradosMinimosConGrado(maxTime,min(maxTime,gradoY));
+  Matrix y_const =  metodoQR(A, y_ball);
+      cout << "jijijiJAJAJA" << endl;
+
+
+  //cout << "x const: " << endl << x_const << endl;
+  //cout << "y const: " << endl << y_const << endl;
+
+  double tiempo = enQueTiempoLlegaA(x_keeper, maxTime, x_const);
 
   cout << "tiempo retornado " << tiempo << endl;
   if (tiempo == -1){
-    return aQuePosicionLlegaEn(current_time+1,y_const);
+    return aQuePosicionLlegaEn(maxTime+1,y_const);
   } else {
-    double pos = aQuePosicionLlegaEn(tiempo, y_const);
-    cout << "posicion en el tiempo futuro: " << pos << endl;
-    return pos;
+    return aQuePosicionLlegaEn(tiempo, y_const);
   } 
 }

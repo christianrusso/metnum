@@ -42,6 +42,7 @@ public:
     void setRow(int i, Matrix& other);
     void setColumn(int j, Matrix& other);
     void insertToVector(double val);
+    void deleteFirstFromVector();
     double normVector();
     double distance(Matrix& vector);
 
