@@ -22,7 +22,7 @@ private:
   double y_keeper;
   double mu;
   double y_goal_left, y_goal_right;
-  bool gameHasEnd;
+  bool gameHasEnded;
   Matrix x_ball, y_ball;
   int current_time;
   int grado_actual_x;

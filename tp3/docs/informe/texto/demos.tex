@@ -32,13 +32,13 @@ Sean $A \in \mathbb{R}^{m\times (n+1)}$ con:
 
 
 \ \\
-\textbf{Lema}Si m>n+1 A tiene rango de columnas máximo.
+\textbf{Lema}Si m>n+1, entonces A tiene rango de columnas máximo.
 
 \ \\
 Prueba:
-  $A = ( C_1, C_2, \ldots, C_n, C_{n+1} )$ si la miramos como columnas. Queremos ver que:
+  $A = ( C_1, C_2, \ldots, C_n, C_{n+1} )$ si la miramos como columnas. Asumamos que no tiene rango máximo. Eso es equivalente a que:
 
 $\alpha_1C_1+\alpha_2C_2+\hdots+\alpha_nC_n+\alpha_{n+1}C_{n+1} = 0$ con $\alpha_i \in R$ y $\alpha_i
 \neq 0$ para algún i, que es equivalente a que $A * \alpha =0$. O sea, que
-el polinomio $P(x)$ de grado n tendría m>n+1 raíces. Absurdo.
+el polinomio $P(x)$ de grado n tendría m>n+1 raíces dado que cada fila sería una evaluación en un punto distinta del polinomio dado que los $x_i$ son distintos. Absurdo.
 

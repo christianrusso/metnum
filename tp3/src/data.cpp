@@ -41,7 +41,7 @@ void Data::setearParamsSimples(ifstream &inputFile){
   // Setea las variables ints y el img_dir que es un char*
   x_goal = 125;
   x_keeper = 125;
-  gameHasEnd = false;
+  gameHasEnded = false;
   x_ball = Matrix();
   y_ball = Matrix();
   current_time = 0;
@@ -95,7 +95,7 @@ void Data::leerNuevosDatos(std::ifstream &inputFile){
 double Data::moverArquero(int method){
   double movement = 0;
   if (method == 0) {
-    double y_ball_actual = y_ball.get(y_ball.n - 1,0);
+    double y_ball_actual = y_ball.get(y_ball.n - 1, 0);
     movement =calcularMovimientoHacia(y_ball_actual);
   } if(method == 1) {
     if(current_time == 0) movement = calcularMovimientoHacia(((y_goal_right - y_goal_left) / 2) + y_goal_left);
