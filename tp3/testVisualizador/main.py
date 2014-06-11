@@ -165,7 +165,8 @@ if __name__ == '__main__':
 			player.move(general.surface, field, 0, cameraPos=cameraPos, goal_size=goal_size)
 
 		#Pelota
-		pelota.set_pos(posicionesPelota[i])
+		# pelota.set_pos(posicionesPelota[i])
+		pelota.set_pos([posicionesPelota[i][0]-6,posicionesPelota[i][1]-6])
 		arqueroX, arqueroY= arquero.getCentre()[0], arquero.getCentre()[1]
 		pelotaX, pelotaY= pelota.getCentre()[0], pelota.getCentre()[1]
 		# if pelota.get_pos()[1] in range(arquero.get_pos()[1]-umbralAtajada, arquero.get_pos()[1]+umbralAtajada):
@@ -174,7 +175,7 @@ if __name__ == '__main__':
 
 		if ((pelotaX - arqueroX)**2 + (pelotaY - arqueroY)**2) <= umbralAtajada**2:
 			# Ataja
-			f.write(sys.argv[1]+' '+sys.argv[2]+' '+"\n")
+			f.write(sys.argv[1]+' '+sys.argv[2]+' '+"1\n")
 			f.close()
 			gritoDeGol = pygame.mixer.Sound("./sounds/PatoPosta.wav")
 			gritoDeGol.play()
