@@ -19,14 +19,15 @@ using namespace std;
 int main(int argc, char* argv[]) {
 //Creamos los streams para leer archivos y se lo pasamos a una instancia nueva de la clase Data
 
-  if (argc < 4) {
-   cout << "Parametros: archivo_entrada archivo_salida metodo(0 o 1)\n";
+  if (argc < 5) {
+   cout << "Parametros: archivo_entrada archivo_jugadores archivo_salida metodo(0 o 1)\n";
    exit(1);
   }
 
   char* inFile = argv[1];
-  char* outFile = argv[2];
-  int method = atoi(argv[3]);
+  char* playersFile = argv[2];
+  char* outFile = argv[3];
+  int method = atoi(argv[4]);
 
 	// char timesFile[strlen(inFile)+5];
 	// strcpy(timesFile, outFile);

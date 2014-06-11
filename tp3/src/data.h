@@ -34,7 +34,7 @@ private:
 
   //funciones privadas
   void setearParamsSimples(std::ifstream &inputFile);
-  void leerNuevosDatos(std::ifstream &inputFile);
+  int leerNuevosDatos(std::ifstream &inputFile);
   double moverArquero(int method);
   double calcularMovimientoHacia(double there);
   double maxSpaceToGoal(double space);

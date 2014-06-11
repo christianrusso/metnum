@@ -24,12 +24,17 @@ Data::Data(ifstream &inputFile, ofstream &stream, int method){
   setearParamsSimples(inputFile);
   double keeper_movement;
   while(!inputFile.eof()){
-    leerNuevosDatos(inputFile);
-    double keeper_movement = moverArquero(method);
-    //cout << "voy a imprimir: " << keeper_movement << endl;
-    stream << keeper_movement;
-    if(!inputFile.eof()) stream << endl;
-    current_time++;
+    //Si al leer, la cantidad de parámetros es 0, pero el inputFile
+    //apunta al eof, entonces el último caracter del archivo es el newline
+    // y no debe hacer nada más.
+    int termina_en_newline = leerNuevosDatos(inputFile);
+    if(!termina_en_newline){
+      double keeper_movement = moverArquero(method);
+      //cout << "voy a imprimir: " << keeper_movement << endl;
+      stream << keeper_movement;
+      if(!inputFile.eof()) stream << endl;
+      current_time++;
+    }
   }
 }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
@@ -75,12 +80,16 @@ void Data::setearParamsSimples(ifstream &inputFile){
 }
 
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
-void Data::leerNuevosDatos(std::ifstream &inputFile){
+int Data::leerNuevosDatos(std::ifstream &inputFile){
+  //El return es para salvar el caso que termine el archivo en un newline
   string line;
   getline (inputFile,line);
   vector<string> param = split(line);
 
   if (param.size() != 2) {
+    if(inputFile.eof()){
+      return 1;
+    }
     cout << param.size();
     cout << "Archivo invalido de entrada en linea" << x_ball.n << endl;
     exit(1);
@@ -89,6 +98,7 @@ void Data::leerNuevosDatos(std::ifstream &inputFile){
   x_ball.insertToVector(atof(param[0].c_str()));
   y_ball.insertToVector(atof(param[1].c_str()));
   cout << "La pelota esta en: " << param[0] << ", " << param[1] << endl;
+  return 0;
 }
 
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
