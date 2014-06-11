@@ -1,2 +1,6 @@
 \section{Experimentacion}
+\subsection{Generador de Tests}
+Para generar Tests realizamos un algoritmo en Python en el cual generamos instancias lineales tomando como parametros el mu, la posicion del arquero y la ubicacion de los arcos. De la misma forma generamos instancias polinomicas. Para ambos casos tuvimos en cuenta el punto inicial, es decir donde empieza la trayectoria de la pelota y el punto final, es decir la posicion de la pelota dentro del arco.
+Para tests mas complejos utilizamos un script en C++ en donde para generar las curvas utilizamos la funcion spline de la libreria boots con la cual le agregamos los puntos por donde queriamos que pase la pelota e interpolatebamos para conseguir una curva que pase por ese lugar tomando esa curva como el tests.
+
 \section{Resultados}
