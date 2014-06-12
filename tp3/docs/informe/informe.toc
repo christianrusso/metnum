@@ -3,6 +3,7 @@
 \contentsline {subsection}{\numberline {1.1}Factorizacion QR}{3}{subsection.1.1}
 \contentsline {subsubsection}{\numberline {1.1.1}Given}{3}{subsubsection.1.1.1}
 \contentsline {subsubsection}{\numberline {1.1.2}Householder}{3}{subsubsection.1.1.2}
+\contentsline {subsection}{\numberline {1.2}\leavevmode {\color {red}Ecuaciones Normales??}}{3}{subsection.1.2}
 \contentsline {section}{\numberline {2}Desarrollo}{4}{section.2}
 \contentsline {subsection}{\numberline {2.1}Archivo de entrada}{4}{subsection.2.1}
 \contentsline {subsubsection}{\numberline {2.1.1}Explicacion}{4}{subsubsection.2.1.1}
@@ -19,6 +20,8 @@
 \contentsline {subsection}{\numberline {3.1}Generador de Tests}{8}{subsection.3.1}
 \contentsline {section}{\numberline {4}Resultados}{8}{section.4}
 \contentsline {section}{\numberline {5}Apendice}{9}{section.5}
-\contentsline {subsection}{\numberline {5.1}Metodo de compilacion}{9}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.1}M\'etodo de compilaci\'on}{9}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}M\'etodo 1}{9}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}M\'etodo 2}{9}{subsubsection.5.1.2}
 \contentsline {subsection}{\numberline {5.2}Equipo de pruebas}{9}{subsection.5.2}
 \contentsline {subsection}{\numberline {5.3}Referencias bibliogr\'aficas}{9}{subsection.5.3}

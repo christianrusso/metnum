@@ -1,5 +1,44 @@
 \section{Apendice}
-\subsection{Metodo de compilacion}
+
+\subsection{M\'etodo de compilaci\'on}
+
+\subsubsection{M\'etodo 1}
+\begin{framed}
+Parados en la carpeta /src del proyecto ejecutar 
+\begin{verbatim}
+$ make
+\end{verbatim}
+De esta forma se limpia y compila.
+Para compilar por separado se puede hacer:  \textbf{make data.o}, \textbf{make functions.o}, \textbf{make Matrix.o,} \textbf{make main.o}. O tambien se puede borrar haciendo \textbf{make clean}. Por defecto al ejecutar \textbf{make} el nombre del ejecutable es \textbf{yoAtajo}
+\end{framed}
+
+\subsubsection{M\'etodo 2}
+\begin{framed}
+Parados en la carpeta donde se encuentra el tp (donde se encuentra el archivo run.py)
+\begin{verbatim}
+$ python run.py < input tiro > < metodo > < velocidad > 
+\end{verbatim}
+Donde METODO puede ser 
+\begin{itemize}
+	\item 0: 
+	\item 1: 
+\end{itemize}
+
+Donde INPUT TIRO puede ser 
+\begin{itemize}
+	\item Path a una carpeta: ejecuta todos los tests que contiene dicha carpeta.
+	\item Path a un archivo: ejecuta el tests que corresponde a esta ruta.
+\end{itemize}
+
+Donde VELOCIDAD puede ser 
+\begin{itemize}
+	\item 0: Para correr el visualizador rapido (no se muestra el tiro)
+	\item 1: Para correr el visualziador en modo lento (se muestra el tiro)
+\end{itemize}
+\end{framed}
+
+
+
 \subsection{Equipo de pruebas}
 \subsection{Referencias bibliogr\'aficas}
 \begin{thebibliography}{9}
