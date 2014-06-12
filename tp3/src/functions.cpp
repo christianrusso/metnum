@@ -249,14 +249,69 @@ double aQuePosicionLlegaEn(double tiempo, Matrix C){
 	//cout << "llega a la posicion: " << pos << endl;
 	return pos;
 }
+bool calcularEcuacionCuadrada(double pos, Matrix C, double* raices){
+	double a,b,c,d,raiz1,raiz2;
+	a= C.get(0,0);
+	b= C.get(1,0);
+	c= C.get(2,0);
+	d=b*b-4*a*(c-pos);
 
+	if(a==0){
+		//Es lineal
+		raices[1]=(pos - c)/b;
+		raices[0]=raices[1];
+		return true;
+	}
+
+	if(d==0)
+	{
+		//Sólo tengo una raíz real
+		raices[0]=(-b)/(2*a);
+		raices[1]=raices[0];
+  	}
+	else if(d>0)
+	{
+		//Tengo 2 raices reales
+		raices[0]=-(b+sqrt(d))/(2*a);
+		raices[1]=-(b-sqrt(d))/(2*a);
+	}
+	else
+	{
+		//Tiene raíces complejas, no hacer nada.
+		return false;
+	}
+
+	return true;
+}
 double enQueTiempoLlegaA(double pos,int time, Matrix C){
+	//La matriz C es el vector con las "constantes" del polinomio
 	if(C.n == 2){
-		cout << "Es lineal" << endl;
-		//al ser de grado uno, puedo despejar el tiemop
+		// cout << "Es lineal" << endl;
+		//al ser de grado uno, puedo despejar el tiempo
 		return (pos - C.get(1,0))/C.get(0,0);
-	} else {
-		cout << "Tiempo inicial: " << time << endl;
+	} 
+	else if(C.n == 3){
+		// cout << "Es cuadrática" << endl;
+		//al ser de grado uno, puedo despejar el tiempo
+		double raices[2];
+		bool reales = calcularEcuacionCuadrada(pos,C,raices);
+		if(reales){
+			double currentTime = time;
+			//Si ambas son reales, busco la menor positiva
+			if(raices[0] < 0 && raices[1] < 0) return -1;
+			else if(raices [0] < 0) return raices[1];
+			else if(raices[1] < 0) return raices[0];
+			else{
+				//Ambas son positivas, tengo que buscar la menor
+				double min = raices[0];
+				if(raices[0] > raices[1]) min = raices[1];
+				return min;
+			}
+		}
+		}
+	else {
+
+		// cout << "Tiempo inicial: " << time << endl;
 		int maxIter = time + 1000;
 		double newPos;
 		do{

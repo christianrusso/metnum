@@ -46,16 +46,16 @@ def main(argv = sys.argv):
 
     #Si llegó hasta acá, está todo piola con los parámetros.
     #1)Compilar:
-    print "\n *-*-*-* Compilando ./src .... *-*-*-* \n"
+    print "\n*-*-*-* Compilando ./src .... *-*-*-* \n"
     os.chdir("./src")
     ret_make = subprocess.call("make")
     if(not(ret_make ==0)):
         sys.exit(1)
     #2) Generar .arq
     a_visualizar=[]
-    print os.path.isfile("../"+file_o_path)
+    
     if(os.path.isfile("../"+file_o_path)):
-        print "\n *-*-*-* Generando .arq único .... *-*-*-* \n"
+        print "\n*-*-*-* Generando .arq único .... *-*-*-* \n"
         atajar("../"+file_o_path, metodo)
         print "Se generó .arq para "+file_o_path
         a_visualizar.append(file_o_path)
@@ -99,10 +99,8 @@ def atajar(arch_tiro, metodo):
     #asume que se lo corre en ./src
     arch_jug = dameJugadores(arch_tiro)
     arch_arq = arch_tiro.replace(".tiro", ".arq")
-    print arch_tiro
     ret_atajo= subprocess.call(["./yoAtajo", arch_tiro, arch_jug, arch_arq, str(metodo)])
     if(not(ret_atajo==0)):
-        print "LALALALALAL"
         sys.exit(1)
 
 def dameJugadores(arch_tiro):
@@ -110,45 +108,10 @@ def dameJugadores(arch_tiro):
     #path al vacio si no lo hay.
     arch_jug = arch_tiro.replace(".tiro", ".jug")
     if (not(os.path.isfile(arch_jug))):
-        print "*-*-*-* No hay archivo de jugadores, voy a pasar el fil de jugadores vacio. *-*-*-*"
+        print "*-*-*-* No hay archivo de jugadores, voy a pasar el file de jugadores vacio. *-*-*-*"
         arch_jug = "../visualizador/instancias/vacio.jug"
         assert os.path.isfile(arch_jug), "No existe el file de jugadores vacio."
     return arch_jug
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-# # Programa compilado
-# executable = './yoAtajo' if os.name == 'posix' else 'yoAtajo.exe'
-
-
-
-
-# def runTp(input, output):
-#     """Invoca al tp con input y output como parametros"""
-#     #fileOut = open(input.replace(".in", ".console"), 'w')
-#     print("usando metodo 4")
-#     call([executable, input, output, '4'] , stdin=None, stdout=PIPE, stderr=PIPE)
-#     #if (input.find("Met0") > 0):
-#     #	print("usando metodo 0")
-#     #	call([executable, input, output, '0'] , stdin=None, stdout=fileOut, stderr=fileOut)
-#     #else:
-#     #	print("usando metodo 0")
-#     #	call([executable, input, output, '0'] , stdin=None, stdout=fileOut, stderr=fileOut)
-
-# def run():
-# 	for fname in listfiles('../testVisualizador/instancias', '*.tiro'):
-# 		#if (fname.replace(".tiro", ".out.times") in listfiles('cases', '*.times')):
-# 		#	print("Case " + fname + " was already run")
-# 		#else:
-# 		#	print("Running case: " + fname)
-# 		runTp(fname,  fname.replace(".tiro", ".arq"))
-
-# run();

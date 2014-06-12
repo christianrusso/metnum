@@ -124,7 +124,7 @@ int Data::leerNuevosDatos(std::ifstream &inputFile){
   
   bool haveToFlush = false;
   for (int i = 0; i < x_jug.n; ++i){
-    cout << "ADSFADSFADSFASDF" << endl;
+    // cout << "ADSFADSFADSFASDF" << endl;
     double dist_x = dist_euclidea(x,x_jug.get(i,0));
     double dist_y = dist_euclidea(y,y_jug.get(i,0));
 
@@ -135,12 +135,12 @@ int Data::leerNuevosDatos(std::ifstream &inputFile){
     x_ball = Matrix();
     y_ball = Matrix();
     current_time = 0;
-    cout << "FLUSH!!!!!!" << endl;
+    // cout << "FLUSH!!!!!!" << endl;
   }
 
   x_ball.insertToVector(x);
   y_ball.insertToVector(y);
-  cout << "La pelota esta en: " << param[0] << ", " << param[1] << endl;
+  // cout << "La pelota esta en: " << param[0] << ", " << param[1] << endl;
   return 0;
 }
 
@@ -173,7 +173,7 @@ double Data::moverArquero(int method){
     exit(1);
   }
   y_keeper = y_keeper + movement;
-  cout << "voy a imprimir: " << movement << endl;
+  // cout << "voy a imprimir: " << movement << endl;
   return movement;  
 }
 
@@ -182,8 +182,8 @@ double Data::calcularMovimientoHacia(double there){
   //suponemos que dejando 4 de espacio entre el arquero y el palo la va a atajar igual
   double spaceToGoal = maxSpaceToGoal(6);
   double movement;
-  cout << "El arquero debe moverse hacia: " << there << endl;
-  cout << "Esta parado en: " << y_keeper << endl;
+  // cout << "El arquero debe moverse hacia: " << there << endl;
+  // cout << "Esta parado en: " << y_keeper << endl;
   if (Matrix::isZero(y_keeper - there)) return 0;
   if (there <= y_keeper){
     double max_movement = min(y_keeper - (y_goal_left + spaceToGoal), mu);
@@ -224,8 +224,10 @@ double Data::cuadradosMinimosQR(int gradoX, int gradoY){
   //cout << "y const: " << endl << y_const << endl;
 
   double tiempo = enQueTiempoLlegaA(x_keeper, current_time, x_const);
+  // cout << "Tiempo actual: " << current_time << endl;
 
-  cout << "tiempo retornado " << tiempo << endl;
+  // cout << "tiempo retornado " << tiempo << endl;
+  // cout << "------------------------"  << endl;
   if (tiempo == -1){
     return aQuePosicionLlegaEn(current_time+1,y_const);
   } else {
@@ -253,7 +255,7 @@ double Data::cuadradosMinimosQRConEstimacion(){
 
   double tiempo = enQueTiempoLlegaA(x_keeper, current_time, x);
 
-  cout << "tiempo retornado " << tiempo << endl;
+  // cout << "tiempo retornado " << tiempo << endl;
   if (tiempo == -1){
     return aQuePosicionLlegaEn(current_time+1,y_const);
   } else {
@@ -276,11 +278,11 @@ double Data::cuadradosMinimosQRGradoGradual(){
     //si con el siguiente polinomio mejore la estimacion, cambio
     if (dist_euclidea(y_ball_now,pos_grado_y) > dist_euclidea(y_ball_now,pos_grado_sig_y)){
       grado_actual_y++;
-      cout << "Aumento el grado del polinomio Y a: " << grado_actual_y << endl;
+      // cout << "Aumento el grado del polinomio Y a: " << grado_actual_y << endl;
     }
     if (dist_euclidea(x_ball_now,pos_grado_x) > 100*dist_euclidea(x_ball_now,pos_grado_sig_x)){
       grado_actual_x++;
-      cout << "Aumento el grado del polinomio X a: " << grado_actual_x << endl;
+      // cout << "Aumento el grado del polinomio X a: " << grado_actual_x << endl;
     }
     //calculos sobre x para el grado actual
     Matrix A = crearMatrixCuadradosMinimosConGrado(current_time,grado_actual_x);
@@ -314,7 +316,7 @@ double Data::cuadradosMinimosQRGradoGradual(){
       pos_grado_sig_y = pos_grado_y;
     }
     //devuelvo la posicion en la que estara la pelota en el tiempo calculado
-    cout << "tiempo retornado " << tiempo_meta << endl;
+    // cout << "tiempo retornado " << tiempo_meta << endl;
     if (tiempo_meta == -1){
       return aQuePosicionLlegaEn(current_time+1,y_const);
     } else {
@@ -346,7 +348,7 @@ double Data::cuadradosMinimosQRLimiteDeMuestras(int gradoX, int gradoY, int maxM
 
   double tiempo = enQueTiempoLlegaA(x_keeper, maxTime, x_const);
 
-  cout << "tiempo retornado " << tiempo << endl;
+  // cout << "tiempo retornado " << tiempo << endl;
   if (tiempo == -1){
     return aQuePosicionLlegaEn(maxTime+1,y_const);
   } else {
