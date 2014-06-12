@@ -12,7 +12,7 @@ class Data {
 public:
 
     Data();
-    Data(std::ifstream &inputFile, std::ofstream &stream, int method);
+    Data(std::ifstream &inputFile, std::ifstream &playersFile, std::ofstream &stream, int method);
 
     /* Funciones Publicas */
 private:
@@ -23,7 +23,7 @@ private:
   double mu;
   double y_goal_left, y_goal_right;
   bool gameHasEnded;
-  Matrix x_ball, y_ball;
+  Matrix x_ball, y_ball, x_jug, y_jug;
   int current_time;
   int grado_actual_x;
   int grado_actual_y;
@@ -34,6 +34,7 @@ private:
 
   //funciones privadas
   void setearParamsSimples(std::ifstream &inputFile);
+  void leerJugadores(std::ifstream &playersFile);
   int leerNuevosDatos(std::ifstream &inputFile);
   double moverArquero(int method);
   double calcularMovimientoHacia(double there);
