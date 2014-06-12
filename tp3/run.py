@@ -83,6 +83,7 @@ def main(argv = sys.argv):
         tiro_path = "../"+tiro
         arq_path = tiro_path.replace(".tiro", ".arq")
         jug_path = dameJugadores(tiro_path)
+        print "Se va a correr visualización para "+ tiro_path
         subprocess.call(["python", visualizador, arq_path, tiro_path, jug_path])
     sys.exit(0)
 
