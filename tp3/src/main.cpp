@@ -36,16 +36,18 @@ int main(int argc, char* argv[]) {
   // string line;
   // char img_dir[50];
   ifstream inputFile(inFile);
+  ifstream playersStream(playersFile);
   ofstream stream;
   stream.open(outFile);
   // ofstream timesLog;
   // timesLog.open(timesFile);
   // timesLog << "k \t samples \t personas \t tK \t tTodos \t tCentro \t hitsTodos \t hitsCentro \t" << endl;
   //crear los datos, calculando y guardando todo en una instancia de la clase Data
-  Data datos(inputFile, stream, method);
+  Data datos(inputFile, playersStream, stream, method);
 
   // timesLog.close();
   stream.close();
+  playersStream.close();
   inputFile.close();
 
 

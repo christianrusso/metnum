@@ -332,9 +332,11 @@ void Matrix::deleteFirstFromVector(){
         cout << "No se puede eliminar un elemento ya que el vector esta vacio" << endl;
         exit(1);     
     } else if(m == 1 && n >= 1) {
-        mat.erase(mat.begin()+1);
+        mat.erase(mat.begin());
+        n--;
     } else if(n == 1 && m >= 1) {
-        mat[0].erase(mat[0].begin()+1);
+        mat[0].erase(mat[0].begin());
+        m--;
     } else {
         cout << "No se puede insertar el elemento ya que no es un vector" << endl;
         exit(1);

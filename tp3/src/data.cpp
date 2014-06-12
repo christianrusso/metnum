@@ -12,16 +12,17 @@
 #include "functions.h"
 #include "data.h"
 
- #include <sys/time.h>
+#include <sys/time.h>
 using namespace std;
 
 //////////////////////////////////////////////////////////////
-
+double dist_patada = 100;
 // Constructors
 //Data::Data(){ }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
-Data::Data(ifstream &inputFile, ofstream &stream, int method){
+Data::Data(ifstream &inputFile, ifstream &playersFile, ofstream &stream, int method){
   setearParamsSimples(inputFile);
+  leerJugadores(playersFile);
   double keeper_movement;
   while(!inputFile.eof()){
     //Si al leer, la cantidad de parámetros es 0, pero el inputFile
@@ -49,6 +50,8 @@ void Data::setearParamsSimples(ifstream &inputFile){
   gameHasEnded = false;
   x_ball = Matrix();
   y_ball = Matrix();
+  x_jug = Matrix();
+  y_jug = Matrix();
   current_time = 0;
 
   string line;
@@ -80,6 +83,28 @@ void Data::setearParamsSimples(ifstream &inputFile){
 }
 
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
+void Data::leerJugadores(std::ifstream &playersFile){
+  while(true){
+    string line;
+    getline (playersFile,line);
+    vector<string> param = split(line);
+
+    if (param.size() != 2) {
+      if(playersFile.eof()){
+        return;
+      }
+      cout << param.size();
+      cout << "Archivo invalido de jugadores en linea" << x_jug.n << endl;
+      exit(1);
+    }
+
+    x_jug.insertToVector(atof(param[0].c_str()));
+    y_jug.insertToVector(atof(param[1].c_str()));
+  }
+}
+
+
+/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 int Data::leerNuevosDatos(std::ifstream &inputFile){
   //El return es para salvar el caso que termine el archivo en un newline
   string line;
@@ -94,9 +119,27 @@ int Data::leerNuevosDatos(std::ifstream &inputFile){
     cout << "Archivo invalido de entrada en linea" << x_ball.n << endl;
     exit(1);
   }
+  double x = atof(param[0].c_str());
+  double y = atof(param[1].c_str());
+  
+  bool haveToFlush = false;
+  for (int i = 0; i < x_jug.n; ++i){
+    cout << "ADSFADSFADSFASDF" << endl;
+    double dist_x = dist_euclidea(x,x_jug.get(i,0));
+    double dist_y = dist_euclidea(y,y_jug.get(i,0));
 
-  x_ball.insertToVector(atof(param[0].c_str()));
-  y_ball.insertToVector(atof(param[1].c_str()));
+    haveToFlush = haveToFlush || (max(dist_y,dist_x) <= dist_patada);
+  }
+
+  if(haveToFlush){
+    x_ball = Matrix();
+    y_ball = Matrix();
+    current_time = 0;
+    cout << "FLUSH!!!!!!" << endl;
+  }
+
+  x_ball.insertToVector(x);
+  y_ball.insertToVector(y);
   cout << "La pelota esta en: " << param[0] << ", " << param[1] << endl;
   return 0;
 }
@@ -121,7 +164,11 @@ double Data::moverArquero(int method){
     movement = calcularMovimientoHacia(cuadradosMinimosQR(3,3));
   } else if (method == 7){
     movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(2,2,10));
-  } else {
+  } else if (method == 8){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(3,3,10));
+  } else if (method == 9){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(1,1,3));
+  } else{
     cout << "Hay tres metodos definido, utilizar los metodos: 0, 1 o 2 " << endl;
     exit(1);
   }
@@ -279,27 +326,19 @@ double Data::cuadradosMinimosQRGradoGradual(){
 double Data::cuadradosMinimosQRLimiteDeMuestras(int gradoX, int gradoY, int maxMuestras){
   if(current_time == 0) return ((y_goal_right - y_goal_left) / 2) + y_goal_left;
   int maxTime = current_time;
-  if (current_time >= maxMuestras){
-    cout << "jijiji" << endl;
-    maxTime = maxMuestras;
+  if (x_ball.n == maxMuestras){
+    current_time--;
+    maxTime--;
     x_ball.deleteFirstFromVector();
-        cout << "jijiji" << endl;
-
     y_ball.deleteFirstFromVector();
-        cout << "jijiji" << endl;
   }
-    cout << "jijijiJAJAJA" << endl;
 
   Matrix A = crearMatrixCuadradosMinimosConGrado(maxTime,min(maxTime,gradoX)); //grado maximo 5
-      cout << "jijijiJAJAJA" << endl;
-  cout << A.n << ":A  b: " << x_ball.n << endl;
 
   Matrix x_const =  metodoQR(A, x_ball);
-      cout << "jijijiJAJAJA" << endl;
 
   if (gradoX != gradoY) A = crearMatrixCuadradosMinimosConGrado(maxTime,min(maxTime,gradoY));
   Matrix y_const =  metodoQR(A, y_ball);
-      cout << "jijijiJAJAJA" << endl;
 
 
   //cout << "x const: " << endl << x_const << endl;

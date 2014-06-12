@@ -108,7 +108,8 @@ def dameJugadores(arch_tiro):
     #Dado el path de un .tiro, devuelve si el .jug si hay alguno asociado, o el 
     #path al vacio si no lo hay.
     arch_jug = arch_tiro.replace(".tiro", ".jug")
-    if (not(os.path.isfile(arch_jug)) and not(os.path.isdir(arch_jug))):
+    if (not(os.path.isfile(arch_jug))):
+        print "*-*-*-* No hay archivo de jugadores, voy a pasar el fil de jugadores vacio. *-*-*-*"
         arch_jug = "../visualizador/instancias/vacio.jug"
         assert os.path.isfile(arch_jug), "No existe el file de jugadores vacio."
     return arch_jug
