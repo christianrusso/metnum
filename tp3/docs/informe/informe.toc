@@ -9,13 +9,12 @@
 \contentsline {subsubsection}{\numberline {2.1.1}Explicacion}{4}{subsubsection.2.1.1}
 \contentsline {subsection}{\numberline {2.2}Archivo de salida}{4}{subsection.2.2}
 \contentsline {subsubsection}{\numberline {2.2.1}Explicacion}{4}{subsubsection.2.2.1}
-\contentsline {subsection}{\numberline {2.3}Factorizacion QR}{4}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Explicacion QR}{4}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Pseudocodigo}{5}{subsubsection.2.3.2}
-\contentsline {subsection}{\numberline {2.4}M\IeC {\'e}todo Uno: Usando Cuadrados M\IeC {\'\i }nimos}{6}{subsection.2.4}
-\contentsline {subsubsection}{\numberline {2.4.1}Cuadrados M\IeC {\'\i }nimos: General}{6}{subsubsection.2.4.1}
-\contentsline {subsubsection}{\numberline {2.4.2}Cuadrados M\IeC {\'\i }nimos: Espec\IeC {\'\i }fico a nuestro trabajo}{7}{subsubsection.2.4.2}
-\contentsline {subsection}{\numberline {2.5}Demostraciones}{7}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.3}M\IeC {\'e}todo Uno: Usando Cuadrados M\IeC {\'\i }nimos}{4}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Cuadrados M\IeC {\'\i }nimos: General}{4}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Cuadrados M\IeC {\'\i }nimos: Espec\IeC {\'\i }fico a nuestro trabajo}{5}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Resolver Cuadrados M\IeC {\'\i }nimos usando QR}{5}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.4}Pseudocodigo}{6}{subsubsection.2.3.4}
+\contentsline {subsection}{\numberline {2.4}Demostraciones}{7}{subsection.2.4}
 \contentsline {section}{\numberline {3}Experimentacion}{8}{section.3}
 \contentsline {subsection}{\numberline {3.1}Generador de Tests}{8}{subsection.3.1}
 \contentsline {section}{\numberline {4}Resultados}{8}{section.4}

@@ -1,4 +1,4 @@
-\subsection{Método Uno: Usando Cuadrados Mínimos}
+
 Nuestro primer enfoque fue mirar al problema como si fuera uno de analizar los datos obtenidos en un
 experimento y tratásemos de describir la distribución de estos mediante una función.
 
@@ -47,7 +47,7 @@ $a \in \mathbb{R}^m$ y $b \in \mathbb{R}^n$ los siguientes:
   La diferencia entre resolver directamente el sistema $A \times a = b$ y minimizar a $\| A \times a
   - b \|$ consta en que el primero busca a los coeficientes tal que el polinimio pasa exactamente
   por los puntos $y_i$, es decir, $P(x_i)=y_i \ \forall i= 0..m$, mientras que el segundo trata de
-  buscar los coeficientes que minimicen a $\sum{i=0}{m} (P(x_i)-y_i)^2$, o la suma de los errores.
+  buscar los coeficientes que minimicen a $\sum_{i=0}^{m} (P(x_i)-y_i)^2$, o la suma de los errores al cuadrado.
 
 
 % La siguiente información sobre \texttt{Cuadrados Mínimos} fue sacada de \cite[p~501]{burden}:
@@ -80,6 +80,9 @@ En nuestro caso, deberíamos resolver dos problemas de Cuadrados Mínimos dado q
 $t_i$ tenemos dos coordenadas independientes: $x_i$ e $y_i$. Si seguimos la notación anterior, la
 matriz A no cambiaría entre una coordenada y otra aunque sí el vector b sí tendría dos casos a
 parte, que llamaremos $b_x$ y $b_y$.
+
+Para resolver esta minimización se pueden usar por lo menos 3 métodos distintos: resolver mediante una factorización QR, mediante funciones normales o también factorizando usando descomposición en valores singulares. En las siguientes secciones explicaremos los métodos de QR y de funciones normales.
+
 
 % Adaptado a nuestro trabajo, tendríamos dos sistemas lineales de ecuaciones de $m$ filas y $n+1$
 % columnas representando las funciones normales con entrada $t$ tiempo y salida coordenada $x$; y
