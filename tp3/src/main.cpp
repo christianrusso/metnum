@@ -8,12 +8,47 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
+#include <boost/algorithm/string.hpp>
 
 #include "Matrix.h"
 #include "functions.h"
 #include "data.h"
 
 using namespace std;
+//*+-+-+-+-+ PARA TESTS +-+-+-+-+
+double buscarElCientoVeintiCinco(ifstream &inputFile){
+  string line;
+  string iniciales;
+  getline(inputFile,iniciales);
+  getline(inputFile,line);
+
+  vector<string> param = split(line);
+
+  if(param.size() != 2){
+   if(inputFile.eof()){
+     return -1;
+   }
+  cout << "Archivo inválido de entrada" << endl;
+  exit(1);
+  }
+  while(!inputFile.eof()){
+    double x = atof(param[0].c_str());
+    if(Matrix::isZero(x-125)){
+      double y = atof(param[1].c_str());
+      return y;
+    }
+    getline(inputFile,line);
+    param = split(line);
+    if(param.size() !=2){
+      return -1;
+    }
+
+    param = split(line);
+  }
+  //No encontró el 125, devolver -1
+  return -1;
+}
+//*+-+-+-+-+  +-+-+-+-+
 
 // Main Release
 int main(int argc, char* argv[]) {
@@ -29,12 +64,20 @@ int main(int argc, char* argv[]) {
   char* outFile = argv[3];
   int method = atoi(argv[4]);
 
-	// char timesFile[strlen(inFile)+5];
-	// strcpy(timesFile, outFile);
-	// strcat(timesFile, ".times");
+//*-+-+-+ PARA TEST +-+-+-+*  
+  string inFile2 = inFile;
+  ifstream inputFile_tmp(inFile);
+  double entra_por = buscarElCientoVeintiCinco(inputFile_tmp);
+  inputFile_tmp.close();
+  //ARCHIVOS DE ESTADISTICA:
+  std::vector<std::string> strs,strs2,strs3;
+  boost::split(strs, inFile2 , boost::is_any_of("/"));
+  string arch_inicial = strs[strs.size()-1];
+  boost::split(strs2, arch_inicial , boost::is_any_of("."));
+  string nombre_inicial = strs2[0];
+  string arch_movs_arq = "estadisticas/"+nombre_inicial + ".movs";
+//*-+-+-+-+-+-+-+-+-+-+-+*  
 
-  // string line;
-  // char img_dir[50];
   ifstream inputFile(inFile);
   ifstream playersStream(playersFile);
   ofstream stream;
@@ -43,7 +86,7 @@ int main(int argc, char* argv[]) {
   // timesLog.open(timesFile);
   // timesLog << "k \t samples \t personas \t tK \t tTodos \t tCentro \t hitsTodos \t hitsCentro \t" << endl;
   //crear los datos, calculando y guardando todo en una instancia de la clase Data
-  Data datos(inputFile, playersStream, stream, method);
+  Data datos(inputFile, playersStream, stream, method, entra_por, arch_movs_arq);
 
   // timesLog.close();
   stream.close();
@@ -74,15 +117,3 @@ int main(int argc, char* argv[]) {
 }
 
 
-// int main(int argc, char* argv[]) {
-//   Matrix b = Matrix();
-//   for (int i = 0; i < 50; ++i)
-//   {
-//     b.insertToVector(-2000+8568.34*i+1235*i*i + (rand() % 10000)/735);
-//   }
-
-//   Matrix A = crearMatrixCuadradosMinimosConGrado(50,3); //grado maximo 5
-//   Matrix x =  metodoQR(A, b);
-
-//   cout << x << endl;
-// }

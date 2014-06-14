@@ -20,7 +20,10 @@ double dist_patada = 100;
 // Constructors
 //Data::Data(){ }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
-Data::Data(ifstream &inputFile, ifstream &playersFile, ofstream &stream, int method){
+Data::Data(ifstream &inputFile, ifstream &playersFile, ofstream &stream, int method, double entra_por, string arch_movs_arq){
+//*-+-+-+-+ Para TESTS +-+-+-+-+*
+      ofstream stream_movs; stream_movs.open(arch_movs_arq.c_str());
+//*-+-+-+-+ +-+-+-+-+*
   setearParamsSimples(inputFile);
   leerJugadores(playersFile);
   double keeper_movement;
@@ -33,6 +36,14 @@ Data::Data(ifstream &inputFile, ifstream &playersFile, ofstream &stream, int met
       double keeper_movement = moverArquero(method);
       //cout << "voy a imprimir: " << keeper_movement << endl;
       stream << keeper_movement;
+//*-+-+-+-+ Para TESTS +-+-+-+-+*
+      if(entra_por!=-1){
+      cout << "y_keeper " << y_keeper << " entra_por " << entra_por << endl;
+      stream_movs << (y_keeper-entra_por) << endl;
+      }
+      else stream_movs << "NO ESTÁ EL 125 EN LA ENTRADA";
+//*-+-+-+-+ +-+-+-+-+*
+
       if(!inputFile.eof()) stream << endl;
       current_time++;
     }
