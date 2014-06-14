@@ -66,7 +66,7 @@ int main(int argc, char* argv[]) {
   char* outFile = argv[3];
   int method = atoi(argv[4]);
 
-//*-+-+-+ PARA TEST +-+-+-+*  
+//*-+-+-+ PARA TEST +-+-+-+*
   string inFile2 = inFile;
   ifstream inputFile_tmp(inFile);
   double entra_por = buscarElCientoVeintiCinco(inputFile_tmp);
@@ -80,8 +80,9 @@ int main(int argc, char* argv[]) {
   stringstream ss2;
   ss2 << method;
   string str_method = ss2.str();
-  string arch_movs_arq = "estadisticas/met"+str_method+"/"+nombre_inicial + ".movs";
-//*-+-+-+-+-+-+-+-+-+-+-+*  
+  string arch_movs_arq_gol = "estadisticas/met"+str_method+"/"+nombre_inicial + ".movsgol";
+  string arch_movs_arq_todos = "estadisticas/met"+str_method+"/"+nombre_inicial + ".movstodos";
+//*-+-+-+-+-+-+-+-+-+-+-+*
 
   ifstream inputFile(inFile);
   ifstream playersStream(playersFile);
@@ -91,7 +92,7 @@ int main(int argc, char* argv[]) {
   // timesLog.open(timesFile);
   // timesLog << "k \t samples \t personas \t tK \t tTodos \t tCentro \t hitsTodos \t hitsCentro \t" << endl;
   //crear los datos, calculando y guardando todo en una instancia de la clase Data
-  Data datos(inputFile, playersStream, stream, method, entra_por, arch_movs_arq);
+  Data datos(inputFile, playersStream, stream, method, entra_por, arch_movs_arq_gol, arch_movs_arq_todos);
 
   // timesLog.close();
   stream.close();

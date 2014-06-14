@@ -20,9 +20,10 @@ double dist_patada = 100;
 // Constructors
 //Data::Data(){ }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
-Data::Data(ifstream &inputFile, ifstream &playersFile, ofstream &stream, int method, double entra_por, string arch_movs_arq){
+Data::Data(ifstream &inputFile, ifstream &playersFile, ofstream &stream, int method, double entra_por, string arch_movs_arq_gol, string arch_movs_arq_todos){
 //*-+-+-+-+ Para TESTS +-+-+-+-+*
-      ofstream stream_movs; stream_movs.open(arch_movs_arq.c_str());
+      ofstream stream_movs_gol; stream_movs_gol.open(arch_movs_arq_gol.c_str());
+      ofstream stream_movs_todos; stream_movs_todos.open(arch_movs_arq_todos.c_str());
 //*-+-+-+-+ +-+-+-+-+*
   setearParamsSimples(inputFile);
   leerJugadores(playersFile);
@@ -38,18 +39,21 @@ Data::Data(ifstream &inputFile, ifstream &playersFile, ofstream &stream, int met
       stream << keeper_movement;
 //*-+-+-+-+ Para TESTS +-+-+-+-+*
       if(entra_por!=-1){
-      cout << "y_keeper " << y_keeper << " entra_por " << entra_por << endl;
-      stream_movs << (y_keeper-entra_por) << endl;
+      // cout << "y_keeper " << y_keeper << " entra_por " << entra_por << endl;
+      stream_movs_gol << (y_keeper-entra_por) << endl;
       }
-      else stream_movs << "NO ESTÁ EL 125 EN LA ENTRADA";
+      stream_movs_todos << (y_keeper-last_ball_y) << endl;
+
 //*-+-+-+-+ +-+-+-+-+*
 
       if(!inputFile.eof()) stream << endl;
       current_time++;
     }
   }
+//*-+-+-+-+ Para TESTS +-+-+-+-+*
+      if(entra_por==-1) stream_movs_gol << "NO ESTÁ EL 125 EN LA ENTRADA";
+//*-+-+-+-+ +-+-+-+-+*
 }
-/*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 
 //Funciones
 //
@@ -132,7 +136,11 @@ int Data::leerNuevosDatos(std::ifstream &inputFile){
   }
   double x = atof(param[0].c_str());
   double y = atof(param[1].c_str());
-  
+
+//*+-+-+-+-+ Para TESTEAR +-+-+-+-+
+  last_ball_x = x;
+  last_ball_y = y;
+//*+-+-+-+-+ +-+-+-+-+
   bool haveToFlush = false;
   for (int i = 0; i < x_jug.n; ++i){
     // cout << "ADSFADSFADSFASDF" << endl;
