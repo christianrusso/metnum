@@ -6,13 +6,14 @@
 #include <vector>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string>
 
 
 class Data {
 public:
 
     Data();
-    Data(std::ifstream &inputFile, std::ifstream &playersFile, std::ofstream &stream, int method);
+    Data(std::ifstream &inputFile, std::ifstream &playersFile, std::ofstream &stream, int method, double entra_por, std::string arch_movs_arq);
 
     /* Funciones Publicas */
 private:
