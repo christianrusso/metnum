@@ -8,7 +8,9 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
+#include <cstdlib>
 #include <boost/algorithm/string.hpp>
+#include <sstream>
 
 #include "Matrix.h"
 #include "functions.h"
@@ -75,7 +77,10 @@ int main(int argc, char* argv[]) {
   string arch_inicial = strs[strs.size()-1];
   boost::split(strs2, arch_inicial , boost::is_any_of("."));
   string nombre_inicial = strs2[0];
-  string arch_movs_arq = "estadisticas/"+nombre_inicial + ".movs";
+  stringstream ss2;
+  ss2 << method;
+  string str_method = ss2.str();
+  string arch_movs_arq = "estadisticas/met"+str_method+"/"+nombre_inicial + ".movs";
 //*-+-+-+-+-+-+-+-+-+-+-+*  
 
   ifstream inputFile(inFile);
