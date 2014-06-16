@@ -130,9 +130,12 @@ int whoIsIt(Matrix& M, Matrix& Subject, int samples){
 Matrix metodoQR(Matrix& A, Matrix& b) {
     if (A.n < A.m) {
         cout << "QR:: No se puede aplicar el metodo a una matriz con n < m" << endl;
+        cout << "A.n: " << A.n << " A.m: " << A.m <<endl;
         exit(1);
     } else if(b.n != A.n) {
     	cout << "QR:: La matriz A y el vector b no tienen el mismo tamanio " << endl;
+        cout << "A.n: " << A.n << " A.m: " << A.m <<endl;
+        cout << "b.n: " << b.n << " b.m: " << b.m <<endl;
     	exit(1);
     }
     Matrix Qt(A.n,A.n);

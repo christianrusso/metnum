@@ -259,6 +259,7 @@ double Data::cuadradosMinimosQRConEstimacion(){
   int m = min(current_time,4);
   Matrix A = crearMatrixCuadradosMinimosConGrado(current_time ,m); //grado maximo 5
   //Agrego una linea mas que predice el futuro en 10 pasos
+cout << "ANTES DEL FOR" << endl;
   for (int i = 0; i < m; ++i){
     A.set(current_time,i,pow(current_time + 10,(m-1)-i));
   }
@@ -275,6 +276,7 @@ double Data::cuadradosMinimosQRConEstimacion(){
 
   double tiempo = enQueTiempoLlegaA(x_keeper, current_time, x);
 
+cout << "ANTES DEL IF" << endl;
   // cout << "tiempo retornado " << tiempo << endl;
   if (tiempo == -1){
     return aQuePosicionLlegaEn(current_time+1,y_const);
