@@ -169,7 +169,7 @@ double Data::moverArquero(int method){
   if (method == 0) {
     double y_ball_actual = y_ball.get(y_ball.n - 1, 0);
     movement =calcularMovimientoHacia(y_ball_actual);
-  } if(method == 1) {
+  } else if(method == 1) {
       movement = calcularMovimientoHacia(cuadradosMinimosQR(4,4));
   } else if (method == 2){
     movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion());
@@ -189,6 +189,7 @@ double Data::moverArquero(int method){
     movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(1,1,3));
   } else{
     cout << "Hay tres metodos definido, utilizar los metodos: 0, 1 o 2 " << endl;
+    cout << "Método utilizado: "<< method << endl;
     exit(1);
   }
   y_keeper = y_keeper + movement;
