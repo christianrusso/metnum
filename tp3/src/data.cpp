@@ -170,24 +170,57 @@ double Data::moverArquero(int method){
     double y_ball_actual = y_ball.get(y_ball.n - 1, 0);
     movement =calcularMovimientoHacia(y_ball_actual);
   } else if(method == 1) {
+      movement = calcularMovimientoHacia(cuadradosMinimosQR(1,1));
+  } else if(method == 2) {
+      movement = calcularMovimientoHacia(cuadradosMinimosQR(1,2));
+  } else if(method == 3) {
+      movement = calcularMovimientoHacia(cuadradosMinimosQR(1,3));
+  } else if(method == 4) {
+      movement = calcularMovimientoHacia(cuadradosMinimosQR(1,4));
+  } else if(method == 5) {
+      movement = calcularMovimientoHacia(cuadradosMinimosQR(2,1));
+  } else if(method == 6) {
+      movement = calcularMovimientoHacia(cuadradosMinimosQR(3,1));
+  } else if(method == 7) {
+      movement = calcularMovimientoHacia(cuadradosMinimosQR(2,2));
+  } else if(method == 8) {
+      movement = calcularMovimientoHacia(cuadradosMinimosQR(3,3));
+  } else if(method == 9) {
+      movement = calcularMovimientoHacia(cuadradosMinimosQR(2,3));
+  } else if(method == 10) {
+      movement = calcularMovimientoHacia(cuadradosMinimosQR(3,2));
+  } else if(method == 11) {
       movement = calcularMovimientoHacia(cuadradosMinimosQR(4,4));
-  } else if (method == 2){
-    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion());
-  } else if (method == 3){
-    movement = calcularMovimientoHacia(cuadradosMinimosQRGradoGradual());
-  } else if (method == 4){
-    movement = calcularMovimientoHacia(cuadradosMinimosQR(1,1));
-  } else if (method == 5){
-    movement = calcularMovimientoHacia(cuadradosMinimosQR(2,2));
-  } else if (method == 6){
-    movement = calcularMovimientoHacia(cuadradosMinimosQR(3,3));
-  } else if (method == 7){
+  } else if (method == 12){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion(1,1));
+  } else if (method == 13){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion(1,2));
+  } else if (method == 14){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion(1,3));
+  } else if (method == 15){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion(1,4));
+  } else if (method == 16){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion(2,1));
+  } else if (method == 17){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion(3,1));
+  } else if (method == 18){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion(2,2));
+  } else if (method == 19){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion(3,3));
+  } else if (method == 19){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion(2,3));
+  } else if (method == 20){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion(3,2));
+  } else if (method == 21){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion(4,4));
+  
+  /*} else if (method == 15){
     movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(2,2,10));
-  } else if (method == 8){
+  } else if (method == 16){
     movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(3,3,10));
-  } else if (method == 9){
+  } else if (method == 17){
     movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(1,1,3));
-  } else{
+  */} else{
     cout << "Hay tres metodos definido, utilizar los metodos: 0, 1 o 2 " << endl;
     cout << "Método utilizado: "<< method << endl;
     exit(1);
@@ -255,11 +288,10 @@ double Data::cuadradosMinimosQR(int gradoX, int gradoY){
   } 
 }
 
-double Data::cuadradosMinimosQRConEstimacion(){
-  int m = min(current_time,4);
-  Matrix A = crearMatrixCuadradosMinimosConGrado(current_time ,m); //grado maximo 5
+double Data::cuadradosMinimosQRConEstimacion(int gradoX, int gradoY){
+  int m = min(current_time,gradoX);
+  Matrix A = crearMatrixCuadradosMinimosConGrado(current_time +1,m); //grado maximo 5
   //Agrego una linea mas que predice el futuro en 10 pasos
-cout << "ANTES DEL FOR" << endl;
   for (int i = 0; i < m; ++i){
     A.set(current_time,i,pow(current_time + 10,(m-1)-i));
   }
@@ -269,18 +301,24 @@ cout << "ANTES DEL FOR" << endl;
   x.insertToVector(0);
   y.insertToVector(((y_goal_right - y_goal_left) / 2) + y_goal_left);
   Matrix x_const =  metodoQR(A, x );
-  Matrix y_const =  metodoQR(A, y );
+  
+  m = min(current_time,gradoY);
+  A = crearMatrixCuadradosMinimosConGrado(current_time +1,m); //grado maximo 5
+  //Agrego una linea mas que predice el futuro en 10 pasos
+  for (int i = 0; i < m; ++i){
+    A.set(current_time,i,pow(current_time + 10,(m-1)-i));
+  }
+  
+  Matrix y_const =  metodoQR(A,y);
 
   //cout << "x const: " << endl << x_const << endl;
   //cout << "y const: " << endl << y_const << endl;
 
   double tiempo = enQueTiempoLlegaA(x_keeper, current_time, x);
-
-cout << "ANTES DEL IF" << endl;
   // cout << "tiempo retornado " << tiempo << endl;
   if (tiempo == -1){
     return aQuePosicionLlegaEn(current_time+1,y_const);
-  } else {
+  }else {
     return aQuePosicionLlegaEn(tiempo, y_const);
   } 
 }

@@ -45,7 +45,7 @@ private:
   int min(int This, int That);
   double max(double This, double That);
   double cuadradosMinimosQR(int gradoX, int gradoY);
-  double cuadradosMinimosQRConEstimacion();
+  double cuadradosMinimosQRConEstimacion(int gradoX, int gradoY);
   double cuadradosMinimosQRGradoGradual();
   double cuadradosMinimosQRLimiteDeMuestras(int gradoX, int gradoY, int maxMuestras);
 
