@@ -24,29 +24,31 @@ def main(argv = sys.argv):
 
   matriz = []
   #Si llegó hasta acá, está todo piola con los parámetros.
-  for metodo in range(0,10): 
+  for metodo in range(0,10):
     print "Generando para método: "+str(metodo)
     path_archivito = 'met'+str(metodo)+'/'+archivito
     print "Archivo: " + path_archivito
 
     if (not(os.path.isfile(path_archivito))):
-      print "No se encontró archivito para módulo"+str(metodo) 
-      for i in range(1,len(lineas)):
-        matriz[i].append(-1)
+      print "No se encontró archivito para método: "+str(metodo)
     else:
-      lineas = linecache.getlines(archivito)
-      for i in range(1,len(lineas)):
+      lineas = linecache.getlines(path_archivito)
+      for i in range(0,len(lineas)):
+        while(len(matriz) -1 < i):
+            matriz.append([])
         matriz[i].append(abs(float(lineas[i])))
-  nuevo_path = 'todos/'+archivito.replace('*.movsgol','*.TODOS')
-  nuevo_path = nuevo_path.replace('*.movstodos', '*.TODOS')
+  nuevo_path = 'todos/'+archivito+'.TODOS'
   print "Nuevo path: " + nuevo_path
   f = open(nuevo_path,'w')
-  for fila in matriz:
-    stringsito = fila[0]		
-    for i in range(1,len(size)):
-      stringsito = stringsito + ',' +x
-      f.write(stringsito+'\n')
-  f.close() # k
+  print matriz
+  for i in range(0,len(matriz)):
+    stringsito = str(i)
+    print stringsito
+    print matriz[i]
+    for fila in matriz[i]:
+        stringsito = stringsito +","+ str(fila)
+    f.write(stringsito+'\n')
+  f.close()
 
 if __name__ == "__main__":
     main()
