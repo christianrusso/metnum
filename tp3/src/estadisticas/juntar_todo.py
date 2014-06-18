@@ -24,7 +24,7 @@ def main(argv = sys.argv):
 
   matriz = []
   #Si llegó hasta acá, está todo piola con los parámetros.
-  for metodo in range(0,22):
+  for metodo in range(0,40):
     print "Generando para método: "+str(metodo)
     path_archivito = 'met'+str(metodo)+'/'+archivito
     print "Archivo: " + path_archivito

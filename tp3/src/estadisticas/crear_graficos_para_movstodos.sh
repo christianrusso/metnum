@@ -21,12 +21,10 @@ set style line 9 lc rgb '#c0448f' lt 1 lw 2 pt 7 pi -1 ps 1.5
 set style line 10 lc rgb '#fc2847' lt 1 lw 2 pt 7 pi -1 ps 1.5
 set style line 11 lc rgb '#232323' lt 1 lw 2 pt 7 pi -1 ps 1.5
 set pointintervalbox 3
-set title "Métodos 0-10 para $name Midiendo la distancia a la coordenada y de la pelota"
 set xlabel "Tiempo" 
 set ylabel "Distancia a la posición y actual de la pelota" 
 set autoscale
-# set bmargin  6
-# unset colorbox
+set title "Métodos 0-10 para $name Midiendo la distancia a la coordenada y de la pelota"
 set output "graficos/$name-0a10.png"
 plot "./todos/$name" using 1:2 with linespoints ls 1 title "Método 0", \
      "./todos/$name" using 1:3 with linespoints ls 2 title "Método 1", \
@@ -40,7 +38,7 @@ plot "./todos/$name" using 1:2 with linespoints ls 1 title "Método 0", \
      "./todos/$name" using 1:11 with linespoints ls 10 title "Método 9", \
      "./todos/$name" using 1:12 with linespoints ls 11 title "Método 10"
 
-set title "Métodos 11-21 para $name"
+set title "Métodos 11-21 para $name Midiendo la distancia a la coordenada y de la pelota"
 set output "graficos/$1-10a21.png"
 plot "./todos/$name" using 1:13 with linespoints ls 1 title "Método 11", \
      "./todos/$name" using 1:14 with linespoints ls 2 title "Método 12", \
@@ -53,5 +51,28 @@ plot "./todos/$name" using 1:13 with linespoints ls 1 title "Método 11", \
      "./todos/$name" using 1:21 with linespoints ls 9 title "Método 19", \
      "./todos/$name" using 1:22 with linespoints ls 10 title "Método 20", \
      "./todos/$name" using 1:23 with linespoints ls 11 title "Método 21"
+set title "Métodos 22-32 para $name Midiendo la distancia a la coordenada y de la pelota"
+set output "graficos/$name-22a32.png"
+plot "./todos/$name" using 1:24 with linespoints ls 1 title "Método 22", \
+     "./todos/$name" using 1:25 with linespoints ls 2 title "Método 23", \
+     "./todos/$name" using 1:26 with linespoints ls 3 title "Método 24", \
+     "./todos/$name" using 1:27 with linespoints ls 4 title "Método 25", \
+     "./todos/$name" using 1:28 with linespoints ls 5 title "Método 26", \
+     "./todos/$name" using 1:29 with linespoints ls 6 title "Método 27", \
+     "./todos/$name" using 1:30 with linespoints ls 7 title "Método 28", \
+     "./todos/$name" using 1:31 with linespoints ls 8 title "Método 29", \
+     "./todos/$name" using 1:32 with linespoints ls 9 title "Método 30", \
+     "./todos/$name" using 1:33 with linespoints ls 10 title "Método 31", \
+     "./todos/$name" using 1:34 with linespoints ls 11 title "Método 32"
+
+set title "Métodos 32-39 para $name Midiendo la distancia a la posición final de la pelota"
+set output "graficos/$name-32a39.png"
+plot "./todos/$name" using 1:35 with linespoints ls 1 title "Método 33", \
+     "./todos/$name" using 1:36 with linespoints ls 2 title "Método 34", \
+     "./todos/$name" using 1:37 with linespoints ls 3 title "Método 35", \
+     "./todos/$name" using 1:38 with linespoints ls 4 title "Método 36", \
+     "./todos/$name" using 1:39 with linespoints ls 5 title "Método 37", \
+     "./todos/$name" using 1:40 with linespoints ls 6 title "Método 38", \
+     "./todos/$name" using 1:41 with linespoints ls 7 title "Método 39"
 EOF
 
