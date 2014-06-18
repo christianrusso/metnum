@@ -37,7 +37,16 @@ using namespace std;
 Spline spline;
 
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%i
+void splinear(std::ofstream &outputFile){
+	outputFile << "356 315 385 4" << endl;
+	for (int i = 430; i > 110; i = i - 15)
+  	{	
+  		double y = spline(i);
+  		if((i%5 == 0) && y > 0)
+  		outputFile << i << " " << y << endl;	
+  	}
+}
+
 vector<string> split(string &line) {
 	vector<string> res;
 	char* strToken;
@@ -54,44 +63,101 @@ vector<string> split(string &line) {
 	return res;
 }
 
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%i
-int resolver(std::ifstream &inputFile, std::ofstream &outputFile){
+
+int resolver(char* inFile, std::ofstream &outputFile){
   //El return es para salvar el caso que termine el archivo en un newline
+	ifstream inputFile(inFile);
 	string line1;
 	getline (inputFile,line1);
 	outputFile << line1 << endl;
 
-  while(inputFile.eof())
+	for (int i = 0; !(inputFile.eof()) ; ++i)
 	{
 		getline (inputFile,line1);
+		if(!inputFile.eof()){
+
+		
 		vector<string> param1 = split(line1);
 
-		if(inputFile.eof()){
-			return 1;
-		}
 
 		float l1x = atof(param1[0].c_str());
 		float l1y =  atof(param1[1].c_str());
+		
 		spline.addPoint(l1x, l1y);
-		if(l1x <= 125){
-			outputFile << 125 << " " << spline(125) << endl;
-			return 1;
-		}else{
-			outputFile << l1x << " " << l1y << endl;
-		}
 	}
+
+	}
+	ifstream inputFile2(inFile);
+	int lopuse = 0;
+	for (int i = 0; !(inputFile2.eof()); ++i)
+	{
+		getline (inputFile2,line1);
+		if(!inputFile2.eof()){
+			vector<string> param1 = split(line1);
+
+			float l1x = atof(param1[0].c_str());
+			float l1y =  atof(param1[1].c_str());
+			
+			if(l1x < 125 && !lopuse){
+				outputFile << 125 << " " << spline(125) << endl;
+				lopuse = 1;
+			}else{
+				outputFile << l1x << " " << l1y << endl;
+			}
+		}
+		
+
+	}
+
+
 	return 0;
 }
-//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%i
 
 
+/*void splinear(int x0, int y0, int x1, int y1, int xf, int yf, string  archivo ){
+	ofstream outputFile;
+	outputFile.open(archivo);
+	Spline spline;
+
+	spline.addPoint(x0, y0);
+	spline.addPoint(x1,y1); 
+	spline.addPoint(xf, yf);
+	outputFile << "375 315 385 4" << endl;
+	double dist = (x0 - (xf-50))/20; 
+  	for (int i = x0; i > 50; i = i - dist)
+  	{
+  		double y = spline(i);
+  		cout << i << " " << y << endl;	
+  	}
+
+}
+
+*/
+
+
+void splineate(){
+
+	spline.addPoint(191.03, 360.10);
+	spline.addPoint(174.03, 353.32);
+	spline.addPoint(157.03,346.54 );
+	spline.addPoint(140.03, 339.75 );
+	spline.addPoint(123.03, 332.97);
+	spline.addPoint(106.03, 326.19);
+	double y = spline(125);
+  	cout << y << endl;
+}
 int main(int argc, char *argv[])
 {
 	ofstream outputFile;
 
 	char* inFile = argv[1];
-	ifstream inputFile(inFile);
+	
+	
+
 	string archivo = "salida.tiro";
+	
+	
+	//splineate();
 
   //ARCHIVOS DE ESTADISTICA:
 	string nombre_final;
@@ -107,9 +173,7 @@ int main(int argc, char *argv[])
   }
   nombre_final = nombre_final + "/"+nuevo_nombre;
   outputFile.open(nombre_final.c_str());
-	resolver(inputFile,outputFile);
-
-  return 0;
+	resolver(inFile,outputFile);
 }
 
 
