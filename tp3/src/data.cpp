@@ -170,7 +170,7 @@ int Data::leerNuevosDatos(std::ifstream &inputFile){
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 double Data::moverArquero(int method){
   double movement = 0;
-  if (method == 0) {
+  /*if (method == 0) {
     double y_ball_actual = y_ball.get(y_ball.n - 1, 0);
     movement =calcularMovimientoHacia(y_ball_actual);
   } else if(method == 1) {
@@ -218,13 +218,44 @@ double Data::moverArquero(int method){
   } else if (method == 21){
     movement = calcularMovimientoHacia(cuadradosMinimosQRConEstimacion(4,4));
   
-  /*} else if (method == 15){
-    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(2,2,10));
-  } else if (method == 16){
-    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(3,3,10));
-  } else if (method == 17){
-    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(1,1,3));
-  */} else{
+  } else*/
+   if (method == 22){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(1,3,3));
+  } else if (method == 23){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(1,3,6));
+  } else if (method == 24){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(1,3,9));
+  } else  if (method == 25){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(2,2,3));
+  } else if (method == 26){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(2,2,6));
+  } else if (method == 27){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(2,2,9));
+  } else if (method == 28){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(2,3,3));
+  } else if (method == 29){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(2,3,6));
+  } else if (method == 30){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(2,3,9));
+  } else if (method == 31){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(4,4,3));
+  } else if (method == 32){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(4,4,6));
+  } else if (method == 33){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(4,4,9));
+  } else if (method == 34){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(3,3,3));
+  } else if (method == 35){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(3,3,6));
+  } else if (method == 36){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(3,3,9));
+  } else if (method == 37){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(3,2,3));
+  } else if (method == 38){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(3,2,6));
+  } else if (method == 39){
+    movement = calcularMovimientoHacia(cuadradosMinimosQRLimiteDeMuestras(3,2,9));
+  } else{
     cout << "Hay tres metodos definido, utilizar los metodos: 0, 1 o 2 " << endl;
     cout << "Método utilizado: "<< method << endl;
     exit(1);
