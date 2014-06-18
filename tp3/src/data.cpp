@@ -20,10 +20,11 @@ double dist_patada = 100;
 // Constructors
 //Data::Data(){ }
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
-Data::Data(ifstream &inputFile, ifstream &playersFile, ofstream &stream, int method, double entra_por, string arch_movs_arq_gol, string arch_movs_arq_todos){
+Data::Data(ifstream &inputFile, ifstream &playersFile, ofstream &stream, int method, double entra_por, string arch_movs_arq_gol, string arch_movs_arq_todos, string arch_movs_arq_estimacion){
 //*-+-+-+-+ Para TESTS +-+-+-+-+*
       ofstream stream_movs_gol; stream_movs_gol.open(arch_movs_arq_gol.c_str());
       ofstream stream_movs_todos; stream_movs_todos.open(arch_movs_arq_todos.c_str());
+      ofstream stream_movs_estimacion; stream_movs_estimacion.open(arch_movs_arq_estimacion.c_str());
 //*-+-+-+-+ +-+-+-+-+*
   setearParamsSimples(inputFile);
   leerJugadores(playersFile);
@@ -43,7 +44,7 @@ Data::Data(ifstream &inputFile, ifstream &playersFile, ofstream &stream, int met
       stream_movs_gol << (y_keeper-entra_por) << endl;
       }
       stream_movs_todos << (y_keeper-last_ball_y) << endl;
-
+      stream_movs_estimacion << (entra_por-last_guess) << endl;
 //*-+-+-+-+ +-+-+-+-+*
 
       if(!inputFile.eof()) stream << endl;
@@ -232,6 +233,9 @@ double Data::moverArquero(int method){
 
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-*/
 double Data::calcularMovimientoHacia(double there){
+  //*+-+-+-+-+ Para TESTEAR +-+-+-+-+
+  last_guess = there;
+//*+-+-+-+-+ +-+-+-+-+
   //suponemos que dejando 4 de espacio entre el arquero y el palo la va a atajar igual
   double spaceToGoal = maxSpaceToGoal(6);
   double movement;

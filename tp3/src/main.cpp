@@ -82,6 +82,7 @@ int main(int argc, char* argv[]) {
   string str_method = ss2.str();
   string arch_movs_arq_gol = "estadisticas/met"+str_method+"/"+nombre_inicial + ".movsgol";
   string arch_movs_arq_todos = "estadisticas/met"+str_method+"/"+nombre_inicial + ".movstodos";
+  string arch_movs_arq_estimacion = "estadisticas/met"+str_method+"/"+nombre_inicial + ".movsestimacion";
 //*-+-+-+-+-+-+-+-+-+-+-+*
 
   ifstream inputFile(inFile);
@@ -92,7 +93,7 @@ int main(int argc, char* argv[]) {
   // timesLog.open(timesFile);
   // timesLog << "k \t samples \t personas \t tK \t tTodos \t tCentro \t hitsTodos \t hitsCentro \t" << endl;
   //crear los datos, calculando y guardando todo en una instancia de la clase Data
-  Data datos(inputFile, playersStream, stream, method, entra_por, arch_movs_arq_gol, arch_movs_arq_todos);
+  Data datos(inputFile, playersStream, stream, method, entra_por, arch_movs_arq_gol, arch_movs_arq_todos, arch_movs_arq_estimacion);
 
   // timesLog.close();
   stream.close();
