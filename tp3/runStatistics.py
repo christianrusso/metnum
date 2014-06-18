@@ -43,7 +43,7 @@ def main(argv = sys.argv):
     if(not(ret_make ==0)):
         sys.exit(1)
     #2) Generar .arq
-    for metodo in range(0,10):
+    for metodo in range(0,22):
         if(os.path.isfile("../"+file_o_path)):
             print "\n*-*-*-* Corriendo estadísticas para el file .... *-*-*-* \n"
             atajar_sin_guardar("../"+file_o_path, metodo)

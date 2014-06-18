@@ -53,6 +53,9 @@ Data::Data(ifstream &inputFile, ifstream &playersFile, ofstream &stream, int met
   }
 //*-+-+-+-+ Para TESTS +-+-+-+-+*
       if(entra_por==-1) stream_movs_gol << "NO ESTÁ EL 125 EN LA ENTRADA";
+      stream_movs_gol.close();
+      stream_movs_todos.close();
+      stream_movs_estimacion.close();
 //*-+-+-+-+ +-+-+-+-+*
 }
 

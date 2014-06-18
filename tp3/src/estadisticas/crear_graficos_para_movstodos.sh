@@ -1,6 +1,6 @@
 #!/bin/sh
 #se ejecuta primero haciendo
-#MODO DE USO: ./scriptGNUPLot.sh archivito.movsgol.TODOS
+#MODO DE USO: ./scriptGNUPLot.sh archivito.movstodos.TODOS
 name=$1
 /usr/bin/gnuplot << EOF
 set datafile separator ","

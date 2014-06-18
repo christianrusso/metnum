@@ -45,7 +45,7 @@ def main(argv = sys.argv):
         exit(1)
     if(os.path.isfile("../"+file_o_path)):
         print "\n*-*-*-* Generando _125 para un sólo file  .... *-*-*-* \n"
-        generar_125("../"+file_o_path, metodo)
+        generar_125("../"+file_o_path)
         print "Se generaró el _125 para "+file_o_path
     else:
         #tengo que correr para cada uno de los .tiro de un dir
@@ -62,11 +62,14 @@ def main(argv = sys.argv):
 ###################################################################
 def generar_125(arch_tiro):
     #Asume que si no existe un .jug con la misma raiz, entonces no hay jugadores.
-    #asume que se lo corre en ./src
-    arch_salida = "../visualizador/todos_125/"+arch_tiro.replace(".tiro", "_125.tiro")
-    ret_spline= subprocess.call(["./splineTest", arch_tiro, arch_salida, "/dev/null"])
+    #asume que se lo corre en ./visualizador
+    arch_tiro_spliteado = arch_tiro.split("/")
+    arch_tiro_sin_path = arch_tiro_spliteado[len(arch_tiro_spliteado)-1]
+
+    arch_salida = "../visualizador/todos_125/"+arch_tiro_sin_path.replace(".tiro", "_125.tiro")
+    ret_spline= subprocess.call(["python","inferir_pos_125.py", arch_tiro, arch_salida])
     if(not(ret_spline==0)):
-        print "Error con splineTest"
+        print "Error con inferir_pos_125.py"
         sys.exit(1)
 
 
