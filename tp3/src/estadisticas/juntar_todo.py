@@ -25,9 +25,9 @@ def main(argv = sys.argv):
   matriz = []
   #Si llegó hasta acá, está todo piola con los parámetros.
   for metodo in range(0,40):
-    print "Generando para método: "+str(metodo)
+    # print "Generando para método: "+str(metodo)
     path_archivito = 'met'+str(metodo)+'/'+archivito
-    print "Archivo: " + path_archivito
+    # print "Archivo: " + path_archivito
 
     if (not(os.path.isfile(path_archivito))):
       print "No se encontró archivito para método: "+str(metodo)
@@ -39,7 +39,7 @@ def main(argv = sys.argv):
             matriz.append([])
         matriz[i].append(abs(float(lineas[i])))
   nuevo_path = 'todos/'+archivito+'.TODOS'
-  print "Nuevo path: " + nuevo_path
+  # print "Nuevo path: " + nuevo_path
   f = open(nuevo_path,'w')
   for i in range(0,len(matriz)):
     stringsito = str(i)
