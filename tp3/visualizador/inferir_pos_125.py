@@ -23,9 +23,9 @@ def main(argv = sys.argv):
     archivito_salida = argv[2]
     print "Viendo si ya estaba incluido el 125 ..."
     estaba = tieneAl125(archivito_entrada)
-    if(estaba):
-        print "Ya estaba el 125"
-        sys.exit(0)
+    #if(estaba):
+    #    print "Ya estaba el 125"
+    #    sys.exit(0)
     print "No estaba el 125. Vamos a inferirlo."
     lineas = linecache.getlines(archivito_entrada)
     iniciales = lineas.pop(0)
@@ -42,10 +42,15 @@ def main(argv = sys.argv):
         linea_splitteada = una_linea.split()
         nuevo_x = float(linea_splitteada[0])
         nuevo_y = float(linea_splitteada[1])
+        if(nuevo_x == 125):
+            y_de_125 = nuevo_y
+            nuevas_lineas.append(una_linea)
+            break
         if(nuevo_x<125<anterior_x):
             y_de_125 = calcular_y_de_125(anterior_x, anterior_y, nuevo_x, nuevo_y)
             nueva_linea = '125 ' + str(y_de_125)
             nuevas_lineas.append(nueva_linea+"\n")
+            break
         anterior_x = nuevo_x
         anterior_y = nuevo_y
         nuevas_lineas.append(una_linea)
@@ -56,6 +61,7 @@ def main(argv = sys.argv):
         f.write(x)
     f.close()
     assert tieneAl125(archivito_salida), "ERROR: El archivo devuelto no tiene al 125"
+    print y_de_125
     assert float(pos_palo_1)<=y_de_125<=float(pos_palo_2), "ERROR: El 125 final queda afuera del arco"
     return 0
 
