@@ -23,19 +23,29 @@ set style line 9 lc rgb '#c0448f' lt 1 lw 1.5 pt 7 pi -1 ps 1
 set style line 10 lc rgb '#B2B247' lt 1 lw 1.5 pt 7 pi -1 ps 1
 set style line 11 lc rgb '#232323' lt 1 lw 1.5 pt 7 pi -1 ps 1
 set pointintervalbox 3
-set xlabel "Tiempo" 
+set xlabel "Tiempo t" 
 set ylabel "Error en la estimacion" 
 set grid
-set title "Mejores métodos elegidos para $name"
-set output "tabla/graficos/$name.mejores_elegidos.ps"
-plot "./todos/$name" using 1:26 with linespoints ls 1 title "Método 24", \
-     "./todos/$name" using 1:28 with linespoints ls 2 title "Método 26", \
-     "./todos/$name" using 1:32 with linespoints ls 3 title "Método 30"
+# set title "Metodos para $name midiendo el error entre la posicion final de la pelota y la estimacion en el tiempo t"
+# set output "tabla/graficos/$name.mejores_elegidos.ps"
+# plot "./todos/$name" using 1:26 with linespoints ls 1 title "Método 24", \
+#      "./todos/$name" using 1:28 with linespoints ls 2 title "Método 26", \
+#      "./todos/$name" using 1:32 with linespoints ls 3 title "Método 30"
 
-set title "Peores métodos elegidos para $name"
-set output "tabla/graficos/$name.peores_elegidos.ps"
-plot "./todos/$name" using 1:15 with linespoints ls 4 title "Método 13", \
-     "./todos/$name" using 1:20 with linespoints ls 5 title "Método 18", \
-     "./todos/$name" using 1:22 with linespoints ls 6 title "Método 20"
+# set title "Peores métodos elegidos para $name"
+# set output "tabla/graficos/$name.peores_elegidos.ps"
+# plot "./todos/$name" using 1:15 with linespoints ls 4 title "Método 13", \
+#      "./todos/$name" using 1:20 with linespoints ls 5 title "Método 18", \
+#      "./todos/$name" using 1:22 with linespoints ls 6 title "Método 20"
+set title "Metodos elegidos para $name"
+set output "tabla/graficos/$name.elegidos.ps"
+plot "./todos/$name" using 1:2 with linespoints ls 1 title "Método 0", \
+     "./todos/$name" using 1:6 with linespoints ls 2 title "Método 4", \
+     "./todos/$name" using 1:11 with linespoints ls 3 title "Método 9", \
+     "./todos/$name" using 1:16 with linespoints ls 4 title "Método 14", \
+     "./todos/$name" using 1:21 with linespoints ls 5 title "Método 19", \
+     "./todos/$name" using 1:26 with linespoints ls 6 title "Método 24", \
+     "./todos/$name" using 1:29 with linespoints ls 7 title "Método 27"
+
 EOF
 
