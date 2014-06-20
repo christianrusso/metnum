@@ -3,6 +3,7 @@
 #MODO DE USO: ./scriptGNUPLot.sh archivito.movstodos.TODOS
 name=$1
 /usr/bin/gnuplot << EOF
+set yrange [0:50] writeback
 set datafile separator ","
 set term png size 900, 600  #le digo que la salida es un PNG
 # set style line 1  linetype 2 linecolor rgb "red"  linewidth 3.000 pointtype 2 pointsize default pointinterval 0
@@ -23,7 +24,6 @@ set style line 11 lc rgb '#232323' lt 1 lw 2 pt 7 pi -1 ps 1.5
 set pointintervalbox 3
 set xlabel "Tiempo" 
 set ylabel "Distancia a la posición final de la pelota" 
-set autoscale
 set grid
 set title "Métodos elegidos para $name Midiendo la distancia final de la pelota"
 set output "graficos/$name.elegidos.png"

@@ -42,10 +42,15 @@ def main(argv = sys.argv):
         linea_splitteada = una_linea.split()
         nuevo_x = float(linea_splitteada[0])
         nuevo_y = float(linea_splitteada[1])
+        if(nuevo_x==125):
+            y_de_125 = nuevo_y
+            nuevas_lineas.append(una_linea+"\n")
+            break
         if(nuevo_x<125<anterior_x):
             y_de_125 = calcular_y_de_125(anterior_x, anterior_y, nuevo_x, nuevo_y)
             nueva_linea = '125 ' + str(y_de_125)
             nuevas_lineas.append(nueva_linea+"\n")
+            break
         anterior_x = nuevo_x
         anterior_y = nuevo_y
         nuevas_lineas.append(una_linea)
