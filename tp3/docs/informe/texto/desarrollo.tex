@@ -4,7 +4,7 @@ ventajas y desventajas.
 
 \subsection{Archivo de entrada}
 \subsubsection{Explicacion}
-El ejecutable toma tres parámetros por línea de comando, que serán el \textit{path} del archivo de entrada, el \textit{path} del archivo de salida y la estrategia que utilizaremos con el arquero.
+El ejecutable toma cuatro parámetros por línea de comando, que serán el \textit{path} del archivo de entrada, el \textit{path} del archivo de jugadores , el \textit{path} del archivo de salida y la estrategia que utilizaremos con el arquero.
 
 El archivo de entrada seguirá el siguiente formato:
 \begin{itemize}
@@ -22,7 +22,7 @@ Este archivo luego podrá ser usado junto con el archivo de entrada para analiza
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Método Uno: Usando Cuadrados Mínimos}
+\subsection{Método de estimacion: Cuadrados Mínimos}
 \input{texto/met-uno.tex}
 
 \input{texto/explicacion-qr.tex}
@@ -31,3 +31,32 @@ Este archivo luego podrá ser usado junto con el archivo de entrada para analiza
 
 %%%%%%%%%%%%%%%%%%%%
 \input{texto/demos.tex}
+
+%%%%%%%%%%%%%%%%%%%%
+\subsection{Eur\'isticas}
+
+\subsubsection{Baseline}
+Como base para las comparaciones se defini\'o el \textbf{m\'etodo 0} que se compone de la siguiente inteligencia.
+Observa la posicion actual de la pelota y se mueve sobre la linea del arco a la posicion de mas cercana a este posible respetando la velocidad del arquero.
+
+\subsubsection{Cuadrados M\'inimos}
+Aqu\'i solo utilizamos la estimacion ya mencionada y nos movemos hacia esa posicion respetando los l\'imites de velocidad necesarios en adisi\'on del chequeo de la distancia a los palos, para no realizar movimientos innecesarios el arquero se acercara a lo sumo hasta a lo sumo 6 puntos de distancia de ambos palos ya que podr\'a igualmente atajar y conserva una buena posici\'on ante algun cambio brusco.
+
+En caso de haber una sola muestra el arquero siempre se movera al centro del arco para posicionarse mejor ante el desconcierto del futuro.
+
+De haber jugadores en el campo de juego, se borrar\'a siempre el buffer de muestras si una pelota pasa cerca de un jugador, ya que en la mayor\'ia de los casos este har\'a cambiar de posici\'on.
+
+Para la estimaci\'on se tomar\'a como par\'ametro el grado m\'aximo de cada eje permitiendo as\'i lograr varias variaciones de estimaci\'on. Esto se observa en los m\'etodos 1 a 10.
+
+Con los polinomios ya calculados, se busca linealmente en que punto la pelota cruzar\'a la linea de gol, de no encontrarse este punto se utiliza la metodolog\'ia de moverse hacia el centro del arco, en caso contrario se busca mediante biyecci\'on el punto exacto entre el instante donde ya super\'o la linea y el instante anterior, encontrado este valor se calcula con el otro polinomio la posicion en ese punto, hacia alli se movera el arquero.
+
+\subsubsection{Supuesto}
+Basado en la heur\'istica de Cuadarados M\'inimos, agregamos al buffer de muestras una suposici\'on, dado que solo nos interesa si la pelota va hacia el arco, agregaremos un dato inventado indicando que en un instante futuro la pelota se encontrar\'a al fondo del centro del arco, esto creemos proporcionar\'a al m\'etodo la habilidad de predecir mejor ciertos movimientos de la pelota y adelantarse a cambios bruscos relacionados con toques de de jugadores o curvas pronunciadas que ser\'an mal estimadas con pocos datos, creyendo que la pelota no lograr\'a entrar al arco.
+
+Esto se agrega a Cuadrados M\'inimos sin incluir ning\'un par\'ametro m\'as al m\'etodo (s\'olo se pide grado m\'aximo de los polinomios), al ejecutar el binario se pueden probar con los m\'etodos 11 a 21
+
+
+\subsubsection{Muestras Acotadas}
+Tambi\'en basado en la heur\'istica de Cuadarados M\'inimos decidimos limitar la cantidad de muestras que utliza el m\'etodo, esto se agrega como par\'ametro del huer\'istica e indica que se utilizar\'an solamente las \'ultimas n muestras tomadas, claro esta que de haber sido tocada la pelota por un jugador, el conteo se reinicia.
+
+De esta manera decidimos agregar los m\'etodos 22 a 39 con los mismos parametros de entrada que las heur\'isticas anteriores pero variando la cantidad de muestras m\'axima en 3, 6 y 9.

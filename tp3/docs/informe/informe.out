@@ -7,31 +7,36 @@
 \BOOKMARK [3][-]{subsubsection.2.1.1}{Explicacion}{subsection.2.1}% 7
 \BOOKMARK [2][-]{subsection.2.2}{Archivo de salida}{section.2}% 8
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Explicacion}{subsection.2.2}% 9
-\BOOKMARK [2][-]{subsection.2.3}{M\351todo Uno: Usando Cuadrados M\355nimos}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.3}{M\351todo de estimacion: Cuadrados M\355nimos}{section.2}% 10
 \BOOKMARK [3][-]{subsubsection.2.3.1}{Cuadrados M\355nimos: General}{subsection.2.3}% 11
 \BOOKMARK [3][-]{subsubsection.2.3.2}{Cuadrados M\355nimos: Espec\355fico a nuestro trabajo}{subsection.2.3}% 12
 \BOOKMARK [3][-]{subsubsection.2.3.3}{Resolver Cuadrados M\355nimos usando QR}{subsection.2.3}% 13
 \BOOKMARK [3][-]{subsubsection.2.3.4}{Pseudocodigo}{subsection.2.3}% 14
 \BOOKMARK [2][-]{subsection.2.4}{Demostraciones}{section.2}% 15
-\BOOKMARK [1][-]{section.3}{Experimentaci\363n}{}% 16
-\BOOKMARK [1][-]{section.4}{Resultados}{}% 17
-\BOOKMARK [2][-]{subsection.4.1}{Experimentaci\363n con Lineales}{section.4}% 18
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Concluciones}{subsection.4.1}% 19
-\BOOKMARK [2][-]{subsection.4.2}{Experimentacion con Curvas}{section.4}% 20
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Concluciones}{subsection.4.2}% 21
-\BOOKMARK [2][-]{subsection.4.3}{Experimentacion con Jugadores}{section.4}% 22
-\BOOKMARK [3][-]{subsubsection.4.3.1}{Concluciones}{subsection.4.3}% 23
-\BOOKMARK [2][-]{subsection.4.4}{Experimentacion con Exoticos}{section.4}% 24
-\BOOKMARK [3][-]{subsubsection.4.4.1}{Concluciones}{subsection.4.4}% 25
-\BOOKMARK [2][-]{subsection.4.5}{Concluciones Finales}{section.4}% 26
-\BOOKMARK [1][-]{section.5}{Ap\351ndice}{}% 27
-\BOOKMARK [2][-]{subsection.5.1}{Generador de Tests}{section.5}% 28
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Generador desde cero}{subsection.5.1}% 29
-\BOOKMARK [3][-]{subsubsection.5.1.2}{Agregar la posici\363n espec\355fica con x=125}{subsection.5.1}% 30
-\BOOKMARK [2][-]{subsection.5.2}{M\351todo de compilaci\363n}{section.5}% 31
-\BOOKMARK [3][-]{subsubsection.5.2.1}{Forma manual}{subsection.5.2}% 32
-\BOOKMARK [3][-]{subsubsection.5.2.2}{Forma automatizada generando los archivos .arq}{subsection.5.2}% 33
-\BOOKMARK [3][-]{subsubsection.5.2.3}{Forma automatizada sin generarlos archivos .arq}{subsection.5.2}% 34
-\BOOKMARK [2][-]{subsection.5.3}{Generadores de estad\355sticas}{section.5}% 35
-\BOOKMARK [2][-]{subsection.5.4}{Equipo de pruebas}{section.5}% 36
-\BOOKMARK [2][-]{subsection.5.5}{Referencias bibliogr\341ficas}{section.5}% 37
+\BOOKMARK [2][-]{subsection.2.5}{Eur\355sticas}{section.2}% 16
+\BOOKMARK [3][-]{subsubsection.2.5.1}{Baseline}{subsection.2.5}% 17
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Cuadrados M\355nimos}{subsection.2.5}% 18
+\BOOKMARK [3][-]{subsubsection.2.5.3}{Supuesto}{subsection.2.5}% 19
+\BOOKMARK [3][-]{subsubsection.2.5.4}{Muestras Acotadas}{subsection.2.5}% 20
+\BOOKMARK [1][-]{section.3}{Experimentaci\363n}{}% 21
+\BOOKMARK [1][-]{section.4}{Resultados}{}% 22
+\BOOKMARK [2][-]{subsection.4.1}{Experimentaci\363n con Lineales}{section.4}% 23
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Concluciones}{subsection.4.1}% 24
+\BOOKMARK [2][-]{subsection.4.2}{Experimentacion con Curvas}{section.4}% 25
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Concluciones}{subsection.4.2}% 26
+\BOOKMARK [2][-]{subsection.4.3}{Experimentacion con Jugadores}{section.4}% 27
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Concluciones}{subsection.4.3}% 28
+\BOOKMARK [2][-]{subsection.4.4}{Experimentacion con Exoticos}{section.4}% 29
+\BOOKMARK [3][-]{subsubsection.4.4.1}{Concluciones}{subsection.4.4}% 30
+\BOOKMARK [2][-]{subsection.4.5}{Concluciones Finales}{section.4}% 31
+\BOOKMARK [1][-]{section.5}{Ap\351ndice}{}% 32
+\BOOKMARK [2][-]{subsection.5.1}{Generador de Tests}{section.5}% 33
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Generador desde cero}{subsection.5.1}% 34
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Agregar la posici\363n espec\355fica con x=125}{subsection.5.1}% 35
+\BOOKMARK [2][-]{subsection.5.2}{M\351todo de compilaci\363n}{section.5}% 36
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Forma manual}{subsection.5.2}% 37
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Forma automatizada generando los archivos .arq}{subsection.5.2}% 38
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Forma automatizada sin generarlos archivos .arq}{subsection.5.2}% 39
+\BOOKMARK [2][-]{subsection.5.3}{Generadores de estad\355sticas}{section.5}% 40
+\BOOKMARK [2][-]{subsection.5.4}{Equipo de pruebas}{section.5}% 41
+\BOOKMARK [2][-]{subsection.5.5}{Referencias bibliogr\341ficas}{section.5}% 42

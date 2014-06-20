@@ -8,31 +8,36 @@
 \contentsline {subsubsection}{\numberline {2.1.1}Explicacion}{5}{subsubsection.2.1.1}
 \contentsline {subsection}{\numberline {2.2}Archivo de salida}{5}{subsection.2.2}
 \contentsline {subsubsection}{\numberline {2.2.1}Explicacion}{5}{subsubsection.2.2.1}
-\contentsline {subsection}{\numberline {2.3}M\IeC {\'e}todo Uno: Usando Cuadrados M\IeC {\'\i }nimos}{5}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.3}M\IeC {\'e}todo de estimacion: Cuadrados M\IeC {\'\i }nimos}{5}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}Cuadrados M\IeC {\'\i }nimos: General}{5}{subsubsection.2.3.1}
 \contentsline {subsubsection}{\numberline {2.3.2}Cuadrados M\IeC {\'\i }nimos: Espec\IeC {\'\i }fico a nuestro trabajo}{6}{subsubsection.2.3.2}
 \contentsline {subsubsection}{\numberline {2.3.3}Resolver Cuadrados M\IeC {\'\i }nimos usando QR}{6}{subsubsection.2.3.3}
 \contentsline {subsubsection}{\numberline {2.3.4}Pseudocodigo}{7}{subsubsection.2.3.4}
 \contentsline {subsection}{\numberline {2.4}Demostraciones}{8}{subsection.2.4}
-\contentsline {section}{\numberline {3}Experimentaci\IeC {\'o}n}{9}{section.3}
-\contentsline {section}{\numberline {4}Resultados}{9}{section.4}
-\contentsline {subsection}{\numberline {4.1}Experimentaci\IeC {\'o}n con Lineales}{9}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Concluciones}{11}{subsubsection.4.1.1}
-\contentsline {subsection}{\numberline {4.2}Experimentacion con Curvas}{11}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Concluciones}{14}{subsubsection.4.2.1}
-\contentsline {subsection}{\numberline {4.3}Experimentacion con Jugadores}{14}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}Concluciones}{18}{subsubsection.4.3.1}
-\contentsline {subsection}{\numberline {4.4}Experimentacion con Exoticos}{18}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}Concluciones}{20}{subsubsection.4.4.1}
-\contentsline {subsection}{\numberline {4.5}Concluciones Finales}{20}{subsection.4.5}
-\contentsline {section}{\numberline {5}Ap\IeC {\'e}ndice}{21}{section.5}
-\contentsline {subsection}{\numberline {5.1}Generador de Tests}{21}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Generador desde cero}{21}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Agregar la posici\IeC {\'o}n espec\IeC {\'\i }fica con x=125}{21}{subsubsection.5.1.2}
-\contentsline {subsection}{\numberline {5.2}M\'etodo de compilaci\'on}{21}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}Forma manual}{21}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Forma automatizada generando los archivos \textbf {.arq}}{21}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}Forma automatizada sin generarlos archivos \textbf {.arq}}{22}{subsubsection.5.2.3}
-\contentsline {subsection}{\numberline {5.3}Generadores de estad\IeC {\'\i }sticas}{22}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Equipo de pruebas}{23}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Referencias bibliogr\'aficas}{23}{subsection.5.5}
+\contentsline {subsection}{\numberline {2.5}Eur\'isticas}{8}{subsection.2.5}
+\contentsline {subsubsection}{\numberline {2.5.1}Baseline}{8}{subsubsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.2}Cuadrados M\'inimos}{9}{subsubsection.2.5.2}
+\contentsline {subsubsection}{\numberline {2.5.3}Supuesto}{9}{subsubsection.2.5.3}
+\contentsline {subsubsection}{\numberline {2.5.4}Muestras Acotadas}{9}{subsubsection.2.5.4}
+\contentsline {section}{\numberline {3}Experimentaci\IeC {\'o}n}{10}{section.3}
+\contentsline {section}{\numberline {4}Resultados}{10}{section.4}
+\contentsline {subsection}{\numberline {4.1}Experimentaci\IeC {\'o}n con Lineales}{10}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Concluciones}{12}{subsubsection.4.1.1}
+\contentsline {subsection}{\numberline {4.2}Experimentacion con Curvas}{12}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Concluciones}{15}{subsubsection.4.2.1}
+\contentsline {subsection}{\numberline {4.3}Experimentacion con Jugadores}{15}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Concluciones}{19}{subsubsection.4.3.1}
+\contentsline {subsection}{\numberline {4.4}Experimentacion con Exoticos}{19}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Concluciones}{21}{subsubsection.4.4.1}
+\contentsline {subsection}{\numberline {4.5}Concluciones Finales}{21}{subsection.4.5}
+\contentsline {section}{\numberline {5}Ap\IeC {\'e}ndice}{22}{section.5}
+\contentsline {subsection}{\numberline {5.1}Generador de Tests}{22}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Generador desde cero}{22}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Agregar la posici\IeC {\'o}n espec\IeC {\'\i }fica con x=125}{22}{subsubsection.5.1.2}
+\contentsline {subsection}{\numberline {5.2}M\'etodo de compilaci\'on}{22}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Forma manual}{22}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Forma automatizada generando los archivos \textbf {.arq}}{22}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Forma automatizada sin generarlos archivos \textbf {.arq}}{23}{subsubsection.5.2.3}
+\contentsline {subsection}{\numberline {5.3}Generadores de estad\IeC {\'\i }sticas}{23}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Equipo de pruebas}{24}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Referencias bibliogr\'aficas}{24}{subsection.5.5}
