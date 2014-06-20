@@ -147,7 +147,6 @@ int Data::leerNuevosDatos(std::ifstream &inputFile){
 //*+-+-+-+-+ +-+-+-+-+
   bool haveToFlush = false;
   for (int i = 0; i < x_jug.n; ++i){
-    // cout << "ADSFADSFADSFASDF" << endl;
     double dist_x = dist_euclidea(x,x_jug.get(i,0));
     double dist_y = dist_euclidea(y,y_jug.get(i,0));
 
@@ -158,7 +157,6 @@ int Data::leerNuevosDatos(std::ifstream &inputFile){
     x_ball = Matrix();
     y_ball = Matrix();
     current_time = 0;
-    // cout << "FLUSH!!!!!!" << endl;
   }
 
   x_ball.insertToVector(x);
