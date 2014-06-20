@@ -46,7 +46,7 @@ plot "./todos/$name" using 1:2 with linespoints ls 1 title "Metodo 0", \
      "./todos/$name" using 1:11 with linespoints ls 3 title "Metodo 9", \
      "./todos/$name" using 1:16 with linespoints ls 4 title "Metodo 14", \
      "./todos/$name" using 1:21 with linespoints ls 5 title "Metodo 19", \
-     "./todos/$name" using 1:26 with linespoints ls 6 title "Metodo 24", \
+     "./todos/$name" using 1:26 with linespoints ls 10 title "Metodo 24", \
      "./todos/$name" using 1:29 with linespoints ls 7 title "Metodo 27"
 
 EOF
