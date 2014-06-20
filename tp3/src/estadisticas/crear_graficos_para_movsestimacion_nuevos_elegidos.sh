@@ -39,13 +39,13 @@ set grid
 #      "./todos/$name" using 1:22 with linespoints ls 6 title "Método 20"
 set title "Metodos elegidos para $name"
 set output "tabla/graficos/$name.elegidos.ps"
-plot "./todos/$name" using 1:2 with linespoints ls 1 title "Método 0", \
-     "./todos/$name" using 1:6 with linespoints ls 2 title "Método 4", \
-     "./todos/$name" using 1:11 with linespoints ls 3 title "Método 9", \
-     "./todos/$name" using 1:16 with linespoints ls 4 title "Método 14", \
-     "./todos/$name" using 1:21 with linespoints ls 5 title "Método 19", \
-     "./todos/$name" using 1:26 with linespoints ls 6 title "Método 24", \
-     "./todos/$name" using 1:29 with linespoints ls 7 title "Método 27"
+plot "./todos/$name" using 1:2 with linespoints ls 1 title "Metodo 0", \
+     "./todos/$name" using 1:6 with linespoints ls 2 title "Metodo 4", \
+     "./todos/$name" using 1:11 with linespoints ls 3 title "Metodo 9", \
+     "./todos/$name" using 1:16 with linespoints ls 4 title "Metodo 14", \
+     "./todos/$name" using 1:21 with linespoints ls 5 title "Metodo 19", \
+     "./todos/$name" using 1:26 with linespoints ls 6 title "Metodo 24", \
+     "./todos/$name" using 1:29 with linespoints ls 7 title "Metodo 27"
 
 EOF
 
