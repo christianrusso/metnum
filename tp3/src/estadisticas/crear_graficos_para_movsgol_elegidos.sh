@@ -4,11 +4,8 @@
 name=$1
 /usr/bin/gnuplot << EOF
 set datafile separator ","
-set term postscript
-# set style line 1  linetype 2 linecolor rgb "red"  linewidth 3.000 pointtype 2 pointsize default pointinterval 0
-# set style line 2  linetype 2 linecolor rgb "orange"  linewidth 2.000 pointtype 2 pointsize default pointinterval 0
-# set style line 3  linetype 2 linecolor rgb "yellow"  linewidth 3.000 pointtype 2 pointsize default pointinterval 0
-# set style line 4  linetype 2 linecolor rgb "green"  linewidth 2.000 pointtype 2 pointsize default pointinterval 0
+# set term postscript
+set term png size 900, 600  #le digo que la salida es un PNG
 set style line 1 lc rgb '#0060ad' lt 1 lw 1.5 pt 7 pi -1 ps 1
 set style line 2 lc rgb '#cd4a4a' lt 1 lw 1.5 pt 7 pi -1 ps 1
 set style line 3 lc rgb '#ff7538' lt 1 lw 1.5 pt 7 pi -1 ps 1

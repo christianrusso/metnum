@@ -1,0 +1,18 @@
+\BOOKMARK [1][-]{section.1}{Introduccion Teorica}{}
+\BOOKMARK [2][-]{subsection.1.1}{Factorizacion QR}{section.1}
+\BOOKMARK [3][-]{subsubsection.1.1.1}{Given}{subsection.1.1}
+\BOOKMARK [3][-]{subsubsection.1.1.2}{Householder}{subsection.1.1}
+\BOOKMARK [1][-]{section.2}{Desarrollo}{}
+\BOOKMARK [2][-]{subsection.2.1}{Archivo de entrada}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Explicacion}{subsection.2.1}
+\BOOKMARK [2][-]{subsection.2.2}{Archivo de salida}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Explicacion}{subsection.2.2}
+\BOOKMARK [2][-]{subsection.2.3}{M\351todo Uno: Usando Cuadrados M\355nimos}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Cuadrados M\355nimos: General}{subsection.2.3}
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Cuadrados M\355nimos: Espec\355fico a nuestro trabajo}{subsection.2.3}
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Resolver Cuadrados M\355nimos usando QR}{subsection.2.3}
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Pseudocodigo}{subsection.2.3}
+\BOOKMARK [2][-]{subsection.2.4}{Demostraciones}{section.2}
+\BOOKMARK [1][-]{section.3}{Experimentaci\363n}{}
+\BOOKMARK [1][-]{section.4}{Resultados}{}
+\BOOKMARK [2][-]{subsection.4.1}{Experimentaci\363n con Lineales}{section.4}
