@@ -1,14 +1,37 @@
-\section{Apendice}
-
+\section{Apéndice}
+%------------------------------------------
+%------------------------------------------
 \subsection{Generador de Tests}
+%------------------------------------------
+\subsubsection{Generador desde cero}
 Para generar Tests realizamos un algoritmo en Python en el cual generamos instancias lineales tomando como parametros el mu, la posicion del arquero y la ubicacion de los arcos. De la misma forma generamos instancias polinomicas. Para ambos casos tuvimos en cuenta el punto inicial, es decir donde empieza la trayectoria de la pelota y el punto final, es decir la posicion de la pelota dentro del arco.
+
 Para tests mas complejos utilizamos un script en C++ en donde para generar las curvas utilizamos la funcion spline de la libreria boots con la cual le agregamos los puntos por donde queriamos que pase la pelota e interpolatebamos para conseguir una curva que pase por ese lugar tomando esa curva como el tests.
 
+Ambos generadores pueden encontrarse en /visualizador/.
 
+%------------------------------------------
+\subsubsection{Agregar la posición específica con x=125}
+\begin{framed}
+Parados en la carpeta donde se encuentra el tp (donde se encuentra el archivo run.py)
+\begin{verbatim}
+$ python generar_125.py < input tiro > 
+\end{verbatim}
 
+Donde INPUT TIRO puede ser 
+\begin{itemize}
+	\item Path a una carpeta: modifica los \textbf{.tiro} de esa carpeta y los guarda en
+    /visualizador/todos\_125
+	\item Path a un archivo: ídem pero sólo para un archivo.
+\end{itemize}
+
+\end{framed}
+
+%------------------------------------------
+%------------------------------------------
 \subsection{M\'etodo de compilaci\'on}
-
-\subsubsection{M\'etodo 1}
+%------------------------------------------
+\subsubsection{Forma manual}
 \begin{framed}
 Parados en la carpeta /src del proyecto ejecutar 
 \begin{verbatim}
@@ -17,18 +40,14 @@ $ make
 De esta forma se limpia y compila.
 Para compilar por separado se puede hacer:  \textbf{make data.o}, \textbf{make functions.o}, \textbf{make Matrix.o,} \textbf{make main.o}. O tambien se puede borrar haciendo \textbf{make clean}. Por defecto al ejecutar \textbf{make} el nombre del ejecutable es \textbf{yoAtajo}
 \end{framed}
-
-\subsubsection{M\'etodo 2}
+%------------------------------------------
+\subsubsection{Forma automatizada generando los archivos \textbf{.arq}}
 \begin{framed}
 Parados en la carpeta donde se encuentra el tp (donde se encuentra el archivo run.py)
 \begin{verbatim}
 $ python run.py < input tiro > < metodo > < velocidad > 
 \end{verbatim}
-Donde METODO puede ser 
-\begin{itemize}
-	\item 0: 
-	\item 1: 
-\end{itemize}
+Donde METODO puede ser cualquiera de los 40 especificados en secciones anteriores
 
 Donde INPUT TIRO puede ser 
 \begin{itemize}
@@ -39,13 +58,56 @@ Donde INPUT TIRO puede ser
 Donde VELOCIDAD puede ser 
 \begin{itemize}
 	\item 0: Para correr el visualizador rapido (no se muestra el tiro)
-	\item 1: Para correr el visualziador en modo lento (se muestra el tiro)
+	\item 1: Para correr el visualizador en modo lento (se muestra el tiro)
 \end{itemize}
 \end{framed}
 
+%------------------------------------------
+\subsubsection{Forma automatizada sin generarlos archivos \textbf{.arq}}
+\begin{framed}
+Parados en la carpeta donde se encuentra el tp (donde se encuentra el archivo run.py)
+\begin{verbatim}
+$ python runStatistics.py < input tiro >
+\end{verbatim}
+
+Donde INPUT TIRO puede ser 
+\begin{itemize}
+	\item Path a una carpeta: ejecuta todos los tests que contiene dicha carpeta.
+	\item Path a un archivo: ejecuta el tests que corresponde a esta ruta.
+\end{itemize}
+
+Es muy parecido a run.py sólo que no genera los \textbf{.arq} resultantes a cada \textbf{.tiro}. Como cada vez que se
+ejecuta el código resolvente del problema se generan las estadísticas, al correr este script se
+generan las estadísticas sin ensuciar la carpeta que en la que se encuentran los \textbf{.tiro} con los
+\textbf{.arq}.
+
+\end{framed}
+
+%------------------------------------------
+\subsection{Generadores de estadísticas}
+En la carpeta /src/estadisticas se pueden encontrar muchos scripts para generar analizar los
+gráficos. Los más automáticos son los siguientes:
+\begin{compactitem}
+  \item juntar\_todo.py: une todos los métodos para un tiro especificado en el comando en un archivo *.TODOS guardado en
+  /src/estadisticas/todos con formato csv.
+\item juntar\_y\_graficar\_todos\_los\_archivos.py: llama a juntar\_todo.py para cada método y los
+  grafica.
+\item juntar\_y\_graficar\_todos\_archivos\_elegidos.py: parecido al anterior pero sólo para los
+  métodos elegidos en la sección Tests.
+\end{compactitem}
+
+Además, tenemos una carpeta para cada método que incluye la información de este para los 3 criterios
+explicados en la sección Tests (\textbf{.movsgol}, \textbf{.movstodos}, \textbf{.movsestimación}), una carpeta /todos que
+incluye el \textbf{.TODOS} para cada tiro, una carpeta /graficos que contiene a todos los gráficos, una
+carpeta /tabla que contiene la tabla también mencionada en la sección Tests y una carpeta
+/tabla/graficos que contiene a los gráficos sólo de los métodos elegidos finales.
 
 
+%------------------------------------------
+%------------------------------------------
 \subsection{Equipo de pruebas}
+%------------------------------------------
+%------------------------------------------
 \subsection{Referencias bibliogr\'aficas}
 \begin{thebibliography}{9}
 

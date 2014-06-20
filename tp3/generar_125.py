@@ -13,7 +13,7 @@ modo_de_uso=' ERROR: Cantidad de parámetros inválida \n \
     Cambia todos los .tiro de la carpeta indicada (o file indicado) por un _125.tiro \n  \
     tal que lee todos los puntos del archivo, los agrega a un spline, calcula el spline \n \
     para el x=125 y devuelve un archivo con los primeros puntos hasta el 125, agrega \n \
-    el spline para el x=125 y ningún otro punto más. Para esto usa a splineTest.cpp. \n \
+    la posición en la recta secante entre los x que encierran al x=125 asociado para este x. \n \
     Se guardan todos _125 en la carpeta todos_125\n.'
 
 ############################################################################################33
